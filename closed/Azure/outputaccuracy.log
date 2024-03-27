@@ -1,0 +1,860 @@
+[2024-02-28 01:37:49,378 systems.py:197 INFO] Found unknown device in GPU connection topology: NIC0. Skipping.
+[2024-02-28 01:37:49,430 main.py:229 INFO] Detected system ID: KnownSystem.NC_H100_v5
+[2024-02-28 01:37:49,511 generate_conf_files.py:107 INFO] Generated measurements/ entries for NC_H100_v5_TRT/llama2-70b-99/Offline
+[2024-02-28 01:37:49,512 __init__.py:46 INFO] Running command: mpirun -np 3 ./build/bin/harness_llm --logfile_outdir="/work/build/logs/2024.02.28-01.37.47/NC_H100_v5_TRT/llama2-70b-99/Offline" --logfile_prefix="mlperf_log_" --performance_sample_count=24576 --test_mode="AccuracyOnly" --gpu_batch_size=1300 --tensor_path="build/preprocessed_data/open_orca/input_ids_padded.npy,build/preprocessed_data/open_orca/input_lens.npy" --use_graphs=false --gpu_inference_streams=1 --gpu_copy_streams=1 --tensor_parallelism=2 --pipeline_parallelism=1 --kvcache_free_gpu_mem_frac=0.9 --enable_sort=false --llm_gen_config_path="code/llama2-70b/tensorrt/generation_config.json" --use_token_latencies=true --gpu_engines="./build/engines/NC_H100_v5/llama2-70b/Offline/bs1300-custom_k_99_MaxP-tp2-pp1/rank0.engine" --mlperf_conf_path="build/loadgen-configs/NC_H100_v5_TRT/llama2-70b-99/Offline/mlperf.conf" --user_conf_path="build/loadgen-configs/NC_H100_v5_TRT/llama2-70b-99/Offline/user.conf" --scenario Offline --model llama2-70b
+[2024-02-28 01:37:49,512 __init__.py:53 INFO] Overriding Environment
+benchmark : Benchmark.LLAMA2
+buffer_manager_thread_count : 0
+coalesced_tensor : True
+data_dir : /mnt/resource_nvme/scratch/data
+enable_sort : False
+gpu_batch_size : 1300
+gpu_copy_streams : 1
+gpu_inference_streams : 1
+input_dtype : int32
+input_format : linear
+kvcache_free_gpu_mem_frac : 0.9
+llm_gen_config_path : code/llama2-70b/tensorrt/generation_config.json
+log_dir : /work/build/logs/2024.02.28-01.37.47
+offline_expected_qps : 13.5
+pipeline_parallelism : 1
+precision : fp16
+preprocessed_data_dir : /mnt/resource_nvme/scratch/preprocessed_data
+scenario : Scenario.Offline
+system : SystemConfiguration(host_cpu_conf=CPUConfiguration(layout={CPU(name='AMD EPYC 9V84 96-Core Processor', architecture=<CPUArchitecture.x86_64: AliasedName(name='x86_64', aliases=(), patterns=())>, core_count=80, threads_per_core=1): 1}), host_mem_conf=MemoryConfiguration(host_memory_capacity=Memory(quantity=660.463936, byte_suffix=<ByteSuffix.GB: (1000, 3)>, _num_bytes=660463936000), comparison_tolerance=0.05), accelerator_conf=AcceleratorConfiguration(layout=defaultdict(<class 'int'>, {GPU(name='NVIDIA H100 NVL', accelerator_type=<AcceleratorType.Discrete: AliasedName(name='Discrete', aliases=(), patterns=())>, vram=Memory(quantity=93.583984375, byte_suffix=<ByteSuffix.GiB: (1024, 3)>, _num_bytes=100485038080), max_power_limit=400.0, pci_id='0x232110DE', compute_sm=90): 2})), numa_conf=NUMAConfiguration(numa_nodes={}, num_numa_nodes=2), system_id='NC_H100_v5')
+tensor_parallelism : 2
+tensor_path : build/preprocessed_data/open_orca/input_ids_padded.npy,build/preprocessed_data/open_orca/input_lens.npy
+test_mode : AccuracyOnly
+use_fp8 : True
+use_graphs : False
+use_token_latencies : True
+system_id : NC_H100_v5
+config_name : NC_H100_v5_llama2-70b_Offline
+workload_setting : WorkloadSetting(HarnessType.Custom, AccuracyTarget.k_99, PowerSetting.MaxP)
+optimization_level : plugin-enabled
+num_profiles : 1
+config_ver : custom_k_99_MaxP
+accuracy_level : 99%
+inference_server : custom
+skip_file_checks : False
+power_limit : None
+cpu_freq : None
+&&&& RUNNING LLM_HARNESS # ./build/bin/harness_llm
+[I] Initializing TensorRT plugin library...
+[I] Initializing TRT-LLM plugin libraries...
+&&&& RUNNING LLM_HARNESS # ./build/bin/harness_llm
+[I] Initializing TensorRT plugin library...
+[I] Initializing TRT-LLM plugin libraries...
+&&&& RUNNING LLM_HARNESS # ./build/bin/harness_llm
+[I] Initializing TensorRT plugin library...
+[I] Initializing TRT-LLM plugin libraries...
+I0228 01:37:53.000363 18261 main_llm.cc:170] Loading LLM config from "./build/engines/NC_H100_v5/llama2-70b/Offline/bs1300-custom_k_99_MaxP-tp2-pp1/config.json" and geneartion config from: code/llama2-70b/tensorrt/generation_config.json
+I0228 01:37:53.018230 18262 main_llm.cc:170] Loading LLM config from "./build/engines/NC_H100_v5/llama2-70b/Offline/bs1300-custom_k_99_MaxP-tp2-pp1/config.json" and geneartion config from: code/llama2-70b/tensorrt/generation_config.json
+I0228 01:37:53.024390 18260 main_llm.cc:170] Loading LLM config from "./build/engines/NC_H100_v5/llama2-70b/Offline/bs1300-custom_k_99_MaxP-tp2-pp1/config.json" and geneartion config from: code/llama2-70b/tensorrt/generation_config.json
+I0228 01:37:53.263587 18262 main_llm.cc:284] Rank: 2 has pid: 18262
+I0228 01:37:53.263610 18262 main_llm.cc:121] Found 2 GPUs
+I0228 01:37:53.263598 18260 main_llm.cc:281] LLMConfig Details:
+	mMaxSumSeqlen: 2048 mMaxInputSeqlen: 1024 mMaxOutputSeqlen: 1024 mEosId: 2
+	tp: 2 pp: 1 mWorldSize: 2
+	mMaxGpuBatchSize: 1300 mBeamWidth: 1
+	mTemperature: 1 mTopK: 1 mTopP: 0 mMinOutputSeqlen: 1 mIsStreaming: 0 mReportFirstToken: 0 mEnableSort: 0 mExcludeInputInOutput: 1
+	mMaxNumSequences: 0 mMaxTokensInPagedKvcache: 0 mKvCacheFreeGpuMemFraction: 0.9 mEnableTrtOverlap: 0
+	mBatchMode: 2 mSchedulerPolicy: 0
+I0228 01:37:53.263624 18260 main_llm.cc:284] Rank: 0 has pid: 18260
+I0228 01:37:53.263629 18260 main_llm.cc:121] Found 2 GPUs
+I0228 01:37:53.263631 18261 main_llm.cc:284] Rank: 1 has pid: 18261
+I0228 01:37:53.263659 18261 main_llm.cc:121] Found 2 GPUs
+I0228 01:37:53.263782 18261 main_llm.cc:506] Rank 1:: local session [rank/size | color | devId]: [1/2 | 0 | 1]
+I0228 01:37:53.263793 18261 main_llm.cc:585] Rank 1:: Started instantiating SUT[llama2-70b-Offline-SUT Rank1]
+I0228 01:37:53.263779 18260 main_llm.cc:506] Rank 0:: local session [rank/size | color | devId]: [0/2 | 0 | 0]
+I0228 01:37:53.263792 18260 main_llm.cc:585] Rank 0:: Started instantiating SUT[llama2-70b-Offline-SUT Rank0]
+I0228 01:37:53.263780 18262 main_llm.cc:506] Rank 2:: local session [rank/size | color | devId]: [0/1 | 1 | -]
+I0228 01:37:53.263792 18262 main_llm.cc:529] Rank 2:: Started instantiating QSL[llama2-70b-Offline-QSL-LoadGen]
+I0228 01:37:53.263974 18260 llm_server.cc:406] LLMServer[llama2-70b-Offline-SUT Rank0] creating LLMCore[0] on Device[0]...
+I0228 01:37:53.264034 18260 llm_core.cc:68] Rank 0:: LLMCore[0] at Device Id [0]
+[TensorRT-LLM][INFO] Engine version 0.9.0.dev2024020600 found in the config file, assuming engine(s) built by new builder API.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'lora_target_modules' not found
+[TensorRT-LLM][WARNING] Optional value for parameter lora_target_modules will not be set.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'num_medusa_heads' not found
+[TensorRT-LLM][WARNING] Optional value for parameter num_medusa_heads will not be set.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'max_draft_len' not found
+[TensorRT-LLM][WARNING] Optional value for parameter max_draft_len will not be set.
+[TensorRT-LLM][INFO] MPI size: 2, rank: 0
+[TensorRT-LLM][INFO] Using user-specified devices: (0, 1)
+[TensorRT-LLM][INFO] Rank 0 is using GPU 0
+I0228 01:37:53.307585 18262 main_llm.cc:532] Rank 2:: Finished instantiating QSL[llama2-70b-Offline-QSL-LoadGen]
+I0228 01:37:53.307611 18262 main_llm.cc:534] Rank 2:: Started instantiating SUT[llama2-70b-Offline-SUT-LoadGen]
+I0228 01:37:53.318197 18262 main_llm.cc:539] Rank 2:: Finished instantiating SUT[llama2-70b-Offline-SUT-LoadGen]
+I0228 01:37:53.318209 18262 main_llm.cc:541] Rank 2:: Waiting for the end of init phase of other nodes...
+I0228 01:37:53.880900 18261 llm_server.cc:406] LLMServer[llama2-70b-Offline-SUT Rank1] creating LLMCore[0] on Device[1]...
+I0228 01:37:53.880941 18261 llm_core.cc:68] Rank 1:: LLMCore[0] at Device Id [1]
+[TensorRT-LLM][INFO] Engine version 0.9.0.dev2024020600 found in the config file, assuming engine(s) built by new builder API.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'lora_target_modules' not found
+[TensorRT-LLM][WARNING] Optional value for parameter lora_target_modules will not be set.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'num_medusa_heads' not found
+[TensorRT-LLM][WARNING] Optional value for parameter num_medusa_heads will not be set.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'max_draft_len' not found
+[TensorRT-LLM][WARNING] Optional value for parameter max_draft_len will not be set.
+[TensorRT-LLM][INFO] MPI size: 2, rank: 1
+[TensorRT-LLM][INFO] Using user-specified devices: (0, 1)
+[TensorRT-LLM][INFO] Rank 1 is using GPU 1
+[TensorRT-LLM][INFO] TRTGptModel maxNumSequences: 1300
+[TensorRT-LLM][INFO] TRTGptModel maxBatchSize: 1300
+[TensorRT-LLM][INFO] TRTGptModel mMaxAttentionWindowSize: 2048
+[TensorRT-LLM][INFO] TRTGptModel enableTrtOverlap: 0
+[TensorRT-LLM][INFO] TRTGptModel normalizeLogProbs: 1
+[TensorRT-LLM][INFO] Loaded engine size: 33169 MiB
+[TensorRT-LLM][INFO] TRTGptModel maxNumSequences: 1300
+[TensorRT-LLM][INFO] TRTGptModel maxBatchSize: 1300
+[TensorRT-LLM][INFO] TRTGptModel mMaxAttentionWindowSize: 2048
+[TensorRT-LLM][INFO] TRTGptModel enableTrtOverlap: 0
+[TensorRT-LLM][INFO] TRTGptModel normalizeLogProbs: 1
+[TensorRT-LLM][INFO] Loaded engine size: 33170 MiB
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +6, GPU +66, now: CPU 33243, GPU 35337 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuDNN: CPU +2, GPU +72, now: CPU 33245, GPU 35409 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +6, GPU +66, now: CPU 33260, GPU 33750 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuDNN: CPU +2, GPU +72, now: CPU 33262, GPU 33822 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +33142, now: CPU 0, GPU 33142 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +33142, now: CPU 0, GPU 33142 (MiB)
+[TensorRT-LLM][INFO] [MS] Running engine with multi stream info
+[TensorRT-LLM][INFO] [MS] Number of aux streams is 1
+[TensorRT-LLM][INFO] [MS] Number of total worker streams is 2
+[TensorRT-LLM][INFO] [MS] The main stream provided by execute/enqueue calls is the first worker stream
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +64, now: CPU 33538, GPU 34914 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuDNN: CPU +0, GPU +64, now: CPU 33538, GPU 34978 (MiB)
+[TensorRT-LLM][INFO] [MS] Running engine with multi stream info
+[TensorRT-LLM][INFO] [MS] Number of aux streams is 1
+[TensorRT-LLM][INFO] [MS] Number of total worker streams is 2
+[TensorRT-LLM][INFO] [MS] The main stream provided by execute/enqueue calls is the first worker stream
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +64, now: CPU 33521, GPU 36501 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuDNN: CPU +0, GPU +64, now: CPU 33521, GPU 36565 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +0, now: CPU 0, GPU 33142 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +0, now: CPU 0, GPU 33142 (MiB)
+[TensorRT-LLM][INFO] Allocate 53036974080 bytes for k/v cache. 
+[TensorRT-LLM][INFO] Using 647424 total tokens in paged KV cache, and 16 blocks per sequence
+[TensorRT-LLM][INFO] Allocate 53036974080 bytes for k/v cache. 
+[TensorRT-LLM][INFO] Using 647424 total tokens in paged KV cache, and 16 blocks per sequence
+I0228 01:38:51.903887 18260 llm_core.cc:91] Rank 0:: LLMCore Setup complete for device 0
+I0228 01:38:51.903955 18260 llm_server.cc:411] LLMServer[llama2-70b-Offline-SUT Rank0] created LLMCore[0] on Device[0].
+I0228 01:38:51.913365 18260 main_llm.cc:592] Rank 0:: Finished instantiating SUT[llama2-70b-Offline-SUT Rank0]
+I0228 01:38:51.913378 18260 main_llm.cc:593] Rank 0:: Started Leader SUT
+I0228 01:38:52.366335 18261 llm_core.cc:91] Rank 1:: LLMCore Setup complete for device 1
+I0228 01:38:52.366456 18261 llm_server.cc:411] LLMServer[llama2-70b-Offline-SUT Rank1] created LLMCore[0] on Device[1].
+I0228 01:38:52.366463 18261 main_llm.cc:599] Rank 1:: Finished instantiating SUT[llama2-70b-Offline-SUT Rank1]
+I0228 01:38:52.366467 18261 main_llm.cc:600] Rank 1:: Started follower SUT
+I0228 01:38:52.366636 18261 main_llm.cc:606] Rank 1:: Test should start now.
+I0228 01:38:52.366681 18260 main_llm.cc:606] Rank 0:: Test should start now.
+I0228 01:38:52.366626 18262 main_llm.cc:544] Rank 2:: Init phase done on all the nodes.
+I0228 01:38:52.366691 18262 main_llm.cc:546] Rank 2:: Starting running actual test.
+I0228 01:40:56.824740 18283 llm_server.cc:1100] Rank 2:: Port[0] completed 1000 samples to LoadGen
+I0228 01:42:11.469504 18283 llm_server.cc:1100] Rank 2:: Port[0] completed 2000 samples to LoadGen
+I0228 01:43:26.198222 18283 llm_server.cc:1100] Rank 2:: Port[0] completed 3000 samples to LoadGen
+I0228 01:44:40.475636 18283 llm_server.cc:1100] Rank 2:: Port[0] completed 4000 samples to LoadGen
+I0228 01:45:53.383896 18283 llm_server.cc:1100] Rank 2:: Port[0] completed 5000 samples to LoadGen
+I0228 01:47:05.032902 18283 llm_server.cc:1100] Rank 2:: Port[0] completed 6000 samples to LoadGen
+I0228 01:48:17.561833 18283 llm_server.cc:1100] Rank 2:: Port[0] completed 7000 samples to LoadGen
+I0228 01:49:32.545821 18283 llm_server.cc:1100] Rank 2:: Port[0] completed 8000 samples to LoadGen
+I0228 01:50:47.975680 18283 llm_server.cc:1100] Rank 2:: Port[0] completed 9000 samples to LoadGen
+I0228 01:52:02.197883 18283 llm_server.cc:1100] Rank 2:: Port[0] completed 10000 samples to LoadGen
+I0228 01:53:15.936890 18283 llm_server.cc:1100] Rank 2:: Port[0] completed 11000 samples to LoadGen
+I0228 01:54:30.916297 18283 llm_server.cc:1100] Rank 2:: Port[0] completed 12000 samples to LoadGen
+I0228 01:55:46.428743 18283 llm_server.cc:1100] Rank 2:: Port[0] completed 13000 samples to LoadGen
+I0228 01:56:57.007004 18283 llm_server.cc:1100] Rank 2:: Port[0] completed 14000 samples to LoadGen
+I0228 01:58:11.450506 18283 llm_server.cc:1100] Rank 2:: Port[0] completed 15000 samples to LoadGen
+I0228 01:59:26.373584 18283 llm_server.cc:1100] Rank 2:: Port[0] completed 16000 samples to LoadGen
+I0228 02:00:37.738708 18283 llm_server.cc:1100] Rank 2:: Port[0] completed 17000 samples to LoadGen
+I0228 02:01:53.274348 18283 llm_server.cc:1100] Rank 2:: Port[0] completed 18000 samples to LoadGen
+I0228 02:03:05.371042 18283 llm_server.cc:1100] Rank 2:: Port[0] completed 19000 samples to LoadGen
+I0228 02:04:21.083002 18283 llm_server.cc:1100] Rank 2:: Port[0] completed 20000 samples to LoadGen
+I0228 02:05:36.118922 18283 llm_server.cc:1100] Rank 2:: Port[0] completed 21000 samples to LoadGen
+I0228 02:06:49.922434 18283 llm_server.cc:1100] Rank 2:: Port[0] completed 22000 samples to LoadGen
+I0228 02:08:05.109580 18283 llm_server.cc:1100] Rank 2:: Port[0] completed 23000 samples to LoadGen
+I0228 02:08:55.578629 18283 llm_server.cc:1100] Rank 2:: Port[0] completed 24000 samples to LoadGen
+
+No warnings encountered during test.
+
+No errors encountered during test.
+I0228 02:09:30.306113 18262 main_llm.cc:548] Rank 2:: Finished running actual test.
+I0228 02:09:30.306150 18262 main_llm.cc:550] Rank 2:: Initiating termination sequence.
+I0228 02:09:30.306161 18262 main_llm.cc:552] Rank 2:: Termination sequence initiated, waiting for others...
+I0228 02:09:30.306258 18282 llm_server.cc:1029] Rank 2:: llama2-70b-Offline-SUT-LoadGen Port[0] unblocked from RECV for shut-down
+I0228 02:09:30.306289 18282 llm_server.cc:953] Rank 2:: llama2-70b-Offline-SUT-LoadGen Stopping...
+I0228 02:09:30.306653 18290 llm_server.cc:584] Rank 0:: llama2-70b-Offline-SUT Rank0 unblocked from RECV to shut-down
+I0228 02:09:31.306329 18261 main_llm.cc:611] Rank 1:: Test should finish now.
+I0228 02:09:31.306337 18262 main_llm.cc:557] Rank 2:: Sync'ed with others for shutting-off.
+I0228 02:09:31.306604 18260 main_llm.cc:611] Rank 0:: Test should finish now.
+I0228 02:09:31.318920 18262 main_llm.cc:618] Rank 2:: All done
+[TensorRT-LLM][INFO] Terminate signal received, worker thread exiting.
+[TensorRT-LLM][INFO] Terminate signal received, worker thread exiting.
+I0228 02:09:31.867482 18260 main_llm.cc:618] Rank 0:: All done
+I0228 02:09:31.882347 18261 main_llm.cc:618] Rank 1:: All done
+[2024-02-28 02:09:33,550 run_harness.py:165 INFO] Result: Accuracy run detected.
+[2024-02-28 02:09:33,551 __init__.py:46 INFO] Running command: PYTHONPATH=/work:/usr/lib/python38.zip:/usr/lib/python3.8:/usr/lib/python3.8/lib-dynload:/work/build/TRTLLM/3rdparty/cutlass/python:/usr/local/lib/python3.8/dist-packages:/usr/lib/python3/dist-packages:/usr/lib/python3.8/dist-packages python3 -S /work/build/inference/language/llama2-70b/evaluate-accuracy.py --checkpoint-path /mnt/resource_nvme/scratch/models/Llama2/Llama-2-70b-chat-hf --mlperf-accuracy-file /work/build/logs/2024.02.28-01.37.47/NC_H100_v5_TRT/llama2-70b-99/Offline/mlperf_log_accuracy.json --dataset-file /mnt/resource_nvme/scratch/preprocessed_data/open_orca/open_orca_gpt4_tokenized_llama.sampled_24576.pkl --dtype int32
+Downloading builder script:   0%|          | 0.00/6.27k [00:00<?, ?B/s]Downloading builder script: 100%|██████████| 6.27k/6.27k [00:00<00:00, 8.37MB/s]normalizer.cc(51) LOG(INFO) precompiled_charsmap is empty. use identity normalization.
+
+[nltk_data] Downloading package punkt to /home/lisa/nltk_data...
+[nltk_data]   Unzipping tokenizers/punkt.zip.
+
+Results
+
+{'rouge1': 44.6014, 'rouge2': 22.124, 'rougeL': 28.7692, 'rougeLsum': 42.1548, 'gen_len': 28391613, 'gen_num': 24576, 'gen_tok_len': 7175405, 'tokens_per_sample': 292.0}
+[2024-02-28 02:19:21,604 generate_conf_files.py:107 INFO] Generated measurements/ entries for NC_H100_v5_TRT/llama2-70b-99.9/Offline
+[2024-02-28 02:19:21,605 __init__.py:46 INFO] Running command: mpirun -np 3 ./build/bin/harness_llm --logfile_outdir="/work/build/logs/2024.02.28-01.37.47/NC_H100_v5_TRT/llama2-70b-99.9/Offline" --logfile_prefix="mlperf_log_" --performance_sample_count=24576 --test_mode="AccuracyOnly" --gpu_batch_size=1300 --tensor_path="build/preprocessed_data/open_orca/input_ids_padded.npy,build/preprocessed_data/open_orca/input_lens.npy" --use_graphs=false --gpu_inference_streams=1 --gpu_copy_streams=1 --tensor_parallelism=2 --pipeline_parallelism=1 --kvcache_free_gpu_mem_frac=0.9 --enable_sort=false --llm_gen_config_path="code/llama2-70b/tensorrt/generation_config.json" --use_token_latencies=true --gpu_engines="./build/engines/NC_H100_v5/llama2-70b/Offline/bs1300-custom_k_99_9_MaxP-tp2-pp1/rank0.engine" --mlperf_conf_path="build/loadgen-configs/NC_H100_v5_TRT/llama2-70b-99.9/Offline/mlperf.conf" --user_conf_path="build/loadgen-configs/NC_H100_v5_TRT/llama2-70b-99.9/Offline/user.conf" --scenario Offline --model llama2-70b
+[2024-02-28 02:19:21,605 __init__.py:53 INFO] Overriding Environment
+benchmark : Benchmark.LLAMA2
+buffer_manager_thread_count : 0
+coalesced_tensor : True
+data_dir : /mnt/resource_nvme/scratch/data
+enable_sort : False
+gpu_batch_size : 1300
+gpu_copy_streams : 1
+gpu_inference_streams : 1
+input_dtype : int32
+input_format : linear
+kvcache_free_gpu_mem_frac : 0.9
+llm_gen_config_path : code/llama2-70b/tensorrt/generation_config.json
+log_dir : /work/build/logs/2024.02.28-01.37.47
+offline_expected_qps : 13.5
+pipeline_parallelism : 1
+precision : fp16
+preprocessed_data_dir : /mnt/resource_nvme/scratch/preprocessed_data
+scenario : Scenario.Offline
+system : SystemConfiguration(host_cpu_conf=CPUConfiguration(layout={CPU(name='AMD EPYC 9V84 96-Core Processor', architecture=<CPUArchitecture.x86_64: AliasedName(name='x86_64', aliases=(), patterns=())>, core_count=80, threads_per_core=1): 1}), host_mem_conf=MemoryConfiguration(host_memory_capacity=Memory(quantity=660.463936, byte_suffix=<ByteSuffix.GB: (1000, 3)>, _num_bytes=660463936000), comparison_tolerance=0.05), accelerator_conf=AcceleratorConfiguration(layout=defaultdict(<class 'int'>, {GPU(name='NVIDIA H100 NVL', accelerator_type=<AcceleratorType.Discrete: AliasedName(name='Discrete', aliases=(), patterns=())>, vram=Memory(quantity=93.583984375, byte_suffix=<ByteSuffix.GiB: (1024, 3)>, _num_bytes=100485038080), max_power_limit=400.0, pci_id='0x232110DE', compute_sm=90): 2})), numa_conf=NUMAConfiguration(numa_nodes={}, num_numa_nodes=2), system_id='NC_H100_v5')
+tensor_parallelism : 2
+tensor_path : build/preprocessed_data/open_orca/input_ids_padded.npy,build/preprocessed_data/open_orca/input_lens.npy
+test_mode : AccuracyOnly
+use_fp8 : True
+use_graphs : False
+use_token_latencies : True
+system_id : NC_H100_v5
+config_name : NC_H100_v5_llama2-70b_Offline
+workload_setting : WorkloadSetting(HarnessType.Custom, AccuracyTarget.k_99_9, PowerSetting.MaxP)
+optimization_level : plugin-enabled
+num_profiles : 1
+config_ver : custom_k_99_9_MaxP
+accuracy_level : 99.9%
+inference_server : custom
+skip_file_checks : False
+power_limit : None
+cpu_freq : None
+&&&& RUNNING LLM_HARNESS # ./build/bin/harness_llm
+[I] Initializing TensorRT plugin library...
+[I] Initializing TRT-LLM plugin libraries...
+&&&& RUNNING LLM_HARNESS # ./build/bin/harness_llm
+[I] Initializing TensorRT plugin library...
+[I] Initializing TRT-LLM plugin libraries...
+&&&& RUNNING LLM_HARNESS # ./build/bin/harness_llm
+[I] Initializing TensorRT plugin library...
+[I] Initializing TRT-LLM plugin libraries...
+I0228 02:19:25.084170 18432 main_llm.cc:170] Loading LLM config from "./build/engines/NC_H100_v5/llama2-70b/Offline/bs1300-custom_k_99_9_MaxP-tp2-pp1/config.json" and geneartion config from: code/llama2-70b/tensorrt/generation_config.json
+I0228 02:19:25.138816 18431 main_llm.cc:170] Loading LLM config from "./build/engines/NC_H100_v5/llama2-70b/Offline/bs1300-custom_k_99_9_MaxP-tp2-pp1/config.json" and geneartion config from: code/llama2-70b/tensorrt/generation_config.json
+I0228 02:19:25.139134 18433 main_llm.cc:170] Loading LLM config from "./build/engines/NC_H100_v5/llama2-70b/Offline/bs1300-custom_k_99_9_MaxP-tp2-pp1/config.json" and geneartion config from: code/llama2-70b/tensorrt/generation_config.json
+I0228 02:19:25.358925 18431 main_llm.cc:281] LLMConfig Details:
+	mMaxSumSeqlen: 2048 mMaxInputSeqlen: 1024 mMaxOutputSeqlen: 1024 mEosId: 2
+	tp: 2 pp: 1 mWorldSize: 2
+	mMaxGpuBatchSize: 1300 mBeamWidth: 1
+	mTemperature: 1 mTopK: 1 mTopP: 0 mMinOutputSeqlen: 1 mIsStreaming: 0 mReportFirstToken: 0 mEnableSort: 0 mExcludeInputInOutput: 1
+	mMaxNumSequences: 0 mMaxTokensInPagedKvcache: 0 mKvCacheFreeGpuMemFraction: 0.9 mEnableTrtOverlap: 0
+	mBatchMode: 2 mSchedulerPolicy: 0
+I0228 02:19:25.358953 18431 main_llm.cc:284] Rank: 0 has pid: 18431
+I0228 02:19:25.358925 18433 main_llm.cc:284] Rank: 2 has pid: 18433
+I0228 02:19:25.358951 18433 main_llm.cc:121] Found 2 GPUs
+I0228 02:19:25.358958 18431 main_llm.cc:121] Found 2 GPUs
+I0228 02:19:25.358952 18432 main_llm.cc:284] Rank: 1 has pid: 18432
+I0228 02:19:25.358974 18432 main_llm.cc:121] Found 2 GPUs
+I0228 02:19:25.359110 18433 main_llm.cc:506] Rank 2:: local session [rank/size | color | devId]: [0/1 | 1 | -]
+I0228 02:19:25.359123 18433 main_llm.cc:529] Rank 2:: Started instantiating QSL[llama2-70b-Offline-QSL-LoadGen]
+I0228 02:19:25.359112 18431 main_llm.cc:506] Rank 0:: local session [rank/size | color | devId]: [0/2 | 0 | 0]
+I0228 02:19:25.359123 18431 main_llm.cc:585] Rank 0:: Started instantiating SUT[llama2-70b-Offline-SUT Rank0]
+I0228 02:19:25.359113 18432 main_llm.cc:506] Rank 1:: local session [rank/size | color | devId]: [1/2 | 0 | 1]
+I0228 02:19:25.359124 18432 main_llm.cc:585] Rank 1:: Started instantiating SUT[llama2-70b-Offline-SUT Rank1]
+I0228 02:19:25.359373 18431 llm_server.cc:406] LLMServer[llama2-70b-Offline-SUT Rank0] creating LLMCore[0] on Device[0]...
+I0228 02:19:25.359381 18431 llm_core.cc:68] Rank 0:: LLMCore[0] at Device Id [0]
+[TensorRT-LLM][INFO] Engine version 0.9.0.dev2024020600 found in the config file, assuming engine(s) built by new builder API.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'lora_target_modules' not found
+[TensorRT-LLM][WARNING] Optional value for parameter lora_target_modules will not be set.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'num_medusa_heads' not found
+[TensorRT-LLM][WARNING] Optional value for parameter num_medusa_heads will not be set.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'max_draft_len' not found
+[TensorRT-LLM][WARNING] Optional value for parameter max_draft_len will not be set.
+[TensorRT-LLM][INFO] MPI size: 2, rank: 0
+[TensorRT-LLM][INFO] Using user-specified devices: (0, 1)
+[TensorRT-LLM][INFO] Rank 0 is using GPU 0
+I0228 02:19:25.406219 18433 main_llm.cc:532] Rank 2:: Finished instantiating QSL[llama2-70b-Offline-QSL-LoadGen]
+I0228 02:19:25.406252 18433 main_llm.cc:534] Rank 2:: Started instantiating SUT[llama2-70b-Offline-SUT-LoadGen]
+I0228 02:19:25.417027 18433 main_llm.cc:539] Rank 2:: Finished instantiating SUT[llama2-70b-Offline-SUT-LoadGen]
+I0228 02:19:25.417038 18433 main_llm.cc:541] Rank 2:: Waiting for the end of init phase of other nodes...
+I0228 02:19:25.984957 18432 llm_server.cc:406] LLMServer[llama2-70b-Offline-SUT Rank1] creating LLMCore[0] on Device[1]...
+I0228 02:19:25.984999 18432 llm_core.cc:68] Rank 1:: LLMCore[0] at Device Id [1]
+[TensorRT-LLM][INFO] Engine version 0.9.0.dev2024020600 found in the config file, assuming engine(s) built by new builder API.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'lora_target_modules' not found
+[TensorRT-LLM][WARNING] Optional value for parameter lora_target_modules will not be set.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'num_medusa_heads' not found
+[TensorRT-LLM][WARNING] Optional value for parameter num_medusa_heads will not be set.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'max_draft_len' not found
+[TensorRT-LLM][WARNING] Optional value for parameter max_draft_len will not be set.
+[TensorRT-LLM][INFO] MPI size: 2, rank: 1
+[TensorRT-LLM][INFO] Using user-specified devices: (0, 1)
+[TensorRT-LLM][INFO] Rank 1 is using GPU 1
+[TensorRT-LLM][INFO] TRTGptModel maxNumSequences: 1300
+[TensorRT-LLM][INFO] TRTGptModel maxBatchSize: 1300
+[TensorRT-LLM][INFO] TRTGptModel mMaxAttentionWindowSize: 2048
+[TensorRT-LLM][INFO] TRTGptModel enableTrtOverlap: 0
+[TensorRT-LLM][INFO] TRTGptModel normalizeLogProbs: 1
+[TensorRT-LLM][INFO] Loaded engine size: 33170 MiB
+[TensorRT-LLM][INFO] TRTGptModel maxNumSequences: 1300
+[TensorRT-LLM][INFO] TRTGptModel maxBatchSize: 1300
+[TensorRT-LLM][INFO] TRTGptModel mMaxAttentionWindowSize: 2048
+[TensorRT-LLM][INFO] TRTGptModel enableTrtOverlap: 0
+[TensorRT-LLM][INFO] TRTGptModel normalizeLogProbs: 1
+[TensorRT-LLM][INFO] Loaded engine size: 33170 MiB
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +6, GPU +66, now: CPU 33244, GPU 35337 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuDNN: CPU +2, GPU +72, now: CPU 33246, GPU 35409 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +6, GPU +66, now: CPU 33260, GPU 33750 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuDNN: CPU +2, GPU +72, now: CPU 33262, GPU 33822 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +33142, now: CPU 0, GPU 33142 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +33142, now: CPU 0, GPU 33142 (MiB)
+[TensorRT-LLM][INFO] [MS] Running engine with multi stream info
+[TensorRT-LLM][INFO] [MS] Number of aux streams is 1
+[TensorRT-LLM][INFO] [MS] Number of total worker streams is 2
+[TensorRT-LLM][INFO] [MS] The main stream provided by execute/enqueue calls is the first worker stream
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +64, now: CPU 33538, GPU 34914 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuDNN: CPU +0, GPU +64, now: CPU 33538, GPU 34978 (MiB)
+[TensorRT-LLM][INFO] [MS] Running engine with multi stream info
+[TensorRT-LLM][INFO] [MS] Number of aux streams is 1
+[TensorRT-LLM][INFO] [MS] Number of total worker streams is 2
+[TensorRT-LLM][INFO] [MS] The main stream provided by execute/enqueue calls is the first worker stream
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +64, now: CPU 33522, GPU 36501 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuDNN: CPU +0, GPU +64, now: CPU 33522, GPU 36565 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +0, now: CPU 0, GPU 33142 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +0, now: CPU 0, GPU 33142 (MiB)
+[TensorRT-LLM][INFO] Allocate 53036974080 bytes for k/v cache. 
+[TensorRT-LLM][INFO] Using 647424 total tokens in paged KV cache, and 16 blocks per sequence
+[TensorRT-LLM][INFO] Allocate 53036974080 bytes for k/v cache. 
+[TensorRT-LLM][INFO] Using 647424 total tokens in paged KV cache, and 16 blocks per sequence
+I0228 02:20:23.695112 18431 llm_core.cc:91] Rank 0:: LLMCore Setup complete for device 0
+I0228 02:20:23.695181 18431 llm_server.cc:411] LLMServer[llama2-70b-Offline-SUT Rank0] created LLMCore[0] on Device[0].
+I0228 02:20:23.704444 18431 main_llm.cc:592] Rank 0:: Finished instantiating SUT[llama2-70b-Offline-SUT Rank0]
+I0228 02:20:23.704455 18431 main_llm.cc:593] Rank 0:: Started Leader SUT
+I0228 02:20:24.287770 18432 llm_core.cc:91] Rank 1:: LLMCore Setup complete for device 1
+I0228 02:20:24.288010 18432 llm_server.cc:411] LLMServer[llama2-70b-Offline-SUT Rank1] created LLMCore[0] on Device[1].
+I0228 02:20:24.288019 18432 main_llm.cc:599] Rank 1:: Finished instantiating SUT[llama2-70b-Offline-SUT Rank1]
+I0228 02:20:24.288022 18432 main_llm.cc:600] Rank 1:: Started follower SUT
+I0228 02:20:24.288079 18431 main_llm.cc:606] Rank 0:: Test should start now.
+I0228 02:20:24.288187 18432 main_llm.cc:606] Rank 1:: Test should start now.
+I0228 02:20:24.288164 18433 main_llm.cc:544] Rank 2:: Init phase done on all the nodes.
+I0228 02:20:24.288230 18433 main_llm.cc:546] Rank 2:: Starting running actual test.
+I0228 02:22:29.483824 18454 llm_server.cc:1100] Rank 2:: Port[0] completed 1000 samples to LoadGen
+I0228 02:23:43.998715 18454 llm_server.cc:1100] Rank 2:: Port[0] completed 2000 samples to LoadGen
+I0228 02:24:58.675185 18454 llm_server.cc:1100] Rank 2:: Port[0] completed 3000 samples to LoadGen
+I0228 02:26:12.918228 18454 llm_server.cc:1100] Rank 2:: Port[0] completed 4000 samples to LoadGen
+I0228 02:27:25.730095 18454 llm_server.cc:1100] Rank 2:: Port[0] completed 5000 samples to LoadGen
+I0228 02:28:37.326467 18454 llm_server.cc:1100] Rank 2:: Port[0] completed 6000 samples to LoadGen
+I0228 02:29:49.786679 18454 llm_server.cc:1100] Rank 2:: Port[0] completed 7000 samples to LoadGen
+I0228 02:31:04.735415 18454 llm_server.cc:1100] Rank 2:: Port[0] completed 8000 samples to LoadGen
+I0228 02:32:20.482053 18454 llm_server.cc:1100] Rank 2:: Port[0] completed 9000 samples to LoadGen
+I0228 02:33:34.412865 18454 llm_server.cc:1100] Rank 2:: Port[0] completed 10000 samples to LoadGen
+I0228 02:34:47.957123 18454 llm_server.cc:1100] Rank 2:: Port[0] completed 11000 samples to LoadGen
+I0228 02:36:03.338770 18454 llm_server.cc:1100] Rank 2:: Port[0] completed 12000 samples to LoadGen
+I0228 02:37:18.653301 18454 llm_server.cc:1100] Rank 2:: Port[0] completed 13000 samples to LoadGen
+I0228 02:38:29.226958 18454 llm_server.cc:1100] Rank 2:: Port[0] completed 14000 samples to LoadGen
+I0228 02:39:43.552474 18454 llm_server.cc:1100] Rank 2:: Port[0] completed 15000 samples to LoadGen
+I0228 02:40:58.954419 18454 llm_server.cc:1100] Rank 2:: Port[0] completed 16000 samples to LoadGen
+I0228 02:42:10.083979 18454 llm_server.cc:1100] Rank 2:: Port[0] completed 17000 samples to LoadGen
+I0228 02:43:25.687588 18454 llm_server.cc:1100] Rank 2:: Port[0] completed 18000 samples to LoadGen
+I0228 02:44:38.032510 18454 llm_server.cc:1100] Rank 2:: Port[0] completed 19000 samples to LoadGen
+I0228 02:45:53.757627 18454 llm_server.cc:1100] Rank 2:: Port[0] completed 20000 samples to LoadGen
+I0228 02:47:08.469591 18454 llm_server.cc:1100] Rank 2:: Port[0] completed 21000 samples to LoadGen
+I0228 02:48:22.103376 18454 llm_server.cc:1100] Rank 2:: Port[0] completed 22000 samples to LoadGen
+I0228 02:49:37.338423 18454 llm_server.cc:1100] Rank 2:: Port[0] completed 23000 samples to LoadGen
+I0228 02:50:27.813123 18454 llm_server.cc:1100] Rank 2:: Port[0] completed 24000 samples to LoadGen
+
+No warnings encountered during test.
+
+No errors encountered during test.
+I0228 02:51:02.434345 18433 main_llm.cc:548] Rank 2:: Finished running actual test.
+I0228 02:51:02.434381 18433 main_llm.cc:550] Rank 2:: Initiating termination sequence.
+I0228 02:51:02.434391 18433 main_llm.cc:552] Rank 2:: Termination sequence initiated, waiting for others...
+I0228 02:51:02.434463 18453 llm_server.cc:1029] Rank 2:: llama2-70b-Offline-SUT-LoadGen Port[0] unblocked from RECV for shut-down
+I0228 02:51:02.434475 18453 llm_server.cc:953] Rank 2:: llama2-70b-Offline-SUT-LoadGen Stopping...
+I0228 02:51:02.434873 18461 llm_server.cc:584] Rank 0:: llama2-70b-Offline-SUT Rank0 unblocked from RECV to shut-down
+I0228 02:51:03.434559 18432 main_llm.cc:611] Rank 1:: Test should finish now.
+I0228 02:51:03.434569 18433 main_llm.cc:557] Rank 2:: Sync'ed with others for shutting-off.
+I0228 02:51:03.434815 18431 main_llm.cc:611] Rank 0:: Test should finish now.
+I0228 02:51:03.447337 18433 main_llm.cc:618] Rank 2:: All done
+[TensorRT-LLM][INFO] Terminate signal received, worker thread exiting.
+[TensorRT-LLM][INFO] Terminate signal received, worker thread exiting.
+I0228 02:51:03.967082 18431 main_llm.cc:618] Rank 0:: All done
+I0228 02:51:03.981861 18432 main_llm.cc:618] Rank 1:: All done
+[2024-02-28 02:51:05,656 run_harness.py:165 INFO] Result: Accuracy run detected.
+[2024-02-28 02:51:05,656 __init__.py:46 INFO] Running command: PYTHONPATH=/work:/usr/lib/python38.zip:/usr/lib/python3.8:/usr/lib/python3.8/lib-dynload:/work/build/TRTLLM/3rdparty/cutlass/python:/usr/local/lib/python3.8/dist-packages:/usr/lib/python3/dist-packages:/usr/lib/python3.8/dist-packages python3 -S /work/build/inference/language/llama2-70b/evaluate-accuracy.py --checkpoint-path /mnt/resource_nvme/scratch/models/Llama2/Llama-2-70b-chat-hf --mlperf-accuracy-file /work/build/logs/2024.02.28-01.37.47/NC_H100_v5_TRT/llama2-70b-99.9/Offline/mlperf_log_accuracy.json --dataset-file /mnt/resource_nvme/scratch/preprocessed_data/open_orca/open_orca_gpt4_tokenized_llama.sampled_24576.pkl --dtype int32
+normalizer.cc(51) LOG(INFO) precompiled_charsmap is empty. use identity normalization.
+[nltk_data] Downloading package punkt to /home/lisa/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+
+Results
+
+{'rouge1': 44.6035, 'rouge2': 22.1256, 'rougeL': 28.77, 'rougeLsum': 42.1569, 'gen_len': 28392637, 'gen_num': 24576, 'gen_tok_len': 7175463, 'tokens_per_sample': 292.0}
+[2024-02-28 03:00:51,223 generate_conf_files.py:107 INFO] Generated measurements/ entries for NC_H100_v5_TRT/llama2-70b-99/Server
+[2024-02-28 03:00:51,223 __init__.py:46 INFO] Running command: mpirun -np 3 ./build/bin/harness_llm --logfile_outdir="/work/build/logs/2024.02.28-01.37.47/NC_H100_v5_TRT/llama2-70b-99/Server" --logfile_prefix="mlperf_log_" --performance_sample_count=24576 --test_mode="AccuracyOnly" --gpu_batch_size=1536 --tensor_path="build/preprocessed_data/open_orca/input_ids_padded.npy,build/preprocessed_data/open_orca/input_lens.npy" --use_graphs=false --gpu_inference_streams=1 --gpu_copy_streams=1 --tensor_parallelism=2 --pipeline_parallelism=1 --kvcache_free_gpu_mem_frac=0.9 --enable_sort=false --llm_gen_config_path="code/llama2-70b/tensorrt/generation_config.json" --use_token_latencies=true --gpu_engines="./build/engines/NC_H100_v5/llama2-70b/Server/bs1536-custom_k_99_MaxP-tp2-pp1/rank0.engine" --mlperf_conf_path="build/loadgen-configs/NC_H100_v5_TRT/llama2-70b-99/Server/mlperf.conf" --user_conf_path="build/loadgen-configs/NC_H100_v5_TRT/llama2-70b-99/Server/user.conf" --scenario Server --model llama2-70b
+[2024-02-28 03:00:51,223 __init__.py:53 INFO] Overriding Environment
+benchmark : Benchmark.LLAMA2
+buffer_manager_thread_count : 0
+coalesced_tensor : True
+data_dir : /mnt/resource_nvme/scratch/data
+enable_sort : False
+gpu_batch_size : 1536
+gpu_copy_streams : 1
+gpu_inference_streams : 1
+input_dtype : int32
+input_format : linear
+kvcache_free_gpu_mem_frac : 0.9
+llm_gen_config_path : code/llama2-70b/tensorrt/generation_config.json
+log_dir : /work/build/logs/2024.02.28-01.37.47
+pipeline_parallelism : 1
+precision : fp16
+preprocessed_data_dir : /mnt/resource_nvme/scratch/preprocessed_data
+scenario : Scenario.Server
+server_target_qps : 12
+system : SystemConfiguration(host_cpu_conf=CPUConfiguration(layout={CPU(name='AMD EPYC 9V84 96-Core Processor', architecture=<CPUArchitecture.x86_64: AliasedName(name='x86_64', aliases=(), patterns=())>, core_count=80, threads_per_core=1): 1}), host_mem_conf=MemoryConfiguration(host_memory_capacity=Memory(quantity=660.463936, byte_suffix=<ByteSuffix.GB: (1000, 3)>, _num_bytes=660463936000), comparison_tolerance=0.05), accelerator_conf=AcceleratorConfiguration(layout=defaultdict(<class 'int'>, {GPU(name='NVIDIA H100 NVL', accelerator_type=<AcceleratorType.Discrete: AliasedName(name='Discrete', aliases=(), patterns=())>, vram=Memory(quantity=93.583984375, byte_suffix=<ByteSuffix.GiB: (1024, 3)>, _num_bytes=100485038080), max_power_limit=400.0, pci_id='0x232110DE', compute_sm=90): 2})), numa_conf=NUMAConfiguration(numa_nodes={}, num_numa_nodes=2), system_id='NC_H100_v5')
+tensor_parallelism : 2
+tensor_path : build/preprocessed_data/open_orca/input_ids_padded.npy,build/preprocessed_data/open_orca/input_lens.npy
+test_mode : AccuracyOnly
+use_fp8 : True
+use_graphs : False
+use_token_latencies : True
+system_id : NC_H100_v5
+config_name : NC_H100_v5_llama2-70b_Server
+workload_setting : WorkloadSetting(HarnessType.Custom, AccuracyTarget.k_99, PowerSetting.MaxP)
+optimization_level : plugin-enabled
+num_profiles : 1
+config_ver : custom_k_99_MaxP
+accuracy_level : 99%
+inference_server : custom
+skip_file_checks : False
+power_limit : None
+cpu_freq : None
+&&&& RUNNING LLM_HARNESS # ./build/bin/harness_llm
+[I] Initializing TensorRT plugin library...
+[I] Initializing TRT-LLM plugin libraries...
+&&&& RUNNING LLM_HARNESS # ./build/bin/harness_llm
+[I] Initializing TensorRT plugin library...
+[I] Initializing TRT-LLM plugin libraries...
+&&&& RUNNING LLM_HARNESS # ./build/bin/harness_llm
+[I] Initializing TensorRT plugin library...
+[I] Initializing TRT-LLM plugin libraries...
+I0228 03:00:54.626365 18602 main_llm.cc:170] Loading LLM config from "./build/engines/NC_H100_v5/llama2-70b/Server/bs1536-custom_k_99_MaxP-tp2-pp1/config.json" and geneartion config from: code/llama2-70b/tensorrt/generation_config.json
+I0228 03:00:54.721550 18601 main_llm.cc:170] Loading LLM config from "./build/engines/NC_H100_v5/llama2-70b/Server/bs1536-custom_k_99_MaxP-tp2-pp1/config.json" and geneartion config from: code/llama2-70b/tensorrt/generation_config.json
+I0228 03:00:54.738906 18603 main_llm.cc:170] Loading LLM config from "./build/engines/NC_H100_v5/llama2-70b/Server/bs1536-custom_k_99_MaxP-tp2-pp1/config.json" and geneartion config from: code/llama2-70b/tensorrt/generation_config.json
+I0228 03:00:54.956552 18603 main_llm.cc:284] Rank: 2 has pid: 18603
+I0228 03:00:54.956579 18603 main_llm.cc:121] Found 2 GPUs
+I0228 03:00:54.956650 18601 main_llm.cc:281] LLMConfig Details:
+	mMaxSumSeqlen: 2048 mMaxInputSeqlen: 1024 mMaxOutputSeqlen: 1024 mEosId: 2
+	tp: 2 pp: 1 mWorldSize: 2
+	mMaxGpuBatchSize: 1536 mBeamWidth: 1
+	mTemperature: 1 mTopK: 1 mTopP: 0 mMinOutputSeqlen: 1 mIsStreaming: 1 mReportFirstToken: 1 mEnableSort: 0 mExcludeInputInOutput: 1
+	mMaxNumSequences: 0 mMaxTokensInPagedKvcache: 0 mKvCacheFreeGpuMemFraction: 0.9 mEnableTrtOverlap: 0
+	mBatchMode: 2 mSchedulerPolicy: 0
+I0228 03:00:54.956681 18601 main_llm.cc:284] Rank: 0 has pid: 18601
+I0228 03:00:54.956684 18601 main_llm.cc:121] Found 2 GPUs
+I0228 03:00:54.956693 18602 main_llm.cc:284] Rank: 1 has pid: 18602
+I0228 03:00:54.956717 18602 main_llm.cc:121] Found 2 GPUs
+I0228 03:00:54.956848 18603 main_llm.cc:506] Rank 2:: local session [rank/size | color | devId]: [0/1 | 1 | -]
+I0228 03:00:54.956859 18603 main_llm.cc:529] Rank 2:: Started instantiating QSL[llama2-70b-Server-QSL-LoadGen]
+I0228 03:00:54.956846 18601 main_llm.cc:506] Rank 0:: local session [rank/size | color | devId]: [0/2 | 0 | 0]
+I0228 03:00:54.956859 18601 main_llm.cc:585] Rank 0:: Started instantiating SUT[llama2-70b-Server-SUT Rank0]
+I0228 03:00:54.956842 18602 main_llm.cc:506] Rank 1:: local session [rank/size | color | devId]: [1/2 | 0 | 1]
+I0228 03:00:54.956859 18602 main_llm.cc:585] Rank 1:: Started instantiating SUT[llama2-70b-Server-SUT Rank1]
+I0228 03:00:54.957165 18601 llm_server.cc:406] LLMServer[llama2-70b-Server-SUT Rank0] creating LLMCore[0] on Device[0]...
+I0228 03:00:54.957175 18601 llm_core.cc:68] Rank 0:: LLMCore[0] at Device Id [0]
+[TensorRT-LLM][INFO] Engine version 0.9.0.dev2024020600 found in the config file, assuming engine(s) built by new builder API.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'lora_target_modules' not found
+[TensorRT-LLM][WARNING] Optional value for parameter lora_target_modules will not be set.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'num_medusa_heads' not found
+[TensorRT-LLM][WARNING] Optional value for parameter num_medusa_heads will not be set.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'max_draft_len' not found
+[TensorRT-LLM][WARNING] Optional value for parameter max_draft_len will not be set.
+[TensorRT-LLM][INFO] MPI size: 2, rank: 0
+[TensorRT-LLM][INFO] Using user-specified devices: (0, 1)
+[TensorRT-LLM][INFO] Rank 0 is using GPU 0
+I0228 03:00:55.000914 18603 main_llm.cc:532] Rank 2:: Finished instantiating QSL[llama2-70b-Server-QSL-LoadGen]
+I0228 03:00:55.000945 18603 main_llm.cc:534] Rank 2:: Started instantiating SUT[llama2-70b-Server-SUT-LoadGen]
+I0228 03:00:55.011888 18603 main_llm.cc:539] Rank 2:: Finished instantiating SUT[llama2-70b-Server-SUT-LoadGen]
+I0228 03:00:55.011904 18603 main_llm.cc:541] Rank 2:: Waiting for the end of init phase of other nodes...
+I0228 03:00:55.576983 18602 llm_server.cc:406] LLMServer[llama2-70b-Server-SUT Rank1] creating LLMCore[0] on Device[1]...
+I0228 03:00:55.577028 18602 llm_core.cc:68] Rank 1:: LLMCore[0] at Device Id [1]
+[TensorRT-LLM][INFO] Engine version 0.9.0.dev2024020600 found in the config file, assuming engine(s) built by new builder API.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'lora_target_modules' not found
+[TensorRT-LLM][WARNING] Optional value for parameter lora_target_modules will not be set.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'num_medusa_heads' not found
+[TensorRT-LLM][WARNING] Optional value for parameter num_medusa_heads will not be set.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'max_draft_len' not found
+[TensorRT-LLM][WARNING] Optional value for parameter max_draft_len will not be set.
+[TensorRT-LLM][INFO] MPI size: 2, rank: 1
+[TensorRT-LLM][INFO] Using user-specified devices: (0, 1)
+[TensorRT-LLM][INFO] Rank 1 is using GPU 1
+[TensorRT-LLM][INFO] TRTGptModel maxNumSequences: 1536
+[TensorRT-LLM][INFO] TRTGptModel maxBatchSize: 1536
+[TensorRT-LLM][INFO] TRTGptModel mMaxAttentionWindowSize: 2048
+[TensorRT-LLM][INFO] TRTGptModel enableTrtOverlap: 0
+[TensorRT-LLM][INFO] TRTGptModel normalizeLogProbs: 1
+[TensorRT-LLM][INFO] Loaded engine size: 33176 MiB
+[TensorRT-LLM][INFO] TRTGptModel maxNumSequences: 1536
+[TensorRT-LLM][INFO] TRTGptModel maxBatchSize: 1536
+[TensorRT-LLM][INFO] TRTGptModel mMaxAttentionWindowSize: 2048
+[TensorRT-LLM][INFO] TRTGptModel enableTrtOverlap: 0
+[TensorRT-LLM][INFO] TRTGptModel normalizeLogProbs: 1
+[TensorRT-LLM][INFO] Loaded engine size: 33176 MiB
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +6, GPU +66, now: CPU 33257, GPU 35337 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuDNN: CPU +2, GPU +72, now: CPU 33259, GPU 35409 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +6, GPU +66, now: CPU 33273, GPU 33750 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuDNN: CPU +2, GPU +72, now: CPU 33275, GPU 33822 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +33142, now: CPU 0, GPU 33142 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +33142, now: CPU 0, GPU 33142 (MiB)
+[TensorRT-LLM][INFO] [MS] Running engine with multi stream info
+[TensorRT-LLM][INFO] [MS] Number of aux streams is 1
+[TensorRT-LLM][INFO] [MS] Number of total worker streams is 2
+[TensorRT-LLM][INFO] [MS] The main stream provided by execute/enqueue calls is the first worker stream
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +64, now: CPU 33551, GPU 34914 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuDNN: CPU +0, GPU +64, now: CPU 33551, GPU 34978 (MiB)
+[TensorRT-LLM][INFO] [MS] Running engine with multi stream info
+[TensorRT-LLM][INFO] [MS] Number of aux streams is 1
+[TensorRT-LLM][INFO] [MS] Number of total worker streams is 2
+[TensorRT-LLM][INFO] [MS] The main stream provided by execute/enqueue calls is the first worker stream
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +64, now: CPU 33535, GPU 36501 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuDNN: CPU +0, GPU +64, now: CPU 33535, GPU 36565 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +0, now: CPU 0, GPU 33142 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +0, now: CPU 0, GPU 33142 (MiB)
+[TensorRT-LLM][INFO] Allocate 52617543680 bytes for k/v cache. 
+[TensorRT-LLM][INFO] Using 642304 total tokens in paged KV cache, and 16 blocks per sequence
+[TensorRT-LLM][INFO] Allocate 52617543680 bytes for k/v cache. 
+[TensorRT-LLM][INFO] Using 642304 total tokens in paged KV cache, and 16 blocks per sequence
+I0228 03:01:53.590732 18601 llm_core.cc:91] Rank 0:: LLMCore Setup complete for device 0
+I0228 03:01:53.590799 18601 llm_server.cc:411] LLMServer[llama2-70b-Server-SUT Rank0] created LLMCore[0] on Device[0].
+I0228 03:01:53.600186 18601 main_llm.cc:592] Rank 0:: Finished instantiating SUT[llama2-70b-Server-SUT Rank0]
+I0228 03:01:53.600198 18601 main_llm.cc:593] Rank 0:: Started Leader SUT
+I0228 03:01:53.901779 18602 llm_core.cc:91] Rank 1:: LLMCore Setup complete for device 1
+I0228 03:01:53.901881 18602 llm_server.cc:411] LLMServer[llama2-70b-Server-SUT Rank1] created LLMCore[0] on Device[1].
+I0228 03:01:53.901891 18602 main_llm.cc:599] Rank 1:: Finished instantiating SUT[llama2-70b-Server-SUT Rank1]
+I0228 03:01:53.901904 18602 main_llm.cc:600] Rank 1:: Started follower SUT
+I0228 03:01:53.902076 18601 main_llm.cc:606] Rank 0:: Test should start now.
+I0228 03:01:53.902074 18602 main_llm.cc:606] Rank 1:: Test should start now.
+I0228 03:01:53.902094 18603 main_llm.cc:544] Rank 2:: Init phase done on all the nodes.
+I0228 03:01:53.902163 18603 main_llm.cc:546] Rank 2:: Starting running actual test.
+I0228 03:03:16.481505 18627 llm_server.cc:1205] Rank 2:: Port[0] completed 1000 first tokens to LoadGen
+I0228 03:03:44.800642 18625 llm_server.cc:1100] Rank 2:: Port[0] completed 1000 samples to LoadGen
+I0228 03:04:44.895597 18627 llm_server.cc:1205] Rank 2:: Port[0] completed 2000 first tokens to LoadGen
+I0228 03:05:17.474714 18625 llm_server.cc:1100] Rank 2:: Port[0] completed 2000 samples to LoadGen
+I0228 03:06:12.135797 18627 llm_server.cc:1205] Rank 2:: Port[0] completed 3000 first tokens to LoadGen
+I0228 03:06:47.012657 18625 llm_server.cc:1100] Rank 2:: Port[0] completed 3000 samples to LoadGen
+I0228 03:07:33.540935 18627 llm_server.cc:1205] Rank 2:: Port[0] completed 4000 first tokens to LoadGen
+I0228 03:08:10.849195 18625 llm_server.cc:1100] Rank 2:: Port[0] completed 4000 samples to LoadGen
+I0228 03:08:59.209597 18627 llm_server.cc:1205] Rank 2:: Port[0] completed 5000 first tokens to LoadGen
+I0228 03:09:32.148650 18625 llm_server.cc:1100] Rank 2:: Port[0] completed 5000 samples to LoadGen
+I0228 03:10:26.315053 18627 llm_server.cc:1205] Rank 2:: Port[0] completed 6000 first tokens to LoadGen
+I0228 03:11:01.621042 18625 llm_server.cc:1100] Rank 2:: Port[0] completed 6000 samples to LoadGen
+I0228 03:11:49.948170 18627 llm_server.cc:1205] Rank 2:: Port[0] completed 7000 first tokens to LoadGen
+I0228 03:12:25.596493 18625 llm_server.cc:1100] Rank 2:: Port[0] completed 7000 samples to LoadGen
+I0228 03:13:13.441071 18627 llm_server.cc:1205] Rank 2:: Port[0] completed 8000 first tokens to LoadGen
+I0228 03:13:55.318434 18625 llm_server.cc:1100] Rank 2:: Port[0] completed 8000 samples to LoadGen
+I0228 03:14:32.031919 18627 llm_server.cc:1205] Rank 2:: Port[0] completed 9000 first tokens to LoadGen
+I0228 03:15:19.023679 18625 llm_server.cc:1100] Rank 2:: Port[0] completed 9000 samples to LoadGen
+I0228 03:15:56.605885 18627 llm_server.cc:1205] Rank 2:: Port[0] completed 10000 first tokens to LoadGen
+I0228 03:16:35.855134 18625 llm_server.cc:1100] Rank 2:: Port[0] completed 10000 samples to LoadGen
+I0228 03:17:20.087893 18627 llm_server.cc:1205] Rank 2:: Port[0] completed 11000 first tokens to LoadGen
+I0228 03:17:58.869648 18625 llm_server.cc:1100] Rank 2:: Port[0] completed 11000 samples to LoadGen
+I0228 03:18:42.338938 18627 llm_server.cc:1205] Rank 2:: Port[0] completed 12000 first tokens to LoadGen
+I0228 03:19:23.860497 18625 llm_server.cc:1100] Rank 2:: Port[0] completed 12000 samples to LoadGen
+I0228 03:20:07.126562 18627 llm_server.cc:1205] Rank 2:: Port[0] completed 13000 first tokens to LoadGen
+I0228 03:20:49.944612 18625 llm_server.cc:1100] Rank 2:: Port[0] completed 13000 samples to LoadGen
+I0228 03:21:29.194411 18627 llm_server.cc:1205] Rank 2:: Port[0] completed 14000 first tokens to LoadGen
+I0228 03:22:16.621141 18625 llm_server.cc:1100] Rank 2:: Port[0] completed 14000 samples to LoadGen
+I0228 03:22:50.118381 18627 llm_server.cc:1205] Rank 2:: Port[0] completed 15000 first tokens to LoadGen
+I0228 03:23:37.287945 18625 llm_server.cc:1100] Rank 2:: Port[0] completed 15000 samples to LoadGen
+I0228 03:24:18.392920 18627 llm_server.cc:1205] Rank 2:: Port[0] completed 16000 first tokens to LoadGen
+I0228 03:25:02.067544 18625 llm_server.cc:1100] Rank 2:: Port[0] completed 16000 samples to LoadGen
+I0228 03:25:41.874689 18627 llm_server.cc:1205] Rank 2:: Port[0] completed 17000 first tokens to LoadGen
+I0228 03:26:23.116756 18625 llm_server.cc:1100] Rank 2:: Port[0] completed 17000 samples to LoadGen
+I0228 03:27:01.089237 18627 llm_server.cc:1205] Rank 2:: Port[0] completed 18000 first tokens to LoadGen
+I0228 03:27:45.147862 18625 llm_server.cc:1100] Rank 2:: Port[0] completed 18000 samples to LoadGen
+I0228 03:28:27.632252 18627 llm_server.cc:1205] Rank 2:: Port[0] completed 19000 first tokens to LoadGen
+I0228 03:29:09.140048 18625 llm_server.cc:1100] Rank 2:: Port[0] completed 19000 samples to LoadGen
+I0228 03:29:47.000840 18627 llm_server.cc:1205] Rank 2:: Port[0] completed 20000 first tokens to LoadGen
+I0228 03:30:38.466282 18625 llm_server.cc:1100] Rank 2:: Port[0] completed 20000 samples to LoadGen
+I0228 03:31:10.879143 18627 llm_server.cc:1205] Rank 2:: Port[0] completed 21000 first tokens to LoadGen
+I0228 03:31:57.254392 18625 llm_server.cc:1100] Rank 2:: Port[0] completed 21000 samples to LoadGen
+I0228 03:32:32.590584 18627 llm_server.cc:1205] Rank 2:: Port[0] completed 22000 first tokens to LoadGen
+I0228 03:33:18.644397 18625 llm_server.cc:1100] Rank 2:: Port[0] completed 22000 samples to LoadGen
+I0228 03:33:54.306669 18627 llm_server.cc:1205] Rank 2:: Port[0] completed 23000 first tokens to LoadGen
+I0228 03:34:38.551610 18625 llm_server.cc:1100] Rank 2:: Port[0] completed 23000 samples to LoadGen
+I0228 03:35:18.852165 18627 llm_server.cc:1205] Rank 2:: Port[0] completed 24000 first tokens to LoadGen
+I0228 03:35:58.586696 18625 llm_server.cc:1100] Rank 2:: Port[0] completed 24000 samples to LoadGen
+
+No warnings encountered during test.
+
+No errors encountered during test.
+I0228 03:36:49.364424 18603 main_llm.cc:548] Rank 2:: Finished running actual test.
+I0228 03:36:49.364463 18603 main_llm.cc:550] Rank 2:: Initiating termination sequence.
+I0228 03:36:49.364473 18603 main_llm.cc:552] Rank 2:: Termination sequence initiated, waiting for others...
+I0228 03:36:49.364585 18634 llm_server.cc:584] Rank 0:: llama2-70b-Server-SUT Rank0 unblocked from RECV to shut-down
+I0228 03:36:49.364583 18626 llm_server.cc:1139] Rank 2:: llama2-70b-Server-SUT-LoadGen Port[0] unblocked from first-token receive for shut-down
+I0228 03:36:49.364593 18624 llm_server.cc:1029] Rank 2:: llama2-70b-Server-SUT-LoadGen Port[0] unblocked from RECV for shut-down
+I0228 03:36:49.364624 18624 llm_server.cc:953] Rank 2:: llama2-70b-Server-SUT-LoadGen Stopping...
+I0228 03:36:50.364631 18603 main_llm.cc:557] Rank 2:: Sync'ed with others for shutting-off.
+I0228 03:36:50.364642 18602 main_llm.cc:611] Rank 1:: Test should finish now.
+I0228 03:36:50.364917 18601 main_llm.cc:611] Rank 0:: Test should finish now.
+I0228 03:36:50.377357 18603 main_llm.cc:618] Rank 2:: All done
+[TensorRT-LLM][INFO] Terminate signal received, worker thread exiting.
+[TensorRT-LLM][INFO] Terminate signal received, worker thread exiting.
+I0228 03:36:50.926703 18601 main_llm.cc:618] Rank 0:: All done
+I0228 03:36:50.941627 18602 main_llm.cc:618] Rank 1:: All done
+[2024-02-28 03:36:52,616 run_harness.py:165 INFO] Result: Accuracy run detected.
+[2024-02-28 03:36:52,616 __init__.py:46 INFO] Running command: PYTHONPATH=/work:/usr/lib/python38.zip:/usr/lib/python3.8:/usr/lib/python3.8/lib-dynload:/work/build/TRTLLM/3rdparty/cutlass/python:/usr/local/lib/python3.8/dist-packages:/usr/lib/python3/dist-packages:/usr/lib/python3.8/dist-packages python3 -S /work/build/inference/language/llama2-70b/evaluate-accuracy.py --checkpoint-path /mnt/resource_nvme/scratch/models/Llama2/Llama-2-70b-chat-hf --mlperf-accuracy-file /work/build/logs/2024.02.28-01.37.47/NC_H100_v5_TRT/llama2-70b-99/Server/mlperf_log_accuracy.json --dataset-file /mnt/resource_nvme/scratch/preprocessed_data/open_orca/open_orca_gpt4_tokenized_llama.sampled_24576.pkl --dtype int32
+normalizer.cc(51) LOG(INFO) precompiled_charsmap is empty. use identity normalization.
+[nltk_data] Downloading package punkt to /home/lisa/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+
+Results
+
+{'rouge1': 44.6043, 'rouge2': 22.1269, 'rougeL': 28.7703, 'rougeLsum': 42.1578, 'gen_len': 28388069, 'gen_num': 24576, 'gen_tok_len': 7174394, 'tokens_per_sample': 291.9}
+[2024-02-28 03:46:39,540 generate_conf_files.py:107 INFO] Generated measurements/ entries for NC_H100_v5_TRT/llama2-70b-99.9/Server
+[2024-02-28 03:46:39,540 __init__.py:46 INFO] Running command: mpirun -np 3 ./build/bin/harness_llm --logfile_outdir="/work/build/logs/2024.02.28-01.37.47/NC_H100_v5_TRT/llama2-70b-99.9/Server" --logfile_prefix="mlperf_log_" --performance_sample_count=24576 --test_mode="AccuracyOnly" --gpu_batch_size=1536 --tensor_path="build/preprocessed_data/open_orca/input_ids_padded.npy,build/preprocessed_data/open_orca/input_lens.npy" --use_graphs=false --gpu_inference_streams=1 --gpu_copy_streams=1 --tensor_parallelism=2 --pipeline_parallelism=1 --kvcache_free_gpu_mem_frac=0.9 --enable_sort=false --llm_gen_config_path="code/llama2-70b/tensorrt/generation_config.json" --use_token_latencies=true --gpu_engines="./build/engines/NC_H100_v5/llama2-70b/Server/bs1536-custom_k_99_9_MaxP-tp2-pp1/rank0.engine" --mlperf_conf_path="build/loadgen-configs/NC_H100_v5_TRT/llama2-70b-99.9/Server/mlperf.conf" --user_conf_path="build/loadgen-configs/NC_H100_v5_TRT/llama2-70b-99.9/Server/user.conf" --scenario Server --model llama2-70b
+[2024-02-28 03:46:39,540 __init__.py:53 INFO] Overriding Environment
+benchmark : Benchmark.LLAMA2
+buffer_manager_thread_count : 0
+coalesced_tensor : True
+data_dir : /mnt/resource_nvme/scratch/data
+enable_sort : False
+gpu_batch_size : 1536
+gpu_copy_streams : 1
+gpu_inference_streams : 1
+input_dtype : int32
+input_format : linear
+kvcache_free_gpu_mem_frac : 0.9
+llm_gen_config_path : code/llama2-70b/tensorrt/generation_config.json
+log_dir : /work/build/logs/2024.02.28-01.37.47
+pipeline_parallelism : 1
+precision : fp16
+preprocessed_data_dir : /mnt/resource_nvme/scratch/preprocessed_data
+scenario : Scenario.Server
+server_target_qps : 12
+system : SystemConfiguration(host_cpu_conf=CPUConfiguration(layout={CPU(name='AMD EPYC 9V84 96-Core Processor', architecture=<CPUArchitecture.x86_64: AliasedName(name='x86_64', aliases=(), patterns=())>, core_count=80, threads_per_core=1): 1}), host_mem_conf=MemoryConfiguration(host_memory_capacity=Memory(quantity=660.463936, byte_suffix=<ByteSuffix.GB: (1000, 3)>, _num_bytes=660463936000), comparison_tolerance=0.05), accelerator_conf=AcceleratorConfiguration(layout=defaultdict(<class 'int'>, {GPU(name='NVIDIA H100 NVL', accelerator_type=<AcceleratorType.Discrete: AliasedName(name='Discrete', aliases=(), patterns=())>, vram=Memory(quantity=93.583984375, byte_suffix=<ByteSuffix.GiB: (1024, 3)>, _num_bytes=100485038080), max_power_limit=400.0, pci_id='0x232110DE', compute_sm=90): 2})), numa_conf=NUMAConfiguration(numa_nodes={}, num_numa_nodes=2), system_id='NC_H100_v5')
+tensor_parallelism : 2
+tensor_path : build/preprocessed_data/open_orca/input_ids_padded.npy,build/preprocessed_data/open_orca/input_lens.npy
+test_mode : AccuracyOnly
+use_fp8 : True
+use_graphs : False
+use_token_latencies : True
+system_id : NC_H100_v5
+config_name : NC_H100_v5_llama2-70b_Server
+workload_setting : WorkloadSetting(HarnessType.Custom, AccuracyTarget.k_99_9, PowerSetting.MaxP)
+optimization_level : plugin-enabled
+num_profiles : 1
+config_ver : custom_k_99_9_MaxP
+accuracy_level : 99.9%
+inference_server : custom
+skip_file_checks : False
+power_limit : None
+cpu_freq : None
+&&&& RUNNING LLM_HARNESS # ./build/bin/harness_llm
+[I] Initializing TensorRT plugin library...
+[I] Initializing TRT-LLM plugin libraries...
+&&&& RUNNING LLM_HARNESS # ./build/bin/harness_llm
+[I] Initializing TensorRT plugin library...
+[I] Initializing TRT-LLM plugin libraries...
+&&&& RUNNING LLM_HARNESS # ./build/bin/harness_llm
+[I] Initializing TensorRT plugin library...
+[I] Initializing TRT-LLM plugin libraries...
+I0228 03:46:42.929723 18775 main_llm.cc:170] Loading LLM config from "./build/engines/NC_H100_v5/llama2-70b/Server/bs1536-custom_k_99_9_MaxP-tp2-pp1/config.json" and geneartion config from: code/llama2-70b/tensorrt/generation_config.json
+I0228 03:46:43.064711 18776 main_llm.cc:170] Loading LLM config from "./build/engines/NC_H100_v5/llama2-70b/Server/bs1536-custom_k_99_9_MaxP-tp2-pp1/config.json" and geneartion config from: code/llama2-70b/tensorrt/generation_config.json
+I0228 03:46:43.070955 18774 main_llm.cc:170] Loading LLM config from "./build/engines/NC_H100_v5/llama2-70b/Server/bs1536-custom_k_99_9_MaxP-tp2-pp1/config.json" and geneartion config from: code/llama2-70b/tensorrt/generation_config.json
+I0228 03:46:43.288359 18776 main_llm.cc:284] Rank: 2 has pid: 18776
+I0228 03:46:43.288391 18776 main_llm.cc:121] Found 2 GPUs
+I0228 03:46:43.288359 18774 main_llm.cc:281] LLMConfig Details:
+	mMaxSumSeqlen: 2048 mMaxInputSeqlen: 1024 mMaxOutputSeqlen: 1024 mEosId: 2
+	tp: 2 pp: 1 mWorldSize: 2
+	mMaxGpuBatchSize: 1536 mBeamWidth: 1
+	mTemperature: 1 mTopK: 1 mTopP: 0 mMinOutputSeqlen: 1 mIsStreaming: 1 mReportFirstToken: 1 mEnableSort: 0 mExcludeInputInOutput: 1
+	mMaxNumSequences: 0 mMaxTokensInPagedKvcache: 0 mKvCacheFreeGpuMemFraction: 0.9 mEnableTrtOverlap: 0
+	mBatchMode: 2 mSchedulerPolicy: 0
+I0228 03:46:43.288388 18774 main_llm.cc:284] Rank: 0 has pid: 18774
+I0228 03:46:43.288393 18774 main_llm.cc:121] Found 2 GPUs
+I0228 03:46:43.288430 18775 main_llm.cc:284] Rank: 1 has pid: 18775
+I0228 03:46:43.288458 18775 main_llm.cc:121] Found 2 GPUs
+I0228 03:46:43.288574 18774 main_llm.cc:506] Rank 0:: local session [rank/size | color | devId]: [0/2 | 0 | 0]
+I0228 03:46:43.288586 18774 main_llm.cc:585] Rank 0:: Started instantiating SUT[llama2-70b-Server-SUT Rank0]
+I0228 03:46:43.288573 18776 main_llm.cc:506] Rank 2:: local session [rank/size | color | devId]: [0/1 | 1 | -]
+I0228 03:46:43.288587 18776 main_llm.cc:529] Rank 2:: Started instantiating QSL[llama2-70b-Server-QSL-LoadGen]
+I0228 03:46:43.288576 18775 main_llm.cc:506] Rank 1:: local session [rank/size | color | devId]: [1/2 | 0 | 1]
+I0228 03:46:43.288587 18775 main_llm.cc:585] Rank 1:: Started instantiating SUT[llama2-70b-Server-SUT Rank1]
+I0228 03:46:43.288935 18774 llm_server.cc:406] LLMServer[llama2-70b-Server-SUT Rank0] creating LLMCore[0] on Device[0]...
+I0228 03:46:43.288944 18774 llm_core.cc:68] Rank 0:: LLMCore[0] at Device Id [0]
+[TensorRT-LLM][INFO] Engine version 0.9.0.dev2024020600 found in the config file, assuming engine(s) built by new builder API.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'lora_target_modules' not found
+[TensorRT-LLM][WARNING] Optional value for parameter lora_target_modules will not be set.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'num_medusa_heads' not found
+[TensorRT-LLM][WARNING] Optional value for parameter num_medusa_heads will not be set.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'max_draft_len' not found
+[TensorRT-LLM][WARNING] Optional value for parameter max_draft_len will not be set.
+[TensorRT-LLM][INFO] MPI size: 2, rank: 0
+[TensorRT-LLM][INFO] Using user-specified devices: (0, 1)
+[TensorRT-LLM][INFO] Rank 0 is using GPU 0
+I0228 03:46:43.337395 18776 main_llm.cc:532] Rank 2:: Finished instantiating QSL[llama2-70b-Server-QSL-LoadGen]
+I0228 03:46:43.337425 18776 main_llm.cc:534] Rank 2:: Started instantiating SUT[llama2-70b-Server-SUT-LoadGen]
+I0228 03:46:43.348191 18776 main_llm.cc:539] Rank 2:: Finished instantiating SUT[llama2-70b-Server-SUT-LoadGen]
+I0228 03:46:43.348203 18776 main_llm.cc:541] Rank 2:: Waiting for the end of init phase of other nodes...
+I0228 03:46:43.921144 18775 llm_server.cc:406] LLMServer[llama2-70b-Server-SUT Rank1] creating LLMCore[0] on Device[1]...
+I0228 03:46:43.921185 18775 llm_core.cc:68] Rank 1:: LLMCore[0] at Device Id [1]
+[TensorRT-LLM][INFO] Engine version 0.9.0.dev2024020600 found in the config file, assuming engine(s) built by new builder API.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'lora_target_modules' not found
+[TensorRT-LLM][WARNING] Optional value for parameter lora_target_modules will not be set.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'num_medusa_heads' not found
+[TensorRT-LLM][WARNING] Optional value for parameter num_medusa_heads will not be set.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'max_draft_len' not found
+[TensorRT-LLM][WARNING] Optional value for parameter max_draft_len will not be set.
+[TensorRT-LLM][INFO] MPI size: 2, rank: 1
+[TensorRT-LLM][INFO] Using user-specified devices: (0, 1)
+[TensorRT-LLM][INFO] Rank 1 is using GPU 1
+[TensorRT-LLM][INFO] TRTGptModel maxNumSequences: 1536
+[TensorRT-LLM][INFO] TRTGptModel maxBatchSize: 1536
+[TensorRT-LLM][INFO] TRTGptModel mMaxAttentionWindowSize: 2048
+[TensorRT-LLM][INFO] TRTGptModel enableTrtOverlap: 0
+[TensorRT-LLM][INFO] TRTGptModel normalizeLogProbs: 1
+[TensorRT-LLM][INFO] Loaded engine size: 33176 MiB
+[TensorRT-LLM][INFO] TRTGptModel maxNumSequences: 1536
+[TensorRT-LLM][INFO] TRTGptModel maxBatchSize: 1536
+[TensorRT-LLM][INFO] TRTGptModel mMaxAttentionWindowSize: 2048
+[TensorRT-LLM][INFO] TRTGptModel enableTrtOverlap: 0
+[TensorRT-LLM][INFO] TRTGptModel normalizeLogProbs: 1
+[TensorRT-LLM][INFO] Loaded engine size: 33176 MiB
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +6, GPU +66, now: CPU 33257, GPU 35337 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuDNN: CPU +2, GPU +72, now: CPU 33259, GPU 35409 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +6, GPU +66, now: CPU 33273, GPU 33750 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuDNN: CPU +2, GPU +72, now: CPU 33275, GPU 33822 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +33142, now: CPU 0, GPU 33142 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +33142, now: CPU 0, GPU 33142 (MiB)
+[TensorRT-LLM][INFO] [MS] Running engine with multi stream info
+[TensorRT-LLM][INFO] [MS] Number of aux streams is 1
+[TensorRT-LLM][INFO] [MS] Number of total worker streams is 2
+[TensorRT-LLM][INFO] [MS] The main stream provided by execute/enqueue calls is the first worker stream
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +64, now: CPU 33551, GPU 34914 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuDNN: CPU +0, GPU +64, now: CPU 33551, GPU 34978 (MiB)
+[TensorRT-LLM][INFO] [MS] Running engine with multi stream info
+[TensorRT-LLM][INFO] [MS] Number of aux streams is 1
+[TensorRT-LLM][INFO] [MS] Number of total worker streams is 2
+[TensorRT-LLM][INFO] [MS] The main stream provided by execute/enqueue calls is the first worker stream
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +64, now: CPU 33535, GPU 36501 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuDNN: CPU +0, GPU +64, now: CPU 33535, GPU 36565 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +0, now: CPU 0, GPU 33142 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +0, now: CPU 0, GPU 33142 (MiB)
+[TensorRT-LLM][INFO] Allocate 52617543680 bytes for k/v cache. 
+[TensorRT-LLM][INFO] Using 642304 total tokens in paged KV cache, and 16 blocks per sequence
+[TensorRT-LLM][INFO] Allocate 52617543680 bytes for k/v cache. 
+[TensorRT-LLM][INFO] Using 642304 total tokens in paged KV cache, and 16 blocks per sequence
+I0228 03:47:42.128815 18774 llm_core.cc:91] Rank 0:: LLMCore Setup complete for device 0
+I0228 03:47:42.128878 18774 llm_server.cc:411] LLMServer[llama2-70b-Server-SUT Rank0] created LLMCore[0] on Device[0].
+I0228 03:47:42.138175 18774 main_llm.cc:592] Rank 0:: Finished instantiating SUT[llama2-70b-Server-SUT Rank0]
+I0228 03:47:42.138187 18774 main_llm.cc:593] Rank 0:: Started Leader SUT
+I0228 03:47:42.651790 18775 llm_core.cc:91] Rank 1:: LLMCore Setup complete for device 1
+I0228 03:47:42.651855 18775 llm_server.cc:411] LLMServer[llama2-70b-Server-SUT Rank1] created LLMCore[0] on Device[1].
+I0228 03:47:42.651890 18775 main_llm.cc:599] Rank 1:: Finished instantiating SUT[llama2-70b-Server-SUT Rank1]
+I0228 03:47:42.651894 18775 main_llm.cc:600] Rank 1:: Started follower SUT
+I0228 03:47:42.652078 18775 main_llm.cc:606] Rank 1:: Test should start now.
+I0228 03:47:42.652108 18774 main_llm.cc:606] Rank 0:: Test should start now.
+I0228 03:47:42.652091 18776 main_llm.cc:544] Rank 2:: Init phase done on all the nodes.
+I0228 03:47:42.652151 18776 main_llm.cc:546] Rank 2:: Starting running actual test.
+I0228 03:49:05.232625 18800 llm_server.cc:1205] Rank 2:: Port[0] completed 1000 first tokens to LoadGen
+I0228 03:49:33.856732 18798 llm_server.cc:1100] Rank 2:: Port[0] completed 1000 samples to LoadGen
+I0228 03:50:33.645659 18800 llm_server.cc:1205] Rank 2:: Port[0] completed 2000 first tokens to LoadGen
+I0228 03:51:06.407706 18798 llm_server.cc:1100] Rank 2:: Port[0] completed 2000 samples to LoadGen
+I0228 03:52:00.902878 18800 llm_server.cc:1205] Rank 2:: Port[0] completed 3000 first tokens to LoadGen
+I0228 03:52:36.101549 18798 llm_server.cc:1100] Rank 2:: Port[0] completed 3000 samples to LoadGen
+I0228 03:53:22.250136 18800 llm_server.cc:1205] Rank 2:: Port[0] completed 4000 first tokens to LoadGen
+I0228 03:54:00.041169 18798 llm_server.cc:1100] Rank 2:: Port[0] completed 4000 samples to LoadGen
+I0228 03:54:47.945744 18800 llm_server.cc:1205] Rank 2:: Port[0] completed 5000 first tokens to LoadGen
+I0228 03:55:21.030122 18798 llm_server.cc:1100] Rank 2:: Port[0] completed 5000 samples to LoadGen
+I0228 03:56:15.067778 18800 llm_server.cc:1205] Rank 2:: Port[0] completed 6000 first tokens to LoadGen
+I0228 03:56:50.076509 18798 llm_server.cc:1100] Rank 2:: Port[0] completed 6000 samples to LoadGen
+I0228 03:57:38.697096 18800 llm_server.cc:1205] Rank 2:: Port[0] completed 7000 first tokens to LoadGen
+I0228 03:58:14.215911 18798 llm_server.cc:1100] Rank 2:: Port[0] completed 7000 samples to LoadGen
+I0228 03:59:02.196310 18800 llm_server.cc:1205] Rank 2:: Port[0] completed 8000 first tokens to LoadGen
+I0228 03:59:45.222057 18798 llm_server.cc:1100] Rank 2:: Port[0] completed 8000 samples to LoadGen
+I0228 04:00:20.823390 18800 llm_server.cc:1205] Rank 2:: Port[0] completed 9000 first tokens to LoadGen
+I0228 04:01:08.936044 18798 llm_server.cc:1100] Rank 2:: Port[0] completed 9000 samples to LoadGen
+I0228 04:01:45.363574 18800 llm_server.cc:1205] Rank 2:: Port[0] completed 10000 first tokens to LoadGen
+I0228 04:02:26.293874 18798 llm_server.cc:1100] Rank 2:: Port[0] completed 10000 samples to LoadGen
+I0228 04:03:08.841001 18800 llm_server.cc:1205] Rank 2:: Port[0] completed 11000 first tokens to LoadGen
+I0228 04:03:49.289772 18798 llm_server.cc:1100] Rank 2:: Port[0] completed 11000 samples to LoadGen
+I0228 04:04:31.141233 18800 llm_server.cc:1205] Rank 2:: Port[0] completed 12000 first tokens to LoadGen
+I0228 04:05:14.241314 18798 llm_server.cc:1100] Rank 2:: Port[0] completed 12000 samples to LoadGen
+I0228 04:05:55.820808 18800 llm_server.cc:1205] Rank 2:: Port[0] completed 13000 first tokens to LoadGen
+I0228 04:06:39.320729 18798 llm_server.cc:1100] Rank 2:: Port[0] completed 13000 samples to LoadGen
+I0228 04:07:18.023917 18800 llm_server.cc:1205] Rank 2:: Port[0] completed 14000 first tokens to LoadGen
+I0228 04:08:05.413148 18798 llm_server.cc:1100] Rank 2:: Port[0] completed 14000 samples to LoadGen
+I0228 04:08:38.926518 18800 llm_server.cc:1205] Rank 2:: Port[0] completed 15000 first tokens to LoadGen
+I0228 04:09:26.303170 18798 llm_server.cc:1100] Rank 2:: Port[0] completed 15000 samples to LoadGen
+I0228 04:10:07.165073 18800 llm_server.cc:1205] Rank 2:: Port[0] completed 16000 first tokens to LoadGen
+I0228 04:10:51.059221 18798 llm_server.cc:1100] Rank 2:: Port[0] completed 16000 samples to LoadGen
+I0228 04:11:30.573407 18800 llm_server.cc:1205] Rank 2:: Port[0] completed 17000 first tokens to LoadGen
+I0228 04:12:12.803115 18798 llm_server.cc:1100] Rank 2:: Port[0] completed 17000 samples to LoadGen
+I0228 04:12:49.792476 18800 llm_server.cc:1205] Rank 2:: Port[0] completed 18000 first tokens to LoadGen
+I0228 04:13:34.076375 18798 llm_server.cc:1100] Rank 2:: Port[0] completed 18000 samples to LoadGen
+I0228 04:14:16.343264 18800 llm_server.cc:1205] Rank 2:: Port[0] completed 19000 first tokens to LoadGen
+I0228 04:14:58.046566 18798 llm_server.cc:1100] Rank 2:: Port[0] completed 19000 samples to LoadGen
+I0228 04:15:35.750694 18800 llm_server.cc:1205] Rank 2:: Port[0] completed 20000 first tokens to LoadGen
+I0228 04:16:27.364279 18798 llm_server.cc:1100] Rank 2:: Port[0] completed 20000 samples to LoadGen
+I0228 04:16:59.803033 18800 llm_server.cc:1205] Rank 2:: Port[0] completed 21000 first tokens to LoadGen
+I0228 04:17:46.453681 18798 llm_server.cc:1100] Rank 2:: Port[0] completed 21000 samples to LoadGen
+I0228 04:18:21.294090 18800 llm_server.cc:1205] Rank 2:: Port[0] completed 22000 first tokens to LoadGen
+I0228 04:19:07.762909 18798 llm_server.cc:1100] Rank 2:: Port[0] completed 22000 samples to LoadGen
+I0228 04:19:43.046531 18800 llm_server.cc:1205] Rank 2:: Port[0] completed 23000 first tokens to LoadGen
+I0228 04:20:27.755216 18798 llm_server.cc:1100] Rank 2:: Port[0] completed 23000 samples to LoadGen
+I0228 04:21:07.626896 18800 llm_server.cc:1205] Rank 2:: Port[0] completed 24000 first tokens to LoadGen
+I0228 04:21:47.919536 18798 llm_server.cc:1100] Rank 2:: Port[0] completed 24000 samples to LoadGen
+
+No warnings encountered during test.
+
+No errors encountered during test.
+I0228 04:22:38.469221 18776 main_llm.cc:548] Rank 2:: Finished running actual test.
+I0228 04:22:38.469271 18776 main_llm.cc:550] Rank 2:: Initiating termination sequence.
+I0228 04:22:38.469282 18776 main_llm.cc:552] Rank 2:: Termination sequence initiated, waiting for others...
+I0228 04:22:38.469388 18799 llm_server.cc:1139] Rank 2:: llama2-70b-Server-SUT-LoadGen Port[0] unblocked from first-token receive for shut-down
+I0228 04:22:38.469396 18807 llm_server.cc:584] Rank 0:: llama2-70b-Server-SUT Rank0 unblocked from RECV to shut-down
+I0228 04:22:38.469398 18797 llm_server.cc:1029] Rank 2:: llama2-70b-Server-SUT-LoadGen Port[0] unblocked from RECV for shut-down
+I0228 04:22:38.469489 18797 llm_server.cc:953] Rank 2:: llama2-70b-Server-SUT-LoadGen Stopping...
+I0228 04:22:39.469445 18775 main_llm.cc:611] Rank 1:: Test should finish now.
+I0228 04:22:39.469441 18776 main_llm.cc:557] Rank 2:: Sync'ed with others for shutting-off.
+I0228 04:22:39.469724 18774 main_llm.cc:611] Rank 0:: Test should finish now.
+I0228 04:22:39.482347 18776 main_llm.cc:618] Rank 2:: All done
+[TensorRT-LLM][INFO] Terminate signal received, worker thread exiting.
+[TensorRT-LLM][INFO] Terminate signal received, worker thread exiting.
+I0228 04:22:40.027009 18774 main_llm.cc:618] Rank 0:: All done
+I0228 04:22:40.042644 18775 main_llm.cc:618] Rank 1:: All done
+[2024-02-28 04:22:41,725 run_harness.py:165 INFO] Result: Accuracy run detected.
+[2024-02-28 04:22:41,725 __init__.py:46 INFO] Running command: PYTHONPATH=/work:/usr/lib/python38.zip:/usr/lib/python3.8:/usr/lib/python3.8/lib-dynload:/work/build/TRTLLM/3rdparty/cutlass/python:/usr/local/lib/python3.8/dist-packages:/usr/lib/python3/dist-packages:/usr/lib/python3.8/dist-packages python3 -S /work/build/inference/language/llama2-70b/evaluate-accuracy.py --checkpoint-path /mnt/resource_nvme/scratch/models/Llama2/Llama-2-70b-chat-hf --mlperf-accuracy-file /work/build/logs/2024.02.28-01.37.47/NC_H100_v5_TRT/llama2-70b-99.9/Server/mlperf_log_accuracy.json --dataset-file /mnt/resource_nvme/scratch/preprocessed_data/open_orca/open_orca_gpt4_tokenized_llama.sampled_24576.pkl --dtype int32
+normalizer.cc(51) LOG(INFO) precompiled_charsmap is empty. use identity normalization.
+[nltk_data] Downloading package punkt to /home/lisa/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+
+Results
+
+{'rouge1': 44.6044, 'rouge2': 22.1269, 'rougeL': 28.7704, 'rougeLsum': 42.1579, 'gen_len': 28388004, 'gen_num': 24576, 'gen_tok_len': 7174353, 'tokens_per_sample': 291.9}
+ 
+======================== Result summaries: ========================
+
+ NC_H100_v5_TRT-custom_k_99_MaxP-Offline:
+   llama2-70b-99:
+     accuracy: [PASSED] ROUGE1: 44.601 (Threshold=43.987) | [PASSED] ROUGE2: 22.124 (Threshold=21.815) | [PASSED] ROUGEL: 28.769 (Threshold=28.330) | [PASSED] TOKENS_PER_SAMPLE: 292.000 (Threshold=265.005)
+ 
+ NC_H100_v5_TRT-custom_k_99_MaxP-Server:
+   llama2-70b-99:
+     accuracy: [PASSED] ROUGE1: 44.604 (Threshold=43.987) | [PASSED] ROUGE2: 22.127 (Threshold=21.815) | [PASSED] ROUGEL: 28.770 (Threshold=28.330) | [PASSED] TOKENS_PER_SAMPLE: 291.900 (Threshold=265.005)
+ 
+ NC_H100_v5_TRT-custom_k_99_9_MaxP-Offline:
+   llama2-70b-99.9:
+     accuracy: [PASSED] ROUGE1: 44.603 (Threshold=44.387) | [PASSED] ROUGE2: 22.126 (Threshold=22.013) | [PASSED] ROUGEL: 28.770 (Threshold=28.588) | [PASSED] TOKENS_PER_SAMPLE: 292.000 (Threshold=265.005)
+ 
+ NC_H100_v5_TRT-custom_k_99_9_MaxP-Server:
+   llama2-70b-99.9:
+     accuracy: [PASSED] ROUGE1: 44.604 (Threshold=44.387) | [PASSED] ROUGE2: 22.127 (Threshold=22.013) | [PASSED] ROUGEL: 28.770 (Threshold=28.588) | [PASSED] TOKENS_PER_SAMPLE: 291.900 (Threshold=265.005)
+ 

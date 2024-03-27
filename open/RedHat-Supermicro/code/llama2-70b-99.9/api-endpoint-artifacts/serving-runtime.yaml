@@ -1,0 +1,107 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: caikit-tgis-config
+data:
+  caikit.yml: |
+    runtime:
+      library: caikit_nlp
+      local_models_dir: /mnt/models/
+      lazy_load_local_models: true
+    model_management:
+      finders:
+        default:
+          type: MULTI
+          config:
+            finder_priority:
+              - tgis-auto
+        tgis-auto:
+          type: TGIS-AUTO
+          config:
+            test_connection: true
+      initializers:
+        default:
+          type: LOCAL
+          config:
+            backend_priority:
+              - type: TGIS
+                config:
+                  local:
+                    num_gpus: 8
+                    load_timeout: 2000
+                  connection:
+                    hostname: localhost:8033
+---
+apiVersion: serving.kserve.io/v1alpha1
+kind: ServingRuntime
+metadata:
+  name: caikit-runtime
+spec:
+  multiModel: false
+  supportedModelFormats:
+    # Note: this currently *only* supports caikit format models
+    - autoSelect: true
+      name: caikit
+  containers:
+    - name: kserve-container
+      image: quay.io/opendatahub/text-generation-inference:fast
+      command: ["text-generation-launcher"]
+      args: ["--model-name=/mnt/models/artifacts/"]
+      env:
+        - name: TRANSFORMERS_CACHE
+          value: /tmp/transformers_cache
+          #- name: RUNTIME_LOCAL_MODELS_DIR
+          #value: /mnt/models
+        - name: NUM_GPUS
+          value: "8"
+          #- name: TRANSFORMERS_CACHE
+          #  value: /shared_model_storage/transformers_cache
+          #- name: HUGGINGFACE_HUB_CACHE
+          #  value: /shared_model_storage/transformers_cache
+          #- name: DTYPE_STR
+          #  value: float16
+        # Dynamic batch size changes
+        - name: MAX_BATCH_SIZE
+          value: "128"
+        - name: MAX_CONCURRENT_REQUESTS
+          value: "200"
+        - name: MAX_BATCH_WEIGHT
+          value: "550000"
+        - name: MAX_SEQUENCE_LENGTH
+          value: "2048"
+        - name: MAX_PREFILL_WEIGHT
+          value: "0"
+        - name: MAX_NEW_TOKENS
+          value: "1024"
+        - name: FLASH_ATTENTION
+          value: "true"
+        - name: DEPLOYMENT_FRAMEWORK
+          value: hf_custom_tp
+      resources: # configure as required
+        requests:
+          cpu: 64
+          memory: 900Gi
+          nvidia.com/gpu: 8
+        limits:
+          nvidia.com/gpu: 8
+    - name: transformer-container
+      image: quay.io/opendatahub/caikit-tgis-serving:fast
+      env:
+        - name: RUNTIME_GRPC_SERVER_THREAD_POOL_SIZE
+          value: "200"
+      volumeMounts:
+        - name: config-volume
+          mountPath: /caikit/config/
+          readOnly: true
+      ports:
+        - containerPort: 8080
+          #name: h2c
+          protocol: TCP
+      resources: # configure as required
+        requests:
+          cpu: 2
+          memory: 4Gi
+  volumes:
+    - name: config-volume
+      configMap:
+        name: caikit-tgis-config

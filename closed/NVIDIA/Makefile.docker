@@ -1,0 +1,334 @@
+# Copyright (c) 2024, NVIDIA CORPORATION.  All rights reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#	 http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# This Makefile includes all the variables and targets used to set up NVIDIA's MLPerf Inference docker environment
+
+
+include $(CURDIR)/Makefile.const
+
+
+USE_LEGACY ?= 0
+USE_NIGHTLY ?= 0
+USE_NGC ?= 1
+PARTNER_DROP ?= 0
+PARTNER_RELEASE := 2
+
+# Docker is supported for all non-xavier x86/aarch64 system.
+SUPPORT_DOCKER := 0
+ifeq ($(ARCH), $(filter $(ARCH), x86_64 aarch64))
+ifneq ($(IS_SOC), 1)
+    SUPPORT_DOCKER = 1
+else
+    ifeq ($(SOC_SM), 87)
+        # Docker is supported for Orin.
+        SUPPORT_DOCKER = 1
+    endif
+endif
+endif
+
+# Conditional Docker flags
+ifndef DOCKER_DETACH
+    DOCKER_DETACH := 0
+endif
+ifndef DOCKER_TAG
+    DOCKER_TAG := $(UNAME)-$(ARCH)
+endif
+
+DOCKER_BUILDKIT ?= 1
+HOST_VOL ?= ${PWD}
+CONTAINER_VOL ?= /work
+NO_DOCKER_PULL ?= 0
+NO_BUILD ?= 0
+
+# The below paths are for internal use only.
+# If any extra mounting path is needed, please use DOCKER_ARGS environment variables
+ifneq ($(wildcard /home/scratch.mlperf_inference),)
+    DOCKER_MOUNTS += -v /home/scratch.mlperf_inference:/home/scratch.mlperf_inference
+endif
+ifneq ($(wildcard /home/mlperf_inf_dlrmv2),)
+    DOCKER_MOUNTS += -v /home/mlperf_inf_dlrmv2:/home/mlperf_inf_dlrmv2
+endif
+ifneq ($(wildcard /home/scratch.svc_compute_arch),)
+    DOCKER_MOUNTS += -v /home/scratch.svc_compute_arch:/home/scratch.svc_compute_arch
+endif
+ifneq ($(wildcard /home/scratch.computelab/sudo),)
+    DOCKER_MOUNTS += -v /home/scratch.computelab/sudo:/home/scratch.computelab/sudo
+endif
+ifneq ($(wildcard /home/scratch.dlsim),)
+    DOCKER_MOUNTS += -v /home/scratch.dlsim:/home/scratch.dlsim
+endif
+ifneq ($(wildcard /raid/data),)
+    DOCKER_MOUNTS += -v /raid/data:/raid/data
+endif
+ifneq ($(wildcard $(PROJECT_ROOT)/../../regression),)
+    DOCKER_MOUNTS += -v $(shell realpath $(PROJECT_ROOT)/../../regression):/regression
+endif
+ifdef MLPERF_SCRATCH_PATH
+    ifneq ($(wildcard $(MLPERF_SCRATCH_PATH)),)
+        DOCKER_MOUNTS += -v $(MLPERF_SCRATCH_PATH):$(MLPERF_SCRATCH_PATH)
+    else
+        $(error Path set in MLPERF_SCRATCH_PATH does not exist!)
+    endif
+endif
+
+# Handle different nvidia-docker version. Do not use nvidia-docker when running with CPUs
+ifneq ($(wildcard /usr/bin/nvidia-docker),)
+    DOCKER_RUN_CMD := nvidia-docker run
+    # Set Environment variables to fix docker client and server version mismatch
+    # Related issue: https://github.com/kubernetes-sigs/kubespray/issues/6160
+    export DOCKER_API_VERSION=1.40
+else
+    DOCKER_RUN_CMD := docker run --gpus=all --runtime=nvidia
+endif
+
+# If specific DOCKER_COMMAND is not passed, launch interactive docker container session.
+ifeq ($(DOCKER_COMMAND),)
+    DOCKER_INTERACTIVE_FLAGS = -it
+else
+    DOCKER_INTERACTIVE_FLAGS =
+endif
+
+# Determine docker base image
+ifeq ($(IS_SOC), 1)
+    DOCKER_IMAGE_NAME := base-$(VERSION)-cuda$(CUDA_VER)-$(ARCH)-orin
+    DOCKER_IMAGE_NGC_INTERNAL_NAME := ngc-internal-$(VERSION)-cuda$(CUDA_VER)-$(ARCH)-orin
+    DOCKER_IMAGE_NGC_PUBLIC_NAME := mlpinf-$(VERSION)-cuda$(CUDA_VER)-cudnn8.6-$(ARCH)-orin-public
+    DOCKER_IMAGE_NGC_PARTNER_NAME := mlpinf-$(VERSION).$(PARTNER_RELEASE)-cuda$(CUDA_VER)-cudnn8.6-$(ARCH)-orin-partner
+else
+    DOCKER_IMAGE_NAME := base-$(VERSION)-cuda$(CUDA_VER)-$(ARCH)-ubuntu$(UBUNTU_VERSION)
+    DOCKER_IMAGE_NGC_INTERNAL_NAME := ngc-internal-$(VERSION)-cuda$(CUDA_VER)-$(ARCH)-ubuntu$(UBUNTU_VERSION)
+    DOCKER_IMAGE_NGC_PUBLIC_NAME := mlpinf-$(VERSION)-cuda$(CUDA_VER)-cudnn8.9-$(ARCH)-ubuntu$(UBUNTU_VERSION)-public
+    DOCKER_IMAGE_NGC_PARTNER_NAME := mlpinf-$(VERSION).$(PARTNER_RELEASE)-cuda$(CUDA_VER)-cudnn8.9-$(ARCH)-ubuntu$(UBUNTU_VERSION)-partner
+endif
+ifeq ($(USE_NGC), 1)
+    ifeq ($(EXTERNAL_USER), 0)
+        # NGC internal
+        BASE_IMAGE ?= gitlab-master.nvidia.com/mlpinf/mlperf-inference:$(DOCKER_IMAGE_NGC_INTERNAL_NAME)
+    else
+        # NGC partner
+        ifeq ($(PARTNER_DROP), 1)
+            BASE_IMAGE ?= nvcr.io/yrleydyexu3y/mlpinf-partner-$(subst .,,$(VERSION))/mlperf-inference-partner-$(subst .,,$(VERSION)):$(DOCKER_IMAGE_NGC_PARTNER_NAME)
+        # NGC pulic
+        else
+            BASE_IMAGE ?= nvcr.io/nvidia/mlperf/mlperf-inference:$(DOCKER_IMAGE_NGC_PUBLIC_NAME)
+        endif
+    endif
+else
+    # Check if we are on intranet
+    ifeq ($(EXTERNAL_USER), 0)
+        BASE_IMAGE ?= gitlab-master.nvidia.com/mlpinf/mlperf-inference:$(DOCKER_IMAGE_NAME)
+    else
+        ifeq ($(SOC_SM), 87) # orin SM check
+            BASE_IMAGE ?= nvcr.io/nvidia/l4t-base:35.3.1
+        else
+            ifeq ($(CUDA_VER), 12.2)
+                ifeq ($(TARGET_X86_64), 1)
+                    BASE_IMAGE ?= nvidia/cuda:12.2.0-devel-ubuntu$(UBUNTU_VERSION)@sha256:cd59e2522b130d72772cc7db4d63f3eedbc981138f825694655bb66e4c7dd2e3
+                else ifeq ($(TARGET_AARCH64), 1)
+                    BASE_IMAGE ?= nvidia/cuda:12.2.0-devel-ubuntu$(UBUNTU_VERSION)@sha256:6950bd04caba9bf0fa75f8242ece9d34550685bfaa4b42d9ac341acbac7d6608
+                else
+                    $(error MLPerf Inference only supports x86 and aarch64 system now.)
+                endif
+            else
+                $(error MLPerf Inference $(VERSION) code requires cuda version 12.2 on Non-SOC systems)
+            endif
+        endif
+    endif
+endif
+
+# Determine docker legacy base image
+# legacy container should always be built from NGC images
+ifeq ($(IS_SOC), 1)
+    DOCKER_IMAGE_NGC_INTERNAL_NAME_LEGACY := ngc-internal-$(VERSION_LEGACY)-cuda$(CUDA_VER_LEGACY)-$(ARCH)-orin-legacy
+    DOCKER_IMAGE_NGC_PUBLIC_NAME_LEGACY := mlpinf-$(VERSION_LEGACY)-cuda$(CUDA_VER_LEGACY)-cudnn8.6-$(ARCH)-orin-legacy-public
+    DOCKER_IMAGE_NGC_PARTNER_NAME_LEGACY := mlpinf-$(VERSION_LEGACY).0-cuda$(CUDA_VER_LEGACY)-cudnn8.6-$(ARCH)-orin-legacy-partner
+    ifneq ($(SOC_SM), 87) # orin check
+        $(error MLPerf Inference SOC only supports Orin system now.)
+    endif
+else
+    UBUNTU_VERSION_LEGACY := $(UBUNTU_VERSION)
+    DOCKER_IMAGE_NGC_INTERNAL_NAME_LEGACY := ngc-internal-$(VERSION_LEGACY)-cuda$(CUDA_VER_LEGACY)-$(ARCH)-ubuntu$(UBUNTU_VERSION_LEGACY)-legacy
+    DOCKER_IMAGE_NGC_PUBLIC_NAME_LEGACY := mlpinf-$(VERSION_LEGACY)-cuda$(CUDA_VER_LEGACY)-cudnn8.9-$(ARCH)-ubuntu$(UBUNTU_VERSION_LEGACY)-legacy-public
+    DOCKER_IMAGE_NGC_PARTNER_NAME_LEGACY := mlpinf-$(VERSION_LEGACY).0-cuda$(CUDA_VER_LEGACY)-cudnn8.9-$(ARCH)-ubuntu$(UBUNTU_VERSION_LEGACY)-legacy-partner
+endif
+ifeq ($(EXTERNAL_USER), 0)
+    # NGC legacy internal
+    BASE_IMAGE_LEGACY ?= gitlab-master.nvidia.com/mlpinf/mlperf-inference:$(DOCKER_IMAGE_NGC_INTERNAL_NAME_LEGACY)
+else
+    # NGC legacy partner
+    ifeq ($(PARTNER_DROP), 1)
+        BASE_IMAGE_LEGACY ?= nvcr.io/yrleydyexu3y/mlpinf-partner-$(subst .,,$(VERSION))/mlperf-inference-partner-$(subst .,,$(VERSION)):$(DOCKER_IMAGE_NGC_PARTNER_NAME_LEGACY)
+    # NGC legacy pulic
+    else
+        BASE_IMAGE_LEGACY ?= nvcr.io/nvidia/mlperf/mlperf-inference:$(DOCKER_IMAGE_NGC_PUBLIC_NAME_LEGACY)
+    endif
+endif
+
+# Dockerfile
+DOCKER_PATH := docker
+DOCKER_PATH_LEGACY := docker/legacy
+ifeq ($(IS_SOC), 1)
+    ifeq ($(SOC_SM), 87)
+        DOCKER_FILENAME = Dockerfile.orin
+    endif
+else
+    DOCKER_FILENAME := Dockerfile.$(ARCH)
+endif
+
+# Legacy switch
+ifeq ($(USE_LEGACY), 1)
+    USE_NGC := 1
+    BASE_IMAGE := $(BASE_IMAGE_LEGACY)
+    DOCKER_PATH := $(DOCKER_PATH_LEGACY)
+    DOCKER_TAG := $(DOCKER_TAG)-legacy
+    CUDA_VER := $(CUDA_VER_LEGACY)
+    MITTEN_VER := $(MITTEN_VER_LEGACY)
+endif
+
+# Docker container host name
+RANDOM := $(shell bash -c 'echo $$RANDOM')
+DOCKER_NAME := mlperf-inference-$(DOCKER_TAG)-$(RANDOM)
+
+# Check if the user is currently under NVIDIA intranet. External users should see 1.
+.PHONY: check_intranet
+check_intranet:
+	@echo "EXTERNAL_USER = $(EXTERNAL_USER)"
+
+# Small helper to check if nvidia-docker is installed correctly.
+.PHONY: docker_sanity
+docker_sanity:
+	docker pull nvcr.io/nvidia/cuda:11.0.3-runtime-ubuntu18.04
+	$(DOCKER_RUN_CMD) --rm \
+		-e NVIDIA_VISIBLE_DEVICES=${NVIDIA_VISIBLE_DEVICES} \
+		nvcr.io/nvidia/cuda:11.0.3-runtime-ubuntu18.04 nvidia-smi
+	@echo "Nvidia-docker is installed correctly!"
+
+# Download pre release wheels before Mitten custom build are publicly available
+.PHONY: pull_prerelease_components
+pull_prerelease_components:
+ifeq ($(EXTERNAL_USER), 0)
+	@cp --no-preserve=mode,ownership $(MLPERF_SCRATCH_PATH)/dependencies/python_wheels/mitten-dev-mlpinf-2095/nvmitten-$(MITTEN_VER)-$(PYTHON_VER)-$(PYTHON_VER)-linux_$(ARCH).whl $(DOCKER_PATH)/
+	@cp --no-preserve=mode,ownership $(MLPERF_SCRATCH_PATH)/dependencies/mitten $(DOCKER_PATH)/ -r
+ifeq ($(IS_SOC), 0)
+    # Datacenter fp8
+	@cp --no-preserve=mode,ownership $(MLPERF_SCRATCH_PATH)/models/bert/faster-transformer-bert-fp8-weights-scales.tar.gz $(DOCKER_PATH)/
+endif
+endif
+
+# Build the docker image and launch an interactive container.
+# For CPU builds, first build the backend libraries and copy them into the working directory
+.PHONY: prebuild
+prebuild:
+ifeq ($(USE_NGC), 0)
+	@$(MAKE) -f Makefile.docker pull_prerelease_components
+endif
+ifeq ($(BUILD_TRITON), 1)
+	@$(MAKE) -f Makefile.build build_triton_backends
+endif
+	@$(MAKE) -f Makefile.docker build_docker NO_BUILD?=1
+ifneq ($(strip ${DOCKER_DETACH}), 1)
+	@$(MAKE) -f Makefile.docker attach_docker || true
+endif
+
+
+.PHONY: prebuild_legacy
+prebuild_legacy:
+	@$(MAKE) -f Makefile.docker prebuild USE_LEGACY=1
+
+
+# Build the docker image for x86 and aarch64 non-xavier systems.
+.PHONY: build_docker
+build_docker:
+ifeq ($(SUPPORT_DOCKER), 1)
+	@echo "Building Docker image"
+	@echo "USE_LEGACY: $(USE_LEGACY)"
+	@echo "USE_NGC: $(USE_NGC)"
+ifeq ($(PARTNER_DROP), 1)
+	@echo "PARTNER_DROP: $(VERSION).$(PARTNER_RELEASE)"
+endif
+	@echo "BASE_IMAGE: $(BASE_IMAGE)"
+	@echo "DOCKER_FILENAME: $(DOCKER_PATH)/$(DOCKER_FILENAME)"
+ifeq ($(NO_DOCKER_PULL), 0)
+	docker pull $(BASE_IMAGE)
+endif
+	DOCKER_BUILDKIT=$(DOCKER_BUILDKIT) docker build -t mlperf-inference:$(DOCKER_TAG)-latest \
+		--build-arg BASE_IMAGE=$(BASE_IMAGE) \
+		--build-arg CUDA_VER=$(CUDA_VER) \
+		--build-arg DRIVER_VER_MAJOR=$(DRIVER_VER_MAJOR) \
+		--build-arg USE_NIGHTLY=$(USE_NIGHTLY) \
+		--build-arg USE_NGC=$(USE_NGC) \
+		--build-arg EXTERNAL_USER=$(EXTERNAL_USER) \
+		--build-arg MITTEN_VER=$(MITTEN_VER) \
+		--network host \
+		-f $(DOCKER_PATH)/$(DOCKER_FILENAME) $(DOCKER_PATH)
+ifeq ($(NO_BUILD), 0)
+	DOCKER_BUILDKIT=$(DOCKER_BUILDKIT) docker build -t mlperf-inference:$(DOCKER_TAG)-latest --no-cache --network host \
+		--build-arg BASE_IMAGE=mlperf-inference:$(DOCKER_TAG)-latest \
+		-f $(DOCKER_PATH)/Dockerfile.build .
+endif # NO_BUILD
+endif # OS/xavier check
+
+
+# Add current user into docker image.
+.PHONY: docker_add_user
+docker_add_user:
+ifeq ($(SUPPORT_DOCKER), 1)
+	@echo "Adding user account into image"
+	DOCKER_BUILDKIT=$(DOCKER_BUILDKIT) docker build -t mlperf-inference:$(DOCKER_TAG) --network host \
+		--build-arg BASE_IMAGE=mlperf-inference:$(DOCKER_TAG)-latest \
+		--build-arg GID=$(GROUPID) --build-arg UID=$(UID) --build-arg GROUP=$(GROUPNAME) --build-arg USER=$(UNAME) \
+		- < docker/Dockerfile.user
+endif
+
+
+# Add user and launch an interactive container session.
+.PHONY: attach_docker
+attach_docker:
+	@$(MAKE) -f Makefile.docker docker_add_user
+	@$(MAKE) -f Makefile.docker launch_docker
+
+# Add user and launch an interactive legacy container session.
+.PHONY: attach_docker_legacy
+attach_docker_legacy:
+	@$(MAKE) -f Makefile.docker attach_docker USE_LEGACY=1
+
+
+# Launch a container session.
+.PHONY: launch_docker
+launch_docker:
+ifeq ($(SUPPORT_DOCKER), 1)
+	$(DOCKER_RUN_CMD) --rm $(DOCKER_INTERACTIVE_FLAGS) -w /work \
+		-v $(realpath $(HOST_VOL)):$(CONTAINER_VOL) -v $(realpath ${HOME}):/mnt/${HOME} \
+		--cap-add SYS_ADMIN --cap-add SYS_TIME \
+		-e NVIDIA_VISIBLE_DEVICES=${NVIDIA_VISIBLE_DEVICES} \
+		-e HISTFILE=/mnt/${HOME}/.mlperf_bash_history \
+		--shm-size=32gb \
+		--ulimit memlock=-1 \
+		-v /etc/timezone:/etc/timezone:ro -v /etc/localtime:/etc/localtime:ro \
+		--security-opt apparmor=unconfined --security-opt seccomp=unconfined \
+		--name $(DOCKER_NAME) -h $(subst _,-,$(shell echo $(DOCKER_NAME) | cut -c -64)) --add-host $(DOCKER_NAME):127.0.0.1 \
+		--cpuset-cpus $(shell taskset -c -p $$$$ | awk '{print $$NF}') \
+		--user $(UID) --net host --device /dev/fuse \
+		$(DOCKER_MOUNTS) $(DOCKER_ARGS) \
+		-e MLPERF_SCRATCH_PATH=$(MLPERF_SCRATCH_PATH) \
+		-e HOST_HOSTNAME=$(HOSTNAME) \
+		$(shell if [ $(MIG_CONF) == "ALL" ]; then echo "--gpus all -e NVIDIA_MIG_CONFIG_DEVICES=all"; elif [ $(MIG_CONF) != "OFF" ]; then echo "--gpus '\"device=`bash scripts/mig_get_uuid.sh`\"'"; fi) \
+		mlperf-inference:$(DOCKER_TAG) $(DOCKER_COMMAND)
+endif
+
+
+# Launch a legacy container session.
+.PHONY: launch_docker_legacy
+launch_docker_legacy:
+	@$(MAKE) -f Makefile.docker launch_docker USE_LEGACY=1

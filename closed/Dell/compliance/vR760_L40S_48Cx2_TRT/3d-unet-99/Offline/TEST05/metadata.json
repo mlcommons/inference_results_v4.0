@@ -1,0 +1,19 @@
+{
+    "audit_success": true,
+    "audit_test": "TEST05",
+    "benchmark_full": "3d-unet-99",
+    "benchmark_short": "3d-unet",
+    "config_name": "vR760_L40S_48Cx2_TRT-custom_k_99_MaxP-Offline",
+    "detected_system": "SystemConfiguration(host_cpu_conf=CPUConfiguration(layout={CPU(name=\"INTEL(R) XEON(R) PLATINUM 8580\", architecture=CPUArchitecture.x86_64, core_count=1, threads_per_core=1): 32}), host_mem_conf=MemoryConfiguration(host_memory_capacity=Memory(quantity=131.897388, byte_suffix=ByteSuffix.GB), comparison_tolerance=0.05), accelerator_conf=AcceleratorConfiguration(layout={GPU(name=\"NVIDIA L40S-48C\", accelerator_type=AcceleratorType.Discrete, vram=Memory(quantity=48.0, byte_suffix=ByteSuffix.GiB), max_power_limit=None, pci_id=\"0x26B910DE\", compute_sm=89): 2}), numa_conf=NUMAConfiguration(numa_nodes={}, num_numa_nodes=1), system_id=\"vR760_L40S_48Cx2\")",
+    "early_stopping_met": true,
+    "effective_samples_per_query": 5280,
+    "result_samples_per_second": 7.6636,
+    "result_validity": "VALID",
+    "satisfies_query_constraint": false,
+    "scenario": "Offline",
+    "scenario_key": "result_samples_per_second",
+    "summary_string": "result_samples_per_second: 7.6636, Result is VALID",
+    "system_name": "vR760_L40S_48Cx2_TRT",
+    "tensorrt_version": "9.3.0.post12.dev1",
+    "test_mode": "PerformanceOnly"
+}

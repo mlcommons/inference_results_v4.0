@@ -1,0 +1,148 @@
+{
+  "app-mlperf-inference,d775cac873ee4231:qualcomm,retinanet,glow,qaic,valid,r4.0_default,singlestream": [
+    {
+      "get,python,python3,get-python,get-python3": {
+        "script_uid": "d0b5dd74373f4a62",
+        "script_alias": "get-python3",
+        "version": "3.8.16",
+        "parent": "app-mlperf-inference,d775cac873ee4231:qualcomm,retinanet,glow,qaic,valid,r4.0_default,singlestream"
+      }
+    },
+    {
+      "get,src,source,inference,inference-src,inference-source,mlperf,mlcommons": {
+        "script_uid": "4b57186581024797",
+        "script_alias": "get-mlperf-inference-src",
+        "version": "master",
+        "parent": "app-mlperf-inference,d775cac873ee4231:qualcomm,retinanet,glow,qaic,valid,r4.0_default,singlestream"
+      }
+    },
+    {
+      "get,src,source,inference,inference-src,inference-source,mlperf,mlcommons": {
+        "script_uid": "4b57186581024797",
+        "script_alias": "get-mlperf-inference-src",
+        "version": "master",
+        "parent": "get-mlperf-inference-utils,e341e5f86d8342e5:"
+      }
+    },
+    {
+      "get,src,source,inference,inference-src,inference-source,mlperf,mlcommons": {
+        "script_uid": "4b57186581024797",
+        "script_alias": "get-mlperf-inference-src",
+        "version": "master",
+        "parent": "reproduce-mlperf-inference-qualcomm,eef1aca5d7c0470e:dl2q.24xlarge,singlestream,uint8,qaic,glow,retinanet"
+      }
+    },
+    {
+      "get,loadgen,inference,inference-loadgen,mlperf,mlcommons": {
+        "script_uid": "64c3d98d0ba04950",
+        "script_alias": "get-mlperf-inference-loadgen",
+        "version": "master",
+        "parent": "reproduce-mlperf-inference-qualcomm,eef1aca5d7c0470e:dl2q.24xlarge,singlestream,uint8,qaic,glow,retinanet"
+      }
+    },
+    {
+      "get,python,python3,get-python,get-python3": {
+        "script_uid": "d0b5dd74373f4a62",
+        "script_alias": "get-python3",
+        "version": "3.8.16",
+        "parent": "generate-mlperf-inference-user-conf,3af4475745964b93:"
+      }
+    },
+    {
+      "get,src,source,inference,inference-src,inference-source,mlperf,mlcommons": {
+        "script_uid": "4b57186581024797",
+        "script_alias": "get-mlperf-inference-src",
+        "version": "master",
+        "parent": "generate-mlperf-inference-user-conf,3af4475745964b93:"
+      }
+    },
+    {
+      "get,install,generic,generic-python-lib,mlperf_logging": {
+        "script_uid": "94b62a682bc44791",
+        "script_alias": "get-generic-python-lib",
+        "version": "3.0.0",
+        "parent": "reproduce-mlperf-inference-qualcomm,eef1aca5d7c0470e:dl2q.24xlarge,singlestream,uint8,qaic,glow,retinanet"
+      }
+    },
+    {
+      "get,detect,qaic,apps,sdk,apps-sdk,qaic-apps-sdk": {
+        "script_uid": "0a9e206af6764da9",
+        "script_alias": "get-qaic-apps-sdk",
+        "version": "1.10.0.193",
+        "parent": "compile-model-for.qaic,3f0f43b5d0304d1c:retinanet,singlestream,nsp.14,bs.1"
+      }
+    },
+    {
+      "get,detect,qaic,platform,sdk,platform-sdk,qaic-platform-sdk": {
+        "script_uid": "a60f86918dc9457d",
+        "script_alias": "get-qaic-platform-sdk",
+        "version": "1.10.0.200",
+        "parent": "reproduce-mlperf-inference-qualcomm,eef1aca5d7c0470e:dl2q.24xlarge,singlestream,uint8,qaic,glow,retinanet"
+      }
+    },
+    {
+      "get,google-protobuf,protobuf,lib,lib-protobuf,google,tag.v3.11.4": {
+        "script_uid": "db45f1eb73934f91",
+        "script_alias": "get-lib-protobuf",
+        "version": "1.13.0",
+        "parent": "reproduce-mlperf-inference-qualcomm,eef1aca5d7c0470e:dl2q.24xlarge,singlestream,uint8,qaic,glow,retinanet"
+      }
+    },
+    {
+      "get,install,generic,generic-python-lib,Pillow": {
+        "script_uid": "94b62a682bc44791",
+        "script_alias": "get-generic-python-lib",
+        "version": "10.2.0",
+        "parent": "reproduce-mlperf-inference-qualcomm,eef1aca5d7c0470e:dl2q.24xlarge,singlestream,uint8,qaic,glow,retinanet"
+      }
+    },
+    {
+      "get,install,generic,generic-python-lib,torch": {
+        "script_uid": "94b62a682bc44791",
+        "script_alias": "get-generic-python-lib",
+        "version": "1.8.1",
+        "parent": "reproduce-mlperf-inference-qualcomm,eef1aca5d7c0470e:dl2q.24xlarge,singlestream,uint8,qaic,glow,retinanet"
+      }
+    },
+    {
+      "get,install,generic,generic-python-lib,torchvision": {
+        "script_uid": "94b62a682bc44791",
+        "script_alias": "get-generic-python-lib",
+        "version": "0.17.1",
+        "parent": "reproduce-mlperf-inference-qualcomm,eef1aca5d7c0470e:dl2q.24xlarge,singlestream,uint8,qaic,glow,retinanet"
+      }
+    },
+    {
+      "get,install,generic,generic-python-lib,opencv-python": {
+        "script_uid": "94b62a682bc44791",
+        "script_alias": "get-generic-python-lib",
+        "version": "4.9.0.80",
+        "parent": "reproduce-mlperf-inference-qualcomm,eef1aca5d7c0470e:dl2q.24xlarge,singlestream,uint8,qaic,glow,retinanet"
+      }
+    },
+    {
+      "get,install,generic,generic-python-lib,numpy": {
+        "script_uid": "94b62a682bc44791",
+        "script_alias": "get-generic-python-lib",
+        "version": "1.23.0",
+        "parent": "reproduce-mlperf-inference-qualcomm,eef1aca5d7c0470e:dl2q.24xlarge,singlestream,uint8,qaic,glow,retinanet"
+      }
+    },
+    {
+      "get,install,generic,generic-python-lib,pycocotools": {
+        "script_uid": "94b62a682bc44791",
+        "script_alias": "get-generic-python-lib",
+        "version": "2.0.7",
+        "parent": "reproduce-mlperf-inference-qualcomm,eef1aca5d7c0470e:dl2q.24xlarge,singlestream,uint8,qaic,glow,retinanet"
+      }
+    },
+    {
+      "get,gcc,compiler,c-compiler,cpp-compiler,get-gcc": {
+        "script_uid": "dbf4ab5cbed74372",
+        "script_alias": "get-gcc",
+        "version": "7.3.1",
+        "parent": "compile-program,c05042ba005a4bfa:"
+      }
+    }
+  ]
+}

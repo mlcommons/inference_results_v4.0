@@ -1,0 +1,55 @@
+client 2024-02-18 16:02:16,843 [INFO] Creating output directory '/local/mnt/workspace/mmirkina/work_collection/generated_by_power_measurement_on_run_9e830e40d4454b1f91b9455d3788f98e/power_logs'
+client 2024-02-18 16:02:16,844 [INFO] Sending command to the server: 'mlcommons/power client v3'
+client 2024-02-18 16:02:16,846 [INFO] Got response: 'mlcommons/power server v3'
+client 2024-02-18 16:02:16,846 [INFO] Synchronizing with the server and with time.google.com...
+client 2024-02-18 16:02:16,988 [INFO] NTP:offset = -0.001 s, delay = 0.073 s 
+client 2024-02-18 16:02:16,988 [INFO] Sending command to the server: 'time'
+client 2024-02-18 16:02:16,990 [INFO] Got response: '1708293736.9884756'
+client 2024-02-18 16:02:16,990 [INFO] The time difference between the client and the server is within range 0.269 ms..1.763 ms
+client 2024-02-18 16:02:16,990 [INFO] Sending command to the server: 'new,,b1b7bf28-268a-4cf2-a634-a87c8f306557'
+client 2024-02-18 16:02:16,992 [INFO] Got response: 'OK 2024-02-18_16-02-16,13e62009-d1f5-468b-bd16-47ab30b972a8'
+client 2024-02-18 16:02:16,992 [INFO] Session id is '2024-02-18_16-02-16'
+client 2024-02-18 16:02:16,992 [INFO] Sources: {"sources": {"__init__.py": "da39a3ee5e6b4b0d3255bfef95601890afd80709", "client.py": "33ca4f26368777ac06e01f9567b714a4b8063886", "lib/__init__.py": "da39a3ee5e6b4b0d3255bfef95601890afd80709", "lib/client.py": "ac2aa093c8e8bbc9569b9e2a3471bc64e58a2258", "lib/common.py": "611d8b29633d331eb19c9455ea3b5fa3284ed6df", "lib/external/__init__.py": "da39a3ee5e6b4b0d3255bfef95601890afd80709", "lib/external/ntplib.py": "4da8f970656505a40483206ef2b5d3dd5e81711d", "lib/server.py": "99303c836c683aa9017ec565104e636161d02acb", "lib/source_hashes.py": "60a2e02193209e8d392803326208d5466342da18", "lib/summary.py": "aa92f0a3f975eecd44d3c0cd0236342ccc9f941d", "lib/time_sync.py": "80894ef2389e540781ff78de94db16aa4203a14e", "server.py": "c3f90f2f7eeb4db30727556d0c815ebc89b3d28b", "tests/unit/__init__.py": "da39a3ee5e6b4b0d3255bfef95601890afd80709", "tests/unit/test_server.py": "948c1995d4008bc2aa6c4046a34ffa3858d6d671", "tests/unit/test_source_hashes.py": "00468a2907583c593e6574a1f6b404e4651c221a"}, "modules": {"ptd_client_server.lib.client": "lib/client.py", "ptd_client_server.lib.common": "lib/common.py", "ptd_client_server.lib.external.ntplib": "lib/external/ntplib.py", "ptd_client_server.lib.source_hashes": "lib/source_hashes.py", "ptd_client_server.lib.summary": "lib/summary.py", "ptd_client_server.lib.time_sync": "lib/time_sync.py"}}
+client 2024-02-18 16:02:16,992 [INFO] Running workload in ranging mode
+client 2024-02-18 16:02:16,992 [INFO] Synchronizing with the server and with time.google.com...
+client 2024-02-18 16:02:17,075 [INFO] NTP:offset = 0.002 s, delay = 0.082 s 
+client 2024-02-18 16:02:17,075 [INFO] Sending command to the server: 'time'
+client 2024-02-18 16:02:17,076 [INFO] Got response: '1708293737.074824'
+client 2024-02-18 16:02:17,076 [INFO] The time difference between the client and the server is within range 0.259 ms..1.689 ms
+client 2024-02-18 16:02:17,076 [INFO] Sending command to the server: 'session,2024-02-18_16-02-16,start,ranging'
+client 2024-02-18 16:02:46,632 [INFO] Got response: 'OK'
+client 2024-02-18 16:02:46,632 [INFO] Sending command to the server: 'time'
+client 2024-02-18 16:02:46,633 [INFO] Got response: '1708293766.6322145'
+client 2024-02-18 16:02:46,633 [INFO] The time difference between the client and the server is within range 0.369 ms..1.749 ms
+client 2024-02-18 16:02:46,634 [INFO] Running the workload 'axs byquery loadgen_output,task=text_to_image,sut_name=r282_q8_pro_edge,model_name=stable-diffusion-xl,framework=torch,device=qaic,loadgen_mode=PerformanceOnly,loadgen_scenario=Offline,_with_power+,symlink_to=/local/mnt/workspace/mmirkina/work_collection/generated_by_power_measurement_on_run_9e830e40d4454b1f91b9455d3788f98e/last_mlperf_logs,power_client_entrydic_path=/local/mnt/workspace/mmirkina/work_collection/generated_by_power_measurement_on_run_9e830e40d4454b1f91b9455d3788f98e/program_output.json,effective_no_ranging-'
+client 2024-02-18 18:23:32,086 [INFO] Sending command to the server: 'time'
+client 2024-02-18 18:23:32,088 [INFO] Got response: '1708302212.0889056'
+client 2024-02-18 18:23:32,088 [INFO] The time difference between the client and the server is within range -2.388 ms..-0.609 ms
+client 2024-02-18 18:23:32,088 [INFO] Sending command to the server: 'session,2024-02-18_16-02-16,stop,ranging'
+client 2024-02-18 18:23:42,740 [INFO] Got response: 'OK'
+client 2024-02-18 18:23:42,740 [INFO] Sending command to the server: 'time'
+client 2024-02-18 18:23:42,741 [INFO] Got response: '1708302222.7421916'
+client 2024-02-18 18:23:42,741 [INFO] The time difference between the client and the server is within range -1.423 ms..-0.887 ms
+client 2024-02-18 18:23:42,746 [INFO] Copying loadgen logs from '/local/mnt/workspace/mmirkina/work_collection/generated_by_power_measurement_on_run_9e830e40d4454b1f91b9455d3788f98e/last_mlperf_logs' to '/local/mnt/workspace/mmirkina/work_collection/generated_by_power_measurement_on_run_9e830e40d4454b1f91b9455d3788f98e/power_logs/ranging'
+client 2024-02-18 18:23:42,747 [INFO] Running workload in testing mode
+client 2024-02-18 18:23:42,747 [INFO] Synchronizing with the server and with time.google.com...
+client 2024-02-18 18:23:42,817 [INFO] NTP:offset = 0.006 s, delay = 0.069 s 
+client 2024-02-18 18:23:42,817 [INFO] Sending command to the server: 'time'
+client 2024-02-18 18:23:42,818 [INFO] Got response: '1708302222.819528'
+client 2024-02-18 18:23:42,818 [INFO] The time difference between the client and the server is within range -1.923 ms..-0.706 ms
+client 2024-02-18 18:23:42,818 [INFO] Sending command to the server: 'session,2024-02-18_16-02-16,start,testing'
+client 2024-02-18 18:23:55,827 [INFO] Got response: 'OK'
+client 2024-02-18 18:23:55,827 [INFO] Sending command to the server: 'time'
+client 2024-02-18 18:23:55,828 [INFO] Got response: '1708302235.8295035'
+client 2024-02-18 18:23:55,829 [INFO] The time difference between the client and the server is within range -2.017 ms..-0.509 ms
+client 2024-02-18 18:23:55,829 [INFO] Running the workload 'axs byquery loadgen_output,task=text_to_image,sut_name=r282_q8_pro_edge,model_name=stable-diffusion-xl,framework=torch,device=qaic,loadgen_mode=PerformanceOnly,loadgen_scenario=Offline,_with_power+,symlink_to=/local/mnt/workspace/mmirkina/work_collection/generated_by_power_measurement_on_run_9e830e40d4454b1f91b9455d3788f98e/last_mlperf_logs,power_client_entrydic_path=/local/mnt/workspace/mmirkina/work_collection/generated_by_power_measurement_on_run_9e830e40d4454b1f91b9455d3788f98e/program_output.json,effective_no_ranging-'
+client 2024-02-19 02:58:11,582 [INFO] Sending command to the server: 'time'
+client 2024-02-19 02:58:11,583 [INFO] Got response: '1708333091.5861387'
+client 2024-02-19 02:58:11,583 [INFO] The time difference between the client and the server is within range -4.189 ms..-2.342 ms
+client 2024-02-19 02:58:11,583 [INFO] Sending command to the server: 'session,2024-02-18_16-02-16,stop,testing'
+client 2024-02-19 02:58:22,014 [INFO] Got response: 'OK'
+client 2024-02-19 02:58:22,015 [INFO] Sending command to the server: 'time'
+client 2024-02-19 02:58:22,015 [INFO] Got response: '1708333102.0183005'
+client 2024-02-19 02:58:22,015 [INFO] The time difference between the client and the server is within range -3.241 ms..-2.592 ms
+client 2024-02-19 02:58:22,016 [INFO] Copying loadgen logs from '/local/mnt/workspace/mmirkina/work_collection/generated_by_power_measurement_on_run_9e830e40d4454b1f91b9455d3788f98e/last_mlperf_logs' to '/local/mnt/workspace/mmirkina/work_collection/generated_by_power_measurement_on_run_9e830e40d4454b1f91b9455d3788f98e/power_logs/run_1'
+client 2024-02-19 02:58:22,017 [INFO] Done runs

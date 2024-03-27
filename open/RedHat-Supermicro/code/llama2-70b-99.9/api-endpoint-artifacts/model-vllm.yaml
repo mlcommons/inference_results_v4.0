@@ -1,0 +1,20 @@
+apiVersion: serving.kserve.io/v1beta1
+kind: InferenceService
+metadata:
+  annotations:
+    serving.knative.openshift.io/enablePassthrough: "true"
+    sidecar.istio.io/inject: "true"
+    sidecar.istio.io/rewriteAppHTTPProbers: "true"
+  name: llama-2-isvc
+spec:
+  predictor:
+    minReplicas: 1
+    maxReplicas: 1
+    #apiVersion: serving.kserve.io/v1alpha2
+    serviceAccountName: sa
+    #timeout: 240
+    model:
+      modelFormat:
+        name: pytorch
+      runtime: vllm
+      storageUri: s3://mlperf-inference-models/Llama-2-70b-chat-hf/

@@ -1,0 +1,56 @@
+================================================
+MLPerf Results Summary
+================================================
+SUT name : LWIS_Server
+Scenario : MultiStream
+Mode     : PerformanceOnly
+99th percentile latency (ns) : 398545
+Result is : VALID
+  Min duration satisfied : Yes
+  Min queries satisfied : Yes
+  Early stopping satisfied: Yes
+Early Stopping Result:
+ * Processed at least 662 queries (1543079).
+ * Would discard 15142 highest latency queries.
+ * Early stopping 99th percentile estimate: 398694
+
+================================================
+Additional Stats
+================================================
+Per-query latency:  
+Min latency (ns)                : 356712
+Max latency (ns)                : 2206264
+Mean latency (ns)               : 380958
+50.00 percentile latency (ns)   : 380602
+90.00 percentile latency (ns)   : 386726
+95.00 percentile latency (ns)   : 389255
+97.00 percentile latency (ns)   : 392358
+99.00 percentile latency (ns)   : 398545
+99.90 percentile latency (ns)   : 482228
+
+================================================
+Test Parameters Used
+================================================
+samples_per_query : 8
+target_qps : 3308.26
+target_latency (ns): 0
+max_async_queries : 1
+min_duration (ms): 600000
+max_duration (ms): 660000
+min_query_count : 662
+max_query_count : 0
+qsl_rng_seed : 13281865557512327830
+sample_index_rng_seed : 198141574272810017
+schedule_rng_seed : 7575108116881280410
+accuracy_log_rng_seed : 0
+accuracy_log_probability : 0
+accuracy_log_sampling_target : 0
+print_timestamps : 0
+performance_issue_unique : 0
+performance_issue_same : 0
+performance_issue_same_index : 0
+performance_sample_count : 1024
+
+No warnings encountered during test.
+
+No errors encountered during test.

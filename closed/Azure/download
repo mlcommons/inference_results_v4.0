@@ -1,0 +1,9 @@
+bash code/stable-diffusion-xl/tensorrt/download_model.sh && \
+	echo "Finished downloading all the models!"
+Inside container, start downloading...
+Downloading SDXL/official_pytorch/fp16 models...
+
+Redirecting output to ‘wget-log’.
+Saved SDXL/official_pytorch/fp16 models to /mnt/resource_nvme/scratch/models/SDXL/official_pytorch/fp16/stable_diffusion_fp16.zip!
+Archive:  /work/build/models/SDXL/official_pytorch/fp16/stable_diffusion_fp16.zip
+replace /work/build/models/SDXL/official_pytorch/fp16/stable_diffusion_fp16/checkpoint_pipe/model_index.json? [y]es, [n]o, [A]ll, [N]one, [r]ename: 

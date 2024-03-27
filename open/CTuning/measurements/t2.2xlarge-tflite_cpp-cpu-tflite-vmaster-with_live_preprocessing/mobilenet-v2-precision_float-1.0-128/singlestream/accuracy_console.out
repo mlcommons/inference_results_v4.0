@@ -1,0 +1,23 @@
+Graph file: /home/ubuntu/CM/repos/local/cache/f7f609f2a7b24f1f/mobilenet_v2_1.0_128.tflite
+Image dir: /home/ubuntu/CM/repos/local/cache/31339cdbcbe5414e
+Image list: /home/ubuntu/CM/repos/local/cache/31339cdbcbe5414e/preprocessed_files.txt
+Image size: 128
+Image channels: 3
+Prediction classes: 1000
+Result dir: /home/ubuntu/CM/repos/local/cache/ab6453667ee043c6/valid_results/t2.2xlarge-tflite_cpp-cpu-tflite-vmaster-with_live_preprocessing/mobilenet-v2-precision_float-1.0-128/singlestream/accuracy
+How many images fit in memory buffer: 1024
+Normalize: 1
+Subtract mean: 0
+Run time preprocessing: 1
+Number of Threads: 8
+Number of available imagefiles: 50000
+
+Loading graph...
+INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+Input tensor dimensions (NHWC): 1*128*128*3
+Output tensor dimensions: 1*1001
+Path to mlperf.conf : /home/ubuntu/CM/repos/local/cache/579980e63fab43fc/inference/mlperf.conf
+Path to user.conf : /home/ubuntu/CM/repos/ctuning@mlcommons-ck/cm-mlops/script/generate-mlperf-inference-user-conf/tmp/eba4a56a7e2846dd8fbc8d01a0b69e34.conf
+Model Name: mobilenet
+LoadGen Scenario: SingleStream
+LoadGen Mode: accuracy

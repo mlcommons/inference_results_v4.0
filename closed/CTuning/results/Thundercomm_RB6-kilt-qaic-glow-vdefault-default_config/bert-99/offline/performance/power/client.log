@@ -1,0 +1,55 @@
+client 2024-02-23 08:59:43,063 [INFO] Creating output directory '/home/arjun/CM/repos/local/cache/ebae02e3af2d40d4/valid_results/qrb5165-kilt-qaic-glow-vdefault-default_config/bert-99/offline/performance/tmp_power'
+client 2024-02-23 08:59:43,084 [INFO] Sending command to the server: 'mlcommons/power client v3'
+client 2024-02-23 08:59:43,092 [INFO] Got response: 'mlcommons/power server v3'
+client 2024-02-23 08:59:43,092 [INFO] Synchronizing with the server and with time.google.com...
+client 2024-02-23 08:59:43,130 [INFO] NTP:offset = 0.003 s, delay = 0.020 s 
+client 2024-02-23 08:59:43,130 [INFO] Sending command to the server: 'time'
+client 2024-02-23 08:59:43,136 [INFO] Got response: '1708678783.1357102'
+client 2024-02-23 08:59:43,137 [INFO] The time difference between the client and the server is within range -5.307 ms..1.399 ms
+client 2024-02-23 08:59:43,137 [INFO] Sending command to the server: 'new,,88a058b6-b38d-4b54-b773-407809b5f66b'
+client 2024-02-23 08:59:43,145 [INFO] Got response: 'OK 2024-02-23_08-59-43,9aeb209d-efc3-46de-b4df-a7b4f4422ba6'
+client 2024-02-23 08:59:43,145 [INFO] Session id is '2024-02-23_08-59-43'
+client 2024-02-23 08:59:43,145 [INFO] Sources: {"sources": {"__init__.py": "da39a3ee5e6b4b0d3255bfef95601890afd80709", "client.py": "33ca4f26368777ac06e01f9567b714a4b8063886", "lib/__init__.py": "da39a3ee5e6b4b0d3255bfef95601890afd80709", "lib/client.py": "ac2aa093c8e8bbc9569b9e2a3471bc64e58a2258", "lib/common.py": "611d8b29633d331eb19c9455ea3b5fa3284ed6df", "lib/external/__init__.py": "da39a3ee5e6b4b0d3255bfef95601890afd80709", "lib/external/ntplib.py": "4da8f970656505a40483206ef2b5d3dd5e81711d", "lib/server.py": "99303c836c683aa9017ec565104e636161d02acb", "lib/source_hashes.py": "60a2e02193209e8d392803326208d5466342da18", "lib/summary.py": "aa92f0a3f975eecd44d3c0cd0236342ccc9f941d", "lib/time_sync.py": "80894ef2389e540781ff78de94db16aa4203a14e", "server.py": "c3f90f2f7eeb4db30727556d0c815ebc89b3d28b", "tests/unit/__init__.py": "da39a3ee5e6b4b0d3255bfef95601890afd80709", "tests/unit/test_server.py": "948c1995d4008bc2aa6c4046a34ffa3858d6d671", "tests/unit/test_source_hashes.py": "00468a2907583c593e6574a1f6b404e4651c221a"}, "modules": {"ptd_client_server.lib.client": "lib/client.py", "ptd_client_server.lib.common": "lib/common.py", "ptd_client_server.lib.external.ntplib": "lib/external/ntplib.py", "ptd_client_server.lib.source_hashes": "lib/source_hashes.py", "ptd_client_server.lib.summary": "lib/summary.py", "ptd_client_server.lib.time_sync": "lib/time_sync.py"}}
+client 2024-02-23 08:59:43,146 [INFO] Running workload in ranging mode
+client 2024-02-23 08:59:43,146 [INFO] Synchronizing with the server and with time.google.com...
+client 2024-02-23 08:59:43,176 [INFO] NTP:offset = 0.002 s, delay = 0.021 s 
+client 2024-02-23 08:59:43,177 [INFO] Sending command to the server: 'time'
+client 2024-02-23 08:59:43,185 [INFO] Got response: '1708678783.1833882'
+client 2024-02-23 08:59:43,185 [INFO] The time difference between the client and the server is within range -6.366 ms..2.153 ms
+client 2024-02-23 08:59:43,186 [INFO] Sending command to the server: 'session,2024-02-23_08-59-43,start,ranging'
+client 2024-02-23 09:00:11,284 [INFO] Got response: 'OK'
+client 2024-02-23 09:00:11,284 [INFO] Sending command to the server: 'time'
+client 2024-02-23 09:00:11,291 [INFO] Got response: '1708678811.2908804'
+client 2024-02-23 09:00:11,291 [INFO] The time difference between the client and the server is within range -6.156 ms..0.708 ms
+client 2024-02-23 09:00:11,291 [INFO] Running the workload '/home/arjun/CM/repos/local/cache/ebae02e3af2d40d4/valid_results/qrb5165-kilt-qaic-glow-vdefault-default_config/bert-99/offline/performance/run_1/run.out 2>&1 | tee /home/arjun/CM/repos/local/cache/ebae02e3af2d40d4/valid_results/qrb5165-kilt-qaic-glow-vdefault-default_config/bert-99/offline/performance/run_1/console.out'
+client 2024-02-23 09:11:44,967 [INFO] Sending command to the server: 'time'
+client 2024-02-23 09:11:45,009 [INFO] Got response: '1708679505.0074828'
+client 2024-02-23 09:11:45,010 [INFO] The time difference between the client and the server is within range -40.606 ms..2.681 ms
+client 2024-02-23 09:11:45,010 [INFO] Sending command to the server: 'session,2024-02-23_08-59-43,stop,ranging'
+client 2024-02-23 09:11:55,442 [INFO] Got response: 'OK'
+client 2024-02-23 09:11:55,443 [INFO] Sending command to the server: 'time'
+client 2024-02-23 09:11:55,452 [INFO] Got response: '1708679515.4496613'
+client 2024-02-23 09:11:55,453 [INFO] The time difference between the client and the server is within range -6.576 ms..3.487 ms
+client 2024-02-23 09:11:55,471 [INFO] Copying loadgen logs from '/home/arjun/CM/repos/local/cache/ebae02e3af2d40d4/valid_results/qrb5165-kilt-qaic-glow-vdefault-default_config/bert-99/offline/performance/run_1' to '/home/arjun/CM/repos/local/cache/ebae02e3af2d40d4/valid_results/qrb5165-kilt-qaic-glow-vdefault-default_config/bert-99/offline/performance/tmp_power/ranging'
+client 2024-02-23 09:11:55,476 [INFO] Running workload in testing mode
+client 2024-02-23 09:11:55,476 [INFO] Synchronizing with the server and with time.google.com...
+client 2024-02-23 09:11:55,508 [INFO] NTP:offset = -0.001 s, delay = 0.015 s 
+client 2024-02-23 09:11:55,508 [INFO] Sending command to the server: 'time'
+client 2024-02-23 09:11:55,514 [INFO] Got response: '1708679515.5134141'
+client 2024-02-23 09:11:55,514 [INFO] The time difference between the client and the server is within range -5.004 ms..1.515 ms
+client 2024-02-23 09:11:55,515 [INFO] Sending command to the server: 'session,2024-02-23_08-59-43,start,testing'
+client 2024-02-23 09:12:08,539 [INFO] Got response: 'OK'
+client 2024-02-23 09:12:08,540 [INFO] Sending command to the server: 'time'
+client 2024-02-23 09:12:08,548 [INFO] Got response: '1708679528.5457287'
+client 2024-02-23 09:12:08,548 [INFO] The time difference between the client and the server is within range -5.501 ms..2.549 ms
+client 2024-02-23 09:12:08,548 [INFO] Running the workload '/home/arjun/CM/repos/local/cache/ebae02e3af2d40d4/valid_results/qrb5165-kilt-qaic-glow-vdefault-default_config/bert-99/offline/performance/run_1/run.out 2>&1 | tee /home/arjun/CM/repos/local/cache/ebae02e3af2d40d4/valid_results/qrb5165-kilt-qaic-glow-vdefault-default_config/bert-99/offline/performance/run_1/console.out'
+client 2024-02-23 09:23:48,395 [INFO] Sending command to the server: 'time'
+client 2024-02-23 09:23:48,469 [INFO] Got response: '1708680228.467326'
+client 2024-02-23 09:23:48,470 [INFO] The time difference between the client and the server is within range -72.310 ms..2.656 ms
+client 2024-02-23 09:23:48,470 [INFO] Sending command to the server: 'session,2024-02-23_08-59-43,stop,testing'
+client 2024-02-23 09:23:58,595 [INFO] Got response: 'OK'
+client 2024-02-23 09:23:58,595 [INFO] Sending command to the server: 'time'
+client 2024-02-23 09:23:58,608 [INFO] Got response: '1708680238.6010742'
+client 2024-02-23 09:23:58,609 [INFO] The time difference between the client and the server is within range -5.736 ms..8.094 ms
+client 2024-02-23 09:23:58,614 [INFO] Copying loadgen logs from '/home/arjun/CM/repos/local/cache/ebae02e3af2d40d4/valid_results/qrb5165-kilt-qaic-glow-vdefault-default_config/bert-99/offline/performance/run_1' to '/home/arjun/CM/repos/local/cache/ebae02e3af2d40d4/valid_results/qrb5165-kilt-qaic-glow-vdefault-default_config/bert-99/offline/performance/tmp_power/run_1'
+client 2024-02-23 09:23:58,620 [INFO] Done runs

@@ -1,0 +1,11 @@
+Loading necessary metadata...
+Loading loadgen accuracy log...
+Traceback (most recent call last):
+  File "/opt/workdir/code/3d-unet-99.9/pytorch-cpu/accuracy_kits.py", line 320, in <module>
+    main()
+  File "/opt/workdir/code/3d-unet-99.9/pytorch-cpu/accuracy_kits.py", line 295, in main
+    predictions = load_loadgen_log(log_file, output_dtype, target_files, aux)
+  File "/opt/workdir/code/3d-unet-99.9/pytorch-cpu/accuracy_kits.py", line 252, in load_loadgen_log
+    assert len(predictions) == len(aux.keys()),\
+AssertionError: Number of predictions does not match number of samples in validation set!
+hash=574980b7847b60cea46e309ec189bdd6f22c52b5cacc7c12d4731a0a020da6b2

@@ -1,0 +1,62 @@
+================================================
+MLPerf Results Summary
+================================================
+SUT name : KILT_SERVER
+Scenario : Server
+Mode     : PerformanceOnly
+Scheduled samples per second : 575143.13
+Result is : INVALID
+  Performance constraints satisfied : NO
+  Min duration satisfied : Yes
+  Min queries satisfied : Yes
+  Early stopping satisfied: NO
+Recommendations:
+ * Reduce target QPS to improve latency.
+Early Stopping Result:
+ * Run unsuccessful.
+ * Processed 345085883 queries.
+ * Would need to run at least 133832146 more queries,
+ with the run being successful if every additional
+ query were under latency.
+
+================================================
+Additional Stats
+================================================
+Completed samples per second    : 575139.07
+
+Min latency (ns)                : 3324185
+Max latency (ns)                : 180902493
+Mean latency (ns)               : 5266609
+50.00 percentile latency (ns)   : 4257163
+90.00 percentile latency (ns)   : 6548927
+95.00 percentile latency (ns)   : 8791139
+97.00 percentile latency (ns)   : 10456178
+99.00 percentile latency (ns)   : 19262550
+99.90 percentile latency (ns)   : 97193437
+
+================================================
+Test Parameters Used
+================================================
+samples_per_query : 1
+target_qps : 575000
+target_latency (ns): 15000000
+max_async_queries : 0
+min_duration (ms): 600000
+max_duration (ms): 0
+min_query_count : 100
+max_query_count : 0
+qsl_rng_seed : 13281865557512327830
+sample_index_rng_seed : 198141574272810017
+schedule_rng_seed : 7575108116881280410
+accuracy_log_rng_seed : 0
+accuracy_log_probability : 0
+accuracy_log_sampling_target : 0
+print_timestamps : 0
+performance_issue_unique : 0
+performance_issue_same : 0
+performance_issue_same_index : 0
+performance_sample_count : 1024
+
+1 warning encountered. See detailed log.
+
+No errors encountered during test.

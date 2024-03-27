@@ -1,0 +1,39 @@
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/mnt/mlperf40/mlperfi401/closed/HPE/build/inference/tools/submission/submission_checker.py", line 3768, in <module>
+    sys.exit(main())
+  File "/mnt/mlperf40/mlperfi401/closed/HPE/build/inference/tools/submission/submission_checker.py", line 3612, in main
+    results, systems = check_results_dir(
+  File "/mnt/mlperf40/mlperfi401/closed/HPE/build/inference/tools/submission/submission_checker.py", line 2617, in check_results_dir
+    log.error(
+Message: 'Root contains files outside division folder %s'
+Arguments: ('closed', ['mlperf-inference-HPE-submission.tar.gz', 'mlperf-inference-HPE-submission.sha1'])
+[2024-02-23 11:21:49,337 submission_checker.py:3625 INFO] ---
+[2024-02-23 11:21:49,337 submission_checker.py:3631 INFO] ---
+[2024-02-23 11:21:49,337 submission_checker.py:3634 ERROR] NoResults root
+[2024-02-23 11:21:49,337 submission_checker.py:3716 INFO] ---
+[2024-02-23 11:21:49,337 submission_checker.py:3717 INFO] Results=0, NoResults=1, Power Results=0
+[2024-02-23 11:21:49,338 submission_checker.py:3724 INFO] ---
+[2024-02-23 11:21:49,338 submission_checker.py:3725 INFO] Closed Results=0, Closed Power Results=0
+
+[2024-02-23 11:21:49,338 submission_checker.py:3730 INFO] Open Results=0, Open Power Results=0
+
+[2024-02-23 11:21:49,338 submission_checker.py:3735 INFO] Network Results=0, Network Power Results=0
+
+[2024-02-23 11:21:49,338 submission_checker.py:3740 INFO] ---
+[2024-02-23 11:21:49,338 submission_checker.py:3742 INFO] Systems=0, Power Systems=0
+[2024-02-23 11:21:49,338 submission_checker.py:3743 INFO] Closed Systems=0, Closed Power Systems=0
+[2024-02-23 11:21:49,338 submission_checker.py:3748 INFO] Open Systems=0, Open Power Systems=0
+[2024-02-23 11:21:49,338 submission_checker.py:3753 INFO] Network Systems=0, Network Power Systems=0
+[2024-02-23 11:21:49,338 submission_checker.py:3758 INFO] ---
+[2024-02-23 11:21:49,338 submission_checker.py:3760 ERROR] SUMMARY: submission has errors

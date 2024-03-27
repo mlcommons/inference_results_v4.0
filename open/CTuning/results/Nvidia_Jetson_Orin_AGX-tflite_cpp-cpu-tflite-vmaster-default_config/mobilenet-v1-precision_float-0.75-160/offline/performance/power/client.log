@@ -1,0 +1,55 @@
+client 2024-01-29 00:44:11,614 [INFO] Creating output directory '/home/arjun/results_dir/valid_results/orin-tflite_cpp-cpu-tflite-vmaster-default_config/mobilenet-v1-precision_float-0.75-160/singlestream/performance/tmp_power'
+client 2024-01-29 00:44:11,640 [INFO] Sending command to the server: 'mlcommons/power client v3'
+client 2024-01-29 00:44:11,643 [INFO] Got response: 'mlcommons/power server v3'
+client 2024-01-29 00:44:11,643 [INFO] Synchronizing with the server and with time.google.com...
+client 2024-01-29 00:44:11,669 [INFO] NTP:offset = -0.005 s, delay = 0.021 s 
+client 2024-01-29 00:44:11,670 [INFO] Sending command to the server: 'time'
+client 2024-01-29 00:44:11,673 [INFO] Got response: '1706489051.6687407'
+client 2024-01-29 00:44:11,674 [INFO] The time difference between the client and the server is within range 1.441 ms..5.252 ms
+client 2024-01-29 00:44:11,674 [INFO] Sending command to the server: 'new,,94d96c57-76ad-44d6-8f88-a901e50cf299'
+client 2024-01-29 00:44:11,676 [INFO] Got response: 'OK 2024-01-29_00-44-11,f98de9f9-1355-4042-ad6a-5aecdf7dd0ae'
+client 2024-01-29 00:44:11,677 [INFO] Session id is '2024-01-29_00-44-11'
+client 2024-01-29 00:44:11,677 [INFO] Sources: {"sources": {"__init__.py": "da39a3ee5e6b4b0d3255bfef95601890afd80709", "client.py": "33ca4f26368777ac06e01f9567b714a4b8063886", "lib/__init__.py": "da39a3ee5e6b4b0d3255bfef95601890afd80709", "lib/client.py": "ac2aa093c8e8bbc9569b9e2a3471bc64e58a2258", "lib/common.py": "611d8b29633d331eb19c9455ea3b5fa3284ed6df", "lib/external/__init__.py": "da39a3ee5e6b4b0d3255bfef95601890afd80709", "lib/external/ntplib.py": "4da8f970656505a40483206ef2b5d3dd5e81711d", "lib/server.py": "99303c836c683aa9017ec565104e636161d02acb", "lib/source_hashes.py": "60a2e02193209e8d392803326208d5466342da18", "lib/summary.py": "aa92f0a3f975eecd44d3c0cd0236342ccc9f941d", "lib/time_sync.py": "80894ef2389e540781ff78de94db16aa4203a14e", "server.py": "c3f90f2f7eeb4db30727556d0c815ebc89b3d28b", "tests/unit/__init__.py": "da39a3ee5e6b4b0d3255bfef95601890afd80709", "tests/unit/test_server.py": "948c1995d4008bc2aa6c4046a34ffa3858d6d671", "tests/unit/test_source_hashes.py": "00468a2907583c593e6574a1f6b404e4651c221a"}, "modules": {"ptd_client_server.lib.client": "lib/client.py", "ptd_client_server.lib.common": "lib/common.py", "ptd_client_server.lib.external.ntplib": "lib/external/ntplib.py", "ptd_client_server.lib.source_hashes": "lib/source_hashes.py", "ptd_client_server.lib.summary": "lib/summary.py", "ptd_client_server.lib.time_sync": "lib/time_sync.py"}}
+client 2024-01-29 00:44:11,677 [INFO] Running workload in ranging mode
+client 2024-01-29 00:44:11,677 [INFO] Synchronizing with the server and with time.google.com...
+client 2024-01-29 00:44:11,700 [INFO] NTP:offset = -0.006 s, delay = 0.021 s 
+client 2024-01-29 00:44:11,700 [INFO] Sending command to the server: 'time'
+client 2024-01-29 00:44:11,703 [INFO] Got response: '1706489051.698973'
+client 2024-01-29 00:44:11,704 [INFO] The time difference between the client and the server is within range 1.406 ms..5.128 ms
+client 2024-01-29 00:44:11,704 [INFO] Sending command to the server: 'session,2024-01-29_00-44-11,start,ranging'
+client 2024-01-29 00:44:39,783 [INFO] Got response: 'OK'
+client 2024-01-29 00:44:39,785 [INFO] Sending command to the server: 'time'
+client 2024-01-29 00:44:39,788 [INFO] Got response: '1706489079.783642'
+client 2024-01-29 00:44:39,788 [INFO] The time difference between the client and the server is within range 1.703 ms..5.199 ms
+client 2024-01-29 00:44:39,789 [INFO] Running the workload 'CM_MLPERF_RUN_COUNT=$(cat ${CM_RUN_DIR}/count.txt); echo ${CM_MLPERF_RUN_COUNT}; CM_MLPERF_RUN_COUNT=$((CM_MLPERF_RUN_COUNT+1)); echo ${CM_MLPERF_RUN_COUNT} > ${CM_RUN_DIR}/count.txt && if [ ${CM_MLPERF_RUN_COUNT} -eq "1" ]; then export CM_MLPERF_USER_CONF=${CM_MLPERF_RANGING_USER_CONF}; else export CM_MLPERF_USER_CONF=${CM_MLPERF_TESTING_USER_CONF}; fi && /mnt/CM/repos/ctuning@mlcommons-ck/cm-mlops/script/benchmark-any-mlperf-inference-implementation/run.out'
+client 2024-01-29 00:49:42,426 [INFO] Sending command to the server: 'time'
+client 2024-01-29 00:49:42,429 [INFO] Got response: '1706489382.4243262'
+client 2024-01-29 00:49:42,430 [INFO] The time difference between the client and the server is within range 1.796 ms..5.613 ms
+client 2024-01-29 00:49:42,430 [INFO] Sending command to the server: 'session,2024-01-29_00-44-11,stop,ranging'
+client 2024-01-29 00:49:52,853 [INFO] Got response: 'OK'
+client 2024-01-29 00:49:52,854 [INFO] Sending command to the server: 'time'
+client 2024-01-29 00:49:52,858 [INFO] Got response: '1706489392.8522534'
+client 2024-01-29 00:49:52,858 [INFO] The time difference between the client and the server is within range 1.974 ms..6.210 ms
+client 2024-01-29 00:49:52,876 [INFO] Copying loadgen logs from '/home/arjun/results_dir/valid_results/orin-tflite_cpp-cpu-tflite-vmaster-default_config/mobilenet-v1-precision_float-0.75-160/singlestream/performance/run_1' to '/home/arjun/results_dir/valid_results/orin-tflite_cpp-cpu-tflite-vmaster-default_config/mobilenet-v1-precision_float-0.75-160/singlestream/performance/tmp_power/ranging'
+client 2024-01-29 00:49:52,880 [INFO] Running workload in testing mode
+client 2024-01-29 00:49:52,880 [INFO] Synchronizing with the server and with time.google.com...
+client 2024-01-29 00:49:52,919 [INFO] NTP:offset = -0.007 s, delay = 0.021 s 
+client 2024-01-29 00:49:52,920 [INFO] Sending command to the server: 'time'
+client 2024-01-29 00:49:52,923 [INFO] Got response: '1706489392.9179327'
+client 2024-01-29 00:49:52,923 [INFO] The time difference between the client and the server is within range 2.118 ms..5.544 ms
+client 2024-01-29 00:49:52,923 [INFO] Sending command to the server: 'session,2024-01-29_00-44-11,start,testing'
+client 2024-01-29 00:50:05,940 [INFO] Got response: 'OK'
+client 2024-01-29 00:50:05,941 [INFO] Sending command to the server: 'time'
+client 2024-01-29 00:50:05,946 [INFO] Got response: '1706489405.9403944'
+client 2024-01-29 00:50:05,946 [INFO] The time difference between the client and the server is within range 1.222 ms..6.314 ms
+client 2024-01-29 00:50:05,947 [INFO] Running the workload 'CM_MLPERF_RUN_COUNT=$(cat ${CM_RUN_DIR}/count.txt); echo ${CM_MLPERF_RUN_COUNT}; CM_MLPERF_RUN_COUNT=$((CM_MLPERF_RUN_COUNT+1)); echo ${CM_MLPERF_RUN_COUNT} > ${CM_RUN_DIR}/count.txt && if [ ${CM_MLPERF_RUN_COUNT} -eq "1" ]; then export CM_MLPERF_USER_CONF=${CM_MLPERF_RANGING_USER_CONF}; else export CM_MLPERF_USER_CONF=${CM_MLPERF_TESTING_USER_CONF}; fi && /mnt/CM/repos/ctuning@mlcommons-ck/cm-mlops/script/benchmark-any-mlperf-inference-implementation/run.out'
+client 2024-01-29 01:00:10,292 [INFO] Sending command to the server: 'time'
+client 2024-01-29 01:00:10,295 [INFO] Got response: '1706490010.2907093'
+client 2024-01-29 01:00:10,296 [INFO] The time difference between the client and the server is within range 1.393 ms..5.636 ms
+client 2024-01-29 01:00:10,296 [INFO] Sending command to the server: 'session,2024-01-29_00-44-11,stop,testing'
+client 2024-01-29 01:00:20,994 [INFO] Got response: 'OK'
+client 2024-01-29 01:00:20,996 [INFO] Sending command to the server: 'time'
+client 2024-01-29 01:00:21,000 [INFO] Got response: '1706490020.994259'
+client 2024-01-29 01:00:21,000 [INFO] The time difference between the client and the server is within range 1.806 ms..6.167 ms
+client 2024-01-29 01:00:21,005 [INFO] Copying loadgen logs from '/home/arjun/results_dir/valid_results/orin-tflite_cpp-cpu-tflite-vmaster-default_config/mobilenet-v1-precision_float-0.75-160/singlestream/performance/run_1' to '/home/arjun/results_dir/valid_results/orin-tflite_cpp-cpu-tflite-vmaster-default_config/mobilenet-v1-precision_float-0.75-160/singlestream/performance/tmp_power/run_1'
+client 2024-01-29 01:00:21,007 [INFO] Done runs

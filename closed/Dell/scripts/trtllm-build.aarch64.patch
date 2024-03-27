@@ -1,0 +1,35 @@
+diff --git a/cpp/CMakeLists.txt b/cpp/CMakeLists.txt
+index 14993303..17d28674 100644
+--- a/cpp/CMakeLists.txt
++++ b/cpp/CMakeLists.txt
+@@ -116,7 +116,7 @@ set(CUDA_LIBRARIES ${CUDART_LIB})
+ find_library(RT_LIB rt)
+ 
+ # NCCL dependencies
+-set_ifndef(NCCL_LIB_DIR /usr/lib/x86_64-linux-gnu/)
++set_ifndef(NCCL_LIB_DIR /usr/lib/aarch64-linux-gnu/)
+ set_ifndef(NCCL_INCLUDE_DIR /usr/include/)
+ find_library(NCCL_LIB nccl HINTS ${NCCL_LIB_DIR})
+ 
+@@ -126,7 +126,7 @@ include_directories(${CUDA_INCLUDE_DIRS} ${CUDNN_ROOT_DIR}/include
+ 
+ # TRT dependencies
+ set_ifndef(TRT_LIB_DIR ${CMAKE_BINARY_DIR})
+-set_ifndef(TRT_INCLUDE_DIR /usr/include/x86_64-linux-gnu)
++set_ifndef(TRT_INCLUDE_DIR /usr/include/aarch64-linux-gnu)
+ set(TRT_LIB nvinfer)
+ find_library_create_target(${TRT_LIB} nvinfer SHARED ${TRT_LIB_DIR})
+ find_library_create_target(nvuffparser nvparsers SHARED ${TRT_LIB_DIR})
+diff --git a/scripts/build_wheel.py b/scripts/build_wheel.py
+index 166990ae..948a208f 100755
+--- a/scripts/build_wheel.py
++++ b/scripts/build_wheel.py
+@@ -57,7 +57,7 @@ def main(build_type: str = "Release",
+ 
+     if trt_root is not None:
+         cmake_def_args.append(
+-            f"-DTRT_LIB_DIR={trt_root}/targets/x86_64-linux-gnu/lib")
++            f"-DTRT_LIB_DIR={trt_root}/targets/aarch64-linux-gnu/lib")
+         cmake_def_args.append(f"-DTRT_INCLUDE_DIR={trt_root}/include")
+ 
+     if nccl_root is not None:

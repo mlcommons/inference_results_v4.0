@@ -1,0 +1,176 @@
+Mapping kilt_model_name to KILT_MODEL_NAME
+Mapping kilt_input_count to KILT_MODEL_INPUT_COUNT
+Mapping kilt_output_count to KILT_MODEL_OUTPUT_COUNT
+Mapping kilt_input_format to KILT_MODEL_INPUT_FORMAT
+Mapping kilt_output_format to KILT_MODEL_OUTPUT_FORMAT
+Mapping kilt_model_batch_size to KILT_MODEL_BATCH_SIZE
+Mapping kilt_model_root to KILT_MODEL_ROOT
+Mapping kilt_model_seq_length to KILT_MODEL_BERT_SEQ_LENGTH
+Mapping kilt_model_bert_variant to KILT_MODEL_BERT_VARIANT
+Mapping kilt_prior_bin_path to KILT_MODEL_NMS_PRIOR_BIN_PATH
+Mapping kilt_model_max_detections to KILT_MODEL_NMS_MAX_DETECTIONS
+Mapping kilt_model_disable_nms to KILT_MODEL_NMS_DISABLE
+Mapping dataset_squad_tokenized_max_seq_length to KILT_DATASET_SQUAD_TOKENIZED_MAX_SEQ_LENGTH
+Mapping dataset_squad_tokenized_root to KILT_DATASET_SQUAD_TOKENIZED_ROOT
+Mapping dataset_squad_tokenized_input_ids to KILT_DATASET_SQUAD_TOKENIZED_INPUT_IDS
+Mapping dataset_squad_tokenized_input_mask to KILT_DATASET_SQUAD_TOKENIZED_INPUT_MASK
+Mapping dataset_squad_tokenized_segment_ids to KILT_DATASET_SQUAD_TOKENIZED_SEGMENT_IDS
+Mapping dataset_squad_tokenized_max_seq_length to KILT_DATASET_SQUAD_TOKENIZED_MAX_SEQ_LENGTH
+Mapping dataset_imagenet_preprocessed_input_square_side to KILT_DATASET_IMAGENET_PREPROCESSED_INPUT_SQUARE_SIDE
+Mapping ml_model_has_background_class to KILT_DATASET_IMAGENET_HAS_BACKGROUND_CLASS
+Mapping dataset_imagenet_preprocessed_subset_fof to KILT_DATASET_IMAGENET_PREPROCESSED_SUBSET_FOF
+Mapping dataset_imagenet_preprocessed_dir to KILT_DATASET_IMAGENET_PREPROCESSED_DIR
+Mapping ml_model_image_height to KILT_DATASET_OBJECT_DETECTION_IMAGE_HEIGHT
+Mapping ml_model_image_width to KILT_DATASET_OBJECT_DETECTION_IMAGE_WIDTH
+Mapping ml_model_image_channels to KILT_DATASET_OBJECT_DETECTION_IMAGE_CHANNELS
+Mapping kilt_object_detection_preprocessed_dir to KILT_DATASET_OBJECT_DETECTION_PREPROCESSED_DIR
+Mapping kilt_object_detection_preprocessed_subset_fof to KILT_DATASET_OBJECT_DETECTION_PREPROCESSED_SUBSET_FOF
+Mapping kilt_device_qaic_skip_stage to KILT_DEVICE_QAIC_SKIP_STAGE
+Mapping qaic_queue_length to KILT_DEVICE_QAIC_QUEUE_LENGTH
+Mapping qaic_threads_per_queue to KILT_DEVICE_QAIC_THREADS_PER_QUEUE
+Mapping qaic_activation_count to KILT_DEVICE_QAIC_ACTIVATION_COUNT
+Mapping qaic_input_select to KILT_DEVICE_QAIC_INPUT_SELECT
+Mapping kilt_device_samples_queue_depth to KILT_DEVICE_QAIC_SAMPLES_QUEUE_DEPTH
+Mapping kilt_device_ringfence_driver to KILT_DEVICE_QAIC_RINGFENCE_DRIVER
+Mapping kilt_device_scheduler_yield_time to KILT_DEVICE_QAIC_SCHEDULER_YIELD_TIME
+Mapping kilt_device_enqueue_yield_time to KILT_DEVICE_QAIC_ENQUEUE_YIELD_TIME
+Mapping tensorrt_number_of_stream to KILT_DEVICE_TENSORRT_NUMBER_OF_STREAMS
+Mapping tensorrt_batch_size to KILT_DEVICE_TENSORRT_BATCH_SIZE
+Mapping tensorrt_input_memory_management_strategy to KILT_DEVICE_TENSORRT_INPUT_MEMORY_MANAGEMENT_STRATEGY
+Mapping tensorrt_ouput_memory_management_strategy to KILT_DEVICE_TENSORRT_OUTPUT_MEMORY_MANAGEMENT_STRATEGY
+Mapping engine_source to KILT_DEVICE_TENSORRT_ENGINE_SOURCE
+Mapping plugins_path to KILT_DEVICE_TENSORRT_PLUGINS_PATH
+Mapping kilt_backend_type to KILT_BACKEND_TYPE
+Mapping snpe_performance_profile to SNPE_PERFORMANCE_PROFILE
+Mapping network_server_port to KILT_NETWORK_SERVER_PORT
+Mapping network_server_ip_address to KILT_NETWORK_SERVER_IP_ADDRESS
+Mapping network_num_sockets to KILT_NETWORK_NUM_SOCKETS
+Mapping verbosity to KILT_VERBOSE
+Mapping CK_VERBOSE_SERVER to KILT_VERBOSE_SERVER
+Mapping KILT_JSON_CONFIG to KILT_JSON_CONFIG
+Mapping kilt_max_wait_abs to KILT_MAX_WAIT_ABS
+Mapping kilt_scheduler_yield_time to KILT_SCHEDULER_YIELD_TIME
+Mapping kilt_dispatch_yield_time to KILT_DISPATCH_YIELD_TIME
+Mapping kilt_device_ids to KILT_DEVICE_IDS
+Mapping kilt_device_config to KILT_DEVICE_CONFIG
+Mapping kilt_datasource_config to KILT_DATASOURCE_CONFIG
+Mapping kilt_unique_server_id to KILT_NETWORK_UNIQUE_SERVER_ID
+Mapping device to KILT_DEVICE_NAME
+Mapping loadgen_buffer_size to LOADGEN_BUFFER_SIZE
+Mapping loadgen_dataset_size to LOADGEN_DATASET_SIZE
+Mapping loadgen_trigger_cold_run to LOADGEN_TRIGGER_COLD_RUN
+Mapping loadgen_mlperf_conf_path to LOADGEN_MLPERF_CONF
+Mapping loadgen_user_conf_path to LOADGEN_USER_CONF
+Mapping loadgen_scenario to LOADGEN_SCENARIO
+Mapping loadgen_mode to LOADGEN_MODE
+CFG: LOADGEN_TRIGGER_COLD_RUN = 0
+CFG: KILT_VERBOSE = 0
+CFG: LOADGEN_MLPERF_CONF = /home/ec2-user/CM/repos/local/cache/bb6dff89329e4ef3/inference/mlperf.conf
+CFG: LOADGEN_USER_CONF = /home/ec2-user/CM/repos/ctuning@mlcommons-ck/cm-mlops/script/generate-mlperf-inference-user-conf/tmp/5c1611c208d24c0cb4f9c09a02871f82.conf
+CFG: KILT_MODEL_NAME = resnet50
+CFG: LOADGEN_SCENARIO = MultiStream
+CFG: LOADGEN_MODE = AccuracyOnly
+CFG: KILT_VERBOSE = 0
+CFG: KILT_VERBOSE_SERVER = <EMPTY>
+CFG: KILT_MODEL_BATCH_SIZE = 1
+CFG: KILT_MAX_WAIT_ABS = 10000
+CFG: KILT_SCHEDULER_YIELD_TIME = <EMPTY>
+CFG: KILT_DISPATCH_YIELD_TIME = <EMPTY>
+CFG: KILT_DEVICE_IDS = 0,1,2,3,4,5,6,7
+CFG: KILT_DEVICE_CONFIG = <EMPTY>
+CFG: KILT_DATASOURCE_CONFIG = <EMPTY>
+CFG: KILT_NETWORK_UNIQUE_SERVER_ID = <EMPTY>
+CFG: KILT_MODEL_ROOT = /home/ec2-user/CM/repos/local/cache/16d716206a094526/elfs
+CFG: KILT_DEVICE_QAIC_ACTIVATION_COUNT = 1
+CFG: KILT_DEVICE_QAIC_QUEUE_LENGTH = 4
+CFG: KILT_DEVICE_QAIC_THREADS_PER_QUEUE = <EMPTY>
+CFG: KILT_DEVICE_QAIC_SKIP_STAGE = convert
+CFG: KILT_DEVICE_QAIC_INPUT_SELECT = <EMPTY>
+CFG: KILT_DEVICE_QAIC_SAMPLES_QUEUE_DEPTH = <EMPTY>
+CFG: KILT_DEVICE_QAIC_RINGFENCE_DRIVER = <EMPTY>
+CFG: KILT_DEVICE_QAIC_SCHEDULER_YIELD_TIME = <EMPTY>
+CFG: KILT_DEVICE_QAIC_ENQUEUE_YIELD_TIME = <EMPTY>
+CFG: KILT_DEVICE_QAIC_LOOPBACK = <EMPTY>
+CFG: KILT_MODEL_BATCH_SIZE = 1
+CFG: KILT_MODEL_INPUT_FORMAT = UINT8,-1,224,224,3
+CFG: KILT_MODEL_OUTPUT_FORMAT = INT64,-1
+Setting batch size to 1
+Setting batch size to 1
+CFG: KILT_DATASET_IMAGENET_PREPROCESSED_INPUT_SQUARE_SIDE = 224
+CFG: KILT_DATASET_IMAGENET_HAS_BACKGROUND_CLASS = YES
+CFG: KILT_DATASET_IMAGENET_PREPROCESSED_SUBSET_FOF = /home/ec2-user/CM/repos/local/cache/3fbb6ecf250046c3/preprocessed_filenames.txt
+CFG: KILT_DATASET_IMAGENET_PREPROCESSED_DIR = /home/ec2-user/CM/repos/local/cache/3fbb6ecf250046c3
+CFG: LOADGEN_BUFFER_SIZE = 1024
+Number of available imagefiles: 50000
+DataSource: [0] affinity: 0 
+DataSource: [1] affinity: 4 
+DataSource: [2] affinity: 8 
+DataSource: [3] affinity: 12 
+DataSource: [4] affinity: 16 
+DataSource: [5] affinity: 20 
+DataSource: [6] affinity: 24 
+DataSource: [7] affinity: 28 
+Device: [0] (data source 0) affinity: 0 1 2 3 
+Driver threads:  3 2 1
+MaxWait: 10000
+Creating device 0
+Model input count: 1
+Model output count: 1
+Scheduler thread 0
+Device: [1] (data source 1) affinity: 4 5 6 7 
+Driver threads:  7 6 5
+Creating device 1
+Model input count: 1
+Model output count: 1
+Scheduler thread 4
+Device: [2] (data source 2) affinity: 8 9 10 11 
+Driver threads:  11 10 9
+Creating device 2
+Model input count: 1
+Model output count: 1
+Scheduler thread 8
+Device: [3] (data source 3) affinity: 12 13 14 15 
+Driver threads:  15 14 13
+Creating device 3
+Model input count: 1
+Model output count: 1
+Scheduler thread 12
+Device: [4] (data source 4) affinity: 16 17 18 19 
+Driver threads:  19 18 17
+Creating device 4
+Model input count: 1
+Model output count: 1
+Scheduler thread 16
+Device: [5] (data source 5) affinity: 20 21 22 23 
+Driver threads:  23 22 21
+Creating device 5
+Model input count: 1
+Model output count: 1
+Scheduler thread 20
+Device: [6] (data source 6) affinity: 24 25 26 27 
+Driver threads:  27 26 25
+Creating device 6
+Model input count: 1
+Model output count: 1
+Scheduler thread 24
+Device: [7] (data source 7) affinity: 28 29 30 31 
+Driver threads:  31 30 29
+Creating device 7
+Model input count: 1
+Model output count: 1
+Scheduler thread 28
+Path to mlperf.conf : /home/ec2-user/CM/repos/local/cache/bb6dff89329e4ef3/inference/mlperf.conf
+Path to user.conf : /home/ec2-user/CM/repos/ctuning@mlcommons-ck/cm-mlops/script/generate-mlperf-inference-user-conf/tmp/5c1611c208d24c0cb4f9c09a02871f82.conf
+Model Name: resnet50
+LoadGen Scenario: MultiStream
+LoadGen Mode: AccuracyOnly
+KILT Scheduler terminating...
+QAIC Device Scheduler terminating...
+QAIC Device Scheduler terminating...
+QAIC Device Scheduler terminating...
+QAIC Device Scheduler terminating...
+QAIC Device Scheduler terminating...
+QAIC Device Scheduler terminating...
+QAIC Device Scheduler terminating...
+QAIC Device Scheduler terminating...
+Batch sizes dispatched: 50000 

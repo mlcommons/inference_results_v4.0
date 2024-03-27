@@ -1,0 +1,5 @@
+Each L40S GPU in the system is connected to an Mellanox Infiniband controller card (MT28908 ConnectX-6)
+with 200Gb/s through PCIe Gen4x16 connection. This corresponds to the throughput of 25GB/s.
+
+Resnet50-Offline running on this system, with INT8 input, requires to support 24.8GB/s and
+can be done with the network interface.

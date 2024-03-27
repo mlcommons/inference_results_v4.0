@@ -1,0 +1,85 @@
+================================================
+MLPerf Results Summary
+================================================
+SUT name : PySUT
+Scenario : Server
+Mode     : PerformanceOnly
+Completed samples per second    : 3.25
+Result is : INVALID
+  Performance constraints satisfied : Yes
+  Min duration satisfied : Yes
+  Min queries satisfied : Yes
+  Early stopping satisfied: NO
+Recommendations:
+TTFT Early Stopping Result:
+
+TPOT Early Stopping Result:
+ * Run unsuccessful.
+ * Processed 100 queries.
+ * Would need to run at least 359 more queries,
+ with the run being successful if every additional
+ query were under latency.
+
+================================================
+Additional Stats
+================================================
+Scheduled samples per second : 7.06
+
+Min latency (ns)                : 2148685501
+Max latency (ns)                : 34262118415
+Mean latency (ns)               : 12961561658
+50.00 percentile latency (ns)   : 12018625736
+90.00 percentile latency (ns)   : 19402850461
+95.00 percentile latency (ns)   : 24917821080
+97.00 percentile latency (ns)   : 25533761457
+99.00 percentile latency (ns)   : 34262118415
+99.90 percentile latency (ns)   : 34262118415
+
+Completed tokens per second                 : 870.86
+Min First Token latency (ns)                : 72252785
+Max First Token latency (ns)                : 425977845
+Mean First Token latency (ns)               : 144768355
+50.00 percentile first token latency (ns)   : 126337253
+90.00 percentile first token latency (ns)   : 241657476
+95.00 percentile first token latency (ns)   : 305473975
+97.00 percentile first token latency (ns)   : 327279121
+99.00 percentile first token latency (ns)   : 425977845
+99.90 percentile first token latency (ns)   : 425977845
+
+Min Time to Output Token (ns)                : 36807391
+Max Time to Output Token (ns)                : 67924825
+Mean Time to Output Token (ns)               : 51013319
+50.00 percentile time to output token (ns)   : 52529942
+90.00 percentile time to output token (ns)   : 57519019
+95.00 percentile time to output token (ns)   : 60636330
+97.00 percentile time to output token (ns)   : 65330267
+99.00 percentile time to output token (ns)   : 67924825
+99.90 percentile time to output token (ns)   : 67924825
+
+================================================
+Test Parameters Used
+================================================
+samples_per_query : 1
+target_qps : 6
+ttft_latency (ns): 2000000000
+tpot_latency (ns): 200000000
+max_async_queries : 0
+min_duration (ms): 0
+max_duration (ms): 0
+min_query_count : 100
+max_query_count : 0
+qsl_rng_seed : 13281865557512327830
+sample_index_rng_seed : 198141574272810017
+schedule_rng_seed : 7575108116881280410
+accuracy_log_rng_seed : 720381539243781796
+accuracy_log_probability : 0
+accuracy_log_sampling_target : 100
+print_timestamps : 0
+performance_issue_unique : 0
+performance_issue_same : 0
+performance_issue_same_index : 0
+performance_sample_count : 24576
+
+1 warning encountered. See detailed log.
+
+No errors encountered during test.

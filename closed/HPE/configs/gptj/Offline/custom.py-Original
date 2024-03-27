@@ -1,0 +1,113 @@
+# Generated file by scripts/custom_systems/add_custom_system.py
+# Contains configs for all custom systems in code/common/systems/custom_list.py
+
+from . import *
+
+
+#@ConfigRegistry.register(HarnessType.Custom, AccuracyTarget.k_99, PowerSetting.MaxP)
+#class L40Sx1(OfflineGPUBaseConfig):
+#    system = KnownSystem.L40Sx1
+#    gpu_batch_size = 256
+#    use_fp8 = True
+#    offline_expected_qps = 10
+#    enable_sort = False
+
+@ConfigRegistry.register(HarnessType.Custom, AccuracyTarget.k_99, PowerSetting.MaxP)
+class HPE_ProLiant_DL380a_L40S_PCIe_48GBx4(L40Sx1):
+    system = KnownSystem.HPE_ProLiant_DL380a_L40S_PCIe_48GBx4
+    gpu_batch_size = 256
+    use_fp8 = True
+    offline_expected_qps = 60
+    enable_sort = False
+    #offline_expected_qps = 49
+    #gpu_batch_size = 128
+
+@ConfigRegistry.register(HarnessType.Custom, AccuracyTarget.k_99_9, PowerSetting.MaxP)
+class HPE_ProLiant_DL380a_L40S_PCIe_48GBx4_HighAccuracy(HPE_ProLiant_DL380a_L40S_PCIe_48GBx4):
+    pass
+
+
+###########################################
+#@ConfigRegistry.register(HarnessType.Custom, AccuracyTarget.k_99, PowerSetting.MaxP)
+#class L40Sx1(OfflineGPUBaseConfig):
+#    system = KnownSystem.L40Sx1
+#    gpu_batch_size = 256
+#    use_fp8 = True
+#    offline_expected_qps = 11
+#    enable_sort = False
+
+#@ConfigRegistry.register(HarnessType.Custom, AccuracyTarget.k_99, PowerSetting.MaxP)
+#class L40Sx8(L40Sx1):
+#    system = KnownSystem.L40Sx8
+#    offline_expected_qps = 90
+
+#@ConfigRegistry.register(HarnessType.Custom, AccuracyTarget.k_99_9, PowerSetting.MaxP)
+#class L40Sx1_HighAccuracy(L40Sx1):
+#    pass
+
+#@ConfigRegistry.register(HarnessType.Custom, AccuracyTarget.k_99_9, PowerSetting.MaxP)
+#class L40Sx8_HighAccuracy(L40Sx8):
+#    pass
+
+
+
+#@ConfigRegistry.register(HarnessType.Custom, AccuracyTarget.k_99, PowerSetting.MaxP)
+#class L40Sx1(OfflineGPUBaseConfig):
+#    system = KnownSystem.L40Sx1
+#    gpu_batch_size = 256
+#    use_fp8 = True
+#    offline_expected_qps = 11
+#    enable_sort = False
+#
+#@ConfigRegistry.register(HarnessType.Custom, AccuracyTarget.k_99, PowerSetting.MaxP)
+#class L40Sx8(L40Sx1):
+#    system = KnownSystem.L40Sx8
+#    offline_expected_qps = 90
+#
+#@ConfigRegistry.register(HarnessType.Custom, AccuracyTarget.k_99_9, PowerSetting.MaxP)
+#class L40Sx1_HighAccuracy(L40Sx1):
+#    pass
+#
+#@ConfigRegistry.register(HarnessType.Custom, AccuracyTarget.k_99_9, PowerSetting.MaxP)
+#class L40Sx8_HighAccuracy(L40Sx8):
+#    pass
+
+
+#@ConfigRegistry.register(HarnessType.Custom, AccuracyTarget.k_99, PowerSetting.MaxP)
+#class L40Sx8(L40Sx1):
+#    system = KnownSystem.L40Sx8
+#    offline_expected_qps = 80
+
+#@ConfigRegistry.register(HarnessType.Custom, AccuracyTarget.k_99, PowerSetting.MaxP)
+#class L40Sx8(L40Sx1):
+#    system = KnownSystem.L40Sx8
+#    offline_expected_qps = 80
+
+
+#@ConfigRegistry.register(HarnessType.Custom, AccuracyTarget.k_99_9, PowerSetting.MaxP)
+#class HPE_ProLiant_DL380a_L40S_PCIe_48GBx4_HighAccuracy(HPE_ProLiant_DL380a_L40S_PCIe_48GBx4):
+#    pass
+
+#@ConfigRegistry.register(HarnessType.Custom, AccuracyTarget.k_99_9, PowerSetting.MaxP)
+#class L40Sx1_HighAccuracy(L40Sx1):
+#    pass
+
+
+
+#@ConfigRegistry.register(HarnessType.Custom, AccuracyTarget.k_99, PowerSetting.MaxP)
+#class HPE_ProLiant_DL380a_Gen11_H100_PCIe_80GBx4(OfflineGPUBaseConfig):
+#    system = KnownSystem.HPE_ProLiant_DL380a_Gen11_H100_PCIe_80GBx4
+#    gpu_batch_size = 24
+#    use_fp8 = True
+#    offline_expected_qps = 3*4
+##    offline_expected_qps = 3.4*4
+##    offline_expected_qps = 3.5*4
+
+#@ConfigRegistry.register(HarnessType.Custom, AccuracyTarget.k_99_9, PowerSetting.MaxP)
+#class HPE_ProLiant_DL380a_Gen11_H100_PCIe_80GBx4_HighAccuracy(HPE_ProLiant_DL380a_Gen11_H100_PCIe_80GBx4):
+#    offline_expected_qps = 3*4
+##    offline_expected_qps = 3.4*4
+##    offline_expected_qps = 3.5*4
+
+
+

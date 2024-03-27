@@ -1,0 +1,171 @@
+{
+    "version": "1.0",
+    "timezone": 0,
+    "modules": {
+        "ptd_client_server.lib.client": "lib/client.py",
+        "ptd_client_server.lib.common": "lib/common.py",
+        "ptd_client_server.lib.external.ntplib": "lib/external/ntplib.py",
+        "ptd_client_server.lib.source_hashes": "lib/source_hashes.py",
+        "ptd_client_server.lib.summary": "lib/summary.py",
+        "ptd_client_server.lib.time_sync": "lib/time_sync.py"
+    },
+    "sources": {
+        "__init__.py": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+        "client.py": "33ca4f26368777ac06e01f9567b714a4b8063886",
+        "lib/__init__.py": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+        "lib/client.py": "ac2aa093c8e8bbc9569b9e2a3471bc64e58a2258",
+        "lib/common.py": "611d8b29633d331eb19c9455ea3b5fa3284ed6df",
+        "lib/external/__init__.py": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+        "lib/external/ntplib.py": "4da8f970656505a40483206ef2b5d3dd5e81711d",
+        "lib/server.py": "99303c836c683aa9017ec565104e636161d02acb",
+        "lib/source_hashes.py": "60a2e02193209e8d392803326208d5466342da18",
+        "lib/summary.py": "aa92f0a3f975eecd44d3c0cd0236342ccc9f941d",
+        "lib/time_sync.py": "80894ef2389e540781ff78de94db16aa4203a14e",
+        "server.py": "c3f90f2f7eeb4db30727556d0c815ebc89b3d28b",
+        "tests/unit/__init__.py": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+        "tests/unit/test_server.py": "948c1995d4008bc2aa6c4046a34ffa3858d6d671",
+        "tests/unit/test_source_hashes.py": "00468a2907583c593e6574a1f6b404e4651c221a"
+    },
+    "messages": [
+        {
+            "cmd": "mlcommons/power client v3",
+            "cmd_time": 1706482089.1803665,
+            "reply": "mlcommons/power server v3",
+            "reply_time": 1706482089.1837704
+        },
+        {
+            "cmd": "time",
+            "cmd_time": 1706482089.2118783,
+            "reply": "1706482089.213543",
+            "reply_time": 1706482089.216153
+        },
+        {
+            "cmd": "new,,fbb2dbfb-498c-4b9a-8621-6188892a3c6a",
+            "cmd_time": 1706482089.216512,
+            "reply": "OK 2024-01-28_22-48-09,39d510fc-487a-45b3-96df-3fbfe4e12f33",
+            "reply_time": 1706482089.2201812
+        },
+        {
+            "cmd": "time",
+            "cmd_time": 1706482089.246454,
+            "reply": "1706482089.247222",
+            "reply_time": 1706482089.2491248
+        },
+        {
+            "cmd": "session,2024-01-28_22-48-09,start,ranging",
+            "cmd_time": 1706482089.2493951,
+            "reply": "OK",
+            "reply_time": 1706482117.3284001
+        },
+        {
+            "cmd": "time",
+            "cmd_time": 1706482117.3316455,
+            "reply": "1706482117.3323205",
+            "reply_time": 1706482117.334811
+        },
+        {
+            "cmd": "time",
+            "cmd_time": 1706482422.3665838,
+            "reply": "1706482422.378919",
+            "reply_time": 1706482422.3816376
+        },
+        {
+            "cmd": "session,2024-01-28_22-48-09,stop,ranging",
+            "cmd_time": 1706482422.3825176,
+            "reply": "OK",
+            "reply_time": 1706482433.4063327
+        },
+        {
+            "cmd": "time",
+            "cmd_time": 1706482433.4068131,
+            "reply": "1706482433.4073973",
+            "reply_time": 1706482433.409691
+        },
+        {
+            "cmd": "time",
+            "cmd_time": 1706482433.4827127,
+            "reply": "1706482433.4832335",
+            "reply_time": 1706482433.4854417
+        },
+        {
+            "cmd": "session,2024-01-28_22-48-09,start,testing",
+            "cmd_time": 1706482433.486013,
+            "reply": "OK",
+            "reply_time": 1706482446.506252
+        },
+        {
+            "cmd": "time",
+            "cmd_time": 1706482446.5070534,
+            "reply": "1706482446.5076733",
+            "reply_time": 1706482446.5096023
+        },
+        {
+            "cmd": "time",
+            "cmd_time": 1706483051.192874,
+            "reply": "1706483051.2249694",
+            "reply_time": 1706483051.2280433
+        },
+        {
+            "cmd": "session,2024-01-28_22-48-09,stop,testing",
+            "cmd_time": 1706483051.2290344,
+            "reply": "OK",
+            "reply_time": 1706483061.5647445
+        },
+        {
+            "cmd": "time",
+            "cmd_time": 1706483061.5655015,
+            "reply": "1706483061.5663776",
+            "reply_time": 1706483061.5696254
+        }
+    ],
+    "uuid": {
+        "client": "fbb2dbfb-498c-4b9a-8621-6188892a3c6a",
+        "server": "39d510fc-487a-45b3-96df-3fbfe4e12f33"
+    },
+    "session_name": "2024-01-28_22-48-09",
+    "results": {
+        "power/client.log": "7d6717b03a4e3d3d50b79ebef45ecf19b9641575",
+        "ranging/mlperf_log_detail.txt": "50712d2ff2913239394421a22dcd4388ea7db7eb",
+        "ranging/mlperf_log_summary.txt": "16a46efb349fa57906a5b6e95612332492982ba9",
+        "run_1/mlperf_log_detail.txt": "dfd38a981ff5b43396084b1891cc00886d7e264d",
+        "run_1/mlperf_log_summary.txt": "2f60e101cec4fc058759c7f3d424eb9b37700ec4"
+    },
+    "phases": {
+        "ranging": [
+            [
+                1706482089.2493238,
+                691313.705957365
+            ],
+            [
+                1706482117.331192,
+                691341.787831011
+            ],
+            [
+                1706482422.382344,
+                691646.838984075
+            ],
+            [
+                1706482433.406644,
+                691657.863275835
+            ]
+        ],
+        "testing": [
+            [
+                1706482433.4858649,
+                691657.942499044
+            ],
+            [
+                1706482446.506843,
+                691670.963477396
+            ],
+            [
+                1706483051.2288382,
+                692275.685477072
+            ],
+            [
+                1706483061.565274,
+                692286.021908935
+            ]
+        ]
+    }
+}

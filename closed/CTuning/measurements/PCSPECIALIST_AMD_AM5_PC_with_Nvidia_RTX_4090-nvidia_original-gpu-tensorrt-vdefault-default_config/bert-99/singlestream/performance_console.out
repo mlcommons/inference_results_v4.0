@@ -1,0 +1,124 @@
+grep: power/server-2706260181c0.cfg: No such file or directory
+grep: power/server-2706260181c0.cfg: No such file or directory
+[2024-02-19 12:00:03,238 main.py:230 INFO] Detected system ID: KnownSystem.phoenix
+[2024-02-19 12:00:03,531 generate_conf_files.py:107 INFO] Generated measurements/ entries for phoenix_TRT/bert-99/SingleStream
+[2024-02-19 12:00:03,531 __init__.py:46 INFO] Running command: ./build/bin/harness_bert --logfile_outdir="/home/cmuser/local/cache/f4ba7328d7f447f9/valid_results/2706260181c0-nvidia_original-gpu-tensorrt-vdefault-default_config/bert-99/singlestream/performance/run_1" --logfile_prefix="mlperf_log_" --performance_sample_count=10833 --test_mode="PerformanceOnly" --gpu_batch_size=1 --mlperf_conf_path="/home/cmuser/CM/repos/local/cache/94cf04c8097b4057/inference/mlperf.conf" --tensor_path="build/preprocessed_data/squad_tokenized/input_ids.npy,build/preprocessed_data/squad_tokenized/segment_ids.npy,build/preprocessed_data/squad_tokenized/input_mask.npy" --use_graphs=true --user_conf_path="/home/cmuser/CM/repos/ctuning@mlcommons-ck/cm-mlops/script/generate-mlperf-inference-user-conf/tmp/0661ffe341cd49b18f703515a0306fa9.conf" --gpu_inference_streams=1 --gpu_copy_streams=1 --gpu_engines="./build/engines/phoenix/bert/SingleStream/bert-SingleStream-gpu-int8_S_384_B_1_P_1_vs.custom_k_99_MaxP.plan" --scenario SingleStream --model bert
+[2024-02-19 12:00:03,531 __init__.py:53 INFO] Overriding Environment
+benchmark : Benchmark.BERT
+buffer_manager_thread_count : 0
+coalesced_tensor : True
+data_dir : /home/cmuser/local/cache/6057f3cefd9041b3/data
+gpu_batch_size : 1
+gpu_copy_streams : 1
+gpu_inference_streams : 1
+input_dtype : int32
+input_format : linear
+log_dir : /home/cmuser/CM/repos/local/cache/8eb0c2732f244924/repo/closed/NVIDIA/build/logs/2024.02.19-12.00.02
+mlperf_conf_path : /home/cmuser/CM/repos/local/cache/94cf04c8097b4057/inference/mlperf.conf
+precision : int8
+preprocessed_data_dir : /home/cmuser/local/cache/6057f3cefd9041b3/preprocessed_data
+scenario : Scenario.SingleStream
+single_stream_expected_latency_ns : 0
+system : SystemConfiguration(host_cpu_conf=CPUConfiguration(layout={CPU(name='AMD Ryzen 9 7950X 16-Core Processor', architecture=<CPUArchitecture.x86_64: AliasedName(name='x86_64', aliases=(), patterns=())>, core_count=16, threads_per_core=2): 1}), host_mem_conf=MemoryConfiguration(host_memory_capacity=Memory(quantity=131.07376399999998, byte_suffix=<ByteSuffix.GB: (1000, 3)>, _num_bytes=131073764000), comparison_tolerance=0.05), accelerator_conf=AcceleratorConfiguration(layout=defaultdict(<class 'int'>, {GPU(name='NVIDIA GeForce RTX 4090', accelerator_type=<AcceleratorType.Discrete: AliasedName(name='Discrete', aliases=(), patterns=())>, vram=Memory(quantity=23.98828125, byte_suffix=<ByteSuffix.GiB: (1024, 3)>, _num_bytes=25757220864), max_power_limit=450.0, pci_id='0x268410DE', compute_sm=89): 1})), numa_conf=None, system_id='phoenix')
+tensor_path : build/preprocessed_data/squad_tokenized/input_ids.npy,build/preprocessed_data/squad_tokenized/segment_ids.npy,build/preprocessed_data/squad_tokenized/input_mask.npy
+test_mode : PerformanceOnly
+use_graphs : True
+use_small_tile_gemm_plugin : False
+user_conf_path : /home/cmuser/CM/repos/ctuning@mlcommons-ck/cm-mlops/script/generate-mlperf-inference-user-conf/tmp/0661ffe341cd49b18f703515a0306fa9.conf
+system_id : phoenix
+config_name : phoenix_bert_SingleStream
+workload_setting : WorkloadSetting(HarnessType.Custom, AccuracyTarget.k_99, PowerSetting.MaxP)
+optimization_level : plugin-enabled
+use_cpu : False
+use_inferentia : False
+num_profiles : 1
+config_ver : custom_k_99_MaxP
+accuracy_level : 99%
+inference_server : custom
+skip_file_checks : True
+power_limit : None
+cpu_freq : None
+&&&& RUNNING BERT_HARNESS # ./build/bin/harness_bert
+I0219 12:00:03.582257 70233 main_bert.cc:163] Found 1 GPUs
+I0219 12:00:03.702132 70233 bert_server.cc:142] Engine Path: ./build/engines/phoenix/bert/SingleStream/bert-SingleStream-gpu-int8_S_384_B_1_P_1_vs.custom_k_99_MaxP.plan
+[I] [TRT] Loaded engine size: 352 MiB
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +6, GPU +8, now: CPU 454, GPU 1163 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +2, GPU +10, now: CPU 456, GPU 1173 (MiB)
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +290, now: CPU 0, GPU 290 (MiB)
+I0219 12:00:03.986974 70233 bert_server.cc:203] Engines Creation Completed
+I0219 12:00:04.010921 70233 bert_server.cc:208] Use CUDA graphs
+I0219 12:00:04.011092 70233 bert_core_vs.cc:385] Engine - Device Memory requirements: 2753024
+I0219 12:00:04.011096 70233 bert_core_vs.cc:393] Engine - Number of Optimization Profiles: 1
+I0219 12:00:04.011101 70233 bert_core_vs.cc:415] Engine - Profile 0 maxDims 384 Bmax=1 Smax=384
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +8, now: CPU 103, GPU 1169 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +8, now: CPU 103, GPU 1177 (MiB)
+I0219 12:00:04.040695 70233 bert_core_vs.cc:426] Setting Opt.Prof. to 0
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +0, now: CPU 0, GPU 290 (MiB)
+I0219 12:00:04.040709 70233 bert_core_vs.cc:444] Context creation complete. Max supported batchSize: 1
+I0219 12:00:04.040755 70233 bert_core_vs.cc:476] Setup complete
+I0219 12:00:04.257977 70239 bert_core_vs.cc:352] Created 96 CUDA graphs
+I0219 12:00:04.259315 70233 main_bert.cc:184] Starting running actual test.
+I0219 12:10:05.959419 70233 main_bert.cc:190] Finished running actual test.
+================================================
+MLPerf Results Summary
+================================================
+SUT name : BERT SERVER
+Scenario : SingleStream
+Mode     : PerformanceOnly
+90th percentile latency (ns) : 1016599
+Result is : VALID
+  Min duration satisfied : Yes
+  Min queries satisfied : Yes
+  Early stopping satisfied: Yes
+Early Stopping Result:
+ * Processed at least 64 queries (640456).
+ * Would discard 63486 highest latency queries.
+ * Early stopping 90th percentile estimate: 1016869
+ * Early stopping 99th percentile estimate: 1190231
+
+================================================
+Additional Stats
+================================================
+QPS w/ loadgen overhead         : 1067.42
+QPS w/o loadgen overhead        : 1072.80
+
+Min latency (ns)                : 859576
+Max latency (ns)                : 1311018
+Mean latency (ns)               : 932137
+50.00 percentile latency (ns)   : 910860
+90.00 percentile latency (ns)   : 1016599
+95.00 percentile latency (ns)   : 1138586
+97.00 percentile latency (ns)   : 1176025
+99.00 percentile latency (ns)   : 1190182
+99.90 percentile latency (ns)   : 1204580
+
+================================================
+Test Parameters Used
+================================================
+samples_per_query : 1
+target_qps : 2682.98
+target_latency (ns): 0
+max_async_queries : 1
+min_duration (ms): 600000
+max_duration (ms): 660000
+min_query_count : 100
+max_query_count : 0
+qsl_rng_seed : 13281865557512327830
+sample_index_rng_seed : 198141574272810017
+schedule_rng_seed : 7575108116881280410
+accuracy_log_rng_seed : 0
+accuracy_log_probability : 0
+accuracy_log_sampling_target : 0
+print_timestamps : 0
+performance_issue_unique : 0
+performance_issue_same : 0
+performance_issue_same_index : 0
+performance_sample_count : 10833
+
+No warnings encountered during test.
+
+No errors encountered during test.
+[2024-02-19 12:10:06,120 run_harness.py:170 INFO] Result: result_90.00_percentile_latency_ns: 1016599, Result is VALID
+ 
+======================== Result summaries: ========================
+

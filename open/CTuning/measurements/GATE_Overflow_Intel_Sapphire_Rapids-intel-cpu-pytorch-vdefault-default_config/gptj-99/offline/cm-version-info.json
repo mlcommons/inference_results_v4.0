@@ -1,0 +1,116 @@
+{
+  "app-mlperf-inference,d775cac873ee4231:intel-original,gptj-99,valid,r4.0_default,offline": [
+    {
+      "get,python,python3,get-python,get-python3": {
+        "script_uid": "d0b5dd74373f4a62",
+        "script_alias": "get-python3",
+        "version": "3.9.0",
+        "parent": "app-mlperf-inference,d775cac873ee4231:intel-original,gptj-99,valid,r4.0_default,offline"
+      }
+    },
+    {
+      "get,src,source,inference,inference-src,inference-source,mlperf,mlcommons": {
+        "script_uid": "4b57186581024797",
+        "script_alias": "get-mlperf-inference-src",
+        "version": "master",
+        "parent": "app-mlperf-inference,d775cac873ee4231:intel-original,gptj-99,valid,r4.0_default,offline"
+      }
+    },
+    {
+      "get,src,source,inference,inference-src,inference-source,mlperf,mlcommons": {
+        "script_uid": "4b57186581024797",
+        "script_alias": "get-mlperf-inference-src",
+        "version": "master",
+        "parent": "get-mlperf-inference-utils,e341e5f86d8342e5:"
+      }
+    },
+    {
+      "get,install,generic,generic-python-lib,mlperf_logging": {
+        "script_uid": "94b62a682bc44791",
+        "script_alias": "get-generic-python-lib",
+        "version": "3.0.0",
+        "parent": "reproduce-mlperf-inference-intel,c05a90433bb04cc1:gptj-99,cpu,pytorch,offline"
+      }
+    },
+    {
+      "get,results,inference,inference-results,mlcommons,mlperf,ctuning": {
+        "script_uid": "36bae5b25dbe41da",
+        "script_alias": "get-mlperf-inference-results",
+        "version": "v3.1",
+        "parent": "reproduce-mlperf-inference-intel,c05a90433bb04cc1:gptj-99,cpu,pytorch,offline"
+      }
+    },
+    {
+      "get,conda,get-conda,name.gptj-pt": {
+        "script_uid": "6600115f41324c7b",
+        "script_alias": "get-conda",
+        "version": "23.11.0",
+        "parent": "reproduce-mlperf-inference-intel,c05a90433bb04cc1:gptj-99,cpu,pytorch,offline"
+      }
+    },
+    {
+      "get,python,python3,get-python,get-python3,conda.gptj-pt": {
+        "script_uid": "d0b5dd74373f4a62",
+        "script_alias": "get-python3",
+        "version": "3.9.0",
+        "parent": "reproduce-mlperf-inference-intel,c05a90433bb04cc1:gptj-99,cpu,pytorch,offline"
+      }
+    },
+    {
+      "get,install,generic,generic-python-lib,package.transformers": {
+        "script_uid": "94b62a682bc44791",
+        "script_alias": "get-generic-python-lib",
+        "version": "4.28.1",
+        "parent": "reproduce-mlperf-inference-intel,c05a90433bb04cc1:gptj-99,cpu,pytorch,offline"
+      }
+    },
+    {
+      "get,src,source,inference,inference-src,inference-source,mlperf,mlcommons": {
+        "script_uid": "4b57186581024797",
+        "script_alias": "get-mlperf-inference-src",
+        "version": "master",
+        "parent": "reproduce-mlperf-inference-intel,c05a90433bb04cc1:gptj-99,cpu,pytorch,offline"
+      }
+    },
+    {
+      "get,loadgen,inference,inference-loadgen,mlperf,mlcommons,custom-python": {
+        "script_uid": "64c3d98d0ba04950",
+        "script_alias": "get-mlperf-inference-loadgen",
+        "version": "master",
+        "parent": "reproduce-mlperf-inference-intel,c05a90433bb04cc1:gptj-99,cpu,pytorch,offline"
+      }
+    },
+    {
+      "get,install,generic,generic-python-lib,package.datasets": {
+        "script_uid": "94b62a682bc44791",
+        "script_alias": "get-generic-python-lib",
+        "version": "2.17.0",
+        "parent": "reproduce-mlperf-inference-intel,c05a90433bb04cc1:gptj-99,cpu,pytorch,offline"
+      }
+    },
+    {
+      "get,install,generic,generic-python-lib,package.accelerate": {
+        "script_uid": "94b62a682bc44791",
+        "script_alias": "get-generic-python-lib",
+        "version": "0.27.0",
+        "parent": "reproduce-mlperf-inference-intel,c05a90433bb04cc1:gptj-99,cpu,pytorch,offline"
+      }
+    },
+    {
+      "get,python,python3,get-python,get-python3": {
+        "script_uid": "d0b5dd74373f4a62",
+        "script_alias": "get-python3",
+        "version": "3.9.0",
+        "parent": "generate-mlperf-inference-user-conf,3af4475745964b93:"
+      }
+    },
+    {
+      "get,src,source,inference,inference-src,inference-source,mlperf,mlcommons": {
+        "script_uid": "4b57186581024797",
+        "script_alias": "get-mlperf-inference-src",
+        "version": "master",
+        "parent": "generate-mlperf-inference-user-conf,3af4475745964b93:"
+      }
+    }
+  ]
+}

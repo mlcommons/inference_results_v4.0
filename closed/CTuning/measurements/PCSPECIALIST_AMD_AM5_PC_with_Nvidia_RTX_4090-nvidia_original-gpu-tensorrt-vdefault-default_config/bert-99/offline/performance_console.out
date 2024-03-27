@@ -1,0 +1,124 @@
+grep: power/server-2706260181c0.cfg: No such file or directory
+grep: power/server-2706260181c0.cfg: No such file or directory
+[2024-02-19 12:16:56,377 main.py:230 INFO] Detected system ID: KnownSystem.phoenix
+[2024-02-19 12:16:57,017 generate_conf_files.py:107 INFO] Generated measurements/ entries for phoenix_TRT/bert-99/Offline
+[2024-02-19 12:16:57,017 __init__.py:46 INFO] Running command: ./build/bin/harness_bert --logfile_outdir="/home/cmuser/local/cache/f4ba7328d7f447f9/valid_results/2706260181c0-nvidia_original-gpu-tensorrt-vdefault-default_config/bert-99/offline/performance/run_1" --logfile_prefix="mlperf_log_" --performance_sample_count=10833 --test_mode="PerformanceOnly" --gpu_batch_size=256 --mlperf_conf_path="/home/cmuser/CM/repos/local/cache/94cf04c8097b4057/inference/mlperf.conf" --tensor_path="build/preprocessed_data/squad_tokenized/input_ids.npy,build/preprocessed_data/squad_tokenized/segment_ids.npy,build/preprocessed_data/squad_tokenized/input_mask.npy" --use_graphs=false --user_conf_path="/home/cmuser/CM/repos/ctuning@mlcommons-ck/cm-mlops/script/generate-mlperf-inference-user-conf/tmp/ac206259f50e4e9eb474db3284436249.conf" --gpu_inference_streams=2 --gpu_copy_streams=2 --gpu_engines="./build/engines/phoenix/bert/Offline/bert-Offline-gpu-int8_S_384_B_256_P_2_vs.custom_k_99_MaxP.plan" --scenario Offline --model bert
+[2024-02-19 12:16:57,017 __init__.py:53 INFO] Overriding Environment
+benchmark : Benchmark.BERT
+buffer_manager_thread_count : 0
+coalesced_tensor : True
+data_dir : /home/cmuser/local/cache/6057f3cefd9041b3/data
+enable_interleaved : False
+gpu_batch_size : 256
+gpu_copy_streams : 2
+gpu_inference_streams : 2
+input_dtype : int32
+input_format : linear
+log_dir : /home/cmuser/CM/repos/local/cache/8eb0c2732f244924/repo/closed/NVIDIA/build/logs/2024.02.19-12.16.55
+mlperf_conf_path : /home/cmuser/CM/repos/local/cache/94cf04c8097b4057/inference/mlperf.conf
+offline_expected_qps : 0.0
+precision : int8
+preprocessed_data_dir : /home/cmuser/local/cache/6057f3cefd9041b3/preprocessed_data
+scenario : Scenario.Offline
+system : SystemConfiguration(host_cpu_conf=CPUConfiguration(layout={CPU(name='AMD Ryzen 9 7950X 16-Core Processor', architecture=<CPUArchitecture.x86_64: AliasedName(name='x86_64', aliases=(), patterns=())>, core_count=16, threads_per_core=2): 1}), host_mem_conf=MemoryConfiguration(host_memory_capacity=Memory(quantity=131.07376399999998, byte_suffix=<ByteSuffix.GB: (1000, 3)>, _num_bytes=131073764000), comparison_tolerance=0.05), accelerator_conf=AcceleratorConfiguration(layout=defaultdict(<class 'int'>, {GPU(name='NVIDIA GeForce RTX 4090', accelerator_type=<AcceleratorType.Discrete: AliasedName(name='Discrete', aliases=(), patterns=())>, vram=Memory(quantity=23.98828125, byte_suffix=<ByteSuffix.GiB: (1024, 3)>, _num_bytes=25757220864), max_power_limit=450.0, pci_id='0x268410DE', compute_sm=89): 1})), numa_conf=None, system_id='phoenix')
+tensor_path : build/preprocessed_data/squad_tokenized/input_ids.npy,build/preprocessed_data/squad_tokenized/segment_ids.npy,build/preprocessed_data/squad_tokenized/input_mask.npy
+test_mode : PerformanceOnly
+use_graphs : False
+user_conf_path : /home/cmuser/CM/repos/ctuning@mlcommons-ck/cm-mlops/script/generate-mlperf-inference-user-conf/tmp/ac206259f50e4e9eb474db3284436249.conf
+system_id : phoenix
+config_name : phoenix_bert_Offline
+workload_setting : WorkloadSetting(HarnessType.Custom, AccuracyTarget.k_99, PowerSetting.MaxP)
+optimization_level : plugin-enabled
+use_cpu : False
+use_inferentia : False
+num_profiles : 2
+config_ver : custom_k_99_MaxP
+accuracy_level : 99%
+inference_server : custom
+skip_file_checks : True
+power_limit : None
+cpu_freq : None
+&&&& RUNNING BERT_HARNESS # ./build/bin/harness_bert
+I0219 12:16:57.067919 73541 main_bert.cc:163] Found 1 GPUs
+I0219 12:16:57.188059 73541 bert_server.cc:142] Engine Path: ./build/engines/phoenix/bert/Offline/bert-Offline-gpu-int8_S_384_B_256_P_2_vs.custom_k_99_MaxP.plan
+[I] [TRT] Loaded engine size: 414 MiB
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +7, GPU +8, now: CPU 578, GPU 1225 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +1, GPU +10, now: CPU 579, GPU 1235 (MiB)
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +290, now: CPU 0, GPU 290 (MiB)
+I0219 12:16:57.564234 73541 bert_server.cc:203] Engines Creation Completed
+I0219 12:16:57.592747 73541 bert_core_vs.cc:385] Engine - Device Memory requirements: 704644608
+I0219 12:16:57.592753 73541 bert_core_vs.cc:393] Engine - Number of Optimization Profiles: 2
+I0219 12:16:57.592758 73541 bert_core_vs.cc:415] Engine - Profile 0 maxDims 98304 Bmax=256 Smax=384
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +8, now: CPU 165, GPU 1901 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +1, GPU +8, now: CPU 166, GPU 1909 (MiB)
+I0219 12:16:57.650033 73541 bert_core_vs.cc:426] Setting Opt.Prof. to 0
+I0219 12:16:57.650050 73541 bert_core_vs.cc:444] Context creation complete. Max supported batchSize: 256
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +0, now: CPU 0, GPU 290 (MiB)
+I0219 12:16:57.651152 73541 bert_core_vs.cc:476] Setup complete
+I0219 12:16:57.651336 73541 bert_core_vs.cc:385] Engine - Device Memory requirements: 704644608
+I0219 12:16:57.651341 73541 bert_core_vs.cc:393] Engine - Number of Optimization Profiles: 2
+I0219 12:16:57.651343 73541 bert_core_vs.cc:415] Engine - Profile 1 maxDims 98304 Bmax=256 Smax=384
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +8, now: CPU 288, GPU 2715 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +1, GPU +10, now: CPU 289, GPU 2725 (MiB)
+I0219 12:16:57.709106 73541 bert_core_vs.cc:426] Setting Opt.Prof. to 1
+[I] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +1, GPU +0, now: CPU 1, GPU 290 (MiB)
+I0219 12:16:57.709475 73541 bert_core_vs.cc:444] Context creation complete. Max supported batchSize: 256
+I0219 12:16:57.710601 73541 bert_core_vs.cc:476] Setup complete
+I0219 12:16:57.938460 73541 main_bert.cc:184] Starting running actual test.
+I0219 12:28:09.102939 73541 main_bert.cc:190] Finished running actual test.
+================================================
+MLPerf Results Summary
+================================================
+SUT name : BERT SERVER
+Scenario : Offline
+Mode     : PerformanceOnly
+Samples per second: 4102.44
+Result is : VALID
+  Min duration satisfied : Yes
+  Min queries satisfied : Yes
+  Early stopping satisfied: Yes
+
+================================================
+Additional Stats
+================================================
+Min latency (ns)                : 716236302
+Max latency (ns)                : 670714141187
+Mean latency (ns)               : 406604882466
+50.00 percentile latency (ns)   : 433022999783
+90.00 percentile latency (ns)   : 639574169336
+95.00 percentile latency (ns)   : 657994724155
+97.00 percentile latency (ns)   : 664026745860
+99.00 percentile latency (ns)   : 668905012891
+99.90 percentile latency (ns)   : 670561476391
+
+================================================
+Test Parameters Used
+================================================
+samples_per_query : 2751564
+target_qps : 4169.04
+target_latency (ns): 0
+max_async_queries : 1
+min_duration (ms): 600000
+max_duration (ms): 0
+min_query_count : 1
+max_query_count : 0
+qsl_rng_seed : 13281865557512327830
+sample_index_rng_seed : 198141574272810017
+schedule_rng_seed : 7575108116881280410
+accuracy_log_rng_seed : 0
+accuracy_log_probability : 0
+accuracy_log_sampling_target : 0
+print_timestamps : 0
+performance_issue_unique : 0
+performance_issue_same : 0
+performance_issue_same_index : 0
+performance_sample_count : 10833
+
+No warnings encountered during test.
+
+No errors encountered during test.
+[2024-02-19 12:28:09,246 run_harness.py:170 INFO] Result: result_samples_per_second: 4102.44, Result is VALID
+ 
+======================== Result summaries: ========================
+

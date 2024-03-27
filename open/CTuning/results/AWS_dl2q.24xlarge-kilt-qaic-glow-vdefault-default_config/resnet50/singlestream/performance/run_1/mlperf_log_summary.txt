@@ -1,0 +1,59 @@
+================================================
+MLPerf Results Summary
+================================================
+SUT name : KILT_SERVER
+Scenario : SingleStream
+Mode     : PerformanceOnly
+90th percentile latency (ns) : 408136
+Result is : VALID
+  Min duration satisfied : Yes
+  Min queries satisfied : Yes
+  Early stopping satisfied: Yes
+Early Stopping Result:
+ * Processed at least 64 queries (1462221).
+ * Would discard 145377 highest latency queries.
+ * Early stopping 90th percentile estimate: 408156
+ * Early stopping 99th percentile estimate: 416610
+
+================================================
+Additional Stats
+================================================
+QPS w/ loadgen overhead         : 2437.03
+QPS w/o loadgen overhead        : 2472.01
+
+Min latency (ns)                : 293715
+Max latency (ns)                : 23920927
+Mean latency (ns)               : 404529
+50.00 percentile latency (ns)   : 405266
+90.00 percentile latency (ns)   : 408136
+95.00 percentile latency (ns)   : 410006
+97.00 percentile latency (ns)   : 411095
+99.00 percentile latency (ns)   : 416520
+99.90 percentile latency (ns)   : 425953
+
+================================================
+Test Parameters Used
+================================================
+samples_per_query : 1
+target_qps : 25000
+target_latency (ns): 0
+max_async_queries : 1
+min_duration (ms): 600000
+max_duration (ms): 660000
+min_query_count : 100
+max_query_count : 0
+qsl_rng_seed : 13281865557512327830
+sample_index_rng_seed : 198141574272810017
+schedule_rng_seed : 7575108116881280410
+accuracy_log_rng_seed : 0
+accuracy_log_probability : 0
+accuracy_log_sampling_target : 0
+print_timestamps : 0
+performance_issue_unique : 0
+performance_issue_same : 0
+performance_issue_same_index : 0
+performance_sample_count : 1024
+
+No warnings encountered during test.
+
+No errors encountered during test.

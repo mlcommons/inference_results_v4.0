@@ -1,0 +1,175 @@
+[2024-02-23 04:13:30,767 main.py:230 INFO] Detected system ID: KnownSystem.spr
+[2024-02-23 04:13:33,354 harness.py:85 INFO] Found coalesced sparse input file.
+[2024-02-23 04:13:33,355 harness.py:110 INFO] Found sample partition file.
+[2024-02-23 04:13:33,355 harness.py:238 INFO] The harness will load 1 plugins: ['build/plugins/DLRMv2EmbeddingLookupPlugin/libdlrmv2embeddinglookupplugin.so']
+[2024-02-23 04:13:33,357 generate_conf_files.py:107 INFO] Generated measurements/ entries for spr_TRT/dlrm-v2-99/Offline
+[2024-02-23 04:13:33,357 __init__.py:46 INFO] Running command: ./build/bin/harness_dlrm_v2 --plugins="build/plugins/DLRMv2EmbeddingLookupPlugin/libdlrmv2embeddinglookupplugin.so" --logfile_outdir="/home/cmuser/local/cache/f88c69500c934b67/valid_results/bc9186899021-nvidia_original-gpu-tensorrt-vdefault-default_config/dlrm-v2-99/offline/performance/run_1" --logfile_prefix="mlperf_log_" --performance_sample_count=204800 --test_mode="PerformanceOnly" --gpu_batch_size=1400 --mlperf_conf_path="/home/cmuser/CM/repos/local/cache/22d0acf6273d4ca1/inference/mlperf.conf" --tensor_path="/home/mlperf_inf_dlrmv2/criteo/day23/fp32/day_23_dense.npy,/home/mlperf_inf_dlrmv2/criteo/day23/fp32/day_23_sparse_concatenated.npy" --use_graphs=false --user_conf_path="/home/cmuser/CM/repos/ctuning@mlcommons-ck/cm-mlops/script/generate-mlperf-inference-user-conf/tmp/e60fcf254719427ca3c5f32fc9bc322d.conf" --gpu_copy_streams=1 --sample_partition_path="/home/mlperf_inf_dlrmv2/criteo/day23/sample_partition.npy" --gpu_inference_streams=1 --gpu_num_bundles=2 --check_contiguity=true --gpu_engines="./build/engines/spr/dlrm-v2/Offline/dlrm-v2-Offline-gpu-b1400-fp16.custom_k_99_MaxP.plan" --scenario Offline --model dlrm-v2
+[2024-02-23 04:13:33,357 __init__.py:53 INFO] Overriding Environment
+libnvrtc.so.11.2: cannot open shared object file: No such file or directory
+benchmark : Benchmark.DLRMv2
+buffer_manager_thread_count : 0
+check_contiguity : True
+coalesced_tensor : True
+data_dir : /home/cmuser/local/cache/b1f8faeaa7384886/data
+embedding_weights_on_gpu_part : 0.3
+gpu_batch_size : 1400
+gpu_copy_streams : 1
+gpu_inference_streams : 1
+gpu_num_bundles : 2
+input_dtype : fp32
+input_format : linear
+log_dir : /home/cmuser/CM/repos/local/cache/f4ded750a77b44dd/repo/closed/NVIDIA/build/logs/2024.02.23-04.13.29
+mega_table_npy_file : /home/mlperf_inf_dlrmv2/model/embedding_weights/mega_table_fp16.npy
+mlperf_conf_path : /home/cmuser/CM/repos/local/cache/22d0acf6273d4ca1/inference/mlperf.conf
+model_path : /home/mlperf_inf_dlrmv2/model/model_weights
+offline_expected_qps : 3000.0
+precision : fp16
+preprocessed_data_dir : /home/cmuser/local/cache/b1f8faeaa7384886/preprocessed_data
+reduced_precision_io : True
+sample_partition_path : /home/mlperf_inf_dlrmv2/criteo/day23/sample_partition.npy
+scenario : Scenario.Offline
+system : SystemConfiguration(host_cpu_conf=CPUConfiguration(layout={CPU(name='Intel(R) Xeon(R) w7-2495X', architecture=<CPUArchitecture.x86_64: AliasedName(name='x86_64', aliases=(), patterns=())>, core_count=24, threads_per_core=2): 1}), host_mem_conf=MemoryConfiguration(host_memory_capacity=Memory(quantity=197.33004, byte_suffix=<ByteSuffix.GB: (1000, 3)>, _num_bytes=197330040000), comparison_tolerance=0.05), accelerator_conf=AcceleratorConfiguration(layout=defaultdict(<class 'int'>, {GPU(name='NVIDIA GeForce RTX 4090', accelerator_type=<AcceleratorType.Discrete: AliasedName(name='Discrete', aliases=(), patterns=())>, vram=Memory(quantity=23.98828125, byte_suffix=<ByteSuffix.GiB: (1024, 3)>, _num_bytes=25757220864), max_power_limit=450.0, pci_id='0x268410DE', compute_sm=89): 2})), numa_conf=None, system_id='spr')
+tensor_path : /home/mlperf_inf_dlrmv2/criteo/day23/fp32/day_23_dense.npy,/home/mlperf_inf_dlrmv2/criteo/day23/fp32/day_23_sparse_concatenated.npy
+test_mode : PerformanceOnly
+use_graphs : False
+user_conf_path : /home/cmuser/CM/repos/ctuning@mlcommons-ck/cm-mlops/script/generate-mlperf-inference-user-conf/tmp/e60fcf254719427ca3c5f32fc9bc322d.conf
+system_id : spr
+config_name : spr_dlrm-v2_Offline
+workload_setting : WorkloadSetting(HarnessType.Custom, AccuracyTarget.k_99, PowerSetting.MaxP)
+optimization_level : plugin-enabled
+use_cpu : False
+use_inferentia : False
+num_profiles : 1
+config_ver : custom_k_99_MaxP
+accuracy_level : 99%
+inference_server : custom
+skip_file_checks : False
+power_limit : None
+cpu_freq : None
+&&&& RUNNING DLRMv2_HARNESS # ./build/bin/harness_dlrm_v2
+I0223 04:13:33.440237 22087 main_dlrm_v2.cpp:146] Found 2 GPUs
+I0223 04:13:33.442895 22087 main_dlrm_v2.cpp:190] Loaded 330067 sample partitions. (1320272) bytes.
+I0223 04:13:50.600832 22087 dlrm_v2_qsl.h:47] PerformanceSampleCount: 204800
+I0223 04:13:50.600849 22087 dlrm_v2_qsl.h:48] TotalSampleCount: 330067 (89137319 pairs).
+I0223 04:13:50.600858 22087 dlrm_v2_server.cpp:342] Using 1 DLRMv2 Core(s) per Device
+I0223 04:13:50.601269 22091 dlrm_v2_server.cpp:747] Deserializing Engine on GPU#0
+[I] [TRT] Loaded engine size: 31 MiB
+I0223 04:13:51.747077 22092 dlrm_v2_server.cpp:747] Deserializing Engine on GPU#1
+[I] [TRT] Loaded engine size: 31 MiB
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +43, GPU +10, now: CPU 120, GPU 995 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +6, GPU +10, now: CPU 126, GPU 1005 (MiB)
+Starting plugin init...
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +790, GPU +10, now: CPU 906, GPU 703 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +1, GPU +10, now: CPU 907, GPU 713 (MiB)
+Loading embedding weights...
+Completed loading embedding weights...
+Completed plugin init
+Starting plugin init...
+Completed plugin init
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +61, now: CPU 0, GPU 61 (MiB)
+I0223 04:16:12.517323 22091 dlrm_v2_server.cpp:754] Engine - Device Memory requirements: 38707200
+I0223 04:16:12.517377 22091 dlrm_v2_server.cpp:755] Engine - Number of Optimization Profiles: 1
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +31, now: CPU 0, GPU 61 (MiB)
+I0223 04:16:12.517861 22092 dlrm_v2_server.cpp:754] Engine - Device Memory requirements: 38707200
+I0223 04:16:12.517876 22092 dlrm_v2_server.cpp:755] Engine - Number of Optimization Profiles: 1
+[E] [TRT] 3: [runtime.cpp::~Runtime::399] Error Code 3: API Usage Error (Parameter check failed at: runtime/rt/runtime.cpp::~Runtime::399, condition: mEngineCounter.use_count() == 1. Destroying a runtime before destroying deserialized engines created by the runtime leads to undefined behavior.
+)
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +8, now: CPU 65, GPU 16509 (MiB)
+[E] [TRT] 3: [runtime.cpp::~Runtime::399] Error Code 3: API Usage Error (Parameter check failed at: runtime/rt/runtime.cpp::~Runtime::399, condition: mEngineCounter.use_count() == 1. Destroying a runtime before destroying deserialized engines created by the runtime leads to undefined behavior.
+)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +8, now: CPU 65, GPU 16517 (MiB)
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +8, now: CPU 65, GPU 16801 (MiB)
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +37, now: CPU 0, GPU 98 (MiB)
+I0223 04:16:12.567751 22092 dlrm_v2_server.cpp:80] Setting profile = 0
+I0223 04:16:12.567768 22092 dlrm_v2_server.cpp:83] Context creation complete
+I0223 04:16:12.567850 22092 dlrm_v2_server.cpp:95] Created streams
+I0223 04:16:12.567857 22092 dlrm_v2_server.cpp:102] Profile - Numeric Input Volume: 13
+I0223 04:16:12.567860 22092 dlrm_v2_server.cpp:104] Profile - Categorical Input Volume: 214
+I0223 04:16:12.567863 22092 dlrm_v2_server.cpp:106] Profile - Output Volume: 1
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +8, now: CPU 66, GPU 16809 (MiB)
+I0223 04:16:12.568457 22092 dlrm_v2_server.cpp:121] Created copy streams and buffers
+I0223 04:16:12.568462 22092 dlrm_v2_server.cpp:122] Setup complete
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +74, now: CPU 0, GPU 135 (MiB)
+I0223 04:16:12.568640 22091 dlrm_v2_server.cpp:80] Setting profile = 0
+I0223 04:16:12.568662 22091 dlrm_v2_server.cpp:83] Context creation complete
+I0223 04:16:12.568681 22091 dlrm_v2_server.cpp:95] Created streams
+I0223 04:16:12.568686 22091 dlrm_v2_server.cpp:102] Profile - Numeric Input Volume: 13
+I0223 04:16:12.568687 22091 dlrm_v2_server.cpp:104] Profile - Categorical Input Volume: 214
+I0223 04:16:12.568691 22091 dlrm_v2_server.cpp:106] Profile - Output Volume: 1
+I0223 04:16:12.568969 22091 dlrm_v2_server.cpp:121] Created copy streams and buffers
+I0223 04:16:12.568971 22091 dlrm_v2_server.cpp:122] Setup complete
+I0223 04:16:12.569155 22092 dlrm_v2_server.cpp:292] Running warmup for 1s.
+I0223 04:16:12.569597 22091 dlrm_v2_server.cpp:292] Running warmup for 1s.
+I0223 04:16:13.569666 22092 dlrm_v2_server.cpp:304] Warmup complete, ran for 1.00028s.
+I0223 04:16:13.570103 22091 dlrm_v2_server.cpp:304] Warmup complete, ran for 1.00031s.
+I0223 04:16:13.570217 22087 batch_maker.cpp:189] Contiguity-Aware H2H : ON
+I0223 04:16:13.574329 22087 batch_maker.cpp:189] Contiguity-Aware H2H : ON
+I0223 04:16:13.577477 22087 main_dlrm_v2.cpp:275] Starting running actual test.
+I0223 04:16:13.582162 22087 dlrm_v2_qsl.h:230] Calling LoadSamplesToRam() for QSL ensemble...
+I0223 04:16:13.582167 22087 dlrm_v2_qsl.h:70] Calling LoadSamplesToRam() for QSL[0] of 204800 samples...
+I0223 04:21:58.307044 22087 dlrm_v2_qsl.h:142] Completed LoadSamplesToRam() for QSL[0]
+I0223 04:21:58.481729 22087 dlrm_v2_qsl.h:235] Completed LoadSamplesToRam() for QSL ensemble.
+I0223 04:33:01.193681 22087 dlrm_v2_qsl.h:239] Calling UnloadSamplesFromRam() for QSL ensemble...
+I0223 04:33:01.193713 22087 dlrm_v2_qsl.h:147] Calling UnloadSamplesFromRam() for QSL[0] of 204800 samples...
+I0223 04:33:01.193718 22087 dlrm_v2_qsl.h:152] Completed UnloadSamplesFromRam() for QSL[0]
+I0223 04:33:01.193720 22087 dlrm_v2_qsl.h:244] Completed UnloadSamplesFromRam() for QSL ensemble.
+I0223 04:33:01.478194 22087 main_dlrm_v2.cpp:280] Finished running actual test.
+I0223 04:33:01.480437 22115 batch_maker.cpp:320] GetBatch Done
+I0223 04:33:01.480496 22116 batch_maker.cpp:320] GetBatch Done
+================================================
+MLPerf Results Summary
+================================================
+SUT name : DLRMv2 SERVER
+Scenario : Offline
+Mode     : PerformanceOnly
+Samples per second: 2988.18
+Result is : VALID
+  Min duration satisfied : Yes
+  Min queries satisfied : Yes
+  Early stopping satisfied: Yes
+
+================================================
+Additional Stats
+================================================
+Min latency (ns)                : 124457095
+Max latency (ns)                : 662611574571
+Mean latency (ns)               : 329378069936
+50.00 percentile latency (ns)   : 329227332453
+90.00 percentile latency (ns)   : 592985494600
+95.00 percentile latency (ns)   : 625939467449
+97.00 percentile latency (ns)   : 639145836402
+99.00 percentile latency (ns)   : 652318302009
+99.90 percentile latency (ns)   : 661285503207
+
+================================================
+Test Parameters Used
+================================================
+samples_per_query : 1980000
+target_qps : 3000
+target_latency (ns): 0
+max_async_queries : 1
+min_duration (ms): 600000
+max_duration (ms): 0
+min_query_count : 1
+max_query_count : 0
+qsl_rng_seed : 13281865557512327830
+sample_index_rng_seed : 198141574272810017
+schedule_rng_seed : 7575108116881280410
+accuracy_log_rng_seed : 0
+accuracy_log_probability : 0
+accuracy_log_sampling_target : 0
+print_timestamps : 0
+performance_issue_unique : 0
+performance_issue_same : 0
+performance_issue_same_index : 0
+performance_sample_count : 204800
+
+No warnings encountered during test.
+
+No errors encountered during test.
+[2024-02-23 04:33:12,016 run_harness.py:170 INFO] Result: result_samples_per_second: 2988.18, Result is VALID
+User-item pairs per second: 806982.685
+ 
+======================== Result summaries: ========================
+

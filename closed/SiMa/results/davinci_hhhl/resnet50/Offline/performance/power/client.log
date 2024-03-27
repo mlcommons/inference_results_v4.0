@@ -1,0 +1,54 @@
+client 2024-02-22 17:01:19,014 [INFO] Sending command to the server: 'mlcommons/power client v3'
+client 2024-02-22 17:01:19,016 [INFO] Got response: 'mlcommons/power server v3'
+client 2024-02-22 17:01:19,017 [INFO] Synchronizing with the server and with time.google.com...
+client 2024-02-22 17:01:19,102 [INFO] NTP:offset = 0.288 s, delay = 0.051 s 
+client 2024-02-22 17:01:19,103 [INFO] Sending command to the server: 'time'
+client 2024-02-22 17:01:19,106 [INFO] Got response: '1708621279.394892'
+client 2024-02-22 17:01:19,107 [INFO] The time difference between the client and the server is within range -291.700 ms..-287.948 ms
+client 2024-02-22 17:01:19,109 [INFO] Sending command to the server: 'new,singlestream,eeaac5a2-b56e-4fd7-a782-36278bbee5ca'
+client 2024-02-22 17:01:19,112 [INFO] Got response: 'OK 2024-02-22_09-01-19_singlestream,718f0222-b276-42d6-abd0-4690a431e273'
+client 2024-02-22 17:01:19,113 [INFO] Session id is '2024-02-22_09-01-19_singlestream'
+client 2024-02-22 17:01:19,115 [INFO] Sources: {"sources": {"__init__.py": "da39a3ee5e6b4b0d3255bfef95601890afd80709", "client.py": "33ca4f26368777ac06e01f9567b714a4b8063886", "lib/__init__.py": "da39a3ee5e6b4b0d3255bfef95601890afd80709", "lib/client.py": "ac2aa093c8e8bbc9569b9e2a3471bc64e58a2258", "lib/common.py": "611d8b29633d331eb19c9455ea3b5fa3284ed6df", "lib/external/__init__.py": "da39a3ee5e6b4b0d3255bfef95601890afd80709", "lib/external/ntplib.py": "4da8f970656505a40483206ef2b5d3dd5e81711d", "lib/server.py": "99303c836c683aa9017ec565104e636161d02acb", "lib/source_hashes.py": "60a2e02193209e8d392803326208d5466342da18", "lib/summary.py": "aa92f0a3f975eecd44d3c0cd0236342ccc9f941d", "lib/time_sync.py": "80894ef2389e540781ff78de94db16aa4203a14e", "server.py": "c3f90f2f7eeb4db30727556d0c815ebc89b3d28b", "tests/unit/__init__.py": "da39a3ee5e6b4b0d3255bfef95601890afd80709", "tests/unit/test_server.py": "948c1995d4008bc2aa6c4046a34ffa3858d6d671", "tests/unit/test_source_hashes.py": "00468a2907583c593e6574a1f6b404e4651c221a"}, "modules": {"ptd_client_server.lib.client": "lib/client.py", "ptd_client_server.lib.common": "lib/common.py", "ptd_client_server.lib.external.ntplib": "lib/external/ntplib.py", "ptd_client_server.lib.source_hashes": "lib/source_hashes.py", "ptd_client_server.lib.summary": "lib/summary.py", "ptd_client_server.lib.time_sync": "lib/time_sync.py"}}
+client 2024-02-22 17:01:19,116 [INFO] Running workload in ranging mode
+client 2024-02-22 17:01:19,117 [INFO] Synchronizing with the server and with time.google.com...
+client 2024-02-22 17:01:19,186 [INFO] NTP:offset = 0.300 s, delay = 0.059 s 
+client 2024-02-22 17:01:19,187 [INFO] Sending command to the server: 'time'
+client 2024-02-22 17:01:19,189 [INFO] Got response: '1708621279.479427'
+client 2024-02-22 17:01:19,190 [INFO] The time difference between the client and the server is within range -292.438 ms..-288.723 ms
+client 2024-02-22 17:01:19,191 [INFO] Sending command to the server: 'session,2024-02-22_09-01-19_singlestream,start,ranging'
+client 2024-02-22 17:01:47,257 [INFO] Got response: 'OK'
+client 2024-02-22 17:01:47,258 [INFO] Sending command to the server: 'time'
+client 2024-02-22 17:01:47,260 [INFO] Got response: '1708621307.5161397'
+client 2024-02-22 17:01:47,261 [INFO] The time difference between the client and the server is within range -257.656 ms..-254.705 ms
+client 2024-02-22 17:01:47,262 [INFO] Running the workload './run2 -t 0 -i 14:3:224:224 -o 14:64 -r 0  -s 2 -b 14 -d /sjclab/vimal.nakum/mlperf/resnet_dataset/mlperf_resnet50_dataset.dat -m false -l /sjclab/vimal.nakum/mlperf/libs_02052646/ -a /sjclab/vimal.nakum/mlperf/amy_models_0212/'
+client 2024-02-22 17:18:31,020 [INFO] Sending command to the server: 'time'
+client 2024-02-22 17:18:31,023 [INFO] Got response: '1708622311.3109772'
+client 2024-02-22 17:18:31,024 [INFO] The time difference between the client and the server is within range -291.076 ms..-287.139 ms
+client 2024-02-22 17:18:31,024 [INFO] Sending command to the server: 'session,2024-02-22_09-01-19_singlestream,stop,ranging'
+client 2024-02-22 17:18:41,405 [INFO] Got response: 'OK'
+client 2024-02-22 17:18:41,406 [INFO] Sending command to the server: 'time'
+client 2024-02-22 17:18:41,408 [INFO] Got response: '1708622321.6150568'
+client 2024-02-22 17:18:41,409 [INFO] The time difference between the client and the server is within range -208.453 ms..-205.744 ms
+client 2024-02-22 17:18:41,680 [INFO] Copying loadgen logs from '/data/vimal/mlperf_0130' to '../temp/2024-02-22_09-01-19_singlestream/ranging'
+client 2024-02-22 17:18:41,687 [INFO] Running workload in testing mode
+client 2024-02-22 17:18:41,688 [INFO] Synchronizing with the server and with time.google.com...
+client 2024-02-22 17:18:41,761 [INFO] NTP:offset = 0.214 s, delay = 0.063 s 
+client 2024-02-22 17:18:41,762 [INFO] Sending command to the server: 'time'
+client 2024-02-22 17:18:41,764 [INFO] Got response: '1708622321.9682605'
+client 2024-02-22 17:18:41,765 [INFO] The time difference between the client and the server is within range -206.168 ms..-202.669 ms
+client 2024-02-22 17:18:41,766 [INFO] Sending command to the server: 'session,2024-02-22_09-01-19_singlestream,start,testing'
+client 2024-02-22 17:18:54,767 [INFO] Got response: 'OK'
+client 2024-02-22 17:18:54,768 [INFO] Sending command to the server: 'time'
+client 2024-02-22 17:18:54,770 [INFO] Got response: '1708622334.9921327'
+client 2024-02-22 17:18:54,771 [INFO] The time difference between the client and the server is within range -224.076 ms..-220.861 ms
+client 2024-02-22 17:18:54,772 [INFO] Running the workload './run2 -t 0 -i 14:3:224:224 -o 14:64 -r 0  -s 2 -b 14 -d /sjclab/vimal.nakum/mlperf/resnet_dataset/mlperf_resnet50_dataset.dat -m false -l /sjclab/vimal.nakum/mlperf/libs_02052646/ -a /sjclab/vimal.nakum/mlperf/amy_models_0212/'
+client 2024-02-22 17:35:35,721 [INFO] Sending command to the server: 'time'
+client 2024-02-22 17:35:35,724 [INFO] Got response: '1708623335.954151'
+client 2024-02-22 17:35:35,725 [INFO] The time difference between the client and the server is within range -233.179 ms..-229.003 ms
+client 2024-02-22 17:35:35,726 [INFO] Sending command to the server: 'session,2024-02-22_09-01-19_singlestream,stop,testing'
+client 2024-02-22 17:35:45,733 [INFO] Got response: 'OK'
+client 2024-02-22 17:35:45,734 [INFO] Sending command to the server: 'time'
+client 2024-02-22 17:35:45,736 [INFO] Got response: '1708623346.0473728'
+client 2024-02-22 17:35:45,737 [INFO] The time difference between the client and the server is within range -313.195 ms..-310.267 ms
+client 2024-02-22 17:35:45,970 [INFO] Copying loadgen logs from '/data/vimal/mlperf_0130' to '../temp/2024-02-22_09-01-19_singlestream/run_1'
+client 2024-02-22 17:35:45,977 [INFO] Done runs

@@ -1,0 +1,116 @@
+[2024-02-23 05:05:14,297 main.py:230 INFO] Detected system ID: KnownSystem.phoenix
+[2024-02-23 05:05:15,680 harness.py:85 INFO] Found coalesced sparse input file.
+[2024-02-23 05:05:15,689 harness.py:110 INFO] Found sample partition file.
+[2024-02-23 05:05:15,689 harness.py:238 INFO] The harness will load 1 plugins: ['build/plugins/DLRMv2EmbeddingLookupPlugin/libdlrmv2embeddinglookupplugin.so']
+[2024-02-23 05:05:15,691 generate_conf_files.py:107 INFO] Generated measurements/ entries for phoenix_TRT/dlrm-v2-99/Offline
+[2024-02-23 05:05:15,691 __init__.py:46 INFO] Running command: ./build/bin/harness_dlrm_v2 --plugins="build/plugins/DLRMv2EmbeddingLookupPlugin/libdlrmv2embeddinglookupplugin.so" --logfile_outdir="/home/cmuser/local/cache/f4ba7328d7f447f9/valid_results/e6d45a469381-nvidia_original-gpu-tensorrt-vdefault-default_config/dlrm-v2-99/offline/accuracy" --logfile_prefix="mlperf_log_" --performance_sample_count=204800 --test_mode="AccuracyOnly" --gpu_batch_size=1400 --mlperf_conf_path="/home/cmuser/CM/repos/local/cache/ed1fe3e7f4c84ece/inference/mlperf.conf" --tensor_path="/home/mlperf_inf_dlrmv2/criteo/day23/fp32/day_23_dense.npy,/home/mlperf_inf_dlrmv2/criteo/day23/fp32/day_23_sparse_concatenated.npy" --use_graphs=false --user_conf_path="/home/cmuser/CM/repos/ctuning@mlcommons-ck/cm-mlops/script/generate-mlperf-inference-user-conf/tmp/1e9b95a9c56b4be0b46ae60729add672.conf" --gpu_copy_streams=1 --sample_partition_path="/home/mlperf_inf_dlrmv2/criteo/day23/sample_partition.npy" --gpu_inference_streams=1 --gpu_num_bundles=2 --check_contiguity=true --gpu_engines="./build/engines/phoenix/dlrm-v2/Offline/dlrm-v2-Offline-gpu-b1400-fp16.custom_k_99_MaxP.plan" --scenario Offline --model dlrm-v2
+[2024-02-23 05:05:15,691 __init__.py:53 INFO] Overriding Environment
+libnvrtc.so.11.2: cannot open shared object file: No such file or directory
+benchmark : Benchmark.DLRMv2
+buffer_manager_thread_count : 0
+check_contiguity : True
+coalesced_tensor : True
+data_dir : /home/cmuser/local/cache/6057f3cefd9041b3/data
+embedding_weights_on_gpu_part : 0.3
+gpu_batch_size : 1400
+gpu_copy_streams : 1
+gpu_inference_streams : 1
+gpu_num_bundles : 2
+input_dtype : fp32
+input_format : linear
+log_dir : /home/cmuser/CM/repos/local/cache/2edf9ab842284e5b/repo/closed/NVIDIA/build/logs/2024.02.23-05.05.13
+mega_table_npy_file : /home/mlperf_inf_dlrmv2/model/embedding_weights/mega_table_fp16.npy
+mlperf_conf_path : /home/cmuser/CM/repos/local/cache/ed1fe3e7f4c84ece/inference/mlperf.conf
+model_path : /home/mlperf_inf_dlrmv2/model/model_weights
+offline_expected_qps : 1500.0
+precision : fp16
+preprocessed_data_dir : /home/cmuser/local/cache/6057f3cefd9041b3/preprocessed_data
+reduced_precision_io : True
+sample_partition_path : /home/mlperf_inf_dlrmv2/criteo/day23/sample_partition.npy
+scenario : Scenario.Offline
+system : SystemConfiguration(host_cpu_conf=CPUConfiguration(layout={CPU(name='AMD Ryzen 9 7950X 16-Core Processor', architecture=<CPUArchitecture.x86_64: AliasedName(name='x86_64', aliases=(), patterns=())>, core_count=16, threads_per_core=2): 1}), host_mem_conf=MemoryConfiguration(host_memory_capacity=Memory(quantity=131.07376399999998, byte_suffix=<ByteSuffix.GB: (1000, 3)>, _num_bytes=131073764000), comparison_tolerance=0.05), accelerator_conf=AcceleratorConfiguration(layout=defaultdict(<class 'int'>, {GPU(name='NVIDIA GeForce RTX 4090', accelerator_type=<AcceleratorType.Discrete: AliasedName(name='Discrete', aliases=(), patterns=())>, vram=Memory(quantity=23.98828125, byte_suffix=<ByteSuffix.GiB: (1024, 3)>, _num_bytes=25757220864), max_power_limit=450.0, pci_id='0x268410DE', compute_sm=89): 1})), numa_conf=None, system_id='phoenix')
+tensor_path : /home/mlperf_inf_dlrmv2/criteo/day23/fp32/day_23_dense.npy,/home/mlperf_inf_dlrmv2/criteo/day23/fp32/day_23_sparse_concatenated.npy
+test_mode : AccuracyOnly
+use_graphs : False
+user_conf_path : /home/cmuser/CM/repos/ctuning@mlcommons-ck/cm-mlops/script/generate-mlperf-inference-user-conf/tmp/1e9b95a9c56b4be0b46ae60729add672.conf
+system_id : phoenix
+config_name : phoenix_dlrm-v2_Offline
+workload_setting : WorkloadSetting(HarnessType.Custom, AccuracyTarget.k_99, PowerSetting.MaxP)
+optimization_level : plugin-enabled
+use_cpu : False
+use_inferentia : False
+num_profiles : 1
+config_ver : custom_k_99_MaxP
+accuracy_level : 99%
+inference_server : custom
+skip_file_checks : False
+power_limit : None
+cpu_freq : None
+&&&& RUNNING DLRMv2_HARNESS # ./build/bin/harness_dlrm_v2
+I0223 05:05:15.745983 28185 main_dlrm_v2.cpp:146] Found 1 GPUs
+I0223 05:05:15.747563 28185 main_dlrm_v2.cpp:190] Loaded 330067 sample partitions. (1320272) bytes.
+I0223 05:05:42.289413 28185 dlrm_v2_qsl.h:47] PerformanceSampleCount: 204800
+I0223 05:05:42.289431 28185 dlrm_v2_qsl.h:48] TotalSampleCount: 330067 (89137319 pairs).
+I0223 05:05:42.289439 28185 dlrm_v2_server.cpp:342] Using 1 DLRMv2 Core(s) per Device
+I0223 05:05:42.289613 28189 dlrm_v2_server.cpp:747] Deserializing Engine on GPU#0
+[I] [TRT] Loaded engine size: 31 MiB
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +6, GPU +10, now: CPU 69, GPU 995 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +2, GPU +10, now: CPU 71, GPU 1005 (MiB)
+Starting plugin init...
+Loading embedding weights...
+Completed loading embedding weights...
+Completed plugin init
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +30, now: CPU 0, GPU 30 (MiB)
+I0223 05:08:59.893205 28189 dlrm_v2_server.cpp:754] Engine - Device Memory requirements: 38707200
+I0223 05:08:59.893546 28189 dlrm_v2_server.cpp:755] Engine - Number of Optimization Profiles: 1
+[E] [TRT] 3: [runtime.cpp::~Runtime::399] Error Code 3: API Usage Error (Parameter check failed at: runtime/rt/runtime.cpp::~Runtime::399, condition: mEngineCounter.use_count() == 1. Destroying a runtime before destroying deserialized engines created by the runtime leads to undefined behavior.
+)
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +8, now: CPU 40, GPU 16801 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +8, now: CPU 40, GPU 16809 (MiB)
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +37, now: CPU 0, GPU 67 (MiB)
+I0223 05:08:59.909555 28189 dlrm_v2_server.cpp:80] Setting profile = 0
+I0223 05:08:59.909564 28189 dlrm_v2_server.cpp:83] Context creation complete
+I0223 05:08:59.909574 28189 dlrm_v2_server.cpp:95] Created streams
+I0223 05:08:59.909575 28189 dlrm_v2_server.cpp:102] Profile - Numeric Input Volume: 13
+I0223 05:08:59.909577 28189 dlrm_v2_server.cpp:104] Profile - Categorical Input Volume: 214
+I0223 05:08:59.909579 28189 dlrm_v2_server.cpp:106] Profile - Output Volume: 1
+I0223 05:08:59.909695 28189 dlrm_v2_server.cpp:121] Created copy streams and buffers
+I0223 05:08:59.909698 28189 dlrm_v2_server.cpp:122] Setup complete
+I0223 05:08:59.910126 28189 dlrm_v2_server.cpp:292] Running warmup for 1s.
+I0223 05:09:00.910594 28189 dlrm_v2_server.cpp:304] Warmup complete, ran for 1.00023s.
+I0223 05:09:00.910820 28185 batch_maker.cpp:189] Contiguity-Aware H2H : ON
+I0223 05:09:00.913496 28185 main_dlrm_v2.cpp:275] Starting running actual test.
+I0223 05:09:00.917867 28185 dlrm_v2_qsl.h:230] Calling LoadSamplesToRam() for QSL ensemble...
+I0223 05:09:00.917872 28185 dlrm_v2_qsl.h:70] Calling LoadSamplesToRam() for QSL[0] of 204800 samples...
+I0223 05:22:40.859603 28185 dlrm_v2_qsl.h:142] Completed LoadSamplesToRam() for QSL[0]
+I0223 05:22:41.206360 28185 dlrm_v2_qsl.h:235] Completed LoadSamplesToRam() for QSL ensemble.
+I0223 05:24:53.969128 28185 dlrm_v2_qsl.h:239] Calling UnloadSamplesFromRam() for QSL ensemble...
+I0223 05:24:53.969154 28185 dlrm_v2_qsl.h:147] Calling UnloadSamplesFromRam() for QSL[0] of 204800 samples...
+I0223 05:24:53.969159 28185 dlrm_v2_qsl.h:152] Completed UnloadSamplesFromRam() for QSL[0]
+I0223 05:24:53.969161 28185 dlrm_v2_qsl.h:244] Completed UnloadSamplesFromRam() for QSL ensemble.
+I0223 05:24:53.969162 28185 dlrm_v2_qsl.h:230] Calling LoadSamplesToRam() for QSL ensemble...
+I0223 05:24:53.969164 28185 dlrm_v2_qsl.h:70] Calling LoadSamplesToRam() for QSL[0] of 125267 samples...
+I0223 05:31:21.352504 28185 dlrm_v2_qsl.h:142] Completed LoadSamplesToRam() for QSL[0]
+I0223 05:31:21.468533 28185 dlrm_v2_qsl.h:235] Completed LoadSamplesToRam() for QSL ensemble.
+I0223 05:32:42.495453 28185 dlrm_v2_qsl.h:239] Calling UnloadSamplesFromRam() for QSL ensemble...
+I0223 05:32:42.495502 28185 dlrm_v2_qsl.h:147] Calling UnloadSamplesFromRam() for QSL[0] of 125267 samples...
+I0223 05:32:42.495508 28185 dlrm_v2_qsl.h:152] Completed UnloadSamplesFromRam() for QSL[0]
+I0223 05:32:42.495510 28185 dlrm_v2_qsl.h:244] Completed UnloadSamplesFromRam() for QSL ensemble.
+I0223 05:32:42.521234 28185 main_dlrm_v2.cpp:280] Finished running actual test.
+I0223 05:32:42.522014 28200 batch_maker.cpp:320] GetBatch Done
+
+No warnings encountered during test.
+
+No errors encountered during test.
+[2024-02-23 05:32:56,977 run_harness.py:170 INFO] Result: Accuracy run detected.
+[2024-02-23 05:32:56,991 __init__.py:46 INFO] Running command: PYTHONPATH=/home/cmuser/CM/repos/local/cache/2edf9ab842284e5b/repo/closed/NVIDIA:/home/cmuser/CM/repos/local/cache/ed1fe3e7f4c84ece/inference/vision/classification_and_detection/python:/home/cmuser/CM/repos/local/cache/ed1fe3e7f4c84ece/inference/tools/submission:/home/cmuser/CM/repos/ctuning@mlcommons-ck/cm-mlops/script/get-mlperf-inference-utils:/usr/lib/python38.zip:/usr/lib/python3.8:/usr/lib/python3.8/lib-dynload:/home/cmuser/.local/lib/python3.8/site-packages:/usr/local/lib/python3.8/dist-packages:/usr/lib/python3/dist-packages:/usr/lib/python3.8/dist-packages python3 -S /home/cmuser/CM/repos/local/cache/2edf9ab842284e5b/repo/closed/NVIDIA/build/inference/recommendation/dlrm_v2/pytorch/tools/accuracy-dlrm.py --mlperf-accuracy-file /home/cmuser/local/cache/f4ba7328d7f447f9/valid_results/e6d45a469381-nvidia_original-gpu-tensorrt-vdefault-default_config/dlrm-v2-99/offline/accuracy/mlperf_log_accuracy.json --day-23-file /home/mlperf_inf_dlrmv2/criteo/day23/raw_data --aggregation-trace-file /home/mlperf_inf_dlrmv2/criteo/day23/sample_partition.txt --dtype float32
+Assuming loadgen accuracy log does not contain ground truth labels.
+Parsing loadgen accuracy log...
+Parsing aggregation trace file...
+Parsing ground truth labels from day_23 file...
+Re-ordering ground truth labels...
+Calculating AUC metric...
+AUC=62.297%, accuracy=96.586%, good=86094226, total=89137319, queries=330067
+ 
+======================== Result summaries: ========================
+

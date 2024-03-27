@@ -1,0 +1,289 @@
+# Copyright (c) 2024, NVIDIA CORPORATION.  All rights reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+ARG BASE_IMAGE
+FROM ${BASE_IMAGE} as base
+
+# Explicitly use bash instead of sh ('echo' behaves differently on some shells)
+SHELL ["/bin/bash", "-c"]
+
+ARG CUDA_VER=12.2
+ARG USE_NIGHTLY=0
+ARG USE_NGC=0
+ARG MITTEN_VER
+
+ARG DISTRO=ubuntu2204
+ARG ARCH=sbsa
+ARG ISA=aarch64
+
+ENV LC_ALL=C.UTF-8
+ENV LANG=C.UTF-8
+
+ENV TZ=ETC/UTC
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Add mirror site as aarch64 pkgs sometimes get lost
+RUN sed -i -e 's/http:\/\/archive/mirror:\/\/mirrors/' -e 's/\/ubuntu\//\/mirrors.txt/' /etc/apt/sources.list
+
+# Install core packages
+RUN apt update \
+ && apt install -y --no-install-recommends build-essential autoconf libtool git \
+        ccache curl wget pkg-config sudo ca-certificates automake libssl-dev \
+        bc python3-dev python3-pip google-perftools gdb libglib2.0-dev clang sshfs libre2-dev \
+        libboost-dev libnuma-dev numactl sysstat sshpass ntpdate less vim iputils-ping pybind11-dev \
+ && apt install --only-upgrade libksba8 \
+ && apt remove -y cmake \
+ && apt remove -y libgflags-dev \
+ && apt remove -y libprotobuf-dev \
+ && apt -y autoremove
+RUN apt install -y --no-install-recommends pkg-config zip g++ zlib1g-dev unzip
+RUN apt install -y --no-install-recommends libarchive-dev
+RUN apt install -y --no-install-recommends rsync
+
+# Install cudnn and TRT if not using NGC base container
+# Install cudnn 8.9.2 GA for TRT 9.0.0
+ARG CUDNN_DEB_URL=https://developer.download.nvidia.com/compute/cuda/repos/${DISTRO}/${ARCH}/
+RUN if [[ ${USE_NGC} = 0 ]]; then \
+    cd /tmp \
+    && install_deb_pkg() { wget $CUDNN_DEB_URL/$1 -O $1 && dpkg -i $1 && rm $1; } \
+    && install_deb_pkg libcudnn8_8.9.6.50-1+cuda12.2_arm64.deb \
+    && install_deb_pkg libcudnn8-dev_8.9.6.50-1+cuda12.2_arm64.deb \
+    && unset -f install_deb_pkg; fi
+
+# Remove the default TRT installation in the cudnn container if existed
+RUN if [[ ${USE_NGC} = 0 ]]; then rm -rf /usr/local/lib/python3.8/dist-packages/tensorrt/; fi
+
+# Install TRT RC 9.3.0.1
+ARG TRT_DEB_URL=http://cuda-repo/release-candidates/Libraries/TensorRT/v9.3/9.3.0.1-d6cbd29d/12.2-r535/Ubuntu22_04-aarch64/deb/
+ARG TRT_MAJOR_VER=9
+ARG TRT_MINOR_VER=3
+ARG TRT_PATCH_VER=0
+ARG TRT_QA_VER=1
+ARG TRT_VER=${TRT_MAJOR_VER}.${TRT_MINOR_VER}.${TRT_PATCH_VER}.${TRT_QA_VER}
+RUN if [[ ${USE_NGC} = 0 ]]; then if [[ $USE_NIGHTLY = 0 ]]; then \
+    cd /tmp \
+    && install_deb_pkg() { wget -q $TRT_DEB_URL/$1 -O $1 && dpkg -i $1 && rm $1; } \
+    && install_deb_pkg libnvinfer${TRT_MAJOR_VER}_${TRT_VER}-1+cuda${CUDA_VER}_arm64.deb \
+    && install_deb_pkg libnvinfer-headers-dev_${TRT_VER}-1+cuda${CUDA_VER}_arm64.deb \
+    && install_deb_pkg libnvinfer-dev_${TRT_VER}-1+cuda${CUDA_VER}_arm64.deb \
+    && install_deb_pkg libnvinfer-headers-plugin-dev_${TRT_VER}-1+cuda${CUDA_VER}_arm64.deb \
+    && install_deb_pkg libnvinfer-lean${TRT_MAJOR_VER}_${TRT_VER}-1+cuda${CUDA_VER}_arm64.deb \
+    && install_deb_pkg libnvinfer-lean-dev_${TRT_VER}-1+cuda${CUDA_VER}_arm64.deb \
+    && install_deb_pkg libnvinfer-dispatch${TRT_MAJOR_VER}_${TRT_VER}-1+cuda${CUDA_VER}_arm64.deb \
+    && install_deb_pkg libnvinfer-dispatch-dev_${TRT_VER}-1+cuda${CUDA_VER}_arm64.deb \
+    && install_deb_pkg libnvinfer-plugin${TRT_MAJOR_VER}_${TRT_VER}-1+cuda${CUDA_VER}_arm64.deb \
+    && install_deb_pkg libnvinfer-plugin-dev_${TRT_VER}-1+cuda${CUDA_VER}_arm64.deb \
+    && install_deb_pkg libnvinfer-vc-plugin${TRT_MAJOR_VER}_${TRT_VER}-1+cuda${CUDA_VER}_arm64.deb \
+    && install_deb_pkg libnvinfer-vc-plugin-dev_${TRT_VER}-1+cuda${CUDA_VER}_arm64.deb \
+    && install_deb_pkg libnvonnxparsers${TRT_MAJOR_VER}_${TRT_VER}-1+cuda${CUDA_VER}_arm64.deb \
+    && install_deb_pkg libnvonnxparsers-dev_${TRT_VER}-1+cuda${CUDA_VER}_arm64.deb \
+    && install_deb_pkg python3-libnvinfer_${TRT_VER}-1+cuda${CUDA_VER}_arm64.deb \
+    && install_deb_pkg python3-libnvinfer-lean_${TRT_VER}-1+cuda${CUDA_VER}_arm64.deb \
+    && install_deb_pkg python3-libnvinfer-dispatch_${TRT_VER}-1+cuda${CUDA_VER}_arm64.deb \
+    && install_deb_pkg python3-libnvinfer-dev_${TRT_VER}-1+cuda${CUDA_VER}_arm64.deb \
+    && install_deb_pkg libnvinfer-bin_${TRT_VER}-1+cuda${CUDA_VER}_arm64.deb \
+    && ln -sf /usr/src/tensorrt/bin/trtexec /usr/bin/trtexec \
+    && unset -f install_deb_pkg; fi; fi
+
+# With latest Ubuntu:20.04 container, there will be no 'python' or 'pip' even if we have installed 'python3' and
+# 'python3-pip'. So add softlink to avoid wheel installation failure.
+RUN ln -sf /usr/bin/python3 /usr/bin/python
+RUN ln -sf /usr/bin/pip3 /usr/bin/pip
+
+# Install dependencies needed for RNN-T preprocessing
+RUN apt install -y sox
+
+# Needed by official RNNT accuracy script
+RUN apt install -y --no-install-recommends libsndfile1-dev
+
+# Needed by Triton
+RUN apt install -y rapidjson-dev
+RUN apt install -y libb64-dev
+RUN apt install -y libgtest-dev
+
+
+# Set up basic setuptools for pip install commands.
+WORKDIR /tmp
+RUN python3 -m pip install --upgrade pip \
+    && python3 -m pip install --upgrade setuptools wheel virtualenv
+
+# Break requirements into two lists because some of them require that other packages be fully installed first.
+COPY requirements.${ISA}.1.txt requirements.${ISA}.2.txt nvmitten-${MITTEN_VER}-cp310-cp310-linux_${ISA}.whl* \
+    faster-transformer-bert-fp8-weights-scales.tar.gz* /tmp
+# NGC Image stores packages in /opt/
+RUN if [[ ${USE_NGC} = 1 ]]; then \
+    mv /opt/nvmitten-${MITTEN_VER}-cp310-cp310-linux_${ISA}.whl /tmp \
+    && mv /opt/faster-transformer-bert-fp8-weights-scales.tar.gz /tmp; fi
+WORKDIR /tmp
+RUN python3 -m pip install -r requirements.${ISA}.1.txt
+RUN python3 -m pip install -r requirements.${ISA}.2.txt
+
+# Build & install PyTorch and TorchVision
+# CMAKE to use TORCH_CUDA_ARCH_LIST="8.0+PTX 8.6+PTX 8.7+PTX 8.9+PTX 9.0+PTX" or
+#              TORCH_CUDA_ARCH_LIST="Ampere Ada Hopper" or
+#              TORCH_CUDA_ARCH_LIST="Auto"
+# NOTE: Auto may not work with new HW like G+H
+WORKDIR /tmp
+RUN wget https://repo.anaconda.com/miniconda/Miniconda3-py310_23.5.2-0-Linux-aarch64.sh \
+    && bash Miniconda3-py310_23.5.2-0-Linux-aarch64.sh -b -p /opt/miniconda3
+ENV PATH="$PATH:/opt/miniconda3/bin"
+RUN conda config --env --set always_yes true
+RUN conda install cmake ninja
+RUN cd /tmp \
+    && export CUDA_NVCC_EXECUTABLE="/usr/local/cuda/bin/nvcc" \
+    && export CUDA_HOME="/usr/local/cuda" \
+    && export CUDNN_INCLUDE_PATH="/usr/local/cuda/include/" \
+    && export CUDNN_LIBRARY_PATH="/usr/local/cuda/lib64/" \
+    && export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/cuda/lib64" \
+    && export USE_CUDA=1 USE_CUDNN=1 \
+    && export TORCH_CUDA_ARCH_LIST="Ampere Ada Hopper" \
+    && export _GLIBCXX_USE_CXX11_ABI=1 \
+    && git clone -b v0.4.0 --recursive https://github.com/pytorch/kineto.git \
+    && mkdir kineto/libkineto/build \
+    && cd kineto/libkineto/build \
+    && cmake .. \
+    && make \
+    && make install \
+    && cd -
+RUN cd /tmp \
+    && export CUDA_NVCC_EXECUTABLE="/usr/local/cuda/bin/nvcc" \
+    && export CUDA_HOME="/usr/local/cuda" \
+    && export CUDNN_INCLUDE_PATH="/usr/local/cuda/include/" \
+    && export CUDNN_LIBRARY_PATH="/usr/local/cuda/lib64/" \
+    && export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/cuda/lib64" \
+    && export USE_CUDA=1 USE_CUDNN=1 \
+    && export TORCH_CUDA_ARCH_LIST="Ampere Ada Hopper" \
+    && export _GLIBCXX_USE_CXX11_ABI=1 \
+    && git clone --branch v2.2.0 --recursive https://github.com/pytorch/pytorch \
+    && cd pytorch \
+    && python3 -m pip install -r requirements.txt \
+    && python setup.py bdist_wheel \
+    && cd dist \
+    && python3 -m pip install torch-2.2*linux_aarch64.whl \
+    && cd -
+RUN cd /tmp \
+    && export CUDA_NVCC_EXECUTABLE="/usr/local/cuda/bin/nvcc" \
+    && export CUDA_HOME="/usr/local/cuda" \
+    && export CUDNN_INCLUDE_PATH="/usr/local/cuda/include/" \
+    && export CUDNN_LIBRARY_PATH="/usr/local/cuda/lib64/" \
+    && export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/cuda/lib64" \
+    && export USE_CUDA=1 USE_CUDNN=1 \
+    && export TORCH_CUDA_ARCH_LIST="Ampere Ada Hopper" \
+    && export _GLIBCXX_USE_CXX11_ABI=1 \
+    && git clone --branch v0.17.0 https://github.com/pytorch/vision.git \
+    && cd vision \
+    && python setup.py bdist_wheel \
+    && cd dist \
+    && python3 -m pip install torchvision-0.17*linux_aarch64.whl \
+    && cd -
+RUN cd /tmp \
+    && export CUDA_BIN_PATH="/usr/local/cuda/" \
+    && export CUDACXX="/usr/local/cuda/bin/nvcc" \
+    && export CUDNN_INCLUDE_DIR="/usr/local/cuda/include/" \
+    && export CUDNN_LIBRARY="/usr/local/cuda/lib64/" \
+    && export TORCH_CUDA_ARCH_LIST="Ampere Ada Hopper" \
+    && export _GLIBCXX_USE_CXX11_ABI=1 \
+    && git clone --branch v0.6.0 --recursive https://github.com/pytorch/FBGEMM.git \
+    && cd FBGEMM/fbgemm_gpu \
+    && git submodule sync \
+    && git submodule update --init --recursive \
+    && python setup.py install \
+    && cd -
+RUN cd /tmp \
+    && export CUDA_NVCC_EXECUTABLE="/usr/local/cuda/bin/nvcc" \
+    && export CUDA_HOME="/usr/local/cuda" \
+    && export CUDNN_INCLUDE_PATH="/usr/local/cuda/include/" \
+    && export CUDNN_LIBRARY_PATH="/usr/local/cuda/lib64/" \
+    && export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/cuda/lib64" \
+    && export USE_CUDA=1 USE_CUDNN=1 \
+    && export TORCH_CUDA_ARCH_LIST="Ampere Ada Hopper" \
+    && export _GLIBCXX_USE_CXX11_ABI=1 \
+    && git clone --branch v0.6.0 --recursive https://github.com/pytorch/torchrec \
+    && cd torchrec \
+    && python setup.py bdist_wheel \
+    && cd dist \
+    && python3 -m pip install torchrec-0.6.0-py3-none-any.whl \
+    && cd -
+RUN python3 -m pip install torchsnapshot==0.1.0
+RUN conda config --env --remove-key always_yes
+
+# APEX for RNN-t preprocessing
+RUN python3 -m pip install apex@git+https://github.com/nvidia/apex@23.05
+
+# Install nlohmann/json for LLM config parsing
+#RUN cd /tmp && git clone -b v3.11.2 https://github.com/nlohmann/json.git \
+#    && cp -r json/single_include/nlohmann /usr/include/aarch64-linux-gnu/ \
+#    && rm -rf json
+RUN apt install -y nlohmann-json3-dev
+
+# install gflags
+# -DBUILD_SHARED_LIBS=ON -DBUILD_STATIC_LIBS=ON -DBUILD_gflags_LIB=ON .. \
+RUN git clone -b v2.2.2 https://github.com/gflags/gflags.git \
+    && cd gflags \
+    && mkdir build && cd build \
+    && cmake -DBUILD_SHARED_LIBS=ON -DBUILD_STATIC_LIBS=ON -DBUILD_gflags_LIB=ON .. \
+    && make -j \
+    && make install \
+    && cd /tmp && rm -rf gflags
+
+# install glog
+RUN git clone -b v0.6.0 https://github.com/google/glog.git \
+    && cd glog \
+    && cmake -H. -Bbuild -G "Unix Makefiles" -DBUILD_SHARED_LIBS=ON -DBUILD_STATIC_LIBS=ON \
+    && cmake --build build \
+    && cmake --build build --target install \
+    && cd /tmp && rm -rf glog
+
+# Install CUB, needed by NMS OPT plugin
+RUN wget https://github.com/NVlabs/cub/archive/1.8.0.zip -O cub-1.8.0.zip \
+    && unzip cub-1.8.0.zip \
+    && mv cub-1.8.0/cub /usr/include/${ISA}-linux-gnu/ \
+    && rm -rf cub-1.8.0.zip cub-1.8.0
+
+# Install libjemalloc2
+RUN apt update \
+    && apt install --no-install-recommends -y libjemalloc2 libtcmalloc-minimal4
+
+# Needed for Mitten
+RUN python3 -m pip uninstall -y pic-c
+
+WORKDIR /tmp
+RUN python3 -m pip install /tmp/nvmitten-${MITTEN_VER}-cp310-cp310-linux_${ISA}.whl
+
+# GPT core libs
+RUN apt install -y openmpi-bin openmpi-common libopenmpi-dev
+RUN python3 -m pip install mpi4py==3.1.4
+
+# BERT Fp8 weights
+WORKDIR /opt
+RUN mkdir -p /opt/fp8/faster-transformer-bert-fp8-weights-scales/ \
+    && tar -zxvf /tmp/faster-transformer-bert-fp8-weights-scales.tar.gz -C /opt/fp8/faster-transformer-bert-fp8-weights-scales/ --strip-components=6
+
+# Some convenient tools
+RUN apt install -y ripgrep
+RUN python3 -m pip install colored
+
+# install RUST
+RUN apt install -y cargo
+
+# install git-lfs
+RUN apt install -y git-lfs
+
+# install fvcore
+RUN python3 -m pip install fvcore
+
+# for SDXL accuracy venv
+RUN apt install -y python3.10-venv
+
+WORKDIR /work

@@ -1,0 +1,109 @@
+# Generated file by scripts/custom_systems/add_custom_system.py
+# Contains configs for all custom systems in code/common/systems/custom_list.py
+
+from . import *
+
+
+@ConfigRegistry.register(HarnessType.Custom, AccuracyTarget.k_99, PowerSetting.MaxP)
+class HPE_ProLiant_DL380a_Gen11_H100_PCIe_80GBx4(OfflineGPUBaseConfig):
+    system = KnownSystem.HPE_ProLiant_DL380a_Gen11_H100_PCIe_80GBx4
+    complete_threads = 1
+    deque_timeout_usec = 1
+    use_small_tile_gemm_plugin = False
+    gpu_batch_size = 350000
+    offline_expected_qps = 470000*4
+    max_pairs_per_staging_thread = 262100
+    num_staging_batches = 8
+    num_staging_threads = 8
+    use_jemalloc = True
+
+@ConfigRegistry.register(HarnessType.Custom, AccuracyTarget.k_99, PowerSetting.MaxP)
+class HPE_ProLiant_DL380a_Gen11_H100_PCIe_80GBx2(OfflineGPUBaseConfig):
+    system = KnownSystem.HPE_ProLiant_DL380a_Gen11_H100_PCIe_80GBx2
+    complete_threads = 1
+    deque_timeout_usec = 1
+    use_small_tile_gemm_plugin = False
+    gpu_batch_size = 350000
+    offline_expected_qps = 470000*2
+    max_pairs_per_staging_thread = 262100
+    num_staging_batches = 8
+    num_staging_threads = 8
+    use_jemalloc = True
+
+@ConfigRegistry.register(HarnessType.Custom, AccuracyTarget.k_99_9, PowerSetting.MaxP)
+class HPE_ProLiant_DL380a_Gen11_H100_PCIe_80GBx4_HighAccuracy(HPE_ProLiant_DL380a_Gen11_H100_PCIe_80GBx4):
+    pass
+
+@ConfigRegistry.register(HarnessType.Custom, AccuracyTarget.k_99_9, PowerSetting.MaxP)
+class HPE_ProLiant_DL380a_Gen11_H100_PCIe_80GBx2_HighAccuracy(HPE_ProLiant_DL380a_Gen11_H100_PCIe_80GBx2):
+    pass
+
+#@ConfigRegistry.register(HarnessType.Custom, AccuracyTarget.k_99, PowerSetting.MaxP)
+#class H100_PCIe_80GBx1(OfflineGPUBaseConfig):
+#    system = KnownSystem.H100_PCIe_80GBx1
+#    complete_threads = 1
+#    deque_timeout_usec = 1
+#    use_small_tile_gemm_plugin = False
+#    gpu_batch_size = 350000
+#    offline_expected_qps = 470000
+#    max_pairs_per_staging_thread = 262100
+#    num_staging_batches = 8
+#    num_staging_threads = 8
+#    use_jemalloc = True
+
+
+#@ConfigRegistry.register(HarnessType.Custom, AccuracyTarget.k_99_9, PowerSetting.MaxP)
+#class H100_PCIe_80GBx1_HighAccuracy(H100_PCIe_80GBx1):
+#    pass
+
+
+#@ConfigRegistry.register(HarnessType.Custom, AccuracyTarget.k_99, PowerSetting.MaxP)
+#class H100_PCIe_80GBx1(OfflineGPUBaseConfig):
+#    system = KnownSystem.H100_PCIe_80GBx1
+#    gpu_batch_size = 24
+#    use_fp8 = True
+#    offline_expected_qps = 3.5
+#
+#
+#@ConfigRegistry.register(HarnessType.Custom, AccuracyTarget.k_99, PowerSetting.MaxP)
+#class H100_PCIe_80GBx8(H100_PCIe_80GBx1):
+#    system = KnownSystem.H100_PCIe_80GBx8
+#    gpu_batch_size = 24
+#    offline_expected_qps = 25
+
+
+#@ConfigRegistry.register(HarnessType.Custom, AccuracyTarget.k_99, PowerSetting.MaxP)
+#class H100_PCIe_80GBx1(OfflineGPUBaseConfig):
+#    system = KnownSystem.H100_PCIe_80GBx1
+#    gpu_batch_size = 2048
+#    use_graphs = True  # MLPINF-1773
+#    offline_expected_qps = 17000
+#    disable_encoder_plugin = False
+
+
+#@ConfigRegistry.register(HarnessType.Custom, AccuracyTarget.k_99, PowerSetting.MaxP)
+#class H100_PCIe_80GBx8(H100_PCIe_80GBx1):
+#    system = KnownSystem.H100_PCIe_80GBx8
+#    gpu_batch_size = 2048
+#    offline_expected_qps = 15000 * 8
+
+#@ConfigRegistry.register(HarnessType.LWIS, AccuracyTarget.k_99, PowerSetting.MaxP)
+#class H100_PCIe_80GBx1(ServerGPUBaseConfig):
+#    system = KnownSystem.H100_PCIe_80GBx1
+#    use_deque_limit = True
+#    deque_timeout_usec = 2000
+#    gpu_batch_size = 128
+#    gpu_copy_streams = 4
+#    gpu_inference_streams = 2
+#    server_target_qps = 47000
+#    use_cuda_thread_per_device = True
+#    use_batcher_thread_per_device = True
+#    use_graphs = True
+#
+#@ConfigRegistry.register(HarnessType.LWIS, AccuracyTarget.k_99, PowerSetting.MaxP)
+#class HPE_ProLiant_DL380a_Gen11_H100_PCIe_80GBx4(OfflineGPUBaseConfig):
+#    system = KnownSystem.HPE_ProLiant_DL380a_Gen11_H100_PCIe_80GBx4
+#    gpu_batch_size = 2048
+#    offline_expected_qps = 57000*4
+#    #start_from_device = True
+

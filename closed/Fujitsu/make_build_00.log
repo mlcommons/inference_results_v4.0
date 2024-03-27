@@ -1,0 +1,1558 @@
+Cloning Official MLPerf Inference (For Loadgen Files)
+Cloning into '/work/build/inference'...
+Updating Loadgen
+Note: switching to '0ed5190e82e1ca1cf95626e50e61cb6678c7f2ff'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 0ed5190 Fix submission checker and TEST06 for Llama2 (#1616)
+Submodule 'language/bert/DeepLearningExamples' (https://github.com/NVIDIA/DeepLearningExamples.git) registered for path 'language/bert/DeepLearningExamples'
+Cloning into '/work/build/inference/language/bert/DeepLearningExamples'...
+Submodule path 'language/bert/DeepLearningExamples': checked out 'b03375bd6c2c5233130e61a3be49e26d1a20ac7c'
+Submodule 'vision/medical_imaging/3d-unet-brats19/nnUnet' (https://github.com/MIC-DKFZ/nnUNet.git) registered for path 'vision/medical_imaging/3d-unet-brats19/nnUnet'
+Cloning into '/work/build/inference/vision/medical_imaging/3d-unet-brats19/nnUnet'...
+Submodule path 'vision/medical_imaging/3d-unet-brats19/nnUnet': checked out 'b38c69b345b2f60cd0d053039669e8f988b0c0af'
+Cloning Official Power-Dev repo
+Cloning into '/work/build/power-dev'...
+Updating Power-Dev repo
+Note: switching to 'f5ee305a867b24905fea1f04f1b68819d392a731'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at f5ee305 Merge pull request #325 from krai/fix-power-whitespace
+make[1]: Entering directory '/work'
+mkdir -p build/plugins/NMSOptPlugin
+cd build/plugins/NMSOptPlugin\
+	&& cmake -DCMAKE_BUILD_TYPE=Release /work/code/plugin/NMSOptPlugin \
+	&& make -j
+-- The CXX compiler identification is GNU 9.4.0
+-- The CUDA compiler identification is NVIDIA 12.2.140
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Detecting CUDA compiler ABI info
+-- Detecting CUDA compiler ABI info - done
+-- Check for working CUDA compiler: /usr/local/cuda/bin/nvcc - skipped
+-- Detecting CUDA compile features
+-- Detecting CUDA compile features - done
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE  
+-- Found CUDA: /usr/local/cuda (found version "12.2") 
+
+The following variables are derived from the values of the previous variables unless provided explicitly:
+
+-- Configuring done
+CMake Warning (dev) in CMakeLists.txt:
+  Policy CMP0104 is not set: CMAKE_CUDA_ARCHITECTURES now detected for NVCC,
+  empty CUDA_ARCHITECTURES not allowed.  Run "cmake --help-policy CMP0104"
+  for policy details.  Use the cmake_policy command to set the policy and
+  suppress this warning.
+
+  CUDA_ARCHITECTURES is empty for target "nmsoptplugin".
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Generating done
+-- Build files have been written to: /work/build/plugins/NMSOptPlugin
+make[2]: Entering directory '/work/build/plugins/NMSOptPlugin'
+make[3]: Entering directory '/work/build/plugins/NMSOptPlugin'
+make[4]: Entering directory '/work/build/plugins/NMSOptPlugin'
+make[4]: Leaving directory '/work/build/plugins/NMSOptPlugin'
+make[4]: Entering directory '/work/build/plugins/NMSOptPlugin'
+[  7%] Building CUDA object CMakeFiles/nmsoptplugin.dir/src/allClassNMSOpt.cu.o
+[ 14%] Building CUDA object CMakeFiles/nmsoptplugin.dir/src/decodeBBoxesOpt.cu.o
+[ 21%] Building CUDA object CMakeFiles/nmsoptplugin.dir/src/detectionForwardOpt.cu.o
+[ 28%] Building CUDA object CMakeFiles/nmsoptplugin.dir/src/gatherTopDetectionsOpt.cu.o
+[ 35%] Building CUDA object CMakeFiles/nmsoptplugin.dir/src/nms_common.cu.o
+[ 42%] Building CUDA object CMakeFiles/nmsoptplugin.dir/src/permuteConfData.cu.o
+[ 50%] Building CUDA object CMakeFiles/nmsoptplugin.dir/src/topK.cu.o
+[ 64%] Building CUDA object CMakeFiles/nmsoptplugin.dir/src/topKScoresPerClassFusedPermute.cu.o
+[ 64%] Building CUDA object CMakeFiles/nmsoptplugin.dir/src/topKScoresPerClass.cu.o
+[ 71%] Building CUDA object CMakeFiles/nmsoptplugin.dir/src/topKScoresPerImage.cu.o
+[ 85%] Building CXX object CMakeFiles/nmsoptplugin.dir/src/nmsOptHelper.cpp.o
+[ 92%] Building CXX object CMakeFiles/nmsoptplugin.dir/src/nmsPluginOpt.cpp.o
+[ 92%] Building CXX object CMakeFiles/nmsoptplugin.dir/src/softmaxScore.cpp.o
+/work/code/plugin/NMSOptPlugin/src/softmaxScore.cpp: In function ‘ssdStatus_t nvinfer1::plugin::softmaxScore(cudaStream_t, int, int, int, int, DType_t, const void*, void*, cudnnHandle_t, cudnnTensorDescriptor_t, cudnnTensorDescriptor_t)’:
+/work/code/plugin/NMSOptPlugin/src/softmaxScore.cpp:43:19: warning: variable ‘status’ set but not used [-Wunused-but-set-variable]
+   43 |     cudnnStatus_t status;
+      |                   ^~~~~~
+In file included from /work/code/plugin/NMSOptPlugin/src/nmsPluginOpt.cpp:26:
+/work/code/plugin/NMSOptPlugin/src/nmsPluginOpt.cpp: In instantiation of ‘void nvinfer1::plugin::DetectionOutputOpt<T>::configurePluginBase(const nvinfer1::PluginTensorDesc*, int, const nvinfer1::PluginTensorDesc*, int) [with T = nvinfer1::IPluginV2IOExt]’:
+/work/code/plugin/NMSOptPlugin/src/nmsPluginOpt.cpp:416:53:   required from here
+/work/code/plugin/NMSOptPlugin/src/nmsPluginOpt.cpp:392:58: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+  392 |                 ASSERT(confInputType == DataType::kFLOAT && confInputFormat == TensorFormat::kLINEAR
+      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/code/plugin/NMSOptPlugin/src/ssdOptMacros.h:37:15: note: in definition of macro ‘ASSERT’
+   37 |         if (!(assertion))                                              \
+      |               ^~~~~~~~~
+/work/code/plugin/NMSOptPlugin/src/nmsPluginOpt.cpp: In instantiation of ‘void nvinfer1::plugin::DetectionOutputOpt<T>::configurePluginBase(const nvinfer1::PluginTensorDesc*, int, const nvinfer1::PluginTensorDesc*, int) [with T = nvinfer1::IPluginV2DynamicExt]’:
+/work/code/plugin/NMSOptPlugin/src/nmsPluginOpt.cpp:426:75:   required from here
+/work/code/plugin/NMSOptPlugin/src/nmsPluginOpt.cpp:392:58: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+  392 |                 ASSERT(confInputType == DataType::kFLOAT && confInputFormat == TensorFormat::kLINEAR
+      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/code/plugin/NMSOptPlugin/src/ssdOptMacros.h:37:15: note: in definition of macro ‘ASSERT’
+   37 |         if (!(assertion))                                              \
+      |               ^~~~~~~~~
+/work/code/plugin/NMSOptPlugin/src/nmsPluginOpt.cpp: In instantiation of ‘bool nvinfer1::plugin::DetectionOutputOpt<T>::supportsFormatCombinationBase(int, const nvinfer1::PluginTensorDesc*, int, int) const [with T = nvinfer1::IPluginV2IOExt]’:
+/work/code/plugin/NMSOptPlugin/src/nmsPluginOpt.cpp:485:73:   required from here
+/work/code/plugin/NMSOptPlugin/src/nmsPluginOpt.cpp:445:51: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+  445 |         rtn = inOut[pos].type == DataType::kFLOAT && (inOut[pos].format == TensorFormat::kLINEAR)
+/work/code/plugin/NMSOptPlugin/src/nmsPluginOpt.cpp: In instantiation of ‘bool nvinfer1::plugin::DetectionOutputOpt<T>::supportsFormatCombinationBase(int, const nvinfer1::PluginTensorDesc*, int, int) const [with T = nvinfer1::IPluginV2DynamicExt]’:
+/work/code/plugin/NMSOptPlugin/src/nmsPluginOpt.cpp:491:73:   required from here
+/work/code/plugin/NMSOptPlugin/src/nmsPluginOpt.cpp:445:51: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+/work/code/plugin/NMSOptPlugin/src/nmsPluginOpt.h(115): warning #997-D: function "nvinfer1::IPluginV2Ext::configurePlugin(const nvinfer1::Dims *, int32_t, const nvinfer1::Dims *, int32_t, const nvinfer1::DataType *, const nvinfer1::DataType *, const bool *, const bool *, nvinfer1::PluginFormat, int32_t)" is hidden by "nvinfer1::plugin::DetectionOutputOptStatic::configurePlugin" -- virtual function override intended?
+      void configurePlugin(
+           ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+/work/code/plugin/NMSOptPlugin/src/nmsPluginOpt.h(132): warning #997-D: function "nvinfer1::IPluginV2::getOutputDimensions(int32_t, const nvinfer1::Dims *, int32_t)" is hidden by "nvinfer1::plugin::DetectionOutputOptDynamic::getOutputDimensions" -- virtual function override intended?
+      DimsExprs getOutputDimensions(
+                ^
+
+/work/code/plugin/NMSOptPlugin/src/nmsPluginOpt.h(138): warning #997-D: function "nvinfer1::IPluginV2::getWorkspaceSize(int32_t) const" is hidden by "nvinfer1::plugin::DetectionOutputOptDynamic::getWorkspaceSize" -- virtual function override intended?
+      size_t getWorkspaceSize(const PluginTensorDesc* inputs, int nbInputs, const PluginTensorDesc* outputs,
+             ^
+
+/work/code/plugin/NMSOptPlugin/src/nmsPluginOpt.h(140): warning #997-D: function "nvinfer1::IPluginV2::enqueue(int32_t, const void *const *, void *const *, void *, cudaStream_t)" is hidden by "nvinfer1::plugin::DetectionOutputOptDynamic::enqueue" -- virtual function override intended?
+      int enqueue(const PluginTensorDesc* inputDesc, const PluginTensorDesc* outputDesc, const void* const* inputs,
+          ^
+
+/work/code/plugin/NMSOptPlugin/src/nmsPluginOpt.h(136): warning #997-D: function "nvinfer1::IPluginV2Ext::configurePlugin(const nvinfer1::Dims *, int32_t, const nvinfer1::Dims *, int32_t, const nvinfer1::DataType *, const nvinfer1::DataType *, const bool *, const bool *, nvinfer1::PluginFormat, int32_t)" is hidden by "nvinfer1::plugin::DetectionOutputOptDynamic::configurePlugin" -- virtual function override intended?
+      void configurePlugin(const DynamicPluginTensorDesc* in, int nbInputs, const DynamicPluginTensorDesc* out,
+           ^
+
+/work/code/plugin/NMSOptPlugin/src/nmsPluginOpt.h(115): warning #997-D: function "nvinfer1::IPluginV2Ext::configurePlugin(const nvinfer1::Dims *, int32_t, const nvinfer1::Dims *, int32_t, const nvinfer1::DataType *, const nvinfer1::DataType *, const __nv_bool *, const __nv_bool *, nvinfer1::PluginFormat, int32_t)" is hidden by "nvinfer1::plugin::DetectionOutputOptStatic::configurePlugin" -- virtual function override intended?
+      void configurePlugin(
+           ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+/work/code/plugin/NMSOptPlugin/src/nmsPluginOpt.h(132): warning #997-D: function "nvinfer1::IPluginV2::getOutputDimensions(int32_t, const nvinfer1::Dims *, int32_t)" is hidden by "nvinfer1::plugin::DetectionOutputOptDynamic::getOutputDimensions" -- virtual function override intended?
+      DimsExprs getOutputDimensions(
+                ^
+
+/work/code/plugin/NMSOptPlugin/src/nmsPluginOpt.h(138): warning #997-D: function "nvinfer1::IPluginV2::getWorkspaceSize(int32_t) const" is hidden by "nvinfer1::plugin::DetectionOutputOptDynamic::getWorkspaceSize" -- virtual function override intended?
+      size_t getWorkspaceSize(const PluginTensorDesc* inputs, int nbInputs, const PluginTensorDesc* outputs,
+             ^
+
+/work/code/plugin/NMSOptPlugin/src/nmsPluginOpt.h(140): warning #997-D: function "nvinfer1::IPluginV2::enqueue(int32_t, const void *const *, void *const *, void *, cudaStream_t)" is hidden by "nvinfer1::plugin::DetectionOutputOptDynamic::enqueue" -- virtual function override intended?
+      int enqueue(const PluginTensorDesc* inputDesc, const PluginTensorDesc* outputDesc, const void* const* inputs,
+          ^
+
+/work/code/plugin/NMSOptPlugin/src/nmsPluginOpt.h(136): warning #997-D: function "nvinfer1::IPluginV2Ext::configurePlugin(const nvinfer1::Dims *, int32_t, const nvinfer1::Dims *, int32_t, const nvinfer1::DataType *, const nvinfer1::DataType *, const __nv_bool *, const __nv_bool *, nvinfer1::PluginFormat, int32_t)" is hidden by "nvinfer1::plugin::DetectionOutputOptDynamic::configurePlugin" -- virtual function override intended?
+      void configurePlugin(const DynamicPluginTensorDesc* in, int nbInputs, const DynamicPluginTensorDesc* out,
+           ^
+
+/work/code/plugin/NMSOptPlugin/src/nmsPluginOpt.h(115): warning #997-D: function "nvinfer1::IPluginV2Ext::configurePlugin(const nvinfer1::Dims *, int32_t, const nvinfer1::Dims *, int32_t, const nvinfer1::DataType *, const nvinfer1::DataType *, const __nv_bool *, const __nv_bool *, nvinfer1::PluginFormat, int32_t)" is hidden by "nvinfer1::plugin::DetectionOutputOptStatic::configurePlugin" -- virtual function override intended?
+      void configurePlugin(
+           ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+/work/code/plugin/NMSOptPlugin/src/nmsPluginOpt.h(132): warning #997-D: function "nvinfer1::IPluginV2::getOutputDimensions(int32_t, const nvinfer1::Dims *, int32_t)" is hidden by "nvinfer1::plugin::DetectionOutputOptDynamic::getOutputDimensions" -- virtual function override intended?
+      DimsExprs getOutputDimensions(
+                ^
+
+/work/code/plugin/NMSOptPlugin/src/nmsPluginOpt.h(138): warning #997-D: function "nvinfer1::IPluginV2::getWorkspaceSize(int32_t) const" is hidden by "nvinfer1::plugin::DetectionOutputOptDynamic::getWorkspaceSize" -- virtual function override intended?
+      size_t getWorkspaceSize(const PluginTensorDesc* inputs, int nbInputs, const PluginTensorDesc* outputs,
+             ^
+
+/work/code/plugin/NMSOptPlugin/src/nmsPluginOpt.h(140): warning #997-D: function "nvinfer1::IPluginV2::enqueue(int32_t, const void *const *, void *const *, void *, cudaStream_t)" is hidden by "nvinfer1::plugin::DetectionOutputOptDynamic::enqueue" -- virtual function override intended?
+      int enqueue(const PluginTensorDesc* inputDesc, const PluginTensorDesc* outputDesc, const void* const* inputs,
+          ^
+
+/work/code/plugin/NMSOptPlugin/src/nmsPluginOpt.h(136): warning #997-D: function "nvinfer1::IPluginV2Ext::configurePlugin(const nvinfer1::Dims *, int32_t, const nvinfer1::Dims *, int32_t, const nvinfer1::DataType *, const nvinfer1::DataType *, const __nv_bool *, const __nv_bool *, nvinfer1::PluginFormat, int32_t)" is hidden by "nvinfer1::plugin::DetectionOutputOptDynamic::configurePlugin" -- virtual function override intended?
+      void configurePlugin(const DynamicPluginTensorDesc* in, int nbInputs, const DynamicPluginTensorDesc* out,
+           ^
+
+/work/code/plugin/NMSOptPlugin/src/nmsPluginOpt.h(115): warning #997-D: function "nvinfer1::IPluginV2Ext::configurePlugin(const nvinfer1::Dims *, int32_t, const nvinfer1::Dims *, int32_t, const nvinfer1::DataType *, const nvinfer1::DataType *, const __nv_bool *, const __nv_bool *, nvinfer1::PluginFormat, int32_t)" is hidden by "nvinfer1::plugin::DetectionOutputOptStatic::configurePlugin" -- virtual function override intended?
+      void configurePlugin(
+           ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+/work/code/plugin/NMSOptPlugin/src/nmsPluginOpt.h(132): warning #997-D: function "nvinfer1::IPluginV2::getOutputDimensions(int32_t, const nvinfer1::Dims *, int32_t)" is hidden by "nvinfer1::plugin::DetectionOutputOptDynamic::getOutputDimensions" -- virtual function override intended?
+      DimsExprs getOutputDimensions(
+                ^
+
+/work/code/plugin/NMSOptPlugin/src/nmsPluginOpt.h(138): warning #997-D: function "nvinfer1::IPluginV2::getWorkspaceSize(int32_t) const" is hidden by "nvinfer1::plugin::DetectionOutputOptDynamic::getWorkspaceSize" -- virtual function override intended?
+      size_t getWorkspaceSize(const PluginTensorDesc* inputs, int nbInputs, const PluginTensorDesc* outputs,
+             ^
+
+/work/code/plugin/NMSOptPlugin/src/nmsPluginOpt.h(140): warning #997-D: function "nvinfer1::IPluginV2::enqueue(int32_t, const void *const *, void *const *, void *, cudaStream_t)" is hidden by "nvinfer1::plugin::DetectionOutputOptDynamic::enqueue" -- virtual function override intended?
+      int enqueue(const PluginTensorDesc* inputDesc, const PluginTensorDesc* outputDesc, const void* const* inputs,
+          ^
+
+/work/code/plugin/NMSOptPlugin/src/nmsPluginOpt.h(136): warning #997-D: function "nvinfer1::IPluginV2Ext::configurePlugin(const nvinfer1::Dims *, int32_t, const nvinfer1::Dims *, int32_t, const nvinfer1::DataType *, const nvinfer1::DataType *, const __nv_bool *, const __nv_bool *, nvinfer1::PluginFormat, int32_t)" is hidden by "nvinfer1::plugin::DetectionOutputOptDynamic::configurePlugin" -- virtual function override intended?
+      void configurePlugin(const DynamicPluginTensorDesc* in, int nbInputs, const DynamicPluginTensorDesc* out,
+           ^
+
+/work/code/plugin/NMSOptPlugin/src/nmsPluginOpt.h(115): warning #997-D: function "nvinfer1::IPluginV2Ext::configurePlugin(const nvinfer1::Dims *, int32_t, const nvinfer1::Dims *, int32_t, const nvinfer1::DataType *, const nvinfer1::DataType *, const __nv_bool *, const __nv_bool *, nvinfer1::PluginFormat, int32_t)" is hidden by "nvinfer1::plugin::DetectionOutputOptStatic::configurePlugin" -- virtual function override intended?
+      void configurePlugin(
+           ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+/work/code/plugin/NMSOptPlugin/src/nmsPluginOpt.h(132): warning #997-D: function "nvinfer1::IPluginV2::getOutputDimensions(int32_t, const nvinfer1::Dims *, int32_t)" is hidden by "nvinfer1::plugin::DetectionOutputOptDynamic::getOutputDimensions" -- virtual function override intended?
+      DimsExprs getOutputDimensions(
+                ^
+
+/work/code/plugin/NMSOptPlugin/src/nmsPluginOpt.h(138): warning #997-D: function "nvinfer1::IPluginV2::getWorkspaceSize(int32_t) const" is hidden by "nvinfer1::plugin::DetectionOutputOptDynamic::getWorkspaceSize" -- virtual function override intended?
+      size_t getWorkspaceSize(const PluginTensorDesc* inputs, int nbInputs, const PluginTensorDesc* outputs,
+             ^
+
+/work/code/plugin/NMSOptPlugin/src/nmsPluginOpt.h(140): warning #997-D: function "nvinfer1::IPluginV2::enqueue(int32_t, const void *const *, void *const *, void *, cudaStream_t)" is hidden by "nvinfer1::plugin::DetectionOutputOptDynamic::enqueue" -- virtual function override intended?
+      int enqueue(const PluginTensorDesc* inputDesc, const PluginTensorDesc* outputDesc, const void* const* inputs,
+          ^
+
+/work/code/plugin/NMSOptPlugin/src/nmsPluginOpt.h(136): warning #997-D: function "nvinfer1::IPluginV2Ext::configurePlugin(const nvinfer1::Dims *, int32_t, const nvinfer1::Dims *, int32_t, const nvinfer1::DataType *, const nvinfer1::DataType *, const __nv_bool *, const __nv_bool *, nvinfer1::PluginFormat, int32_t)" is hidden by "nvinfer1::plugin::DetectionOutputOptDynamic::configurePlugin" -- virtual function override intended?
+      void configurePlugin(const DynamicPluginTensorDesc* in, int nbInputs, const DynamicPluginTensorDesc* out,
+           ^
+
+/work/code/plugin/NMSOptPlugin/src/nmsPluginOpt.h:101:46: warning: ‘IPluginV2Ext’ is deprecated [-Wdeprecated-declarations]
+  101 |     IPluginV2Ext* clone() const noexcept override;
+      |                                              ^~~~~   
+/usr/include/x86_64-linux-gnu/NvInferRuntimePlugin.h:447:22: note: declared here
+  447 | class TRT_DEPRECATED IPluginV2Ext : public IPluginV2
+      |                      ^~~~~~~~~~~~
+/work/code/plugin/NMSOptPlugin/src/nmsPluginOpt.h:158:95: warning: ‘IPluginV2’ is deprecated [-Wdeprecated-declarations]
+  158 |     IPluginV2* createPlugin(const char* name, const PluginFieldCollection* fc) noexcept override;
+      |                                                                                               ^~~     
+/usr/include/x86_64-linux-gnu/NvInferRuntimePlugin.h:117:22: note: declared here
+  117 | class TRT_DEPRECATED IPluginV2
+      |                      ^~~~~~~~~
+/work/code/plugin/NMSOptPlugin/src/nmsPluginOpt.h:160:112: warning: ‘IPluginV2’ is deprecated [-Wdeprecated-declarations]
+  160 |     IPluginV2* deserializePlugin(const char* name, const void* serialData, size_t serialLength) noexcept override;
+      |                                                                                                                ^~~     
+/usr/include/x86_64-linux-gnu/NvInferRuntimePlugin.h:117:22: note: declared here
+  117 | class TRT_DEPRECATED IPluginV2
+      |                      ^~~~~~~~~
+[100%] Linking CXX shared module libnmsoptplugin.so
+make[4]: Leaving directory '/work/build/plugins/NMSOptPlugin'
+[100%] Built target nmsoptplugin
+make[3]: Leaving directory '/work/build/plugins/NMSOptPlugin'
+make[2]: Leaving directory '/work/build/plugins/NMSOptPlugin'
+mkdir -p build/plugins/RNNTOptPlugin
+cd build/plugins/RNNTOptPlugin\
+	&& cmake -DCMAKE_BUILD_TYPE=Release /work/code/plugin/RNNTOptPlugin \
+	&& make -j
+-- The CXX compiler identification is GNU 9.4.0
+-- The CUDA compiler identification is NVIDIA 12.2.140
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Detecting CUDA compiler ABI info
+-- Detecting CUDA compiler ABI info - done
+-- Check for working CUDA compiler: /usr/local/cuda/bin/nvcc - skipped
+-- Detecting CUDA compile features
+-- Detecting CUDA compile features - done
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE  
+-- Found CUDA: /usr/local/cuda (found version "12.2") 
+-- Configuring done
+CMake Warning (dev) in CMakeLists.txt:
+  Policy CMP0104 is not set: CMAKE_CUDA_ARCHITECTURES now detected for NVCC,
+  empty CUDA_ARCHITECTURES not allowed.  Run "cmake --help-policy CMP0104"
+  for policy details.  Use the cmake_policy command to set the policy and
+  suppress this warning.
+
+  CUDA_ARCHITECTURES is empty for target "rnntoptplugin".
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) in CMakeLists.txt:
+  Policy CMP0104 is not set: CMAKE_CUDA_ARCHITECTURES now detected for NVCC,
+  empty CUDA_ARCHITECTURES not allowed.  Run "cmake --help-policy CMP0104"
+  for policy details.  Use the cmake_policy command to set the policy and
+  suppress this warning.
+
+  CUDA_ARCHITECTURES is empty for target "rnntoptplugin".
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) in CMakeLists.txt:
+  Policy CMP0104 is not set: CMAKE_CUDA_ARCHITECTURES now detected for NVCC,
+  empty CUDA_ARCHITECTURES not allowed.  Run "cmake --help-policy CMP0104"
+  for policy details.  Use the cmake_policy command to set the policy and
+  suppress this warning.
+
+  CUDA_ARCHITECTURES is empty for target "rnntoptplugin".
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Generating done
+-- Build files have been written to: /work/build/plugins/RNNTOptPlugin
+make[2]: Entering directory '/work/build/plugins/RNNTOptPlugin'
+make[3]: Entering directory '/work/build/plugins/RNNTOptPlugin'
+make[4]: Entering directory '/work/build/plugins/RNNTOptPlugin'
+make[4]: Leaving directory '/work/build/plugins/RNNTOptPlugin'
+make[4]: Entering directory '/work/build/plugins/RNNTOptPlugin'
+[ 50%] Building CUDA object CMakeFiles/rnntoptplugin.dir/src/select3Plugin.cu.o
+[ 50%] Building CUDA object CMakeFiles/rnntoptplugin.dir/src/decoderPlugin.cu.o
+/work/code/plugin/RNNTOptPlugin/src/select3Plugin.h(69): warning #997-D: function "nvinfer1::IPluginV2::getOutputDimensions(int32_t, const nvinfer1::Dims *, int32_t)" is hidden by "nvinfer1::plugin::RNNTSelectPlugin::getOutputDimensions" -- virtual function override intended?
+      DimsExprs getOutputDimensions(
+                ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+/work/code/plugin/RNNTOptPlugin/src/select3Plugin.h(71): warning #997-D: function "nvinfer1::IPluginV2::getWorkspaceSize(int32_t) const" is hidden by "nvinfer1::plugin::RNNTSelectPlugin::getWorkspaceSize" -- virtual function override intended?
+      virtual size_t getWorkspaceSize(const PluginTensorDesc* inputs, int nbInputs, const PluginTensorDesc* outputs,
+                     ^
+
+/work/code/plugin/RNNTOptPlugin/src/select3Plugin.h(73): warning #997-D: function "nvinfer1::IPluginV2::enqueue(int32_t, const void *const *, void *const *, void *, cudaStream_t)" is hidden by "nvinfer1::plugin::RNNTSelectPlugin::enqueue" -- virtual function override intended?
+      virtual int enqueue(const PluginTensorDesc* inputDesc, const PluginTensorDesc* outputDesc,
+                  ^
+
+/work/code/plugin/RNNTOptPlugin/src/select3Plugin.h(65): warning #997-D: function "nvinfer1::IPluginV2Ext::configurePlugin(const nvinfer1::Dims *, int32_t, const nvinfer1::Dims *, int32_t, const nvinfer1::DataType *, const nvinfer1::DataType *, const bool *, const bool *, nvinfer1::PluginFormat, int32_t)" is hidden by "nvinfer1::plugin::RNNTSelectPlugin::configurePlugin" -- virtual function override intended?
+      void configurePlugin(const DynamicPluginTensorDesc* in, int nbInputs, const DynamicPluginTensorDesc* out,
+           ^
+
+/work/code/plugin/RNNTOptPlugin/src/decoderPlugin.h(66): warning #997-D: function "nvinfer1::IPluginV2::getOutputDimensions(int32_t, const nvinfer1::Dims *, int32_t)" is hidden by "nvinfer1::plugin::RNNTDecoderPlugin::getOutputDimensions" -- virtual function override intended?
+      DimsExprs getOutputDimensions(
+                ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+/work/code/plugin/RNNTOptPlugin/src/decoderPlugin.h(72): warning #997-D: function "nvinfer1::IPluginV2::getWorkspaceSize(int32_t) const" is hidden by "nvinfer1::plugin::RNNTDecoderPlugin::getWorkspaceSize" -- virtual function override intended?
+      virtual size_t getWorkspaceSize(const PluginTensorDesc* inputs, int32_t nbInputs, const PluginTensorDesc* outputs,
+                     ^
+
+/work/code/plugin/RNNTOptPlugin/src/decoderPlugin.h(74): warning #997-D: function "nvinfer1::IPluginV2::enqueue(int32_t, const void *const *, void *const *, void *, cudaStream_t)" is hidden by "nvinfer1::plugin::RNNTDecoderPlugin::enqueue" -- virtual function override intended?
+      virtual int enqueue(const PluginTensorDesc* inputDesc, const PluginTensorDesc* outputDesc,
+                  ^
+
+/work/code/plugin/RNNTOptPlugin/src/decoderPlugin.h(70): warning #997-D: function "nvinfer1::IPluginV2Ext::configurePlugin(const nvinfer1::Dims *, int32_t, const nvinfer1::Dims *, int32_t, const nvinfer1::DataType *, const nvinfer1::DataType *, const bool *, const bool *, nvinfer1::PluginFormat, int32_t)" is hidden by "nvinfer1::plugin::RNNTDecoderPlugin::configurePlugin" -- virtual function override intended?
+      void configurePlugin(const DynamicPluginTensorDesc* in, int32_t nbInputs, const DynamicPluginTensorDesc* out,
+           ^
+
+/work/code/plugin/RNNTOptPlugin/src/select3Plugin.h(69): warning #997-D: function "nvinfer1::IPluginV2::getOutputDimensions(int32_t, const nvinfer1::Dims *, int32_t)" is hidden by "nvinfer1::plugin::RNNTSelectPlugin::getOutputDimensions" -- virtual function override intended?
+      DimsExprs getOutputDimensions(
+                ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+/work/code/plugin/RNNTOptPlugin/src/select3Plugin.h(71): warning #997-D: function "nvinfer1::IPluginV2::getWorkspaceSize(int32_t) const" is hidden by "nvinfer1::plugin::RNNTSelectPlugin::getWorkspaceSize" -- virtual function override intended?
+      virtual size_t getWorkspaceSize(const PluginTensorDesc* inputs, int nbInputs, const PluginTensorDesc* outputs,
+                     ^
+
+/work/code/plugin/RNNTOptPlugin/src/select3Plugin.h(73): warning #997-D: function "nvinfer1::IPluginV2::enqueue(int32_t, const void *const *, void *const *, void *, cudaStream_t)" is hidden by "nvinfer1::plugin::RNNTSelectPlugin::enqueue" -- virtual function override intended?
+      virtual int enqueue(const PluginTensorDesc* inputDesc, const PluginTensorDesc* outputDesc,
+                  ^
+
+/work/code/plugin/RNNTOptPlugin/src/select3Plugin.h(65): warning #997-D: function "nvinfer1::IPluginV2Ext::configurePlugin(const nvinfer1::Dims *, int32_t, const nvinfer1::Dims *, int32_t, const nvinfer1::DataType *, const nvinfer1::DataType *, const __nv_bool *, const __nv_bool *, nvinfer1::PluginFormat, int32_t)" is hidden by "nvinfer1::plugin::RNNTSelectPlugin::configurePlugin" -- virtual function override intended?
+      void configurePlugin(const DynamicPluginTensorDesc* in, int nbInputs, const DynamicPluginTensorDesc* out,
+           ^
+
+/work/code/plugin/RNNTOptPlugin/src/decoderPlugin.h(66): warning #997-D: function "nvinfer1::IPluginV2::getOutputDimensions(int32_t, const nvinfer1::Dims *, int32_t)" is hidden by "nvinfer1::plugin::RNNTDecoderPlugin::getOutputDimensions" -- virtual function override intended?
+      DimsExprs getOutputDimensions(
+                ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+/work/code/plugin/RNNTOptPlugin/src/decoderPlugin.h(72): warning #997-D: function "nvinfer1::IPluginV2::getWorkspaceSize(int32_t) const" is hidden by "nvinfer1::plugin::RNNTDecoderPlugin::getWorkspaceSize" -- virtual function override intended?
+      virtual size_t getWorkspaceSize(const PluginTensorDesc* inputs, int32_t nbInputs, const PluginTensorDesc* outputs,
+                     ^
+
+/work/code/plugin/RNNTOptPlugin/src/decoderPlugin.h(74): warning #997-D: function "nvinfer1::IPluginV2::enqueue(int32_t, const void *const *, void *const *, void *, cudaStream_t)" is hidden by "nvinfer1::plugin::RNNTDecoderPlugin::enqueue" -- virtual function override intended?
+      virtual int enqueue(const PluginTensorDesc* inputDesc, const PluginTensorDesc* outputDesc,
+                  ^
+
+/work/code/plugin/RNNTOptPlugin/src/decoderPlugin.h(70): warning #997-D: function "nvinfer1::IPluginV2Ext::configurePlugin(const nvinfer1::Dims *, int32_t, const nvinfer1::Dims *, int32_t, const nvinfer1::DataType *, const nvinfer1::DataType *, const __nv_bool *, const __nv_bool *, nvinfer1::PluginFormat, int32_t)" is hidden by "nvinfer1::plugin::RNNTDecoderPlugin::configurePlugin" -- virtual function override intended?
+      void configurePlugin(const DynamicPluginTensorDesc* in, int32_t nbInputs, const DynamicPluginTensorDesc* out,
+           ^
+
+/work/code/plugin/RNNTOptPlugin/src/select3Plugin.h(69): warning #997-D: function "nvinfer1::IPluginV2::getOutputDimensions(int32_t, const nvinfer1::Dims *, int32_t)" is hidden by "nvinfer1::plugin::RNNTSelectPlugin::getOutputDimensions" -- virtual function override intended?
+      DimsExprs getOutputDimensions(
+                ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+/work/code/plugin/RNNTOptPlugin/src/select3Plugin.h(71): warning #997-D: function "nvinfer1::IPluginV2::getWorkspaceSize(int32_t) const" is hidden by "nvinfer1::plugin::RNNTSelectPlugin::getWorkspaceSize" -- virtual function override intended?
+      virtual size_t getWorkspaceSize(const PluginTensorDesc* inputs, int nbInputs, const PluginTensorDesc* outputs,
+                     ^
+
+/work/code/plugin/RNNTOptPlugin/src/select3Plugin.h(73): warning #997-D: function "nvinfer1::IPluginV2::enqueue(int32_t, const void *const *, void *const *, void *, cudaStream_t)" is hidden by "nvinfer1::plugin::RNNTSelectPlugin::enqueue" -- virtual function override intended?
+      virtual int enqueue(const PluginTensorDesc* inputDesc, const PluginTensorDesc* outputDesc,
+                  ^
+
+/work/code/plugin/RNNTOptPlugin/src/select3Plugin.h(65): warning #997-D: function "nvinfer1::IPluginV2Ext::configurePlugin(const nvinfer1::Dims *, int32_t, const nvinfer1::Dims *, int32_t, const nvinfer1::DataType *, const nvinfer1::DataType *, const __nv_bool *, const __nv_bool *, nvinfer1::PluginFormat, int32_t)" is hidden by "nvinfer1::plugin::RNNTSelectPlugin::configurePlugin" -- virtual function override intended?
+      void configurePlugin(const DynamicPluginTensorDesc* in, int nbInputs, const DynamicPluginTensorDesc* out,
+           ^
+
+/work/code/plugin/RNNTOptPlugin/src/decoderPlugin.h(66): warning #997-D: function "nvinfer1::IPluginV2::getOutputDimensions(int32_t, const nvinfer1::Dims *, int32_t)" is hidden by "nvinfer1::plugin::RNNTDecoderPlugin::getOutputDimensions" -- virtual function override intended?
+      DimsExprs getOutputDimensions(
+                ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+/work/code/plugin/RNNTOptPlugin/src/decoderPlugin.h(72): warning #997-D: function "nvinfer1::IPluginV2::getWorkspaceSize(int32_t) const" is hidden by "nvinfer1::plugin::RNNTDecoderPlugin::getWorkspaceSize" -- virtual function override intended?
+      virtual size_t getWorkspaceSize(const PluginTensorDesc* inputs, int32_t nbInputs, const PluginTensorDesc* outputs,
+                     ^
+
+/work/code/plugin/RNNTOptPlugin/src/decoderPlugin.h(74): warning #997-D: function "nvinfer1::IPluginV2::enqueue(int32_t, const void *const *, void *const *, void *, cudaStream_t)" is hidden by "nvinfer1::plugin::RNNTDecoderPlugin::enqueue" -- virtual function override intended?
+      virtual int enqueue(const PluginTensorDesc* inputDesc, const PluginTensorDesc* outputDesc,
+                  ^
+
+/work/code/plugin/RNNTOptPlugin/src/decoderPlugin.h(70): warning #997-D: function "nvinfer1::IPluginV2Ext::configurePlugin(const nvinfer1::Dims *, int32_t, const nvinfer1::Dims *, int32_t, const nvinfer1::DataType *, const nvinfer1::DataType *, const __nv_bool *, const __nv_bool *, nvinfer1::PluginFormat, int32_t)" is hidden by "nvinfer1::plugin::RNNTDecoderPlugin::configurePlugin" -- virtual function override intended?
+      void configurePlugin(const DynamicPluginTensorDesc* in, int32_t nbInputs, const DynamicPluginTensorDesc* out,
+           ^
+
+/work/code/plugin/RNNTOptPlugin/src/select3Plugin.h(69): warning #997-D: function "nvinfer1::IPluginV2::getOutputDimensions(int32_t, const nvinfer1::Dims *, int32_t)" is hidden by "nvinfer1::plugin::RNNTSelectPlugin::getOutputDimensions" -- virtual function override intended?
+      DimsExprs getOutputDimensions(
+                ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+/work/code/plugin/RNNTOptPlugin/src/select3Plugin.h(71): warning #997-D: function "nvinfer1::IPluginV2::getWorkspaceSize(int32_t) const" is hidden by "nvinfer1::plugin::RNNTSelectPlugin::getWorkspaceSize" -- virtual function override intended?
+      virtual size_t getWorkspaceSize(const PluginTensorDesc* inputs, int nbInputs, const PluginTensorDesc* outputs,
+                     ^
+
+/work/code/plugin/RNNTOptPlugin/src/select3Plugin.h(73): warning #997-D: function "nvinfer1::IPluginV2::enqueue(int32_t, const void *const *, void *const *, void *, cudaStream_t)" is hidden by "nvinfer1::plugin::RNNTSelectPlugin::enqueue" -- virtual function override intended?
+      virtual int enqueue(const PluginTensorDesc* inputDesc, const PluginTensorDesc* outputDesc,
+                  ^
+
+/work/code/plugin/RNNTOptPlugin/src/select3Plugin.h(65): warning #997-D: function "nvinfer1::IPluginV2Ext::configurePlugin(const nvinfer1::Dims *, int32_t, const nvinfer1::Dims *, int32_t, const nvinfer1::DataType *, const nvinfer1::DataType *, const __nv_bool *, const __nv_bool *, nvinfer1::PluginFormat, int32_t)" is hidden by "nvinfer1::plugin::RNNTSelectPlugin::configurePlugin" -- virtual function override intended?
+      void configurePlugin(const DynamicPluginTensorDesc* in, int nbInputs, const DynamicPluginTensorDesc* out,
+           ^
+
+/work/code/plugin/RNNTOptPlugin/src/decoderPlugin.h(66): warning #997-D: function "nvinfer1::IPluginV2::getOutputDimensions(int32_t, const nvinfer1::Dims *, int32_t)" is hidden by "nvinfer1::plugin::RNNTDecoderPlugin::getOutputDimensions" -- virtual function override intended?
+      DimsExprs getOutputDimensions(
+                ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+/work/code/plugin/RNNTOptPlugin/src/decoderPlugin.h(72): warning #997-D: function "nvinfer1::IPluginV2::getWorkspaceSize(int32_t) const" is hidden by "nvinfer1::plugin::RNNTDecoderPlugin::getWorkspaceSize" -- virtual function override intended?
+      virtual size_t getWorkspaceSize(const PluginTensorDesc* inputs, int32_t nbInputs, const PluginTensorDesc* outputs,
+                     ^
+
+/work/code/plugin/RNNTOptPlugin/src/decoderPlugin.h(74): warning #997-D: function "nvinfer1::IPluginV2::enqueue(int32_t, const void *const *, void *const *, void *, cudaStream_t)" is hidden by "nvinfer1::plugin::RNNTDecoderPlugin::enqueue" -- virtual function override intended?
+      virtual int enqueue(const PluginTensorDesc* inputDesc, const PluginTensorDesc* outputDesc,
+                  ^
+
+/work/code/plugin/RNNTOptPlugin/src/decoderPlugin.h(70): warning #997-D: function "nvinfer1::IPluginV2Ext::configurePlugin(const nvinfer1::Dims *, int32_t, const nvinfer1::Dims *, int32_t, const nvinfer1::DataType *, const nvinfer1::DataType *, const __nv_bool *, const __nv_bool *, nvinfer1::PluginFormat, int32_t)" is hidden by "nvinfer1::plugin::RNNTDecoderPlugin::configurePlugin" -- virtual function override intended?
+      void configurePlugin(const DynamicPluginTensorDesc* in, int32_t nbInputs, const DynamicPluginTensorDesc* out,
+           ^
+
+/work/code/plugin/RNNTOptPlugin/src/select3Plugin.h(69): warning #997-D: function "nvinfer1::IPluginV2::getOutputDimensions(int32_t, const nvinfer1::Dims *, int32_t)" is hidden by "nvinfer1::plugin::RNNTSelectPlugin::getOutputDimensions" -- virtual function override intended?
+      DimsExprs getOutputDimensions(
+                ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+/work/code/plugin/RNNTOptPlugin/src/select3Plugin.h(71): warning #997-D: function "nvinfer1::IPluginV2::getWorkspaceSize(int32_t) const" is hidden by "nvinfer1::plugin::RNNTSelectPlugin::getWorkspaceSize" -- virtual function override intended?
+      virtual size_t getWorkspaceSize(const PluginTensorDesc* inputs, int nbInputs, const PluginTensorDesc* outputs,
+                     ^
+
+/work/code/plugin/RNNTOptPlugin/src/select3Plugin.h(73): warning #997-D: function "nvinfer1::IPluginV2::enqueue(int32_t, const void *const *, void *const *, void *, cudaStream_t)" is hidden by "nvinfer1::plugin::RNNTSelectPlugin::enqueue" -- virtual function override intended?
+      virtual int enqueue(const PluginTensorDesc* inputDesc, const PluginTensorDesc* outputDesc,
+                  ^
+
+/work/code/plugin/RNNTOptPlugin/src/select3Plugin.h(65): warning #997-D: function "nvinfer1::IPluginV2Ext::configurePlugin(const nvinfer1::Dims *, int32_t, const nvinfer1::Dims *, int32_t, const nvinfer1::DataType *, const nvinfer1::DataType *, const __nv_bool *, const __nv_bool *, nvinfer1::PluginFormat, int32_t)" is hidden by "nvinfer1::plugin::RNNTSelectPlugin::configurePlugin" -- virtual function override intended?
+      void configurePlugin(const DynamicPluginTensorDesc* in, int nbInputs, const DynamicPluginTensorDesc* out,
+           ^
+
+/work/code/plugin/RNNTOptPlugin/src/decoderPlugin.h(66): warning #997-D: function "nvinfer1::IPluginV2::getOutputDimensions(int32_t, const nvinfer1::Dims *, int32_t)" is hidden by "nvinfer1::plugin::RNNTDecoderPlugin::getOutputDimensions" -- virtual function override intended?
+      DimsExprs getOutputDimensions(
+                ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+/work/code/plugin/RNNTOptPlugin/src/decoderPlugin.h(72): warning #997-D: function "nvinfer1::IPluginV2::getWorkspaceSize(int32_t) const" is hidden by "nvinfer1::plugin::RNNTDecoderPlugin::getWorkspaceSize" -- virtual function override intended?
+      virtual size_t getWorkspaceSize(const PluginTensorDesc* inputs, int32_t nbInputs, const PluginTensorDesc* outputs,
+                     ^
+
+/work/code/plugin/RNNTOptPlugin/src/decoderPlugin.h(74): warning #997-D: function "nvinfer1::IPluginV2::enqueue(int32_t, const void *const *, void *const *, void *, cudaStream_t)" is hidden by "nvinfer1::plugin::RNNTDecoderPlugin::enqueue" -- virtual function override intended?
+      virtual int enqueue(const PluginTensorDesc* inputDesc, const PluginTensorDesc* outputDesc,
+                  ^
+
+/work/code/plugin/RNNTOptPlugin/src/decoderPlugin.h(70): warning #997-D: function "nvinfer1::IPluginV2Ext::configurePlugin(const nvinfer1::Dims *, int32_t, const nvinfer1::Dims *, int32_t, const nvinfer1::DataType *, const nvinfer1::DataType *, const __nv_bool *, const __nv_bool *, nvinfer1::PluginFormat, int32_t)" is hidden by "nvinfer1::plugin::RNNTDecoderPlugin::configurePlugin" -- virtual function override intended?
+      void configurePlugin(const DynamicPluginTensorDesc* in, int32_t nbInputs, const DynamicPluginTensorDesc* out,
+           ^
+
+[ 75%] Linking CUDA device code CMakeFiles/rnntoptplugin.dir/cmake_device_link.o
+[100%] Linking CUDA shared module librnntoptplugin.so
+make[4]: Leaving directory '/work/build/plugins/RNNTOptPlugin'
+[100%] Built target rnntoptplugin
+make[3]: Leaving directory '/work/build/plugins/RNNTOptPlugin'
+make[2]: Leaving directory '/work/build/plugins/RNNTOptPlugin'
+mkdir -p build/plugins/pixelShuffle3DPlugin
+cd build/plugins/pixelShuffle3DPlugin\
+	&& cmake -DCMAKE_BUILD_TYPE=Release /work/code/plugin/pixelShuffle3DPlugin \
+	&& make -j
+-- The CXX compiler identification is GNU 9.4.0
+-- The CUDA compiler identification is NVIDIA 12.2.140
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Detecting CUDA compiler ABI info
+-- Detecting CUDA compiler ABI info - done
+-- Check for working CUDA compiler: /usr/local/cuda/bin/nvcc - skipped
+-- Detecting CUDA compile features
+-- Detecting CUDA compile features - done
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE  
+-- Found CUDA: /usr/local/cuda (found version "12.2") 
+
+The following variables are derived from the values of the previous variables unless provided explicitly:
+
+-- Configuring done
+CMake Warning (dev) in CMakeLists.txt:
+  Policy CMP0104 is not set: CMAKE_CUDA_ARCHITECTURES now detected for NVCC,
+  empty CUDA_ARCHITECTURES not allowed.  Run "cmake --help-policy CMP0104"
+  for policy details.  Use the cmake_policy command to set the policy and
+  suppress this warning.
+
+  CUDA_ARCHITECTURES is empty for target "pixelshuffle3dplugin".
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) in CMakeLists.txt:
+  Policy CMP0104 is not set: CMAKE_CUDA_ARCHITECTURES now detected for NVCC,
+  empty CUDA_ARCHITECTURES not allowed.  Run "cmake --help-policy CMP0104"
+  for policy details.  Use the cmake_policy command to set the policy and
+  suppress this warning.
+
+  CUDA_ARCHITECTURES is empty for target "pixelshuffle3dplugin".
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Generating done
+-- Build files have been written to: /work/build/plugins/pixelShuffle3DPlugin
+make[2]: Entering directory '/work/build/plugins/pixelShuffle3DPlugin'
+make[3]: Entering directory '/work/build/plugins/pixelShuffle3DPlugin'
+make[4]: Entering directory '/work/build/plugins/pixelShuffle3DPlugin'
+make[4]: Leaving directory '/work/build/plugins/pixelShuffle3DPlugin'
+make[4]: Entering directory '/work/build/plugins/pixelShuffle3DPlugin'
+[ 33%] Building CUDA object CMakeFiles/pixelshuffle3dplugin.dir/src/pixelShuffle3DPlugin.cu.o
+[ 66%] Building CUDA object CMakeFiles/pixelshuffle3dplugin.dir/src/pixel_shuffle_impl.cu.o
+[100%] Linking CUDA shared module libpixelshuffle3dplugin.so
+make[4]: Leaving directory '/work/build/plugins/pixelShuffle3DPlugin'
+[100%] Built target pixelshuffle3dplugin
+make[3]: Leaving directory '/work/build/plugins/pixelShuffle3DPlugin'
+make[2]: Leaving directory '/work/build/plugins/pixelShuffle3DPlugin'
+mkdir -p build/plugins/conv3D1X1X1K4Plugin
+cd build/plugins/conv3D1X1X1K4Plugin\
+	&& cmake -DCMAKE_BUILD_TYPE=Release /work/code/plugin/conv3D1X1X1K4Plugin \
+	&& make -j
+-- The CXX compiler identification is GNU 9.4.0
+-- The CUDA compiler identification is NVIDIA 12.2.140
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Detecting CUDA compiler ABI info
+-- Detecting CUDA compiler ABI info - done
+-- Check for working CUDA compiler: /usr/local/cuda/bin/nvcc - skipped
+-- Detecting CUDA compile features
+-- Detecting CUDA compile features - done
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE  
+-- Found CUDA: /usr/local/cuda (found version "12.2") 
+
+The following variables are derived from the values of the previous variables unless provided explicitly:
+
+-- Configuring done
+CMake Warning (dev) in CMakeLists.txt:
+  Policy CMP0104 is not set: CMAKE_CUDA_ARCHITECTURES now detected for NVCC,
+  empty CUDA_ARCHITECTURES not allowed.  Run "cmake --help-policy CMP0104"
+  for policy details.  Use the cmake_policy command to set the policy and
+  suppress this warning.
+
+  CUDA_ARCHITECTURES is empty for target "conv3D1X1X1K4Plugin".
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) in CMakeLists.txt:
+  Policy CMP0104 is not set: CMAKE_CUDA_ARCHITECTURES now detected for NVCC,
+  empty CUDA_ARCHITECTURES not allowed.  Run "cmake --help-policy CMP0104"
+  for policy details.  Use the cmake_policy command to set the policy and
+  suppress this warning.
+
+  CUDA_ARCHITECTURES is empty for target "conv3D1X1X1K4Plugin".
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Generating done
+-- Build files have been written to: /work/build/plugins/conv3D1X1X1K4Plugin
+make[2]: Entering directory '/work/build/plugins/conv3D1X1X1K4Plugin'
+make[3]: Entering directory '/work/build/plugins/conv3D1X1X1K4Plugin'
+make[4]: Entering directory '/work/build/plugins/conv3D1X1X1K4Plugin'
+make[4]: Leaving directory '/work/build/plugins/conv3D1X1X1K4Plugin'
+make[4]: Entering directory '/work/build/plugins/conv3D1X1X1K4Plugin'
+[ 66%] Building CUDA object CMakeFiles/conv3D1X1X1K4Plugin.dir/src/conv3d1x1x1K4Plugin.cu.o
+[ 66%] Building CUDA object CMakeFiles/conv3D1X1X1K4Plugin.dir/src/conv3d_1x1x1_k4_impl.cu.o
+[100%] Linking CUDA shared module libconv3D1X1X1K4Plugin.so
+make[4]: Leaving directory '/work/build/plugins/conv3D1X1X1K4Plugin'
+[100%] Built target conv3D1X1X1K4Plugin
+make[3]: Leaving directory '/work/build/plugins/conv3D1X1X1K4Plugin'
+make[2]: Leaving directory '/work/build/plugins/conv3D1X1X1K4Plugin'
+mkdir -p build/plugins/conv3D3X3X3C1K32Plugin
+cd build/plugins/conv3D3X3X3C1K32Plugin\
+	&& cmake -DCMAKE_BUILD_TYPE=Release /work/code/plugin/conv3D3X3X3C1K32Plugin \
+	&& make -j
+-- The CXX compiler identification is GNU 9.4.0
+-- The CUDA compiler identification is NVIDIA 12.2.140
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Detecting CUDA compiler ABI info
+-- Detecting CUDA compiler ABI info - done
+-- Check for working CUDA compiler: /usr/local/cuda/bin/nvcc - skipped
+-- Detecting CUDA compile features
+-- Detecting CUDA compile features - done
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE  
+-- Found CUDA: /usr/local/cuda (found version "12.2") 
+
+The following variables are derived from the values of the previous variables unless provided explicitly:
+
+-- Configuring done
+CMake Warning (dev) in CMakeLists.txt:
+  Policy CMP0104 is not set: CMAKE_CUDA_ARCHITECTURES now detected for NVCC,
+  empty CUDA_ARCHITECTURES not allowed.  Run "cmake --help-policy CMP0104"
+  for policy details.  Use the cmake_policy command to set the policy and
+  suppress this warning.
+
+  CUDA_ARCHITECTURES is empty for target "conv3D3X3X3C1K32Plugin".
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Generating done
+-- Build files have been written to: /work/build/plugins/conv3D3X3X3C1K32Plugin
+make[2]: Entering directory '/work/build/plugins/conv3D3X3X3C1K32Plugin'
+make[3]: Entering directory '/work/build/plugins/conv3D3X3X3C1K32Plugin'
+make[4]: Entering directory '/work/build/plugins/conv3D3X3X3C1K32Plugin'
+make[4]: Leaving directory '/work/build/plugins/conv3D3X3X3C1K32Plugin'
+make[4]: Entering directory '/work/build/plugins/conv3D3X3X3C1K32Plugin'
+[ 66%] Building CUDA object CMakeFiles/conv3D3X3X3C1K32Plugin.dir/src/conv3d_3x3x3_c1_k32_impl.cu.o
+[ 66%] Building CXX object CMakeFiles/conv3D3X3X3C1K32Plugin.dir/src/conv3d3x3x3C1K32Plugin.cpp.o
+In file included from /work/code/plugin/conv3D3X3X3C1K32Plugin/src/conv3d3x3x3C1K32Plugin.cpp:18:
+/work/code/plugin/conv3D3X3X3C1K32Plugin/src/conv3d3x3x3C1K32Plugin.h: In constructor ‘nvinfer1::plugin::conv3D3X3X3C1K32Plugin::conv3D3X3X3C1K32Plugin(int, const std::vector<float>&)’:
+/work/code/plugin/conv3D3X3X3C1K32Plugin/src/conv3d3x3x3C1K32Plugin.h:103:10: warning: ‘nvinfer1::plugin::conv3D3X3X3C1K32Plugin::mInitialized’ will be initialized after [-Wreorder]
+  103 |     bool mInitialized{false};
+      |          ^~~~~~~~~~~~
+/work/code/plugin/conv3D3X3X3C1K32Plugin/src/conv3d3x3x3C1K32Plugin.h:94:9: warning:   ‘int nvinfer1::plugin::conv3D3X3X3C1K32Plugin::mInputChannels’ [-Wreorder]
+   94 |     int mInputChannels;
+      |         ^~~~~~~~~~~~~~
+/work/code/plugin/conv3D3X3X3C1K32Plugin/src/conv3d3x3x3C1K32Plugin.cpp:89:1: warning:   when initialized here [-Wreorder]
+   89 | conv3D3X3X3C1K32Plugin::conv3D3X3X3C1K32Plugin(int inputChannels, const std::vector<float>& weights)
+      | ^~~~~~~~~~~~~~~~~~~~~~
+In file included from /work/code/plugin/conv3D3X3X3C1K32Plugin/src/conv3d3x3x3C1K32Plugin.cpp:18:
+/work/code/plugin/conv3D3X3X3C1K32Plugin/src/conv3d3x3x3C1K32Plugin.h:99:31: warning: ‘nvinfer1::plugin::conv3D3X3X3C1K32Plugin::mOutActivationScale’ will be initialized after [-Wreorder]
+   99 |     float mInActivationScale, mOutActivationScale;
+      |                               ^~~~~~~~~~~~~~~~~~~
+/work/code/plugin/conv3D3X3X3C1K32Plugin/src/conv3d3x3x3C1K32Plugin.h:97:24: warning:   ‘std::vector<float> nvinfer1::plugin::conv3D3X3X3C1K32Plugin::mWeights’ [-Wreorder]
+   97 |     std::vector<float> mWeights;
+      |                        ^~~~~~~~
+/work/code/plugin/conv3D3X3X3C1K32Plugin/src/conv3d3x3x3C1K32Plugin.cpp:89:1: warning:   when initialized here [-Wreorder]
+   89 | conv3D3X3X3C1K32Plugin::conv3D3X3X3C1K32Plugin(int inputChannels, const std::vector<float>& weights)
+      | ^~~~~~~~~~~~~~~~~~~~~~
+/work/code/plugin/conv3D3X3X3C1K32Plugin/src/conv3d3x3x3C1K32Plugin.cpp: In member function ‘virtual int nvinfer1::plugin::conv3D3X3X3C1K32Plugin::initialize()’:
+/work/code/plugin/conv3D3X3X3C1K32Plugin/src/conv3d3x3x3C1K32Plugin.cpp:150:46: warning: ‘void* memset(void*, int, size_t)’ clearing an object of non-trivial type ‘struct Conv3d3x3x3c1k32Context’; use assignment or value-initialization instead [-Wclass-memaccess]
+  150 |         memset(&mContext, 0, sizeof(mContext));
+      |                                              ^
+In file included from /work/code/plugin/conv3D3X3X3C1K32Plugin/src/conv3d3x3x3C1K32Plugin.h:27,
+                 from /work/code/plugin/conv3D3X3X3C1K32Plugin/src/conv3d3x3x3C1K32Plugin.cpp:18:
+/work/code/plugin/conv3D3X3X3C1K32Plugin/src/conv3d_3x3x3_c1_k32.h:81:8: note: ‘struct Conv3d3x3x3c1k32Context’ declared here
+   81 | struct Conv3d3x3x3c1k32Context
+      |        ^~~~~~~~~~~~~~~~~~~~~~~
+[100%] Linking CXX shared module libconv3D3X3X3C1K32Plugin.so
+make[4]: Leaving directory '/work/build/plugins/conv3D3X3X3C1K32Plugin'
+[100%] Built target conv3D3X3X3C1K32Plugin
+make[3]: Leaving directory '/work/build/plugins/conv3D3X3X3C1K32Plugin'
+make[2]: Leaving directory '/work/build/plugins/conv3D3X3X3C1K32Plugin'
+mkdir -p build/plugins/retinanetConcatPlugin
+cd build/plugins/retinanetConcatPlugin\
+	&& cmake -DCMAKE_BUILD_TYPE=Release /work/code/plugin/retinanetConcatPlugin \
+	&& make -j
+-- The CXX compiler identification is GNU 9.4.0
+-- The CUDA compiler identification is NVIDIA 12.2.140
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Detecting CUDA compiler ABI info
+-- Detecting CUDA compiler ABI info - done
+-- Check for working CUDA compiler: /usr/local/cuda/bin/nvcc - skipped
+-- Detecting CUDA compile features
+-- Detecting CUDA compile features - done
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE  
+-- Found CUDA: /usr/local/cuda (found version "12.2") 
+
+The following variables are derived from the values of the previous variables unless provided explicitly:
+
+-- Configuring done
+CMake Warning (dev) in CMakeLists.txt:
+  Policy CMP0104 is not set: CMAKE_CUDA_ARCHITECTURES now detected for NVCC,
+  empty CUDA_ARCHITECTURES not allowed.  Run "cmake --help-policy CMP0104"
+  for policy details.  Use the cmake_policy command to set the policy and
+  suppress this warning.
+
+  CUDA_ARCHITECTURES is empty for target "retinanetconcatplugin".
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) in CMakeLists.txt:
+  Policy CMP0104 is not set: CMAKE_CUDA_ARCHITECTURES now detected for NVCC,
+  empty CUDA_ARCHITECTURES not allowed.  Run "cmake --help-policy CMP0104"
+  for policy details.  Use the cmake_policy command to set the policy and
+  suppress this warning.
+
+  CUDA_ARCHITECTURES is empty for target "retinanetconcatplugin".
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Generating done
+-- Build files have been written to: /work/build/plugins/retinanetConcatPlugin
+make[2]: Entering directory '/work/build/plugins/retinanetConcatPlugin'
+make[3]: Entering directory '/work/build/plugins/retinanetConcatPlugin'
+make[4]: Entering directory '/work/build/plugins/retinanetConcatPlugin'
+make[4]: Leaving directory '/work/build/plugins/retinanetConcatPlugin'
+make[4]: Entering directory '/work/build/plugins/retinanetConcatPlugin'
+[ 50%] Building CUDA object CMakeFiles/retinanetconcatplugin.dir/src/concatNmsOutputs.cu.o
+/work/code/plugin/retinanetConcatPlugin/src/concatNmsOutputs.h(69): warning #997-D: function "nvinfer1::IPluginV2::getOutputDimensions(int32_t, const nvinfer1::Dims *, int32_t)" is hidden by "nvinfer1::plugin::RetinanetConcatNmsOutputsPlugin::getOutputDimensions" -- virtual function override intended?
+      DimsExprs getOutputDimensions(
+                ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+/work/code/plugin/retinanetConcatPlugin/src/concatNmsOutputs.h(71): warning #997-D: function "nvinfer1::IPluginV2::getWorkspaceSize(int32_t) const" is hidden by "nvinfer1::plugin::RetinanetConcatNmsOutputsPlugin::getWorkspaceSize" -- virtual function override intended?
+      virtual size_t getWorkspaceSize(const PluginTensorDesc* inputs, int nbInputs, const PluginTensorDesc* outputs,
+                     ^
+
+/work/code/plugin/retinanetConcatPlugin/src/concatNmsOutputs.h(73): warning #997-D: function "nvinfer1::IPluginV2::enqueue(int32_t, const void *const *, void *const *, void *, cudaStream_t)" is hidden by "nvinfer1::plugin::RetinanetConcatNmsOutputsPlugin::enqueue" -- virtual function override intended?
+      virtual int enqueue(const PluginTensorDesc* inputDesc, const PluginTensorDesc* outputDesc,
+                  ^
+
+/work/code/plugin/retinanetConcatPlugin/src/concatNmsOutputs.h(65): warning #997-D: function "nvinfer1::IPluginV2Ext::configurePlugin(const nvinfer1::Dims *, int32_t, const nvinfer1::Dims *, int32_t, const nvinfer1::DataType *, const nvinfer1::DataType *, const bool *, const bool *, nvinfer1::PluginFormat, int32_t)" is hidden by "nvinfer1::plugin::RetinanetConcatNmsOutputsPlugin::configurePlugin" -- virtual function override intended?
+      void configurePlugin(const DynamicPluginTensorDesc* in, int nbInputs, const DynamicPluginTensorDesc* out,
+           ^
+
+/work/code/plugin/retinanetConcatPlugin/src/concatNmsOutputs.h(69): warning #997-D: function "nvinfer1::IPluginV2::getOutputDimensions(int32_t, const nvinfer1::Dims *, int32_t)" is hidden by "nvinfer1::plugin::RetinanetConcatNmsOutputsPlugin::getOutputDimensions" -- virtual function override intended?
+      DimsExprs getOutputDimensions(
+                ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+/work/code/plugin/retinanetConcatPlugin/src/concatNmsOutputs.h(71): warning #997-D: function "nvinfer1::IPluginV2::getWorkspaceSize(int32_t) const" is hidden by "nvinfer1::plugin::RetinanetConcatNmsOutputsPlugin::getWorkspaceSize" -- virtual function override intended?
+      virtual size_t getWorkspaceSize(const PluginTensorDesc* inputs, int nbInputs, const PluginTensorDesc* outputs,
+                     ^
+
+/work/code/plugin/retinanetConcatPlugin/src/concatNmsOutputs.h(73): warning #997-D: function "nvinfer1::IPluginV2::enqueue(int32_t, const void *const *, void *const *, void *, cudaStream_t)" is hidden by "nvinfer1::plugin::RetinanetConcatNmsOutputsPlugin::enqueue" -- virtual function override intended?
+      virtual int enqueue(const PluginTensorDesc* inputDesc, const PluginTensorDesc* outputDesc,
+                  ^
+
+/work/code/plugin/retinanetConcatPlugin/src/concatNmsOutputs.h(65): warning #997-D: function "nvinfer1::IPluginV2Ext::configurePlugin(const nvinfer1::Dims *, int32_t, const nvinfer1::Dims *, int32_t, const nvinfer1::DataType *, const nvinfer1::DataType *, const __nv_bool *, const __nv_bool *, nvinfer1::PluginFormat, int32_t)" is hidden by "nvinfer1::plugin::RetinanetConcatNmsOutputsPlugin::configurePlugin" -- virtual function override intended?
+      void configurePlugin(const DynamicPluginTensorDesc* in, int nbInputs, const DynamicPluginTensorDesc* out,
+           ^
+
+/work/code/plugin/retinanetConcatPlugin/src/concatNmsOutputs.h(69): warning #997-D: function "nvinfer1::IPluginV2::getOutputDimensions(int32_t, const nvinfer1::Dims *, int32_t)" is hidden by "nvinfer1::plugin::RetinanetConcatNmsOutputsPlugin::getOutputDimensions" -- virtual function override intended?
+      DimsExprs getOutputDimensions(
+                ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+/work/code/plugin/retinanetConcatPlugin/src/concatNmsOutputs.h(71): warning #997-D: function "nvinfer1::IPluginV2::getWorkspaceSize(int32_t) const" is hidden by "nvinfer1::plugin::RetinanetConcatNmsOutputsPlugin::getWorkspaceSize" -- virtual function override intended?
+      virtual size_t getWorkspaceSize(const PluginTensorDesc* inputs, int nbInputs, const PluginTensorDesc* outputs,
+                     ^
+
+/work/code/plugin/retinanetConcatPlugin/src/concatNmsOutputs.h(73): warning #997-D: function "nvinfer1::IPluginV2::enqueue(int32_t, const void *const *, void *const *, void *, cudaStream_t)" is hidden by "nvinfer1::plugin::RetinanetConcatNmsOutputsPlugin::enqueue" -- virtual function override intended?
+      virtual int enqueue(const PluginTensorDesc* inputDesc, const PluginTensorDesc* outputDesc,
+                  ^
+
+/work/code/plugin/retinanetConcatPlugin/src/concatNmsOutputs.h(65): warning #997-D: function "nvinfer1::IPluginV2Ext::configurePlugin(const nvinfer1::Dims *, int32_t, const nvinfer1::Dims *, int32_t, const nvinfer1::DataType *, const nvinfer1::DataType *, const __nv_bool *, const __nv_bool *, nvinfer1::PluginFormat, int32_t)" is hidden by "nvinfer1::plugin::RetinanetConcatNmsOutputsPlugin::configurePlugin" -- virtual function override intended?
+      void configurePlugin(const DynamicPluginTensorDesc* in, int nbInputs, const DynamicPluginTensorDesc* out,
+           ^
+
+/work/code/plugin/retinanetConcatPlugin/src/concatNmsOutputs.h(69): warning #997-D: function "nvinfer1::IPluginV2::getOutputDimensions(int32_t, const nvinfer1::Dims *, int32_t)" is hidden by "nvinfer1::plugin::RetinanetConcatNmsOutputsPlugin::getOutputDimensions" -- virtual function override intended?
+      DimsExprs getOutputDimensions(
+                ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+/work/code/plugin/retinanetConcatPlugin/src/concatNmsOutputs.h(71): warning #997-D: function "nvinfer1::IPluginV2::getWorkspaceSize(int32_t) const" is hidden by "nvinfer1::plugin::RetinanetConcatNmsOutputsPlugin::getWorkspaceSize" -- virtual function override intended?
+      virtual size_t getWorkspaceSize(const PluginTensorDesc* inputs, int nbInputs, const PluginTensorDesc* outputs,
+                     ^
+
+/work/code/plugin/retinanetConcatPlugin/src/concatNmsOutputs.h(73): warning #997-D: function "nvinfer1::IPluginV2::enqueue(int32_t, const void *const *, void *const *, void *, cudaStream_t)" is hidden by "nvinfer1::plugin::RetinanetConcatNmsOutputsPlugin::enqueue" -- virtual function override intended?
+      virtual int enqueue(const PluginTensorDesc* inputDesc, const PluginTensorDesc* outputDesc,
+                  ^
+
+/work/code/plugin/retinanetConcatPlugin/src/concatNmsOutputs.h(65): warning #997-D: function "nvinfer1::IPluginV2Ext::configurePlugin(const nvinfer1::Dims *, int32_t, const nvinfer1::Dims *, int32_t, const nvinfer1::DataType *, const nvinfer1::DataType *, const __nv_bool *, const __nv_bool *, nvinfer1::PluginFormat, int32_t)" is hidden by "nvinfer1::plugin::RetinanetConcatNmsOutputsPlugin::configurePlugin" -- virtual function override intended?
+      void configurePlugin(const DynamicPluginTensorDesc* in, int nbInputs, const DynamicPluginTensorDesc* out,
+           ^
+
+/work/code/plugin/retinanetConcatPlugin/src/concatNmsOutputs.h(69): warning #997-D: function "nvinfer1::IPluginV2::getOutputDimensions(int32_t, const nvinfer1::Dims *, int32_t)" is hidden by "nvinfer1::plugin::RetinanetConcatNmsOutputsPlugin::getOutputDimensions" -- virtual function override intended?
+      DimsExprs getOutputDimensions(
+                ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+/work/code/plugin/retinanetConcatPlugin/src/concatNmsOutputs.h(71): warning #997-D: function "nvinfer1::IPluginV2::getWorkspaceSize(int32_t) const" is hidden by "nvinfer1::plugin::RetinanetConcatNmsOutputsPlugin::getWorkspaceSize" -- virtual function override intended?
+      virtual size_t getWorkspaceSize(const PluginTensorDesc* inputs, int nbInputs, const PluginTensorDesc* outputs,
+                     ^
+
+/work/code/plugin/retinanetConcatPlugin/src/concatNmsOutputs.h(73): warning #997-D: function "nvinfer1::IPluginV2::enqueue(int32_t, const void *const *, void *const *, void *, cudaStream_t)" is hidden by "nvinfer1::plugin::RetinanetConcatNmsOutputsPlugin::enqueue" -- virtual function override intended?
+      virtual int enqueue(const PluginTensorDesc* inputDesc, const PluginTensorDesc* outputDesc,
+                  ^
+
+/work/code/plugin/retinanetConcatPlugin/src/concatNmsOutputs.h(65): warning #997-D: function "nvinfer1::IPluginV2Ext::configurePlugin(const nvinfer1::Dims *, int32_t, const nvinfer1::Dims *, int32_t, const nvinfer1::DataType *, const nvinfer1::DataType *, const __nv_bool *, const __nv_bool *, nvinfer1::PluginFormat, int32_t)" is hidden by "nvinfer1::plugin::RetinanetConcatNmsOutputsPlugin::configurePlugin" -- virtual function override intended?
+      void configurePlugin(const DynamicPluginTensorDesc* in, int nbInputs, const DynamicPluginTensorDesc* out,
+           ^
+
+[100%] Linking CUDA shared module libretinanetconcatplugin.so
+make[4]: Leaving directory '/work/build/plugins/retinanetConcatPlugin'
+[100%] Built target retinanetconcatplugin
+make[3]: Leaving directory '/work/build/plugins/retinanetConcatPlugin'
+make[2]: Leaving directory '/work/build/plugins/retinanetConcatPlugin'
+mkdir -p build/plugins/DLRMv2EmbeddingLookupPlugin
+cd build/plugins/DLRMv2EmbeddingLookupPlugin\
+	&& cmake -DCMAKE_BUILD_TYPE=Release /work/code/plugin/DLRMv2EmbeddingLookupPlugin \
+	&& make -j
+-- The CXX compiler identification is GNU 9.4.0
+-- The CUDA compiler identification is NVIDIA 12.2.140
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Detecting CUDA compiler ABI info
+-- Detecting CUDA compiler ABI info - done
+-- Check for working CUDA compiler: /usr/local/cuda/bin/nvcc - skipped
+-- Detecting CUDA compile features
+-- Detecting CUDA compile features - done
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE  
+-- Found CUDA: /usr/local/cuda (found version "12.2") 
+
+The following variables are derived from the values of the previous variables unless provided explicitly:
+
+-- Configuring done
+CMake Warning (dev) in CMakeLists.txt:
+  Policy CMP0104 is not set: CMAKE_CUDA_ARCHITECTURES now detected for NVCC,
+  empty CUDA_ARCHITECTURES not allowed.  Run "cmake --help-policy CMP0104"
+  for policy details.  Use the cmake_policy command to set the policy and
+  suppress this warning.
+
+  CUDA_ARCHITECTURES is empty for target "dlrmv2embeddinglookupplugin".
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Generating done
+-- Build files have been written to: /work/build/plugins/DLRMv2EmbeddingLookupPlugin
+make[2]: Entering directory '/work/build/plugins/DLRMv2EmbeddingLookupPlugin'
+make[3]: Entering directory '/work/build/plugins/DLRMv2EmbeddingLookupPlugin'
+make[4]: Entering directory '/work/build/plugins/DLRMv2EmbeddingLookupPlugin'
+make[4]: Leaving directory '/work/build/plugins/DLRMv2EmbeddingLookupPlugin'
+make[4]: Entering directory '/work/build/plugins/DLRMv2EmbeddingLookupPlugin'
+[ 60%] Building CUDA object CMakeFiles/dlrmv2embeddinglookupplugin.dir/src/embedding_remap_launch.cu.o
+[ 60%] Building CUDA object CMakeFiles/dlrmv2embeddinglookupplugin.dir/src/embedding_gather_launch.cu.o
+[ 60%] Building CXX object CMakeFiles/dlrmv2embeddinglookupplugin.dir/src/dlrmv2EmbeddingLookupPlugin.cpp.o
+[ 80%] Building CXX object CMakeFiles/dlrmv2embeddinglookupplugin.dir/src/dlrmv2Helper.cpp.o
+[100%] Linking CXX shared module libdlrmv2embeddinglookupplugin.so
+make[4]: Leaving directory '/work/build/plugins/DLRMv2EmbeddingLookupPlugin'
+[100%] Built target dlrmv2embeddinglookupplugin
+make[3]: Leaving directory '/work/build/plugins/DLRMv2EmbeddingLookupPlugin'
+make[2]: Leaving directory '/work/build/plugins/DLRMv2EmbeddingLookupPlugin'
+make[1]: Leaving directory '/work'
+make[1]: Entering directory '/work'
+Building loadgen...
+-- The C compiler identification is GNU 9.4.0
+-- The CXX compiler identification is GNU 9.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+mlperf_loadgen v4.0
+-- Using C++ compiler flags:  -O3 -W -Wall
+-- Using C++ standard: 14
+-- Using static linker flags: 
+-- Using shared linker flags: 
+-- Using output path: /work/build/inference/loadgen/build
+-- Found PythonInterp: /usr/bin/python (found version "3.8.10") 
+-- Using Python interpreter: /usr/bin/python
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /work/build/inference/loadgen/build
+make[2]: Entering directory '/work/build/inference/loadgen/build'
+make[3]: Entering directory '/work/build/inference/loadgen/build'
+make[4]: Entering directory '/work/build/inference/loadgen/build'
+make[4]: Leaving directory '/work/build/inference/loadgen/build'
+make[4]: Entering directory '/work/build/inference/loadgen/build'
+[  7%] Building CXX object CMakeFiles/mlperf_loadgen.dir/bindings/c_api.cc.o
+[ 23%] Building CXX object CMakeFiles/mlperf_loadgen.dir/issue_query_controller.cc.o
+[ 30%] Building CXX object CMakeFiles/mlperf_loadgen.dir/loadgen.cc.o
+[ 38%] Building CXX object CMakeFiles/mlperf_loadgen.dir/logging.cc.o
+[ 46%] Building CXX object CMakeFiles/mlperf_loadgen.dir/test_settings_internal.cc.o
+[ 46%] Building CXX object CMakeFiles/mlperf_loadgen.dir/early_stopping.cc.o
+[ 53%] Building CXX object CMakeFiles/mlperf_loadgen.dir/utils.cc.o
+[ 61%] Building CXX object CMakeFiles/mlperf_loadgen.dir/results.cc.o
+[ 76%] Building CXX object CMakeFiles/mlperf_loadgen.dir/version.cc.o
+[ 76%] Building CXX object CMakeFiles/mlperf_loadgen.dir/version_generated.cc.o
+/work/build/inference/loadgen/logging.cc: In member function ‘void mlperf::logging::AsyncLog::RecordTokenCompletion(uint64_t, std::chrono::_V2::system_clock::time_point, mlperf::QuerySampleLatency)’:
+/work/build/inference/loadgen/logging.cc:483:61: warning: unused parameter ‘completion_time’ [-Wunused-parameter]
+  483 |                                       PerfClock::time_point completion_time,
+      |                                       ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~
+/work/build/inference/loadgen/logging.cc: In member function ‘std::vector<long int> mlperf::logging::AsyncLog::GetTokenLatencies(size_t)’:
+/work/build/inference/loadgen/logging.cc:601:68: warning: unused parameter ‘expected_count’ [-Wunused-parameter]
+  601 | std::vector<QuerySampleLatency> AsyncLog::GetTokenLatencies(size_t expected_count) {
+      |                                                             ~~~~~~~^~~~~~~~~~~~~~
+/work/build/inference/loadgen/logging.cc: In member function ‘std::vector<long int> mlperf::logging::AsyncLog::GetTimePerOutputToken(size_t)’:
+/work/build/inference/loadgen/logging.cc:607:72: warning: unused parameter ‘expected_count’ [-Wunused-parameter]
+  607 | std::vector<QuerySampleLatency> AsyncLog::GetTimePerOutputToken(size_t expected_count){
+      |                                                                 ~~~~~~~^~~~~~~~~~~~~~
+/work/build/inference/loadgen/logging.cc: In member function ‘std::vector<long int> mlperf::logging::AsyncLog::GetTokensPerSample(size_t)’:
+/work/build/inference/loadgen/logging.cc:613:58: warning: unused parameter ‘expected_count’ [-Wunused-parameter]
+  613 | std::vector<int64_t> AsyncLog::GetTokensPerSample(size_t expected_count) {
+      |                                                   ~~~~~~~^~~~~~~~~~~~~~
+/work/build/inference/loadgen/loadgen.cc: In instantiation of ‘void mlperf::loadgen::RunPerformanceMode(mlperf::SystemUnderTest*, mlperf::QuerySampleLibrary*, const mlperf::loadgen::TestSettingsInternal&, mlperf::loadgen::SequenceGen*) [with mlperf::TestScenario scenario = mlperf::TestScenario::SingleStream]’:
+/work/build/inference/loadgen/loadgen.cc:1132:61:   required from ‘static mlperf::loadgen::RunFunctions mlperf::loadgen::RunFunctions::GetCompileTime() [with mlperf::TestScenario compile_time_scenario = mlperf::TestScenario::SingleStream]’
+/work/build/inference/loadgen/loadgen.cc:1138:59:   required from here
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_min’ [-Wmissing-field-initializers]
+  918 |   PerformanceSummary perf_summary{sut->Name(), settings, std::move(pr)};
+      |                      ^~~~~~~~~~~~
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc: In instantiation of ‘void mlperf::loadgen::FindPeakPerformanceMode(mlperf::SystemUnderTest*, mlperf::QuerySampleLibrary*, const mlperf::loadgen::TestSettingsInternal&, mlperf::loadgen::SequenceGen*) [with mlperf::TestScenario scenario = mlperf::TestScenario::SingleStream]’:
+/work/build/inference/loadgen/loadgen.cc:1132:61:   required from ‘static mlperf::loadgen::RunFunctions mlperf::loadgen::RunFunctions::GetCompileTime() [with mlperf::TestScenario compile_time_scenario = mlperf::TestScenario::SingleStream]’
+/work/build/inference/loadgen/loadgen.cc:1138:59:   required from here
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_min’ [-Wmissing-field-initializers]
+  988 |   PerformanceSummary base_perf_summary{sut->Name(), base_settings,
+      |                      ^~~~~~~~~~~~~~~~~
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_min’ [-Wmissing-field-initializers]
+ 1010 |     PerformanceSummary perf_summary{sut->Name(), base_settings,
+      |                        ^~~~~~~~~~~~
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc: In instantiation of ‘void mlperf::loadgen::RunPerformanceMode(mlperf::SystemUnderTest*, mlperf::QuerySampleLibrary*, const mlperf::loadgen::TestSettingsInternal&, mlperf::loadgen::SequenceGen*) [with mlperf::TestScenario scenario = mlperf::TestScenario::MultiStream]’:
+/work/build/inference/loadgen/loadgen.cc:1132:61:   required from ‘static mlperf::loadgen::RunFunctions mlperf::loadgen::RunFunctions::GetCompileTime() [with mlperf::TestScenario compile_time_scenario = mlperf::TestScenario::MultiStream]’
+/work/build/inference/loadgen/loadgen.cc:1140:58:   required from here
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_min’ [-Wmissing-field-initializers]
+  918 |   PerformanceSummary perf_summary{sut->Name(), settings, std::move(pr)};
+      |                      ^~~~~~~~~~~~
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc: In instantiation of ‘void mlperf::loadgen::FindPeakPerformanceMode(mlperf::SystemUnderTest*, mlperf::QuerySampleLibrary*, const mlperf::loadgen::TestSettingsInternal&, mlperf::loadgen::SequenceGen*) [with mlperf::TestScenario scenario = mlperf::TestScenario::MultiStream]’:
+/work/build/inference/loadgen/loadgen.cc:1132:61:   required from ‘static mlperf::loadgen::RunFunctions mlperf::loadgen::RunFunctions::GetCompileTime() [with mlperf::TestScenario compile_time_scenario = mlperf::TestScenario::MultiStream]’
+/work/build/inference/loadgen/loadgen.cc:1140:58:   required from here
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_min’ [-Wmissing-field-initializers]
+  988 |   PerformanceSummary base_perf_summary{sut->Name(), base_settings,
+      |                      ^~~~~~~~~~~~~~~~~
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_min’ [-Wmissing-field-initializers]
+ 1010 |     PerformanceSummary perf_summary{sut->Name(), base_settings,
+      |                        ^~~~~~~~~~~~
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc: In instantiation of ‘void mlperf::loadgen::RunPerformanceMode(mlperf::SystemUnderTest*, mlperf::QuerySampleLibrary*, const mlperf::loadgen::TestSettingsInternal&, mlperf::loadgen::SequenceGen*) [with mlperf::TestScenario scenario = mlperf::TestScenario::Server]’:
+/work/build/inference/loadgen/loadgen.cc:1132:61:   required from ‘static mlperf::loadgen::RunFunctions mlperf::loadgen::RunFunctions::GetCompileTime() [with mlperf::TestScenario compile_time_scenario = mlperf::TestScenario::Server]’
+/work/build/inference/loadgen/loadgen.cc:1142:53:   required from here
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_min’ [-Wmissing-field-initializers]
+  918 |   PerformanceSummary perf_summary{sut->Name(), settings, std::move(pr)};
+      |                      ^~~~~~~~~~~~
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc: In instantiation of ‘void mlperf::loadgen::FindPeakPerformanceMode(mlperf::SystemUnderTest*, mlperf::QuerySampleLibrary*, const mlperf::loadgen::TestSettingsInternal&, mlperf::loadgen::SequenceGen*) [with mlperf::TestScenario scenario = mlperf::TestScenario::Server]’:
+/work/build/inference/loadgen/loadgen.cc:1132:61:   required from ‘static mlperf::loadgen::RunFunctions mlperf::loadgen::RunFunctions::GetCompileTime() [with mlperf::TestScenario compile_time_scenario = mlperf::TestScenario::Server]’
+/work/build/inference/loadgen/loadgen.cc:1142:53:   required from here
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_min’ [-Wmissing-field-initializers]
+  988 |   PerformanceSummary base_perf_summary{sut->Name(), base_settings,
+      |                      ^~~~~~~~~~~~~~~~~
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_min’ [-Wmissing-field-initializers]
+ 1010 |     PerformanceSummary perf_summary{sut->Name(), base_settings,
+      |                        ^~~~~~~~~~~~
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc: In instantiation of ‘void mlperf::loadgen::RunPerformanceMode(mlperf::SystemUnderTest*, mlperf::QuerySampleLibrary*, const mlperf::loadgen::TestSettingsInternal&, mlperf::loadgen::SequenceGen*) [with mlperf::TestScenario scenario = mlperf::TestScenario::Offline]’:
+/work/build/inference/loadgen/loadgen.cc:1132:61:   required from ‘static mlperf::loadgen::RunFunctions mlperf::loadgen::RunFunctions::GetCompileTime() [with mlperf::TestScenario compile_time_scenario = mlperf::TestScenario::Offline]’
+/work/build/inference/loadgen/loadgen.cc:1144:54:   required from here
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_min’ [-Wmissing-field-initializers]
+  918 |   PerformanceSummary perf_summary{sut->Name(), settings, std::move(pr)};
+      |                      ^~~~~~~~~~~~
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:918:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc: In instantiation of ‘void mlperf::loadgen::FindPeakPerformanceMode(mlperf::SystemUnderTest*, mlperf::QuerySampleLibrary*, const mlperf::loadgen::TestSettingsInternal&, mlperf::loadgen::SequenceGen*) [with mlperf::TestScenario scenario = mlperf::TestScenario::Offline]’:
+/work/build/inference/loadgen/loadgen.cc:1132:61:   required from ‘static mlperf::loadgen::RunFunctions mlperf::loadgen::RunFunctions::GetCompileTime() [with mlperf::TestScenario compile_time_scenario = mlperf::TestScenario::Offline]’
+/work/build/inference/loadgen/loadgen.cc:1144:54:   required from here
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_min’ [-Wmissing-field-initializers]
+  988 |   PerformanceSummary base_perf_summary{sut->Name(), base_settings,
+      |                      ^~~~~~~~~~~~~~~~~
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:988:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_min’ [-Wmissing-field-initializers]
+ 1010 |     PerformanceSummary perf_summary{sut->Name(), base_settings,
+      |                        ^~~~~~~~~~~~
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:1010:24: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc: In instantiation of ‘std::pair<mlperf::loadgen::PerformanceSummary, mlperf::loadgen::PerformanceSummary> mlperf::loadgen::FindBoundaries(mlperf::SystemUnderTest*, mlperf::QuerySampleLibrary*, mlperf::loadgen::SequenceGen*, mlperf::loadgen::PerformanceSummary) [with mlperf::TestScenario scenario = mlperf::TestScenario::SingleStream]’:
+/work/build/inference/loadgen/loadgen.cc:1031:31:   required from ‘void mlperf::loadgen::FindPeakPerformanceMode(mlperf::SystemUnderTest*, mlperf::QuerySampleLibrary*, const mlperf::loadgen::TestSettingsInternal&, mlperf::loadgen::SequenceGen*) [with mlperf::TestScenario scenario = mlperf::TestScenario::SingleStream]’
+/work/build/inference/loadgen/loadgen.cc:1132:61:   required from ‘static mlperf::loadgen::RunFunctions mlperf::loadgen::RunFunctions::GetCompileTime() [with mlperf::TestScenario compile_time_scenario = mlperf::TestScenario::SingleStream]’
+/work/build/inference/loadgen/loadgen.cc:1138:59:   required from here
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_min’ [-Wmissing-field-initializers]
+  768 |   PerformanceSummary u_perf_summary{sut->Name(), u_settings, std::move(u_pr)};
+      |                      ^~~~~~~~~~~~~~
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc: In instantiation of ‘mlperf::loadgen::PerformanceSummary mlperf::loadgen::FindPeakPerformanceBinarySearch(mlperf::SystemUnderTest*, mlperf::QuerySampleLibrary*, mlperf::loadgen::SequenceGen*, const mlperf::loadgen::LoadableSampleSet&, mlperf::loadgen::PerformanceSummary, mlperf::loadgen::PerformanceSummary) [with mlperf::TestScenario scenario = mlperf::TestScenario::SingleStream]’:
+/work/build/inference/loadgen/loadgen.cc:1057:78:   required from ‘void mlperf::loadgen::FindPeakPerformanceMode(mlperf::SystemUnderTest*, mlperf::QuerySampleLibrary*, const mlperf::loadgen::TestSettingsInternal&, mlperf::loadgen::SequenceGen*) [with mlperf::TestScenario scenario = mlperf::TestScenario::SingleStream]’
+/work/build/inference/loadgen/loadgen.cc:1132:61:   required from ‘static mlperf::loadgen::RunFunctions mlperf::loadgen::RunFunctions::GetCompileTime() [with mlperf::TestScenario compile_time_scenario = mlperf::TestScenario::SingleStream]’
+/work/build/inference/loadgen/loadgen.cc:1138:59:   required from here
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_min’ [-Wmissing-field-initializers]
+  820 |   PerformanceSummary m_perf_summary{sut->Name(), m_settings, std::move(m_pr)};
+      |                      ^~~~~~~~~~~~~~
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc: In instantiation of ‘std::pair<mlperf::loadgen::PerformanceSummary, mlperf::loadgen::PerformanceSummary> mlperf::loadgen::FindBoundaries(mlperf::SystemUnderTest*, mlperf::QuerySampleLibrary*, mlperf::loadgen::SequenceGen*, mlperf::loadgen::PerformanceSummary) [with mlperf::TestScenario scenario = mlperf::TestScenario::MultiStream]’:
+/work/build/inference/loadgen/loadgen.cc:1031:31:   required from ‘void mlperf::loadgen::FindPeakPerformanceMode(mlperf::SystemUnderTest*, mlperf::QuerySampleLibrary*, const mlperf::loadgen::TestSettingsInternal&, mlperf::loadgen::SequenceGen*) [with mlperf::TestScenario scenario = mlperf::TestScenario::MultiStream]’
+/work/build/inference/loadgen/loadgen.cc:1132:61:   required from ‘static mlperf::loadgen::RunFunctions mlperf::loadgen::RunFunctions::GetCompileTime() [with mlperf::TestScenario compile_time_scenario = mlperf::TestScenario::MultiStream]’
+/work/build/inference/loadgen/loadgen.cc:1140:58:   required from here
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_min’ [-Wmissing-field-initializers]
+  768 |   PerformanceSummary u_perf_summary{sut->Name(), u_settings, std::move(u_pr)};
+      |                      ^~~~~~~~~~~~~~
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc: In instantiation of ‘mlperf::loadgen::PerformanceSummary mlperf::loadgen::FindPeakPerformanceBinarySearch(mlperf::SystemUnderTest*, mlperf::QuerySampleLibrary*, mlperf::loadgen::SequenceGen*, const mlperf::loadgen::LoadableSampleSet&, mlperf::loadgen::PerformanceSummary, mlperf::loadgen::PerformanceSummary) [with mlperf::TestScenario scenario = mlperf::TestScenario::MultiStream]’:
+/work/build/inference/loadgen/loadgen.cc:1057:78:   required from ‘void mlperf::loadgen::FindPeakPerformanceMode(mlperf::SystemUnderTest*, mlperf::QuerySampleLibrary*, const mlperf::loadgen::TestSettingsInternal&, mlperf::loadgen::SequenceGen*) [with mlperf::TestScenario scenario = mlperf::TestScenario::MultiStream]’
+/work/build/inference/loadgen/loadgen.cc:1132:61:   required from ‘static mlperf::loadgen::RunFunctions mlperf::loadgen::RunFunctions::GetCompileTime() [with mlperf::TestScenario compile_time_scenario = mlperf::TestScenario::MultiStream]’
+/work/build/inference/loadgen/loadgen.cc:1140:58:   required from here
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_min’ [-Wmissing-field-initializers]
+  820 |   PerformanceSummary m_perf_summary{sut->Name(), m_settings, std::move(m_pr)};
+      |                      ^~~~~~~~~~~~~~
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc: In instantiation of ‘std::pair<mlperf::loadgen::PerformanceSummary, mlperf::loadgen::PerformanceSummary> mlperf::loadgen::FindBoundaries(mlperf::SystemUnderTest*, mlperf::QuerySampleLibrary*, mlperf::loadgen::SequenceGen*, mlperf::loadgen::PerformanceSummary) [with mlperf::TestScenario scenario = mlperf::TestScenario::Server]’:
+/work/build/inference/loadgen/loadgen.cc:1031:31:   required from ‘void mlperf::loadgen::FindPeakPerformanceMode(mlperf::SystemUnderTest*, mlperf::QuerySampleLibrary*, const mlperf::loadgen::TestSettingsInternal&, mlperf::loadgen::SequenceGen*) [with mlperf::TestScenario scenario = mlperf::TestScenario::Server]’
+/work/build/inference/loadgen/loadgen.cc:1132:61:   required from ‘static mlperf::loadgen::RunFunctions mlperf::loadgen::RunFunctions::GetCompileTime() [with mlperf::TestScenario compile_time_scenario = mlperf::TestScenario::Server]’
+/work/build/inference/loadgen/loadgen.cc:1142:53:   required from here
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_min’ [-Wmissing-field-initializers]
+  768 |   PerformanceSummary u_perf_summary{sut->Name(), u_settings, std::move(u_pr)};
+      |                      ^~~~~~~~~~~~~~
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc: In instantiation of ‘mlperf::loadgen::PerformanceSummary mlperf::loadgen::FindPeakPerformanceBinarySearch(mlperf::SystemUnderTest*, mlperf::QuerySampleLibrary*, mlperf::loadgen::SequenceGen*, const mlperf::loadgen::LoadableSampleSet&, mlperf::loadgen::PerformanceSummary, mlperf::loadgen::PerformanceSummary) [with mlperf::TestScenario scenario = mlperf::TestScenario::Server]’:
+/work/build/inference/loadgen/loadgen.cc:1057:78:   required from ‘void mlperf::loadgen::FindPeakPerformanceMode(mlperf::SystemUnderTest*, mlperf::QuerySampleLibrary*, const mlperf::loadgen::TestSettingsInternal&, mlperf::loadgen::SequenceGen*) [with mlperf::TestScenario scenario = mlperf::TestScenario::Server]’
+/work/build/inference/loadgen/loadgen.cc:1132:61:   required from ‘static mlperf::loadgen::RunFunctions mlperf::loadgen::RunFunctions::GetCompileTime() [with mlperf::TestScenario compile_time_scenario = mlperf::TestScenario::Server]’
+/work/build/inference/loadgen/loadgen.cc:1142:53:   required from here
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_min’ [-Wmissing-field-initializers]
+  820 |   PerformanceSummary m_perf_summary{sut->Name(), m_settings, std::move(m_pr)};
+      |                      ^~~~~~~~~~~~~~
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc: In instantiation of ‘std::pair<mlperf::loadgen::PerformanceSummary, mlperf::loadgen::PerformanceSummary> mlperf::loadgen::FindBoundaries(mlperf::SystemUnderTest*, mlperf::QuerySampleLibrary*, mlperf::loadgen::SequenceGen*, mlperf::loadgen::PerformanceSummary) [with mlperf::TestScenario scenario = mlperf::TestScenario::Offline]’:
+/work/build/inference/loadgen/loadgen.cc:1031:31:   required from ‘void mlperf::loadgen::FindPeakPerformanceMode(mlperf::SystemUnderTest*, mlperf::QuerySampleLibrary*, const mlperf::loadgen::TestSettingsInternal&, mlperf::loadgen::SequenceGen*) [with mlperf::TestScenario scenario = mlperf::TestScenario::Offline]’
+/work/build/inference/loadgen/loadgen.cc:1132:61:   required from ‘static mlperf::loadgen::RunFunctions mlperf::loadgen::RunFunctions::GetCompileTime() [with mlperf::TestScenario compile_time_scenario = mlperf::TestScenario::Offline]’
+/work/build/inference/loadgen/loadgen.cc:1144:54:   required from here
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_min’ [-Wmissing-field-initializers]
+  768 |   PerformanceSummary u_perf_summary{sut->Name(), u_settings, std::move(u_pr)};
+      |                      ^~~~~~~~~~~~~~
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:768:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc: In instantiation of ‘mlperf::loadgen::PerformanceSummary mlperf::loadgen::FindPeakPerformanceBinarySearch(mlperf::SystemUnderTest*, mlperf::QuerySampleLibrary*, mlperf::loadgen::SequenceGen*, const mlperf::loadgen::LoadableSampleSet&, mlperf::loadgen::PerformanceSummary, mlperf::loadgen::PerformanceSummary) [with mlperf::TestScenario scenario = mlperf::TestScenario::Offline]’:
+/work/build/inference/loadgen/loadgen.cc:1057:78:   required from ‘void mlperf::loadgen::FindPeakPerformanceMode(mlperf::SystemUnderTest*, mlperf::QuerySampleLibrary*, const mlperf::loadgen::TestSettingsInternal&, mlperf::loadgen::SequenceGen*) [with mlperf::TestScenario scenario = mlperf::TestScenario::Offline]’
+/work/build/inference/loadgen/loadgen.cc:1132:61:   required from ‘static mlperf::loadgen::RunFunctions mlperf::loadgen::RunFunctions::GetCompileTime() [with mlperf::TestScenario compile_time_scenario = mlperf::TestScenario::Offline]’
+/work/build/inference/loadgen/loadgen.cc:1144:54:   required from here
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_min’ [-Wmissing-field-initializers]
+  820 |   PerformanceSummary m_perf_summary{sut->Name(), m_settings, std::move(m_pr)};
+      |                      ^~~~~~~~~~~~~~
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::first_token_latency_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_min’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_max’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc:820:22: warning: missing initializer for member ‘mlperf::loadgen::PerformanceSummary::time_per_output_token_mean’ [-Wmissing-field-initializers]
+/work/build/inference/loadgen/loadgen.cc: In instantiation of ‘void mlperf::loadgen::ResponseDelegateDetailed<scenario, mode>::TokenComplete(mlperf::loadgen::SampleMetadata*, mlperf::QuerySampleResponse*, std::chrono::_V2::system_clock::time_point, const ResponseCallback&) [with mlperf::TestScenario scenario = mlperf::TestScenario::Offline; mlperf::TestMode mode = mlperf::TestMode::PerformanceOnly; std::chrono::_V2::system_clock::time_point = std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long int, std::ratio<1, 1000000000> > >; mlperf::ResponseCallback = std::function<void(mlperf::QuerySampleResponse*)>]’:
+/work/build/inference/loadgen/loadgen.cc:135:10:   required from here
+/work/build/inference/loadgen/loadgen.cc:137:47: warning: unused parameter ‘response_cb’ [-Wunused-parameter]
+  137 |                       const ResponseCallback& response_cb) override {
+      |                       ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~
+/work/build/inference/loadgen/loadgen.cc: In instantiation of ‘void mlperf::loadgen::ResponseDelegateDetailed<scenario, mode>::TokenComplete(mlperf::loadgen::SampleMetadata*, mlperf::QuerySampleResponse*, std::chrono::_V2::system_clock::time_point, const ResponseCallback&) [with mlperf::TestScenario scenario = mlperf::TestScenario::Offline; mlperf::TestMode mode = mlperf::TestMode::AccuracyOnly; std::chrono::_V2::system_clock::time_point = std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long int, std::ratio<1, 1000000000> > >; mlperf::ResponseCallback = std::function<void(mlperf::QuerySampleResponse*)>]’:
+/work/build/inference/loadgen/loadgen.cc:135:10:   required from here
+/work/build/inference/loadgen/loadgen.cc:137:47: warning: unused parameter ‘response_cb’ [-Wunused-parameter]
+/work/build/inference/loadgen/loadgen.cc: In instantiation of ‘void mlperf::loadgen::ResponseDelegateDetailed<scenario, mode>::TokenComplete(mlperf::loadgen::SampleMetadata*, mlperf::QuerySampleResponse*, std::chrono::_V2::system_clock::time_point, const ResponseCallback&) [with mlperf::TestScenario scenario = mlperf::TestScenario::Server; mlperf::TestMode mode = mlperf::TestMode::PerformanceOnly; std::chrono::_V2::system_clock::time_point = std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long int, std::ratio<1, 1000000000> > >; mlperf::ResponseCallback = std::function<void(mlperf::QuerySampleResponse*)>]’:
+/work/build/inference/loadgen/loadgen.cc:135:10:   required from here
+/work/build/inference/loadgen/loadgen.cc:137:47: warning: unused parameter ‘response_cb’ [-Wunused-parameter]
+/work/build/inference/loadgen/loadgen.cc: In instantiation of ‘void mlperf::loadgen::ResponseDelegateDetailed<scenario, mode>::TokenComplete(mlperf::loadgen::SampleMetadata*, mlperf::QuerySampleResponse*, std::chrono::_V2::system_clock::time_point, const ResponseCallback&) [with mlperf::TestScenario scenario = mlperf::TestScenario::Server; mlperf::TestMode mode = mlperf::TestMode::AccuracyOnly; std::chrono::_V2::system_clock::time_point = std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long int, std::ratio<1, 1000000000> > >; mlperf::ResponseCallback = std::function<void(mlperf::QuerySampleResponse*)>]’:
+/work/build/inference/loadgen/loadgen.cc:135:10:   required from here
+/work/build/inference/loadgen/loadgen.cc:137:47: warning: unused parameter ‘response_cb’ [-Wunused-parameter]
+/work/build/inference/loadgen/loadgen.cc: In instantiation of ‘void mlperf::loadgen::ResponseDelegateDetailed<scenario, mode>::TokenComplete(mlperf::loadgen::SampleMetadata*, mlperf::QuerySampleResponse*, std::chrono::_V2::system_clock::time_point, const ResponseCallback&) [with mlperf::TestScenario scenario = mlperf::TestScenario::MultiStream; mlperf::TestMode mode = mlperf::TestMode::PerformanceOnly; std::chrono::_V2::system_clock::time_point = std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long int, std::ratio<1, 1000000000> > >; mlperf::ResponseCallback = std::function<void(mlperf::QuerySampleResponse*)>]’:
+/work/build/inference/loadgen/loadgen.cc:135:10:   required from here
+/work/build/inference/loadgen/loadgen.cc:137:47: warning: unused parameter ‘response_cb’ [-Wunused-parameter]
+/work/build/inference/loadgen/loadgen.cc: In instantiation of ‘void mlperf::loadgen::ResponseDelegateDetailed<scenario, mode>::TokenComplete(mlperf::loadgen::SampleMetadata*, mlperf::QuerySampleResponse*, std::chrono::_V2::system_clock::time_point, const ResponseCallback&) [with mlperf::TestScenario scenario = mlperf::TestScenario::MultiStream; mlperf::TestMode mode = mlperf::TestMode::AccuracyOnly; std::chrono::_V2::system_clock::time_point = std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long int, std::ratio<1, 1000000000> > >; mlperf::ResponseCallback = std::function<void(mlperf::QuerySampleResponse*)>]’:
+/work/build/inference/loadgen/loadgen.cc:135:10:   required from here
+/work/build/inference/loadgen/loadgen.cc:137:47: warning: unused parameter ‘response_cb’ [-Wunused-parameter]
+/work/build/inference/loadgen/loadgen.cc: In instantiation of ‘void mlperf::loadgen::ResponseDelegateDetailed<scenario, mode>::TokenComplete(mlperf::loadgen::SampleMetadata*, mlperf::QuerySampleResponse*, std::chrono::_V2::system_clock::time_point, const ResponseCallback&) [with mlperf::TestScenario scenario = mlperf::TestScenario::SingleStream; mlperf::TestMode mode = mlperf::TestMode::PerformanceOnly; std::chrono::_V2::system_clock::time_point = std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long int, std::ratio<1, 1000000000> > >; mlperf::ResponseCallback = std::function<void(mlperf::QuerySampleResponse*)>]’:
+/work/build/inference/loadgen/loadgen.cc:135:10:   required from here
+/work/build/inference/loadgen/loadgen.cc:137:47: warning: unused parameter ‘response_cb’ [-Wunused-parameter]
+/work/build/inference/loadgen/loadgen.cc: In instantiation of ‘void mlperf::loadgen::ResponseDelegateDetailed<scenario, mode>::TokenComplete(mlperf::loadgen::SampleMetadata*, mlperf::QuerySampleResponse*, std::chrono::_V2::system_clock::time_point, const ResponseCallback&) [with mlperf::TestScenario scenario = mlperf::TestScenario::SingleStream; mlperf::TestMode mode = mlperf::TestMode::AccuracyOnly; std::chrono::_V2::system_clock::time_point = std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long int, std::ratio<1, 1000000000> > >; mlperf::ResponseCallback = std::function<void(mlperf::QuerySampleResponse*)>]’:
+/work/build/inference/loadgen/loadgen.cc:135:10:   required from here
+/work/build/inference/loadgen/loadgen.cc:137:47: warning: unused parameter ‘response_cb’ [-Wunused-parameter]
+[ 84%] Linking CXX static library libmlperf_loadgen.a
+make[4]: Leaving directory '/work/build/inference/loadgen/build'
+[ 84%] Built target mlperf_loadgen
+make[4]: Entering directory '/work/build/inference/loadgen/build'
+make[4]: Leaving directory '/work/build/inference/loadgen/build'
+make[4]: Entering directory '/work/build/inference/loadgen/build'
+[ 92%] Building CXX object CMakeFiles/benchmark.dir/benchmark/repro.cpp.o
+/work/build/inference/loadgen/benchmark/repro.cpp: In member function ‘virtual void QSL::LoadSamplesToRam(const std::vector<long unsigned int>&)’:
+/work/build/inference/loadgen/benchmark/repro.cpp:37:52: warning: unused parameter ‘samples’ [-Wunused-parameter]
+   37 |       const std::vector<mlperf::QuerySampleIndex>& samples) override {}
+      |       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~
+/work/build/inference/loadgen/benchmark/repro.cpp: In member function ‘virtual void QSL::UnloadSamplesFromRam(const std::vector<long unsigned int>&)’:
+/work/build/inference/loadgen/benchmark/repro.cpp:39:52: warning: unused parameter ‘samples’ [-Wunused-parameter]
+   39 |       const std::vector<mlperf::QuerySampleIndex>& samples) override {}
+      |       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~
+/work/build/inference/loadgen/benchmark/repro.cpp: In member function ‘virtual void BasicSUT::IssueQuery(const std::vector<mlperf::QuerySample>&)’:
+/work/build/inference/loadgen/benchmark/repro.cpp:55:11: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<mlperf::QuerySampleResponse>::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+   55 |     if (n > mResponses.size()) {
+      |         ~~^~~~~~~~~~~~~~~~~~~
+/work/build/inference/loadgen/benchmark/repro.cpp: In member function ‘void QueueSUT::CompleteThread(int)’:
+/work/build/inference/loadgen/benchmark/repro.cpp:125:27: warning: comparison of integer expressions of different signedness: ‘int’ and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
+  125 |         for (int i = 0; i < actualSize; i++) {
+      |                         ~~^~~~~~~~~~~~
+/work/build/inference/loadgen/benchmark/repro.cpp: In member function ‘virtual void MultiBasicSUT::IssueQuery(const std::vector<mlperf::QuerySample>&)’:
+/work/build/inference/loadgen/benchmark/repro.cpp:171:11: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<mlperf::QuerySampleResponse>::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+  171 |     if (n > reponses.size()) {
+      |         ~~^~~~~~~~~~~~~~~~~
+[100%] Linking CXX executable benchmark
+make[4]: Leaving directory '/work/build/inference/loadgen/build'
+[100%] Built target benchmark
+make[3]: Leaving directory '/work/build/inference/loadgen/build'
+make[2]: Leaving directory '/work/build/inference/loadgen/build'
+running bdist_wheel
+running build
+running build_ext
+x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O2 -Wall -g -fstack-protector-strong -Wformat -Werror=format-security -g -fwrapv -O2 -std=c++14 -O3 -fPIC -I/usr/include/python3.8 -c flagcheck.cpp -o flagcheck.o -std=c++17
+building 'mlperf_loadgen' extension
+creating build/temp.linux-x86_64-cpython-38
+creating build/temp.linux-x86_64-cpython-38/bindings
+creating build/temp.linux-x86_64-cpython-38/generated
+x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O2 -Wall -g -fstack-protector-strong -Wformat -Werror=format-security -g -fwrapv -O2 -std=c++14 -O3 -fPIC -DMAJOR_VERSION=4 -DMINOR_VERSION=0 -I. -I/usr/local/lib/python3.8/dist-packages/pybind11/include -I/usr/include/python3.8 -c bindings/python_api.cc -o build/temp.linux-x86_64-cpython-38/bindings/python_api.o -std=c++17 -fvisibility=hidden -g0
+x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O2 -Wall -g -fstack-protector-strong -Wformat -Werror=format-security -g -fwrapv -O2 -std=c++14 -O3 -fPIC -DMAJOR_VERSION=4 -DMINOR_VERSION=0 -I. -I/usr/local/lib/python3.8/dist-packages/pybind11/include -I/usr/include/python3.8 -c early_stopping.cc -o build/temp.linux-x86_64-cpython-38/early_stopping.o -std=c++17 -fvisibility=hidden -g0
+x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O2 -Wall -g -fstack-protector-strong -Wformat -Werror=format-security -g -fwrapv -O2 -std=c++14 -O3 -fPIC -DMAJOR_VERSION=4 -DMINOR_VERSION=0 -I. -I/usr/local/lib/python3.8/dist-packages/pybind11/include -I/usr/include/python3.8 -c generated/version_generated.cc -o build/temp.linux-x86_64-cpython-38/generated/version_generated.o -std=c++17 -fvisibility=hidden -g0
+x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O2 -Wall -g -fstack-protector-strong -Wformat -Werror=format-security -g -fwrapv -O2 -std=c++14 -O3 -fPIC -DMAJOR_VERSION=4 -DMINOR_VERSION=0 -I. -I/usr/local/lib/python3.8/dist-packages/pybind11/include -I/usr/include/python3.8 -c issue_query_controller.cc -o build/temp.linux-x86_64-cpython-38/issue_query_controller.o -std=c++17 -fvisibility=hidden -g0
+x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O2 -Wall -g -fstack-protector-strong -Wformat -Werror=format-security -g -fwrapv -O2 -std=c++14 -O3 -fPIC -DMAJOR_VERSION=4 -DMINOR_VERSION=0 -I. -I/usr/local/lib/python3.8/dist-packages/pybind11/include -I/usr/include/python3.8 -c loadgen.cc -o build/temp.linux-x86_64-cpython-38/loadgen.o -std=c++17 -fvisibility=hidden -g0
+x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O2 -Wall -g -fstack-protector-strong -Wformat -Werror=format-security -g -fwrapv -O2 -std=c++14 -O3 -fPIC -DMAJOR_VERSION=4 -DMINOR_VERSION=0 -I. -I/usr/local/lib/python3.8/dist-packages/pybind11/include -I/usr/include/python3.8 -c logging.cc -o build/temp.linux-x86_64-cpython-38/logging.o -std=c++17 -fvisibility=hidden -g0
+x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O2 -Wall -g -fstack-protector-strong -Wformat -Werror=format-security -g -fwrapv -O2 -std=c++14 -O3 -fPIC -DMAJOR_VERSION=4 -DMINOR_VERSION=0 -I. -I/usr/local/lib/python3.8/dist-packages/pybind11/include -I/usr/include/python3.8 -c results.cc -o build/temp.linux-x86_64-cpython-38/results.o -std=c++17 -fvisibility=hidden -g0
+x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O2 -Wall -g -fstack-protector-strong -Wformat -Werror=format-security -g -fwrapv -O2 -std=c++14 -O3 -fPIC -DMAJOR_VERSION=4 -DMINOR_VERSION=0 -I. -I/usr/local/lib/python3.8/dist-packages/pybind11/include -I/usr/include/python3.8 -c test_settings_internal.cc -o build/temp.linux-x86_64-cpython-38/test_settings_internal.o -std=c++17 -fvisibility=hidden -g0
+x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O2 -Wall -g -fstack-protector-strong -Wformat -Werror=format-security -g -fwrapv -O2 -std=c++14 -O3 -fPIC -DMAJOR_VERSION=4 -DMINOR_VERSION=0 -I. -I/usr/local/lib/python3.8/dist-packages/pybind11/include -I/usr/include/python3.8 -c utils.cc -o build/temp.linux-x86_64-cpython-38/utils.o -std=c++17 -fvisibility=hidden -g0
+x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O2 -Wall -g -fstack-protector-strong -Wformat -Werror=format-security -g -fwrapv -O2 -std=c++14 -O3 -fPIC -DMAJOR_VERSION=4 -DMINOR_VERSION=0 -I. -I/usr/local/lib/python3.8/dist-packages/pybind11/include -I/usr/include/python3.8 -c version.cc -o build/temp.linux-x86_64-cpython-38/version.o -std=c++17 -fvisibility=hidden -g0
+creating build/lib.linux-x86_64-cpython-38
+x86_64-linux-gnu-g++ -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -Wl,-z,relro -g -fwrapv -O2 -std=c++14 -O3 build/temp.linux-x86_64-cpython-38/bindings/python_api.o build/temp.linux-x86_64-cpython-38/early_stopping.o build/temp.linux-x86_64-cpython-38/generated/version_generated.o build/temp.linux-x86_64-cpython-38/issue_query_controller.o build/temp.linux-x86_64-cpython-38/loadgen.o build/temp.linux-x86_64-cpython-38/logging.o build/temp.linux-x86_64-cpython-38/results.o build/temp.linux-x86_64-cpython-38/test_settings_internal.o build/temp.linux-x86_64-cpython-38/utils.o build/temp.linux-x86_64-cpython-38/version.o -L/usr/lib -o build/lib.linux-x86_64-cpython-38/mlperf_loadgen.cpython-38-x86_64-linux-gnu.so
+installing to build/bdist.linux-x86_64/wheel
+running install
+running install_lib
+creating build/bdist.linux-x86_64
+creating build/bdist.linux-x86_64/wheel
+copying build/lib.linux-x86_64-cpython-38/mlperf_loadgen.cpython-38-x86_64-linux-gnu.so -> build/bdist.linux-x86_64/wheel
+running install_egg_info
+running egg_info
+creating mlperf_loadgen.egg-info
+writing mlperf_loadgen.egg-info/PKG-INFO
+writing dependency_links to mlperf_loadgen.egg-info/dependency_links.txt
+writing top-level names to mlperf_loadgen.egg-info/top_level.txt
+writing manifest file 'mlperf_loadgen.egg-info/SOURCES.txt'
+reading manifest file 'mlperf_loadgen.egg-info/SOURCES.txt'
+writing manifest file 'mlperf_loadgen.egg-info/SOURCES.txt'
+Copying mlperf_loadgen.egg-info to build/bdist.linux-x86_64/wheel/mlperf_loadgen-4.0-py3.8.egg-info
+running install_scripts
+creating build/bdist.linux-x86_64/wheel/mlperf_loadgen-4.0.dist-info/WHEEL
+creating 'dist/mlperf_loadgen-4.0-cp38-cp38-linux_x86_64.whl' and adding 'build/bdist.linux-x86_64/wheel' to it
+adding 'mlperf_loadgen.cpython-38-x86_64-linux-gnu.so'
+adding 'mlperf_loadgen-4.0.dist-info/METADATA'
+adding 'mlperf_loadgen-4.0.dist-info/WHEEL'
+adding 'mlperf_loadgen-4.0.dist-info/top_level.txt'
+adding 'mlperf_loadgen-4.0.dist-info/RECORD'
+removing build/bdist.linux-x86_64/wheel
+/usr/local/lib/python3.8/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+  warnings.warn(
+Looking in indexes: https://pypi.org/simple, https://pypi.ngc.nvidia.com
+Processing ./dist/mlperf_loadgen-4.0-cp38-cp38-linux_x86_64.whl
+Installing collected packages: mlperf-loadgen
+Successfully installed mlperf-loadgen-4.0
+make[1]: Leaving directory '/work'
+make[1]: Entering directory '/work'
+Building harness...
+-- The C compiler identification is GNU 9.4.0
+-- The CXX compiler identification is GNU 9.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE  
+-- Found CUDA: /usr/local/cuda (found version "12.2") 
+Warning: setting -Wno-deprecated-declarations to avoid header warnings
+-- The CUDA compiler identification is NVIDIA 12.2.140
+-- Detecting CUDA compiler ABI info
+-- Detecting CUDA compiler ABI info - done
+-- Check for working CUDA compiler: /usr/local/cuda/bin/nvcc - skipped
+-- Detecting CUDA compile features
+-- Detecting CUDA compile features - done
+Building default harness...
+Building 3D-UNet-KiTS19 harness...
+Building RNN-T harness...
+-- DALI libraries DIR: /usr/local/lib/python3.8/dist-packages/nvidia/dali
+-- DALI include DIR: /usr/local/lib/python3.8/dist-packages/nvidia/dali/include
+-- DALI linked libraries: dalidali_operatorsdali_kernels
+Building BERT harness...
+Building DLRMv2 harness...
+-- Configuring done
+CMake Warning (dev) in CMakeLists.txt:
+  Policy CMP0104 is not set: CMAKE_CUDA_ARCHITECTURES now detected for NVCC,
+  empty CUDA_ARCHITECTURES not allowed.  Run "cmake --help-policy CMP0104"
+  for policy details.  Use the cmake_policy command to set the policy and
+  suppress this warning.
+
+  CUDA_ARCHITECTURES is empty for target "harness_3dunet".
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) in CMakeLists.txt:
+  Policy CMP0104 is not set: CMAKE_CUDA_ARCHITECTURES now detected for NVCC,
+  empty CUDA_ARCHITECTURES not allowed.  Run "cmake --help-policy CMP0104"
+  for policy details.  Use the cmake_policy command to set the policy and
+  suppress this warning.
+
+  CUDA_ARCHITECTURES is empty for target "harness_rnnt".
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) in CMakeLists.txt:
+  Policy CMP0104 is not set: CMAKE_CUDA_ARCHITECTURES now detected for NVCC,
+  empty CUDA_ARCHITECTURES not allowed.  Run "cmake --help-policy CMP0104"
+  for policy details.  Use the cmake_policy command to set the policy and
+  suppress this warning.
+
+  CUDA_ARCHITECTURES is empty for target "harness_dlrm_v2".
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Generating done
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    USE_RELEASE_TRTLLM
+
+
+-- Build files have been written to: /work/build/harness
+make[2]: Entering directory '/work/build/harness'
+make[3]: Entering directory '/work/build/harness'
+make[4]: Entering directory '/work/build/harness'
+make[4]: Entering directory '/work/build/harness'
+make[4]: Entering directory '/work/build/harness'
+make[4]: Entering directory '/work/build/harness'
+make[4]: Entering directory '/work/build/harness'
+make[4]: Leaving directory '/work/build/harness'
+make[4]: Leaving directory '/work/build/harness'
+make[4]: Leaving directory '/work/build/harness'
+make[4]: Leaving directory '/work/build/harness'
+make[4]: Entering directory '/work/build/harness'
+make[4]: Leaving directory '/work/build/harness'
+make[4]: Entering directory '/work/build/harness'
+make[4]: Entering directory '/work/build/harness'
+make[4]: Entering directory '/work/build/harness'
+make[4]: Entering directory '/work/build/harness'
+[  4%] Building CXX object lwis/CMakeFiles/lwis.dir/src/lwis.cpp.o
+[  8%] Building CXX object CMakeFiles/harness_3dunet.dir/harness_3dunet/main_3dunet.cc.o
+[ 12%] Building CXX object CMakeFiles/harness_rnnt.dir/harness_rnnt/main_rnnt.cc.o
+[ 24%] Building CUDA object CMakeFiles/harness_3dunet.dir/harness_3dunet/unet3d_sw.cu.o
+[ 24%] Building CUDA object CMakeFiles/harness_rnnt.dir/harness_rnnt/rnnt_kernels.cu.o
+[ 24%] Building CXX object CMakeFiles/harness_3dunet.dir/harness_3dunet/lwis_3dunet.cpp.o
+[ 28%] Building CXX object CMakeFiles/harness_bert.dir/harness_bert/main_bert.cc.o
+[ 36%] Building CXX object CMakeFiles/harness_3dunet.dir/common/logger.cpp.o
+[ 40%] Building CXX object CMakeFiles/harness_rnnt.dir/common/logger.cpp.o
+[ 40%] Building CXX object CMakeFiles/harness_bert.dir/harness_bert/bert_core_vs.cc.o
+[ 52%] Building CXX object CMakeFiles/harness_dlrm_v2.dir/harness_dlrm_v2/main_dlrm_v2.cpp.o
+[ 52%] Building CXX object CMakeFiles/harness_bert.dir/harness_bert/bert_server.cc.o
+[ 52%] Building CXX object CMakeFiles/harness_bert.dir/common/logger.cpp.o
+[ 60%] Building CXX object CMakeFiles/harness_dlrm_v2.dir/harness_dlrm_v2/dlrm_v2_server.cpp.o
+[ 68%] Building CXX object CMakeFiles/harness_dlrm_v2.dir/harness_dlrm_v2/batch_maker.cpp.o
+[ 68%] Building CXX object CMakeFiles/harness_dlrm_v2.dir/common/logger.cpp.o
+[ 68%] Building CUDA object CMakeFiles/harness_dlrm_v2.dir/harness_dlrm_v2/dlrm_v2_kernels.cu.o
+[ 72%] Linking CXX static library liblwis.a
+make[4]: Leaving directory '/work/build/harness'
+[ 72%] Built target lwis
+make[4]: Entering directory '/work/build/harness'
+make[4]: Leaving directory '/work/build/harness'
+make[4]: Entering directory '/work/build/harness'
+[ 80%] Building CXX object CMakeFiles/harness_default.dir/common/logger.cpp.o
+[ 80%] Building CXX object CMakeFiles/harness_default.dir/harness_default/main_default.cc.o
+[ 84%] Linking CXX executable /work/build/bin/harness_bert
+make[4]: Leaving directory '/work/build/harness'
+[ 84%] Built target harness_bert
+[ 88%] Linking CXX executable /work/build/bin/harness_dlrm_v2
+make[4]: Leaving directory '/work/build/harness'
+[ 88%] Built target harness_dlrm_v2
+[ 92%] Linking CXX executable /work/build/bin/harness_3dunet
+make[4]: Leaving directory '/work/build/harness'
+[ 92%] Built target harness_3dunet
+[ 96%] Linking CXX executable /work/build/bin/harness_rnnt
+make[4]: Leaving directory '/work/build/harness'
+[ 96%] Built target harness_rnnt
+[100%] Linking CXX executable /work/build/bin/harness_default
+make[4]: Leaving directory '/work/build/harness'
+[100%] Built target harness_default
+make[3]: Leaving directory '/work/build/harness'
+make[2]: Leaving directory '/work/build/harness'
+Finished building harness.
+make[1]: Leaving directory '/work'
+make[1]: Entering directory '/work'
+Skip cloning FasterTransformer for SM 80.
+Skip building FasterTransformer for SM 80.
+make[1]: Leaving directory '/work'

@@ -1,0 +1,68 @@
+DeepSparse, Copyright 2021-present / Neuralmagic, Inc. version: 1.6.1 COMMUNITY | (eff4f95d) (release) (optimized) (system=avx512, binary=avx512)
+2024-02-22 04:09:53 deepsparse.utils.onnx INFO     Generating input 'input_ids', type = int64, shape = [128, 384]
+2024-02-22 04:09:53 deepsparse.utils.onnx INFO     Generating input 'attention_mask', type = int64, shape = [128, 384]
+2024-02-22 04:09:53 deepsparse.utils.onnx INFO     Generating input 'token_type_ids', type = int64, shape = [128, 384]
+================================================
+MLPerf Results Summary
+================================================
+SUT name : PySUT
+Scenario : Offline
+Mode     : PerformanceOnly
+Samples per second: 12.9574
+Result is : VALID
+  Min duration satisfied : Yes
+  Min queries satisfied : Yes
+  Early stopping satisfied: Yes
+
+================================================
+Additional Stats
+================================================
+Min latency (ns)                : 6993261294
+Max latency (ns)                : 836049081856
+Mean latency (ns)               : 329579858317
+50.00 percentile latency (ns)   : 283421080818
+90.00 percentile latency (ns)   : 704450719362
+95.00 percentile latency (ns)   : 770245558358
+97.00 percentile latency (ns)   : 803166680000
+99.00 percentile latency (ns)   : 836048749579
+99.90 percentile latency (ns)   : 836049055890
+
+================================================
+Test Parameters Used
+================================================
+samples_per_query : 10833
+target_qps : 13.1368
+target_latency (ns): 0
+max_async_queries : 1
+min_duration (ms): 600000
+max_duration (ms): 0
+min_query_count : 1
+max_query_count : 0
+qsl_rng_seed : 13281865557512327830
+sample_index_rng_seed : 198141574272810017
+schedule_rng_seed : 7575108116881280410
+accuracy_log_rng_seed : 0
+accuracy_log_probability : 0
+accuracy_log_sampling_target : 0
+print_timestamps : 0
+performance_issue_unique : 0
+performance_issue_same : 0
+performance_issue_same_index : 0
+performance_sample_count : 10833
+
+No warnings encountered during test.
+
+No errors encountered during test.
+Loading ONNX model... /home/ubuntu/.cache/sparsezoo/neuralmagic/obert-base-squad_wikipedia_bookcorpus-pruned90/model.onnx
+Constructing SUT...
+Finished constructing SUT.
+Constructing QSL...
+Loading cached features from 'eval_features.pickle'...
+Finished constructing QSL.
+Warming up engine...
+Running LoadGen test...
+Done!
+Destroying SUT...
+Destroying QSL...
+Finished destroying SUT.
+Finished destroying QSL.

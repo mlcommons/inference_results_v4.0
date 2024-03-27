@@ -1,0 +1,108 @@
+{
+  "app-mlperf-inference,d775cac873ee4231:qualcomm,bert-99,valid,r4.0_default,offline": [
+    {
+      "get,python,python3,get-python,get-python3": {
+        "script_uid": "d0b5dd74373f4a62",
+        "script_alias": "get-python3",
+        "version": "3.10.12",
+        "parent": "app-mlperf-inference,d775cac873ee4231:qualcomm,bert-99,valid,r4.0_default,offline"
+      }
+    },
+    {
+      "get,src,source,inference,inference-src,inference-source,mlperf,mlcommons,deeplearningexamples": {
+        "script_uid": "4b57186581024797",
+        "script_alias": "get-mlperf-inference-src",
+        "version": "master",
+        "parent": "app-mlperf-inference,d775cac873ee4231:qualcomm,bert-99,valid,r4.0_default,offline"
+      }
+    },
+    {
+      "get,src,source,inference,inference-src,inference-source,mlperf,mlcommons,deeplearningexamples": {
+        "script_uid": "4b57186581024797",
+        "script_alias": "get-mlperf-inference-src",
+        "version": "master",
+        "parent": "get-mlperf-inference-utils,e341e5f86d8342e5:"
+      }
+    },
+    {
+      "get,dataset,squad,language-processing,validation,original": {
+        "script_uid": "6651c119c3ae49b3",
+        "script_alias": "get-dataset-squad",
+        "version": "1.1",
+        "parent": "app-mlperf-inference,d775cac873ee4231:qualcomm,bert-99,valid,r4.0_default,offline"
+      }
+    },
+    {
+      "get,src,source,inference,inference-src,inference-source,mlperf,mlcommons,deeplearningexamples": {
+        "script_uid": "4b57186581024797",
+        "script_alias": "get-mlperf-inference-src",
+        "version": "master",
+        "parent": "reproduce-mlperf-inference-qualcomm,eef1aca5d7c0470e:pro,bert-99,qaic,loadgen-batch-size.4096,glow,offline,uint8,num-devices.4"
+      }
+    },
+    {
+      "get,loadgen,inference,inference-loadgen,mlperf,mlcommons": {
+        "script_uid": "64c3d98d0ba04950",
+        "script_alias": "get-mlperf-inference-loadgen",
+        "version": "master",
+        "parent": "reproduce-mlperf-inference-qualcomm,eef1aca5d7c0470e:pro,bert-99,qaic,loadgen-batch-size.4096,glow,offline,uint8,num-devices.4"
+      }
+    },
+    {
+      "get,python,python3,get-python,get-python3": {
+        "script_uid": "d0b5dd74373f4a62",
+        "script_alias": "get-python3",
+        "version": "3.10.12",
+        "parent": "generate-mlperf-inference-user-conf,3af4475745964b93:"
+      }
+    },
+    {
+      "get,src,source,inference,inference-src,inference-source,mlperf,mlcommons,deeplearningexamples": {
+        "script_uid": "4b57186581024797",
+        "script_alias": "get-mlperf-inference-src",
+        "version": "master",
+        "parent": "generate-mlperf-inference-user-conf,3af4475745964b93:"
+      }
+    },
+    {
+      "get,install,generic,generic-python-lib,mlperf_logging": {
+        "script_uid": "94b62a682bc44791",
+        "script_alias": "get-generic-python-lib",
+        "version": "3.0.0",
+        "parent": "reproduce-mlperf-inference-qualcomm,eef1aca5d7c0470e:pro,bert-99,qaic,loadgen-batch-size.4096,glow,offline,uint8,num-devices.4"
+      }
+    },
+    {
+      "get,detect,qaic,platform,sdk,platform-sdk,qaic-platform-sdk": {
+        "script_uid": "a60f86918dc9457d",
+        "script_alias": "get-qaic-platform-sdk",
+        "version": "1.12.2.0",
+        "parent": "set-device-settings-qaic,408a1a1563b44780:vc.15"
+      }
+    },
+    {
+      "get,install,generic,generic-python-lib,transformers": {
+        "script_uid": "94b62a682bc44791",
+        "script_alias": "get-generic-python-lib",
+        "version": "2.4.0",
+        "parent": "reproduce-mlperf-inference-qualcomm,eef1aca5d7c0470e:pro,bert-99,qaic,loadgen-batch-size.4096,glow,offline,uint8,num-devices.4"
+      }
+    },
+    {
+      "get,install,generic,generic-python-lib,safetensors": {
+        "script_uid": "94b62a682bc44791",
+        "script_alias": "get-generic-python-lib",
+        "version": "0.4.2",
+        "parent": "reproduce-mlperf-inference-qualcomm,eef1aca5d7c0470e:pro,bert-99,qaic,loadgen-batch-size.4096,glow,offline,uint8,num-devices.4"
+      }
+    },
+    {
+      "get,install,generic,generic-python-lib,onnx": {
+        "script_uid": "94b62a682bc44791",
+        "script_alias": "get-generic-python-lib",
+        "version": "1.12.0",
+        "parent": "reproduce-mlperf-inference-qualcomm,eef1aca5d7c0470e:pro,bert-99,qaic,loadgen-batch-size.4096,glow,offline,uint8,num-devices.4"
+      }
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+bash: /home/arjun/CM/repos/local/cache/a63679db19ea425a/miniconda3/lib/libtinfo.so.6: no version information available (required by bash)
+python runner.py --workload-name gptj 	--scenario Offline 	--mode Performance 	--num-proc 1 	--cpus-per-proc 24 	--model-checkpoint-path /home/arjun/checkpoint-final 	--warmup 	--dataset-path /home/arjun/CM/repos/local/cache/d76a0e893db54747/repo/closed/Intel/code/gptj-99/pytorch-cpu/data/validation-data/cnn_dailymail_validation.json 	--batch-size 8 	--mlperf-conf /home/arjun/CM/repos/local/cache/3633fe3c56cc479e/inference/mlperf.conf 	--user-conf /home/arjun/CM/repos/ctuning@mlcommons-ck/cm-mlops/script/generate-mlperf-inference-user-conf/tmp/0f714c71aa0346d6bdb24d1d095ad246.conf 	--precision int8 	--pad-inputs 	--quantized-model /home/arjun/CM/repos/local/cache/d76a0e893db54747/repo/closed/Intel/code/gptj-99/pytorch-cpu/data/gpt-j-int8-model/best_model.pt 	--workers-per-proc 1 	--total-sample-count 13368 	--output-dir /home/arjun/CM/repos/local/cache/f88c69500c934b67/valid_results/arjun_spr-intel-cpu-pytorch-vdefault-default_config/gptj-99/offline/performance/run_1 	2>&1 | tee /home/arjun/CM/repos/local/cache/f88c69500c934b67/valid_results/arjun_spr-intel-cpu-pytorch-vdefault-default_config/gptj-99/offline/performance/run_1.log
+INFO:SUT:Starting processes
+No CUDA runtime is found, using CUDA_HOME='/usr/local/cuda'
+INFO:SUT:Loading model
+Use TPP: False
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:05<00:11,  5.81s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:10<00:05,  5.22s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:12<00:00,  3.84s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:12<00:00,  4.27s/it]
+INFO:datasets:PyTorch version 2.1.0a0+git927dc66 available.
+INFO:SUT:Loading Dataset
+INFO:SUT:Creating worker 0
+INFO:SUT:Starting warmup
+INFO:SUT:Process None Warmup Completed
+INFO:GPT-J:Starting Offline-Performance Test
+================================================
+MLPerf Results Summary
+================================================
+SUT name : PySUT
+Scenario : Offline
+Mode     : PerformanceOnly
+Samples per second: 0.326534
+Result is : VALID
+  Min duration satisfied : Yes
+  Min queries satisfied : Yes
+  Early stopping satisfied: Yes
+
+================================================
+Additional Stats
+================================================
+Min latency (ns)                : 11024091903
+Max latency (ns)                : 40939108142432
+Mean latency (ns)               : 17632732993560
+50.00 percentile latency (ns)   : 16456198791036
+90.00 percentile latency (ns)   : 34863565919129
+95.00 percentile latency (ns)   : 37785020514800
+97.00 percentile latency (ns)   : 39021119414693
+99.00 percentile latency (ns)   : 40329548109186
+99.90 percentile latency (ns)   : 40900061140313
+
+================================================
+Test Parameters Used
+================================================
+samples_per_query : 13368
+target_qps : 0.143105
+target_latency (ns): 0
+max_async_queries : 1
+min_duration (ms): 600000
+max_duration (ms): 0
+min_query_count : 1
+max_query_count : 0
+qsl_rng_seed : 13281865557512327830
+sample_index_rng_seed : 198141574272810017
+schedule_rng_seed : 7575108116881280410
+accuracy_log_rng_seed : 0
+accuracy_log_probability : 0
+accuracy_log_sampling_target : 0
+print_timestamps : 0
+performance_issue_unique : 0
+performance_issue_same : 0
+performance_issue_same_index : 0
+performance_sample_count : 13368
+
+No warnings encountered during test.
+
+No errors encountered during test.
+INFO:GPT-J:Test completed
+INFO:SUT:Exiting worker thread : 0
+INFO:SUT:663741 : Exiting consumer process
+INFO:SUT:Exiting response thread

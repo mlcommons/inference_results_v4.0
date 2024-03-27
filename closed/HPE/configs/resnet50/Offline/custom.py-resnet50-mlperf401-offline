@@ -1,0 +1,95 @@
+# Generated file by scripts/custom_systems/add_custom_system.py
+# Contains configs for all custom systems in code/common/systems/custom_list.py
+
+from . import *
+
+#@ConfigRegistry.register(HarnessType.LWIS, AccuracyTarget.k_99, PowerSetting.MaxP)
+#class HPE_ProLiant_DL380a_Gen11_H100_PCIe_80GBx4(OfflineGPUBaseConfig):
+#    system = KnownSystem.HPE_ProLiant_DL380a_Gen11_H100_PCIe_80GBx4
+#    gpu_batch_size = 2048
+#    offline_expected_qps = 57000*4
+#    #start_from_device = True
+
+#@ConfigRegistry.register(HarnessType.LWIS, AccuracyTarget.k_99, PowerSetting.MaxP)
+#class HPE_ProLiant_DL380a_Gen11_H100_PCIe_80GBx2(OfflineGPUBaseConfig):
+#    system = KnownSystem.HPE_ProLiant_DL380a_Gen11_H100_PCIe_80GBx2
+#    gpu_batch_size = 2048
+#    offline_expected_qps = 57000*2
+#    #start_from_device = True
+
+
+#@ConfigRegistry.register(HarnessType.LWIS, AccuracyTarget.k_99, PowerSetting.MaxP)
+#class HPE_ProLiant_DL380a_Gen11_H100_PCIe_80GBx1(OfflineGPUBaseConfig):
+#    system = KnownSystem.HPE_ProLiant_DL380a_Gen11_H100_PCIe_80GBx1
+#    gpu_batch_size = 2048
+#    offline_expected_qps = 57000*1
+#    #start_from_device = True
+##### D #####
+
+#@ConfigRegistry.register(HarnessType.LWIS, AccuracyTarget.k_99, PowerSetting.MaxP)
+#class R760XA_L40X4(OfflineGPUBaseConfig):
+#    system = KnownSystem.R760xa_L40x4
+#    gpu_batch_size = 87
+#    offline_expected_qps = 130000
+#    gpu_copy_streams = 12
+#    gpu_inference_streams = 4
+
+#@ConfigRegistry.register(HarnessType.Triton, AccuracyTarget.k_99, PowerSetting.MaxP)
+#class R760XA_L40X4_Triton(R760XA_L40X4):
+#    use_triton = True
+
+#######
+
+#@ConfigRegistry.register(HarnessType.LWIS, AccuracyTarget.k_99, PowerSetting.MaxP)
+#class HPE_ProLiant_DL380a_L40S_PCIe_48GBx4(OfflineGPUBaseConfig):
+#    system = KnownSystem.HPE_ProLiant_DL380a_L40S_PCIe_48GBx4
+#    gpu_batch_size = 64*1
+#    gpu_inference_streams = 1*4
+#    gpu_copy_streams = 3*4
+#    offline_expected_qps = 40000*4
+    #offline_expected_qps = 36400*4
+    #offline_expected_qps = 32500*4
+    #gpu_batch_size = 64*1
+
+@ConfigRegistry.register(HarnessType.LWIS, AccuracyTarget.k_99, PowerSetting.MaxP)
+class HPE_ProLiant_DL380a_L40S_PCIe_48GBx4(OfflineGPUBaseConfig):
+    system = KnownSystem.HPE_ProLiant_DL380a_L40S_PCIe_48GBx4
+    gpu_batch_size = 64*1
+    gpu_inference_streams = 1*4
+    gpu_copy_streams = 2*4
+    offline_expected_qps = 40500*4
+
+    #gpu_batch_size = 64*1
+    #gpu_inference_streams = 1*4
+    #gpu_copy_streams = 2*4
+    #offline_expected_qps = 40000*4
+
+#@ConfigRegistry.register(HarnessType.Triton, AccuracyTarget.k_99, PowerSetting.MaxP)
+#class HPE_ProLiant_DL380a_L40S_PCIe_48GBx4_Triton(HPE_ProLiant_DL380a_L40S_PCIe_48GBx4):
+#    use_triton = True
+
+#@ConfigRegistry.register(HarnessType.LWIS, AccuracyTarget.k_99, PowerSetting.MaxP)
+#class HPE_ProLiant_DL380a_L40S_PCIe_48GBx2(OfflineGPUBaseConfig):
+#    system = KnownSystem.HPE_ProLiant_DL380a_L40S_PCIe_48GBx2
+#    gpu_batch_size = 64
+#    gpu_inference_streams = 1
+#    gpu_copy_streams = 2
+#    offline_expected_qps = 40000
+
+#@ConfigRegistry.register(HarnessType.LWIS, AccuracyTarget.k_99, PowerSetting.MaxP)
+#class HPE_ProLiant_DL380a_L40S_PCIe_48GBx1(OfflineGPUBaseConfig):
+#    system = KnownSystem.HPE_ProLiant_DL380a_L40S_PCIe_48GBx1
+#    gpu_batch_size = 64
+#    gpu_inference_streams = 1
+#    gpu_copy_streams = 2
+#    offline_expected_qps = 40000
+
+#@ConfigRegistry.register(HarnessType.LWIS, AccuracyTarget.k_99, PowerSetting.MaxP)
+#class HPE_ProLiant_DL380a_L40S_PCIe_48GBx4(OfflineGPUBaseConfig):
+#    system = KnownSystem.L40Sx1
+#    gpu_batch_size = 64
+#    gpu_inference_streams = 1
+#    gpu_copy_streams = 2
+#    offline_expected_qps = 40000
+
+

@@ -1,0 +1,76 @@
+DeepSparse, Copyright 2021-present / Neuralmagic, Inc. version: 1.5.2 COMMUNITY | (93c38382) (release) (optimized) (system=avx512_vnni, binary=avx512)
+2024-02-21 02:47:59 deepsparse.utils.onnx INFO     Generating input 'input_ids', type = int64, shape = [1, 384]
+2024-02-21 02:47:59 deepsparse.utils.onnx INFO     Generating input 'attention_mask', type = int64, shape = [1, 384]
+2024-02-21 02:47:59 deepsparse.utils.onnx INFO     Generating input 'token_type_ids', type = int64, shape = [1, 384]
+================================================
+MLPerf Results Summary
+================================================
+SUT name : PySUT
+Scenario : SingleStream
+Mode     : PerformanceOnly
+90th percentile latency (ns) : 21095981
+Result is : VALID
+  Min duration satisfied : Yes
+  Min queries satisfied : Yes
+  Early stopping satisfied: Yes
+Early Stopping Result:
+ * Processed at least 64 queries (40573).
+ * Would discard 3915 highest latency queries.
+ * Early stopping 90th percentile estimate: 21099323
+ * Early stopping 99th percentile estimate: 21260307
+
+================================================
+Additional Stats
+================================================
+QPS w/ loadgen overhead         : 67.62
+QPS w/o loadgen overhead        : 67.67
+
+Min latency (ns)                : 11329405
+Max latency (ns)                : 21737096
+Mean latency (ns)               : 14777860
+50.00 percentile latency (ns)   : 11945013
+90.00 percentile latency (ns)   : 21095981
+95.00 percentile latency (ns)   : 21157250
+97.00 percentile latency (ns)   : 21192164
+99.00 percentile latency (ns)   : 21253997
+99.90 percentile latency (ns)   : 21343724
+
+================================================
+Test Parameters Used
+================================================
+samples_per_query : 1
+target_qps : 189.866
+target_latency (ns): 0
+max_async_queries : 1
+min_duration (ms): 600000
+max_duration (ms): 660000
+min_query_count : 100
+max_query_count : 0
+qsl_rng_seed : 13281865557512327830
+sample_index_rng_seed : 198141574272810017
+schedule_rng_seed : 7575108116881280410
+accuracy_log_rng_seed : 0
+accuracy_log_probability : 0
+accuracy_log_sampling_target : 0
+print_timestamps : 0
+performance_issue_unique : 0
+performance_issue_same : 0
+performance_issue_same_index : 0
+performance_sample_count : 10833
+
+No warnings encountered during test.
+
+No errors encountered during test.
+Loading ONNX model... /home/arjun/.cache/sparsezoo/c200b60a-ced0-45c8-b281-57611eab293f/model.onnx
+Constructing SUT...
+Finished constructing SUT.
+Constructing QSL...
+Loading cached features from 'eval_features.pickle'...
+Finished constructing QSL.
+Warming up engine...
+Running LoadGen test...
+Done!
+Destroying SUT...
+Destroying QSL...
+Finished destroying SUT.
+Finished destroying QSL.

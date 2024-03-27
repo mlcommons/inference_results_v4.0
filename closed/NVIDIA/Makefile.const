@@ -1,0 +1,164 @@
+# Copyright (c) 2024, NVIDIA CORPORATION.  All rights reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#	 http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# Stores constants and variables used by our Makefile
+
+# Change to name of submitter. Used as the closed/[submitter] and open/[submitter] directory names.
+SUBMITTER ?= NVIDIA
+
+# Project constants
+PROJECT_ROOT := $(shell pwd)
+BUILD_DIR    := $(PROJECT_ROOT)/build
+VERSION := $(shell cat $(PROJECT_ROOT)/VERSION)
+VERSION_LEGACY := v4.0
+
+# System variables / values
+SHELL := /bin/bash
+ARCH := $(shell uname -p)
+UNAME := $(shell whoami)
+UID := $(shell id -u `whoami`)
+HOSTNAME := $(shell hostname)
+GROUPNAME := $(shell id -gn `whoami`)
+GROUPID := $(shell id -g `whoami`)
+TIMESTAMP := $(shell date +'%Y.%m.%d-%H.%M.%S')
+ifndef HOST_HOSTNAME
+    HOST_HOSTNAME := $(HOSTNAME)
+endif
+HOST_HOSTNAME_SHORT := $(firstword $(subst ., , $(HOST_HOSTNAME)))
+HOSTNAME_SHORT := $(firstword $(subst ., , $(HOSTNAME)))
+PYTHON3_CMD := $(shell if ! which python3 &> /dev/null; then echo python3; else echo -n `python3 -c 'import sys; print("python"+".".join(map(str, sys.version_info[:2] if sys.version_info[1] in [8, 10] else sys.version_info[:1])))'`; fi)
+SYSTEM_NAME ?= $(shell $(PYTHON3_CMD) -m scripts.get_system_id 2> /dev/null)
+# Intranet returns zero, public network returns non zero
+# Force the EXTERNAL_USER to be 1 if the error code is other than 1
+EXTERNAL_USER ?= $(shell bash $(PROJECT_ROOT)/scripts/check_intranet.sh)
+ifeq ($(EXTERNAL_USER),0)
+    EXTERNAL_USER := 0
+else
+    EXTERNAL_USER := 1
+endif
+
+# Architecture / SW stack variables
+TARGET_X86_64 := 0
+TARGET_AARCH64 := 0
+IS_SOC := 0
+SOC_SM := 0
+ifeq ($(ARCH), x86_64)
+    TARGET_X86_64 = 1
+endif
+ifeq ($(ARCH), aarch64)
+    TARGET_AARCH64 = 1
+    # Find occurrence of Xavier in the system name
+    ifneq (,$(findstring Xavier,$(SYSTEM_NAME)))
+        IS_SOC = 1
+        SOC_SM = 72
+    endif
+    ifneq (,$(findstring Orin,$(SYSTEM_NAME)))
+        IS_SOC = 1
+        SOC_SM = 87
+    endif
+endif
+IS_HOPPER := 0
+SM := 0
+ifeq ($(IS_SOC), 0)
+    SM = $(shell nvidia-smi --query-gpu=compute_cap --format=csv,noheader | head -n 1 | tr -d '.')
+    NVSI_ARCH ?= $(shell nvidia-smi -q | grep -m 1 Architecture | cut -d: -f2 | sed 's/^ *//g')
+endif
+ifeq ($(NVSI_ARCH), Hopper)
+    IS_HOPPER = 1
+endif
+
+# Dependency software VERSION checking
+TRT_VER ?= $(shell python -c "import tensorrt; print(tensorrt.__version__)")
+CUDNN_VER ?= $(shell dpkg -l | grep libcudnn8-dev | awk '{print $$3}' | cut -d'-' -f 1)
+NVCC_CUDA_VER ?= $(shell nvcc --version | grep "release" | awk '{print $$6}' | cut -d V -f 2)
+UBUNTU_VERSION := 20.04
+# Python ver sometimes used in package like python wheel
+PYTHON_VER=cp38
+ifeq ($(TARGET_AARCH64)$(IS_SOC), 10)
+    PYTHON_VER=cp310
+    UBUNTU_VERSION := 22.04
+endif
+
+# Power constants
+# Wehther to run PTD on windows or Linux
+USE_WIN_PTD ?= 0
+
+# GIT binary
+GIT_BIN := /home/utils/git-2.18.0/bin/git
+ifeq ($(wildcard $(GIT_BIN)),)
+    GIT_BIN = $(shell which git)
+endif
+ifeq ($(ARCH), aarch64)
+    GIT_BIN = $(shell which git)
+endif
+
+
+# DATA_DIR is the actual location of data in the user-specified MLPERF_SCRATCH_PATH location.
+# On the other hand, DATA_DIR_LINK is the location which our scripts assume the data to be located in. In the
+# "link_dirs" target, we create a symbolic from DATA_DIR_LINK to DATA_DIR. The same applies to PREPROCESSED_DATA_DIR and
+# MODEL_DIR as well.
+DATA_DIR_LINK := $(BUILD_DIR)/data
+PREPROCESSED_DATA_DIR_LINK := $(BUILD_DIR)/preprocessed_data
+MODEL_DIR_LINK := $(BUILD_DIR)/models
+DATA_DIR ?= $(MLPERF_SCRATCH_PATH)/data
+PREPROCESSED_DATA_DIR ?= $(MLPERF_SCRATCH_PATH)/preprocessed_data
+MODEL_DIR ?= $(MLPERF_SCRATCH_PATH)/models
+export DATA_DIR
+export PREPROCESSED_DATA_DIR
+export MODEL_DIR
+# Please run `export MLPERF_SCRATCH_PATH=<path>` to set your scratch space path.
+ifneq ($(wildcard /home/mlperf_inference_data),)
+    MLPERF_SCRATCH_PATH ?= /home/mlperf_inference_data
+endif
+
+# Specify default dir for harness output logs.
+export LOG_DIR ?= $(BUILD_DIR)/logs/$(TIMESTAMP)
+export POWER_LOGS_DIR ?= $(BUILD_DIR)/power_logs/$(TIMESTAMP)
+
+# NVIDIA GPU settings
+# Default NVIDIA_VISIBLE_DEVICES should use 'all'.
+NVIDIA_VISIBLE_DEVICES ?= all
+
+# Driver and cuda version check for x86 and aarch64 non-soc system
+SKIP_DRIVER_CHECK ?= 0
+MIN_DRIVER_VER := 515
+# SoC System
+ifeq ($(IS_SOC), 1)
+    CUDA_VER := 11.4
+    CUDA_VER_LEGACY := 11.4
+    DRIVER_VER_MAJOR := SOC
+    DRIVER_VER := SOC
+# Datacenter/Desktop systems
+else
+    ifeq ($(SKIP_DRIVER_CHECK), 0)
+        DRIVER_VER_MAJOR ?= $(shell nvidia-smi | /bin/grep -Eo 'Driver Version: [+-]?[0-9]+' | awk -F ' ' '{print $$NF}')
+        DRIVER_VER := $(shell cat /proc/driver/nvidia/version | grep "NVRM version" | awk '{print $$8}')
+        # Check driver version and launch the appropriate container.
+        ifeq ($(shell if [ $(DRIVER_VER_MAJOR) -ge $(MIN_DRIVER_VER) ]; then echo true; else echo false; fi), true)
+            CUDA_VER := 12.2
+            CUDA_VER_LEGACY := 12.2
+            DRIVER_VER_MAJOR := $(MIN_DRIVER_VER)
+        else
+            $(error MLPerf Inference v3.1 code requires NVIDIA Driver Version >= $(MIN_DRIVER_VER).xx)
+        endif # Driver check
+    else
+        CUDA_VER := 12.2
+        CUDA_VER_LEGACY := 12.2
+        DRIVER_VER_MAJOR := 525
+    endif
+endif
+
+# Mitten
+MITTEN_VER := 0.1.3b0
+MITTEN_VER_LEGACY := 0.1.3b0

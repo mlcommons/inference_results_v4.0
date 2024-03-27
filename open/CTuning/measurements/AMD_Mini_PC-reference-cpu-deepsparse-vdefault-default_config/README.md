@@ -1,0 +1,30 @@
+| Model                                               | Scenario     |   Accuracy |    QPS | Latency (in ms)   | Power Efficiency (in samples/J)   |
+|-----------------------------------------------------|--------------|------------|--------|-------------------|-----------------------------------|
+| mobilebert-base_quant-none-bert-99                  | offline      |    90.8127 | 41.073 | -                 |                                   |
+| mobilebert-base_quant-none-bert-99                  | singlestream |    90.8127 | 26.531 | 37.692            |                                   |
+| mobilebert-14layer_pruned50-none-vnni-bert-99       | offline      |    90.4308 | 55.876 | -                 |                                   |
+| mobilebert-14layer_pruned50-none-vnni-bert-99       | singlestream |    90.4308 | 38.177 | 26.194            |                                   |
+| obert-large-base-none-bert-99                       | offline      |    89.6519 |  2.517 | -                 |                                   |
+| obert-large-base-none-bert-99                       | singlestream |    89.6519 |  1.658 | 603.076           |                                   |
+| obert-large-pruned95_quant-none-vnni-bert-99        | offline      |    90.011  | 20.944 | -                 |                                   |
+| obert-large-pruned95_quant-none-vnni-bert-99        | singlestream |    90.011  | 12.434 | 80.423            |                                   |
+| obert-base-pruned90-none-bert-99                    | offline      |    88.3108 | 24.567 | -                 |                                   |
+| obert-base-pruned90-none-bert-99                    | singlestream |    88.3108 | 15.075 | 66.333            |                                   |
+| bert-base-pruned95_obs_quant-none-bert-99           | offline      |    87.8857 | 57.276 | -                 |                                   |
+| bert-base-pruned95_obs_quant-none-bert-99           | singlestream |    87.8857 | 33.909 | 29.491            |                                   |
+| bert-large-pruned80_quant-none-vnni-bert-99         | offline      |    90.2917 | 11.246 | -                 |                                   |
+| bert-large-pruned80_quant-none-vnni-bert-99         | singlestream |    90.2917 |  7.072 | 141.41            |                                   |
+| mobilebert-none-base-none-bert-99                   | offline      |    90.8907 | 29.982 | -                 |                                   |
+| mobilebert-none-base-none-bert-99                   | singlestream |    90.8907 | 19.773 | 50.574            |                                   |
+| obert-large-pruned95-none-vnni-bert-99              | offline      |    90.1783 | 11.506 | -                 |                                   |
+| obert-large-pruned95-none-vnni-bert-99              | singlestream |    90.1783 |  6.883 | 145.294           |                                   |
+| bert-large-base-none-bert-99                        | offline      |    89.6519 |  2.513 | -                 |                                   |
+| bert-large-base-none-bert-99                        | singlestream |    89.6519 |  1.659 | 602.896           |                                   |
+| obert-large-pruned97-none-bert-99                   | offline      |    90.1356 | 12.938 | -                 |                                   |
+| obert-large-pruned97-none-bert-99                   | singlestream |    90.1356 |  7.51  | 133.148           |                                   |
+| mobilebert-14layer_pruned50_quant-none-vnni-bert-99 | offline      |    90.3672 | 87.034 | -                 |                                   |
+| mobilebert-14layer_pruned50_quant-none-vnni-bert-99 | singlestream |    90.3672 | 58.551 | 17.079            |                                   |
+| bert-base-pruned90-none-bert-99                     | offline      |    88.4204 | 24.824 | -                 |                                   |
+| bert-base-pruned90-none-bert-99                     | singlestream |    88.4204 | 15.274 | 65.471            |                                   |
+| obert-large-pruned97-quant-none-bert-99             | offline      |    90.1428 | 17.616 | -                 |                                   |
+| obert-large-pruned97-quant-none-bert-99             | singlestream |    90.1428 |  9.321 | 107.285           |                                   |

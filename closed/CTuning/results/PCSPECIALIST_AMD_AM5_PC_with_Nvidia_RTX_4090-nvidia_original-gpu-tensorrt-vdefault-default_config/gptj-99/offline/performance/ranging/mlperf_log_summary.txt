@@ -1,0 +1,53 @@
+================================================
+MLPerf Results Summary
+================================================
+SUT name : GPT SERVER MAIN
+Scenario : Offline
+Mode     : PerformanceOnly
+Samples per second: 4.52548
+Result is : INVALID
+  Min duration satisfied : NO
+  Min queries satisfied : Yes
+  Early stopping satisfied: Yes
+Recommendations:
+ * Increase expected QPS so the loadgen pre-generates a larger (coalesced) query.
+
+================================================
+Additional Stats
+================================================
+Min latency (ns)                : 2293996528
+Max latency (ns)                : 72920409817
+Mean latency (ns)               : 39888675063
+50.00 percentile latency (ns)   : 38250063269
+90.00 percentile latency (ns)   : 68607830847
+95.00 percentile latency (ns)   : 70847797712
+97.00 percentile latency (ns)   : 71760082136
+99.00 percentile latency (ns)   : 72579012480
+99.90 percentile latency (ns)   : 72920409817
+
+================================================
+Test Parameters Used
+================================================
+samples_per_query : 330
+target_qps : 1
+target_latency (ns): 0
+max_async_queries : 1
+min_duration (ms): 300000
+max_duration (ms): 0
+min_query_count : 1
+max_query_count : 300
+qsl_rng_seed : 13281865557512327830
+sample_index_rng_seed : 198141574272810017
+schedule_rng_seed : 7575108116881280410
+accuracy_log_rng_seed : 0
+accuracy_log_probability : 0
+accuracy_log_sampling_target : 0
+print_timestamps : 0
+performance_issue_unique : 0
+performance_issue_same : 0
+performance_issue_same_index : 0
+performance_sample_count : 13368
+
+No warnings encountered during test.
+
+No errors encountered during test.

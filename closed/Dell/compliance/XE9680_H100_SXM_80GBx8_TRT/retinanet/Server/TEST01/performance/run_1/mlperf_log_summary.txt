@@ -1,0 +1,56 @@
+================================================
+MLPerf Results Summary
+================================================
+SUT name : LWIS_Server
+Scenario : Server
+Mode     : PerformanceOnly
+Scheduled samples per second : 12526.04
+Result is : VALID
+  Performance constraints satisfied : Yes
+  Min duration satisfied : Yes
+  Min queries satisfied : Yes
+  Early stopping satisfied: Yes
+Early Stopping Result:
+ * Run successful.
+
+================================================
+Additional Stats
+================================================
+Completed samples per second    : 12525.23
+
+Min latency (ns)                : 8459471
+Max latency (ns)                : 39243009
+Mean latency (ns)               : 11232957
+50.00 percentile latency (ns)   : 10980481
+90.00 percentile latency (ns)   : 13494716
+95.00 percentile latency (ns)   : 14088365
+97.00 percentile latency (ns)   : 14493488
+99.00 percentile latency (ns)   : 15342908
+99.90 percentile latency (ns)   : 17127266
+
+================================================
+Test Parameters Used
+================================================
+samples_per_query : 1
+target_qps : 12530.4
+target_latency (ns): 100000000
+max_async_queries : 0
+min_duration (ms): 600000
+max_duration (ms): 0
+min_query_count : 100
+max_query_count : 0
+qsl_rng_seed : 13281865557512327830
+sample_index_rng_seed : 198141574272810017
+schedule_rng_seed : 7575108116881280410
+accuracy_log_rng_seed : 720381539243781796
+accuracy_log_probability : 0
+accuracy_log_sampling_target : 256
+print_timestamps : 0
+performance_issue_unique : 0
+performance_issue_same : 0
+performance_issue_same_index : 0
+performance_sample_count : 64
+
+1 warning encountered. See detailed log.
+
+No errors encountered during test.

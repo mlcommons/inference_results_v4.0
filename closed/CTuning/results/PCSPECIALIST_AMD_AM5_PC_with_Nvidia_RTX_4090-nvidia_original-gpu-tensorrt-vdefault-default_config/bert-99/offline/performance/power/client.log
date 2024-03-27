@@ -1,0 +1,55 @@
+client 2024-02-19 12:10:30,034 [INFO] Creating output directory '/home/cmuser/local/cache/f4ba7328d7f447f9/valid_results/2706260181c0-nvidia_original-gpu-tensorrt-vdefault-default_config/bert-99/offline/performance/tmp_power'
+client 2024-02-19 12:10:30,042 [INFO] Sending command to the server: 'mlcommons/power client v3'
+client 2024-02-19 12:10:30,052 [INFO] Got response: 'mlcommons/power server v3'
+client 2024-02-19 12:10:30,052 [INFO] Synchronizing with the server and with time.google.com...
+client 2024-02-19 12:10:30,089 [INFO] NTP:offset = -0.000 s, delay = 0.019 s 
+client 2024-02-19 12:10:30,089 [INFO] Sending command to the server: 'time'
+client 2024-02-19 12:10:30,101 [INFO] Got response: '1708373429.791254'
+client 2024-02-19 12:10:30,101 [INFO] The time difference between the client and the server is within range 298.640 ms..310.017 ms
+client 2024-02-19 12:10:30,101 [INFO] Sending command to the server: 'new,,3aa3b5df-55cf-4c6f-b96d-fa53c23c4773'
+client 2024-02-19 12:10:30,113 [INFO] Got response: 'OK 2024-02-19_20-10-29,569b6c53-3930-4b2f-9054-dd54ca552a25'
+client 2024-02-19 12:10:30,113 [INFO] Session id is '2024-02-19_20-10-29'
+client 2024-02-19 12:10:30,113 [INFO] Sources: {"sources": {"__init__.py": "da39a3ee5e6b4b0d3255bfef95601890afd80709", "client.py": "33ca4f26368777ac06e01f9567b714a4b8063886", "lib/__init__.py": "da39a3ee5e6b4b0d3255bfef95601890afd80709", "lib/client.py": "ac2aa093c8e8bbc9569b9e2a3471bc64e58a2258", "lib/common.py": "611d8b29633d331eb19c9455ea3b5fa3284ed6df", "lib/external/__init__.py": "da39a3ee5e6b4b0d3255bfef95601890afd80709", "lib/external/ntplib.py": "4da8f970656505a40483206ef2b5d3dd5e81711d", "lib/server.py": "99303c836c683aa9017ec565104e636161d02acb", "lib/source_hashes.py": "60a2e02193209e8d392803326208d5466342da18", "lib/summary.py": "aa92f0a3f975eecd44d3c0cd0236342ccc9f941d", "lib/time_sync.py": "80894ef2389e540781ff78de94db16aa4203a14e", "server.py": "c3f90f2f7eeb4db30727556d0c815ebc89b3d28b", "tests/unit/__init__.py": "da39a3ee5e6b4b0d3255bfef95601890afd80709", "tests/unit/test_server.py": "948c1995d4008bc2aa6c4046a34ffa3858d6d671", "tests/unit/test_source_hashes.py": "00468a2907583c593e6574a1f6b404e4651c221a"}, "modules": {"ptd_client_server.lib.client": "lib/client.py", "ptd_client_server.lib.common": "lib/common.py", "ptd_client_server.lib.external.ntplib": "lib/external/ntplib.py", "ptd_client_server.lib.source_hashes": "lib/source_hashes.py", "ptd_client_server.lib.summary": "lib/summary.py", "ptd_client_server.lib.time_sync": "lib/time_sync.py"}}
+client 2024-02-19 12:10:30,114 [INFO] Running workload in ranging mode
+client 2024-02-19 12:10:30,114 [INFO] Synchronizing with the server and with time.google.com...
+client 2024-02-19 12:10:30,232 [INFO] NTP:offset = 0.003 s, delay = 0.113 s 
+client 2024-02-19 12:10:30,232 [INFO] Sending command to the server: 'time'
+client 2024-02-19 12:10:30,242 [INFO] Got response: '1708373429.9412403'
+client 2024-02-19 12:10:30,243 [INFO] The time difference between the client and the server is within range 291.491 ms..301.816 ms
+client 2024-02-19 12:10:30,243 [INFO] Sending command to the server: 'session,2024-02-19_20-10-29,start,ranging'
+client 2024-02-19 12:10:54,145 [INFO] Got response: 'OK'
+client 2024-02-19 12:10:54,145 [INFO] Sending command to the server: 'time'
+client 2024-02-19 12:10:54,155 [INFO] Got response: '1708373453.8516238'
+client 2024-02-19 12:10:54,155 [INFO] The time difference between the client and the server is within range 294.308 ms..303.527 ms
+client 2024-02-19 12:10:54,155 [INFO] Running the workload 'CM_MLPERF_RUN_COUNT=$(cat ${CM_RUN_DIR}/count.txt); echo ${CM_MLPERF_RUN_COUNT}; CM_MLPERF_RUN_COUNT=$((CM_MLPERF_RUN_COUNT+1)); echo ${CM_MLPERF_RUN_COUNT} > ${CM_RUN_DIR}/count.txt && if [ ${CM_MLPERF_RUN_COUNT} -eq "1" ]; then export CM_MLPERF_USER_CONF=${CM_MLPERF_RANGING_USER_CONF}; else export CM_MLPERF_USER_CONF=${CM_MLPERF_TESTING_USER_CONF}; fi && make run_harness RUN_ARGS=" --benchmarks=bert --scenarios=offline --test_mode=PerformanceOnly --user_conf_path=${CM_MLPERF_USER_CONF} --mlperf_conf_path=/home/cmuser/CM/repos/local/cache/94cf04c8097b4057/inference/mlperf.conf --gpu_batch_size=256 --no_audit_verify " 2>&1 | tee /home/cmuser/local/cache/f4ba7328d7f447f9/valid_results/2706260181c0-nvidia_original-gpu-tensorrt-vdefault-default_config/bert-99/offline/performance/run_1/console.out'
+client 2024-02-19 12:16:31,290 [INFO] Sending command to the server: 'time'
+client 2024-02-19 12:16:31,301 [INFO] Got response: '1708373790.9953911'
+client 2024-02-19 12:16:31,301 [INFO] The time difference between the client and the server is within range 294.977 ms..306.566 ms
+client 2024-02-19 12:16:31,301 [INFO] Sending command to the server: 'session,2024-02-19_20-10-29,stop,ranging'
+client 2024-02-19 12:16:42,237 [INFO] Got response: 'OK'
+client 2024-02-19 12:16:42,237 [INFO] Sending command to the server: 'time'
+client 2024-02-19 12:16:42,248 [INFO] Got response: '1708373801.935274'
+client 2024-02-19 12:16:42,248 [INFO] The time difference between the client and the server is within range 302.689 ms..313.282 ms
+client 2024-02-19 12:16:42,250 [INFO] Copying loadgen logs from '/home/cmuser/local/cache/f4ba7328d7f447f9/valid_results/2706260181c0-nvidia_original-gpu-tensorrt-vdefault-default_config/bert-99/offline/performance/run_1' to '/home/cmuser/local/cache/f4ba7328d7f447f9/valid_results/2706260181c0-nvidia_original-gpu-tensorrt-vdefault-default_config/bert-99/offline/performance/tmp_power/ranging'
+client 2024-02-19 12:16:42,250 [INFO] Running workload in testing mode
+client 2024-02-19 12:16:42,250 [INFO] Synchronizing with the server and with time.google.com...
+client 2024-02-19 12:16:42,360 [INFO] NTP:offset = 0.004 s, delay = 0.096 s 
+client 2024-02-19 12:16:42,360 [INFO] Sending command to the server: 'time'
+client 2024-02-19 12:16:42,371 [INFO] Got response: '1708373802.0652006'
+client 2024-02-19 12:16:42,371 [INFO] The time difference between the client and the server is within range 295.069 ms..305.930 ms
+client 2024-02-19 12:16:42,371 [INFO] Sending command to the server: 'session,2024-02-19_20-10-29,start,testing'
+client 2024-02-19 12:16:55,443 [INFO] Got response: 'OK'
+client 2024-02-19 12:16:55,443 [INFO] Sending command to the server: 'time'
+client 2024-02-19 12:16:55,453 [INFO] Got response: '1708373815.1455295'
+client 2024-02-19 12:16:55,454 [INFO] The time difference between the client and the server is within range 298.178 ms..308.497 ms
+client 2024-02-19 12:16:55,454 [INFO] Running the workload 'CM_MLPERF_RUN_COUNT=$(cat ${CM_RUN_DIR}/count.txt); echo ${CM_MLPERF_RUN_COUNT}; CM_MLPERF_RUN_COUNT=$((CM_MLPERF_RUN_COUNT+1)); echo ${CM_MLPERF_RUN_COUNT} > ${CM_RUN_DIR}/count.txt && if [ ${CM_MLPERF_RUN_COUNT} -eq "1" ]; then export CM_MLPERF_USER_CONF=${CM_MLPERF_RANGING_USER_CONF}; else export CM_MLPERF_USER_CONF=${CM_MLPERF_TESTING_USER_CONF}; fi && make run_harness RUN_ARGS=" --benchmarks=bert --scenarios=offline --test_mode=PerformanceOnly --user_conf_path=${CM_MLPERF_USER_CONF} --mlperf_conf_path=/home/cmuser/CM/repos/local/cache/94cf04c8097b4057/inference/mlperf.conf --gpu_batch_size=256 --no_audit_verify " 2>&1 | tee /home/cmuser/local/cache/f4ba7328d7f447f9/valid_results/2706260181c0-nvidia_original-gpu-tensorrt-vdefault-default_config/bert-99/offline/performance/run_1/console.out'
+client 2024-02-19 12:28:09,473 [INFO] Sending command to the server: 'time'
+client 2024-02-19 12:28:09,483 [INFO] Got response: '1708374489.162981'
+client 2024-02-19 12:28:09,484 [INFO] The time difference between the client and the server is within range 310.563 ms..321.023 ms
+client 2024-02-19 12:28:09,484 [INFO] Sending command to the server: 'session,2024-02-19_20-10-29,stop,testing'
+client 2024-02-19 12:28:20,490 [INFO] Got response: 'OK'
+client 2024-02-19 12:28:20,490 [INFO] Sending command to the server: 'time'
+client 2024-02-19 12:28:20,500 [INFO] Got response: '1708374500.1812816'
+client 2024-02-19 12:28:20,500 [INFO] The time difference between the client and the server is within range 308.966 ms..319.545 ms
+client 2024-02-19 12:28:20,501 [INFO] Copying loadgen logs from '/home/cmuser/local/cache/f4ba7328d7f447f9/valid_results/2706260181c0-nvidia_original-gpu-tensorrt-vdefault-default_config/bert-99/offline/performance/run_1' to '/home/cmuser/local/cache/f4ba7328d7f447f9/valid_results/2706260181c0-nvidia_original-gpu-tensorrt-vdefault-default_config/bert-99/offline/performance/tmp_power/run_1'
+client 2024-02-19 12:28:20,501 [INFO] Done runs

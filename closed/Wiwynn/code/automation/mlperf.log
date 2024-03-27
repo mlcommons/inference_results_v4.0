@@ -1,0 +1,912 @@
+[2024-02-06 21:14:37,307][INFO] run.py:23   - Loading configurations from /inference4.04/closed/Intel/code/automation/config.yaml.
+[2024-02-06 21:14:37,325][INFO] run.py:135  - Parsing args:
+[2024-02-06 21:14:37,326][INFO] run.py:138  - args: Namespace(model='retinanet', implementation='pytorch-cpu', dtype='int8', dataset_dir='/inference4.04/closed/Intel/code/wiwynn/retinanet/data', model_dir='/inference4.04/closed/Intel/code/wiwynn/retinanet/data', output='/inference4.04/closed/Intel/code/wiwynn/retina-log', container_name_suffix='retina', performance_only=False, accuracy_only=False, offline_only=False, server_only=False, compliance_only=False, skip_docker_build=False, skip_create_container=True, skip_data_preprocess=True)
+[2024-02-06 21:14:37,327][INFO] run.py:271  - Collecting environment information on baremetal.
+[2024-02-06 21:14:37,371][INFO] run.py:292  - User skipped docker build and container creation.
+[2024-02-06 21:15:09,250][INFO] run.py:298  - ===== Running workloads in container: cc643f98cf5e =====
+[2024-02-06 13:17:17,844][INFO] common.py:17    - Executing bash commands: export CONTAINER_MODEL_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_DATA_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_CODE_DIR=/opt/workdir/code/retinanet/pytorch-cpu && export CONTAINER_OUTPUT_DIR=/output && export MODEL=retinanet && export IMPL=pytorch-cpu && export DTYPE=int8 && export WORKLOAD_DATA=${CONTAINER_CODE_DIR}/data && export ENV_DEPS_DIR=${CONTAINER_CODE_DIR}/retinanet-env && export CALIBRATION_DATA_DIR=${WORKLOAD_DATA}/openimages-calibration/train/data && export MODEL_CHECKPOINT=${WORKLOAD_DATA}/retinanet-model.pth && export CALIBRATION_ANNOTATIONS=${WORKLOAD_DATA}/openimages-calibration/annotations/openimages-mlperf-calibration.json && export DATA_DIR=${WORKLOAD_DATA}/openimages && export MODEL_PATH=${WORKLOAD_DATA}/retinanet-int8-model.pth  && cd /opt/workdir/code/retinanet/pytorch-cpu &&  pwd &&   bash run_offline_accuracy.sh  
+[2024-02-06 21:17:17,845][INFO] run.py:327  - Loading configurations from config.yaml.
+
+[2024-02-06 21:17:17,845][INFO] run.py:327  - Parsing args:
+
+[2024-02-06 21:17:17,845][INFO] run.py:327  - args in container: Namespace(model='retinanet', implementation='pytorch-cpu', dtype='int8', prepare=False, performance=True, accuracy=True, compliance=True, offline=True, server=True, sensors=True)
+
+[2024-02-06 21:17:17,845][INFO] run.py:327  - Collecting environment information in container.
+
+[2024-02-06 21:17:17,845][INFO] run.py:327  - Exporting environment variables.
+
+[2024-02-06 21:17:17,845][INFO] run.py:327  - User skipped preprocessing.
+
+[2024-02-06 21:17:17,845][INFO] run.py:327  - ===== Performing retinanet/pytorch-cpu/int8/Offline/accuracy =====
+
+[2024-02-06 21:17:17,845][INFO] run.py:327  - Sleep 120 seconds.
+
+[2024-02-06 21:17:17,845][INFO] run.py:327  - Clearing cache and setting environment parameters...
+
+[2024-02-06 21:17:17,845][INFO] run.py:327  - [2024-02-06 13:17:17,844][INFO] common.py:17    - Executing bash commands: export CONTAINER_MODEL_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_DATA_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_CODE_DIR=/opt/workdir/code/retinanet/pytorch-cpu && export CONTAINER_OUTPUT_DIR=/output && export MODEL=retinanet && export IMPL=pytorch-cpu && export DTYPE=int8 && export WORKLOAD_DATA=${CONTAINER_CODE_DIR}/data && export ENV_DEPS_DIR=${CONTAINER_CODE_DIR}/retinanet-env && export CALIBRATION_DATA_DIR=${WORKLOAD_DATA}/openimages-calibration/train/data && export MODEL_CHECKPOINT=${WORKLOAD_DATA}/retinanet-model.pth && export CALIBRATION_ANNOTATIONS=${WORKLOAD_DATA}/openimages-calibration/annotations/openimages-mlperf-calibration.json && export DATA_DIR=${WORKLOAD_DATA}/openimages && export MODEL_PATH=${WORKLOAD_DATA}/retinanet-int8-model.pth  && cd /opt/workdir/code/retinanet/pytorch-cpu &&  pwd &&   bash run_offline_accuracy.sh  
+
+[2024-02-06 21:17:19,049][INFO] run.py:327  - [W TensorShape.cpp:2894] Warning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (function operator())
+
+[2024-02-06 21:17:30,121][INFO] run.py:327  - run_offline_accuracy.sh: line 61:  6773 Aborted                 (core dumped) ${APP} --scenario Offline --mode Accuracy --mlperf_conf mlperf.conf --user_conf ${USER_CONF} --model_name retinanet --model_path ${MODEL_PATH} --data_path ${DATA_DIR} --num_instance $number_instance --warmup_iters 10 --cpus_per_instance $CPUS_PER_INSTANCE --total_sample_count 24781 --batch_size $BATCH_SIZE
+
+[2024-02-06 13:19:37,501][INFO] common.py:17    - Executing bash commands: export CONTAINER_MODEL_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_DATA_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_CODE_DIR=/opt/workdir/code/retinanet/pytorch-cpu && export CONTAINER_OUTPUT_DIR=/output && export MODEL=retinanet && export IMPL=pytorch-cpu && export DTYPE=int8 && export WORKLOAD_DATA=${CONTAINER_CODE_DIR}/data && export ENV_DEPS_DIR=${CONTAINER_CODE_DIR}/retinanet-env && export CALIBRATION_DATA_DIR=${WORKLOAD_DATA}/openimages-calibration/train/data && export MODEL_CHECKPOINT=${WORKLOAD_DATA}/retinanet-model.pth && export CALIBRATION_ANNOTATIONS=${WORKLOAD_DATA}/openimages-calibration/annotations/openimages-mlperf-calibration.json && export DATA_DIR=${WORKLOAD_DATA}/openimages && export MODEL_PATH=${WORKLOAD_DATA}/retinanet-int8-model.pth  && cd /opt/workdir/code/retinanet/pytorch-cpu &&  pwd &&   bash run_offline.sh  
+[2024-02-06 21:19:37,502][INFO] run.py:327  - ********************************************************************************
+
+[2024-02-06 21:19:37,502][INFO] run.py:327  - retinanet/pytorch-cpu/int8/Offline/accuracy:
+
+[2024-02-06 21:19:37,502][INFO] run.py:327  -   Accuracy: loading annotations into memory...
+
+[2024-02-06 21:19:37,502][INFO] run.py:327  - Done (t=0.44s)
+
+[2024-02-06 21:19:37,502][INFO] run.py:327  - creating index...
+
+[2024-02-06 21:19:37,502][INFO] run.py:327  - index created!
+
+[2024-02-06 21:19:37,502][INFO] run.py:327  - Traceback (most recent call last):
+
+[2024-02-06 21:19:37,502][INFO] run.py:327  -   File "/opt/workdir/code/retinanet/pytorch-cpu/retinanet-env/mlperf_inference/vision/classification_and_detection/tools/accuracy-openimages.py", line 119, in <module>
+
+[2024-02-06 21:19:37,502][INFO] run.py:327  -     main()
+
+[2024-02-06 21:19:37,502][INFO] run.py:327  -   File "/opt/workdir/code/retinanet/pytorch-cpu/retinanet-env/mlperf_inference/vision/classification_and_detection/tools/accuracy-openimages.py", line 45, in main
+
+[2024-02-06 21:19:37,503][INFO] run.py:327  -     results = json.load(f)
+
+[2024-02-06 21:19:37,503][INFO] run.py:327  -   File "/opt/conda/lib/python3.9/json/__init__.py", line 293, in load
+
+[2024-02-06 21:19:37,503][INFO] run.py:327  -     return loads(fp.read(),
+
+[2024-02-06 21:19:37,503][INFO] run.py:327  -   File "/opt/conda/lib/python3.9/json/__init__.py", line 346, in loads
+
+[2024-02-06 21:19:37,503][INFO] run.py:327  -     return _default_decoder.decode(s)
+
+[2024-02-06 21:19:37,503][INFO] run.py:327  -   File "/opt/conda/lib/python3.9/json/decoder.py", line 337, in decode
+
+[2024-02-06 21:19:37,503][INFO] run.py:327  -     obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+
+[2024-02-06 21:19:37,503][INFO] run.py:327  -   File "/opt/conda/lib/python3.9/json/decoder.py", line 353, in raw_decode
+
+[2024-02-06 21:19:37,503][INFO] run.py:327  -     obj, end = self.scan_once(s, idx)
+
+[2024-02-06 21:19:37,503][INFO] run.py:327  - json.decoder.JSONDecodeError: Expecting ',' delimiter: line 65 column 1729 (char 377079)
+
+[2024-02-06 21:19:37,503][INFO] run.py:327  - 
+
+[2024-02-06 21:19:37,503][INFO] run.py:327  -   Result dir: /output/closed/Intel/results/1-node-2S-SPR-PyTorch-INT8/retinanet/Offline/accuracy
+
+[2024-02-06 21:19:37,503][INFO] run.py:327  - ********************************************************************************
+
+[2024-02-06 21:19:37,503][INFO] run.py:327  - Updating measurements of retinanet/pytorch-cpu/int8/Offline/accuracy.
+
+[2024-02-06 21:19:37,503][INFO] run.py:327  - Elapsed time: 139.65298771858215 sec.
+
+[2024-02-06 21:19:37,503][INFO] run.py:327  - ===== Performing retinanet/pytorch-cpu/int8/Offline/performance =====
+
+[2024-02-06 21:19:37,503][INFO] run.py:327  - Sleep 120 seconds.
+
+[2024-02-06 21:19:37,503][INFO] run.py:327  - Clearing cache and setting environment parameters...
+
+[2024-02-06 21:19:37,503][INFO] run.py:327  - [2024-02-06 13:19:37,501][INFO] common.py:17    - Executing bash commands: export CONTAINER_MODEL_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_DATA_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_CODE_DIR=/opt/workdir/code/retinanet/pytorch-cpu && export CONTAINER_OUTPUT_DIR=/output && export MODEL=retinanet && export IMPL=pytorch-cpu && export DTYPE=int8 && export WORKLOAD_DATA=${CONTAINER_CODE_DIR}/data && export ENV_DEPS_DIR=${CONTAINER_CODE_DIR}/retinanet-env && export CALIBRATION_DATA_DIR=${WORKLOAD_DATA}/openimages-calibration/train/data && export MODEL_CHECKPOINT=${WORKLOAD_DATA}/retinanet-model.pth && export CALIBRATION_ANNOTATIONS=${WORKLOAD_DATA}/openimages-calibration/annotations/openimages-mlperf-calibration.json && export DATA_DIR=${WORKLOAD_DATA}/openimages && export MODEL_PATH=${WORKLOAD_DATA}/retinanet-int8-model.pth  && cd /opt/workdir/code/retinanet/pytorch-cpu &&  pwd &&   bash run_offline.sh  
+
+[2024-02-06 21:19:38,705][INFO] run.py:327  - [W TensorShape.cpp:2894] Warning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (function operator())
+
+[2024-02-06 14:26:52,579][INFO] common.py:17    - Executing bash commands: export CONTAINER_MODEL_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_DATA_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_CODE_DIR=/opt/workdir/code/retinanet/pytorch-cpu && export CONTAINER_OUTPUT_DIR=/output && export MODEL=retinanet && export IMPL=pytorch-cpu && export DTYPE=int8 && export WORKLOAD_DATA=${CONTAINER_CODE_DIR}/data && export ENV_DEPS_DIR=${CONTAINER_CODE_DIR}/retinanet-env && export CALIBRATION_DATA_DIR=${WORKLOAD_DATA}/openimages-calibration/train/data && export MODEL_CHECKPOINT=${WORKLOAD_DATA}/retinanet-model.pth && export CALIBRATION_ANNOTATIONS=${WORKLOAD_DATA}/openimages-calibration/annotations/openimages-mlperf-calibration.json && export DATA_DIR=${WORKLOAD_DATA}/openimages && export MODEL_PATH=${WORKLOAD_DATA}/retinanet-int8-model.pth  && cd /opt/workdir/code/retinanet/pytorch-cpu &&  pwd &&   bash run_offline.sh  
+[2024-02-06 22:26:52,581][INFO] run.py:327  - ********************************************************************************
+
+[2024-02-06 22:26:52,581][INFO] run.py:327  - retinanet/pytorch-cpu/int8/Offline/performance:
+
+[2024-02-06 22:26:52,581][INFO] run.py:327  -   Target QPS: 256.0
+
+[2024-02-06 22:26:52,581][INFO] run.py:327  -   Perf QPS: 43.6302
+
+[2024-02-06 22:26:52,581][INFO] run.py:327  -   99.00 percentile latency: 3833940650624.0
+
+[2024-02-06 22:26:52,581][INFO] run.py:327  -   Result dir: /output/closed/Intel/results/1-node-2S-SPR-PyTorch-INT8/retinanet/Offline/performance/run_1
+
+[2024-02-06 22:26:52,581][INFO] run.py:327  - ********************************************************************************
+
+[2024-02-06 22:26:52,581][INFO] run.py:327  - Updating measurements of retinanet/pytorch-cpu/int8/Offline/performance.
+
+[2024-02-06 22:26:52,581][INFO] run.py:327  - Elapsed time: 4035.005837202072 sec.
+
+[2024-02-06 22:26:52,581][INFO] run.py:327  - ===== Performing retinanet/pytorch-cpu/int8/Offline/compliance =====
+
+[2024-02-06 22:26:52,582][INFO] run.py:327  - Running compliance test: retinanet/pytorch-cpu/int8/Offline/TEST01
+
+[2024-02-06 22:26:52,582][INFO] run.py:327  - Sleep 120 seconds.
+
+[2024-02-06 22:26:52,582][INFO] run.py:327  - Clearing cache and setting environment parameters...
+
+[2024-02-06 22:26:52,582][INFO] run.py:327  - [2024-02-06 14:26:52,579][INFO] common.py:17    - Executing bash commands: export CONTAINER_MODEL_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_DATA_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_CODE_DIR=/opt/workdir/code/retinanet/pytorch-cpu && export CONTAINER_OUTPUT_DIR=/output && export MODEL=retinanet && export IMPL=pytorch-cpu && export DTYPE=int8 && export WORKLOAD_DATA=${CONTAINER_CODE_DIR}/data && export ENV_DEPS_DIR=${CONTAINER_CODE_DIR}/retinanet-env && export CALIBRATION_DATA_DIR=${WORKLOAD_DATA}/openimages-calibration/train/data && export MODEL_CHECKPOINT=${WORKLOAD_DATA}/retinanet-model.pth && export CALIBRATION_ANNOTATIONS=${WORKLOAD_DATA}/openimages-calibration/annotations/openimages-mlperf-calibration.json && export DATA_DIR=${WORKLOAD_DATA}/openimages && export MODEL_PATH=${WORKLOAD_DATA}/retinanet-int8-model.pth  && cd /opt/workdir/code/retinanet/pytorch-cpu &&  pwd &&   bash run_offline.sh  
+
+[2024-02-06 22:26:53,785][INFO] run.py:327  - [W TensorShape.cpp:2894] Warning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (function operator())
+
+[2024-02-06 15:32:05,587][INFO] common.py:50    - Executing bash commands: python3 /opt/workdir/code/retinanet/pytorch-cpu/retinanet-env/mlperf_inference/compliance/nvidia/TEST01/run_verification.py -r /output/closed/Intel/results/1-node-2S-SPR-PyTorch-INT8/retinanet/Offline -c /opt/workdir/code/retinanet/pytorch-cpu/ -o /output/closed/Intel/compliance/1-node-2S-SPR-PyTorch-INT8/retinanet/Offline
+[2024-02-06 23:32:05,588][INFO] run.py:327  - >>> Verifying compliance TEST01 result.
+
+[2024-02-06 23:32:05,588][INFO] run.py:327  - [2024-02-06 15:32:05,587][INFO] common.py:50    - Executing bash commands: python3 /opt/workdir/code/retinanet/pytorch-cpu/retinanet-env/mlperf_inference/compliance/nvidia/TEST01/run_verification.py -r /output/closed/Intel/results/1-node-2S-SPR-PyTorch-INT8/retinanet/Offline -c /opt/workdir/code/retinanet/pytorch-cpu/ -o /output/closed/Intel/compliance/1-node-2S-SPR-PyTorch-INT8/retinanet/Offline
+
+[2024-02-06 23:32:05,870][INFO] run.py:327  - Traceback (most recent call last):
+
+[2024-02-06 23:32:05,870][INFO] run.py:327  -   File "/opt/workdir/code/retinanet/pytorch-cpu/retinanet-env/mlperf_inference/compliance/nvidia/TEST01/verify_accuracy.py", line 187, in <module>
+
+[2024-02-06 23:32:05,870][INFO] run.py:327  -     main()
+
+[2024-02-06 23:32:05,870][INFO] run.py:327  -   File "/opt/workdir/code/retinanet/pytorch-cpu/retinanet-env/mlperf_inference/compliance/nvidia/TEST01/verify_accuracy.py", line 68, in main
+
+[2024-02-06 23:32:05,870][INFO] run.py:327  -     acc_data = json.load(acc_json)
+
+[2024-02-06 23:32:05,870][INFO] run.py:327  -   File "/opt/conda/lib/python3.9/json/__init__.py", line 293, in load
+
+[2024-02-06 23:32:05,870][INFO] run.py:327  -     return loads(fp.read(),
+
+[2024-02-06 23:32:05,870][INFO] run.py:327  -   File "/opt/conda/lib/python3.9/json/__init__.py", line 346, in loads
+
+[2024-02-06 23:32:05,871][INFO] run.py:327  -     return _default_decoder.decode(s)
+
+[2024-02-06 23:32:05,871][INFO] run.py:327  -   File "/opt/conda/lib/python3.9/json/decoder.py", line 337, in decode
+
+[2024-02-06 23:32:05,871][INFO] run.py:327  -     obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+
+[2024-02-06 23:32:05,871][INFO] run.py:327  -   File "/opt/conda/lib/python3.9/json/decoder.py", line 353, in raw_decode
+
+[2024-02-06 23:32:05,871][INFO] run.py:327  -     obj, end = self.scan_once(s, idx)
+
+[2024-02-06 23:32:05,871][INFO] run.py:327  - json.decoder.JSONDecodeError: Expecting ',' delimiter: line 65 column 1729 (char 377079)
+
+[2024-02-06 15:32:05,957][INFO] common.py:62    - stdout: Verifying accuracy. This might take a while...
+Verifying performance.
+reference score = 43.6302
+test score = 43.5812
+TEST PASS
+Parsing arguments.
+Accuracy check pass: False
+Performance check pass: True
+TEST01 verification complete
+
+[2024-02-06 15:32:05,957][INFO] common.py:63    - stderr: 
+[2024-02-06 15:32:05,957][INFO] common.py:69    - Successfully executed bash commands.
+[2024-02-06 15:32:05,957][INFO] common.py:50    - Executing bash commands: export CONTAINER_MODEL_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_DATA_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_CODE_DIR=/opt/workdir/code/retinanet/pytorch-cpu && export CONTAINER_OUTPUT_DIR=/output && export MODEL=retinanet && export IMPL=pytorch-cpu && export DTYPE=int8 && export WORKLOAD_DATA=${CONTAINER_CODE_DIR}/data && export ENV_DEPS_DIR=${CONTAINER_CODE_DIR}/retinanet-env && export CALIBRATION_DATA_DIR=${WORKLOAD_DATA}/openimages-calibration/train/data && export MODEL_CHECKPOINT=${WORKLOAD_DATA}/retinanet-model.pth && export CALIBRATION_ANNOTATIONS=${WORKLOAD_DATA}/openimages-calibration/annotations/openimages-mlperf-calibration.json && export DATA_DIR=${WORKLOAD_DATA}/openimages && export MODEL_PATH=${WORKLOAD_DATA}/retinanet-int8-model.pth  && export COMPLIANCE_TEST_DIR=/opt/workdir/code/retinanet/pytorch-cpu/retinanet-env/mlperf_inference/compliance/nvidia/TEST01 && export COMPLIANCE_OUTPUT_DIR=/output/closed/Intel/compliance/1-node-2S-SPR-PyTorch-INT8/retinanet/Offline && export COMPLIANCE_TEST_LOG_DIR=/opt/workdir/code/retinanet/pytorch-cpu/ && export OUTPUT_RESULT_DIR=/output/closed/Intel/results/1-node-2S-SPR-PyTorch-INT8/retinanet/Offline &&  bash ${COMPLIANCE_TEST_DIR}/create_accuracy_baseline.sh ${OUTPUT_RESULT_DIR}/accuracy/mlperf_log_accuracy.json ${COMPLIANCE_TEST_LOG_DIR}/mlperf_log_accuracy.json
+[2024-02-06 23:32:05,958][INFO] run.py:327  - [2024-02-06 15:32:05,957][INFO] common.py:62    - stdout: Verifying accuracy. This might take a while...
+
+[2024-02-06 23:32:05,958][INFO] run.py:327  - Verifying performance.
+
+[2024-02-06 23:32:05,958][INFO] run.py:327  - reference score = 43.6302
+
+[2024-02-06 23:32:05,958][INFO] run.py:327  - test score = 43.5812
+
+[2024-02-06 23:32:05,958][INFO] run.py:327  - TEST PASS
+
+[2024-02-06 23:32:05,958][INFO] run.py:327  - Parsing arguments.
+
+[2024-02-06 23:32:05,958][INFO] run.py:327  - Accuracy check pass: False
+
+[2024-02-06 23:32:05,958][INFO] run.py:327  - Performance check pass: True
+
+[2024-02-06 23:32:05,958][INFO] run.py:327  - TEST01 verification complete
+
+[2024-02-06 23:32:05,958][INFO] run.py:327  - 
+
+[2024-02-06 23:32:05,958][INFO] run.py:327  - [2024-02-06 15:32:05,957][INFO] common.py:63    - stderr: 
+
+[2024-02-06 23:32:05,958][INFO] run.py:327  - [2024-02-06 15:32:05,957][INFO] common.py:69    - Successfully executed bash commands.
+
+[2024-02-06 23:32:05,958][INFO] run.py:327  - WARN: Compliance TEST01 part 2 does not pass, trying part 3.
+
+[2024-02-06 23:32:05,958][INFO] run.py:327  - Performing compliance TEST01 part 3 step #1.
+
+[2024-02-06 23:32:05,958][INFO] run.py:327  - [2024-02-06 15:32:05,957][INFO] common.py:50    - Executing bash commands: export CONTAINER_MODEL_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_DATA_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_CODE_DIR=/opt/workdir/code/retinanet/pytorch-cpu && export CONTAINER_OUTPUT_DIR=/output && export MODEL=retinanet && export IMPL=pytorch-cpu && export DTYPE=int8 && export WORKLOAD_DATA=${CONTAINER_CODE_DIR}/data && export ENV_DEPS_DIR=${CONTAINER_CODE_DIR}/retinanet-env && export CALIBRATION_DATA_DIR=${WORKLOAD_DATA}/openimages-calibration/train/data && export MODEL_CHECKPOINT=${WORKLOAD_DATA}/retinanet-model.pth && export CALIBRATION_ANNOTATIONS=${WORKLOAD_DATA}/openimages-calibration/annotations/openimages-mlperf-calibration.json && export DATA_DIR=${WORKLOAD_DATA}/openimages && export MODEL_PATH=${WORKLOAD_DATA}/retinanet-int8-model.pth  && export COMPLIANCE_TEST_DIR=/opt/workdir/code/retinanet/pytorch-cpu/retinanet-env/mlperf_inference/compliance/nvidia/TEST01 && export COMPLIANCE_OUTPUT_DIR=/output/closed/Intel/compliance/1-node-2S-SPR-PyTorch-INT8/retinanet/Offline && export COMPLIANCE_TEST_LOG_DIR=/opt/workdir/code/retinanet/pytorch-cpu/ && export OUTPUT_RESULT_DIR=/output/closed/Intel/results/1-node-2S-SPR-PyTorch-INT8/retinanet/Offline &&  bash ${COMPLIANCE_TEST_DIR}/create_accuracy_baseline.sh ${OUTPUT_RESULT_DIR}/accuracy/mlperf_log_accuracy.json ${COMPLIANCE_TEST_LOG_DIR}/mlperf_log_accuracy.json
+
+[2024-02-06 15:32:05,993][INFO] common.py:62    - stdout: Created a baseline accuracy file: mlperf_log_accuracy_baseline.json
+
+[2024-02-06 15:32:05,993][INFO] common.py:63    - stderr: 
+[2024-02-06 15:32:05,993][INFO] common.py:69    - Successfully executed bash commands.
+[2024-02-06 15:32:05,994][INFO] common.py:50    - Executing bash commands: export CONTAINER_MODEL_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_DATA_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_CODE_DIR=/opt/workdir/code/retinanet/pytorch-cpu && export CONTAINER_OUTPUT_DIR=/output && export MODEL=retinanet && export IMPL=pytorch-cpu && export DTYPE=int8 && export WORKLOAD_DATA=${CONTAINER_CODE_DIR}/data && export ENV_DEPS_DIR=${CONTAINER_CODE_DIR}/retinanet-env && export CALIBRATION_DATA_DIR=${WORKLOAD_DATA}/openimages-calibration/train/data && export MODEL_CHECKPOINT=${WORKLOAD_DATA}/retinanet-model.pth && export CALIBRATION_ANNOTATIONS=${WORKLOAD_DATA}/openimages-calibration/annotations/openimages-mlperf-calibration.json && export DATA_DIR=${WORKLOAD_DATA}/openimages && export MODEL_PATH=${WORKLOAD_DATA}/retinanet-int8-model.pth  && export COMPLIANCE_TEST_DIR=/opt/workdir/code/retinanet/pytorch-cpu/retinanet-env/mlperf_inference/compliance/nvidia/TEST01 && export COMPLIANCE_OUTPUT_DIR=/output/closed/Intel/compliance/1-node-2S-SPR-PyTorch-INT8/retinanet/Offline && export COMPLIANCE_TEST_LOG_DIR=/opt/workdir/code/retinanet/pytorch-cpu/ && export OUTPUT_RESULT_DIR=/output/closed/Intel/results/1-node-2S-SPR-PyTorch-INT8/retinanet/Offline &&  cd ${CONTAINER_CODE_DIR} && python -u retinanet-env/mlperf_inference/vision/classification_and_detection/tools/accuracy-openimages.py --mlperf-accuracy-file ./mlperf_log_accuracy_baseline.json --openimages-dir data/openimages 2>&1 | tee ${COMPLIANCE_OUTPUT_DIR}/TEST01/accuracy/baseline_accuracy.txt
+[2024-02-06 23:32:05,994][INFO] run.py:327  - [2024-02-06 15:32:05,993][INFO] common.py:62    - stdout: Created a baseline accuracy file: mlperf_log_accuracy_baseline.json
+
+[2024-02-06 23:32:05,994][INFO] run.py:327  - 
+
+[2024-02-06 23:32:05,994][INFO] run.py:327  - [2024-02-06 15:32:05,993][INFO] common.py:63    - stderr: 
+
+[2024-02-06 23:32:05,994][INFO] run.py:327  - [2024-02-06 15:32:05,993][INFO] common.py:69    - Successfully executed bash commands.
+
+[2024-02-06 23:32:05,994][INFO] run.py:327  - Performing compliance TEST01 part 3 step #2.
+
+[2024-02-06 23:32:05,994][INFO] run.py:327  - [2024-02-06 15:32:05,994][INFO] common.py:50    - Executing bash commands: export CONTAINER_MODEL_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_DATA_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_CODE_DIR=/opt/workdir/code/retinanet/pytorch-cpu && export CONTAINER_OUTPUT_DIR=/output && export MODEL=retinanet && export IMPL=pytorch-cpu && export DTYPE=int8 && export WORKLOAD_DATA=${CONTAINER_CODE_DIR}/data && export ENV_DEPS_DIR=${CONTAINER_CODE_DIR}/retinanet-env && export CALIBRATION_DATA_DIR=${WORKLOAD_DATA}/openimages-calibration/train/data && export MODEL_CHECKPOINT=${WORKLOAD_DATA}/retinanet-model.pth && export CALIBRATION_ANNOTATIONS=${WORKLOAD_DATA}/openimages-calibration/annotations/openimages-mlperf-calibration.json && export DATA_DIR=${WORKLOAD_DATA}/openimages && export MODEL_PATH=${WORKLOAD_DATA}/retinanet-int8-model.pth  && export COMPLIANCE_TEST_DIR=/opt/workdir/code/retinanet/pytorch-cpu/retinanet-env/mlperf_inference/compliance/nvidia/TEST01 && export COMPLIANCE_OUTPUT_DIR=/output/closed/Intel/compliance/1-node-2S-SPR-PyTorch-INT8/retinanet/Offline && export COMPLIANCE_TEST_LOG_DIR=/opt/workdir/code/retinanet/pytorch-cpu/ && export OUTPUT_RESULT_DIR=/output/closed/Intel/results/1-node-2S-SPR-PyTorch-INT8/retinanet/Offline &&  cd ${CONTAINER_CODE_DIR} && python -u retinanet-env/mlperf_inference/vision/classification_and_detection/tools/accuracy-openimages.py --mlperf-accuracy-file ./mlperf_log_accuracy_baseline.json --openimages-dir data/openimages 2>&1 | tee ${COMPLIANCE_OUTPUT_DIR}/TEST01/accuracy/baseline_accuracy.txt
+
+[2024-02-06 15:32:07,510][INFO] common.py:62    - stdout: loading annotations into memory...
+Done (t=0.41s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.02s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=0.29s).
+Accumulating evaluation results...
+DONE (t=0.16s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.530
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.727
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.572
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.136
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.316
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.591
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.461
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.634
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.642
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.209
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.467
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.704
+mAP=53.009%
+
+[2024-02-06 15:32:07,511][INFO] common.py:63    - stderr: 
+[2024-02-06 15:32:07,511][INFO] common.py:69    - Successfully executed bash commands.
+[2024-02-06 15:32:07,511][INFO] common.py:50    - Executing bash commands: export CONTAINER_MODEL_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_DATA_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_CODE_DIR=/opt/workdir/code/retinanet/pytorch-cpu && export CONTAINER_OUTPUT_DIR=/output && export MODEL=retinanet && export IMPL=pytorch-cpu && export DTYPE=int8 && export WORKLOAD_DATA=${CONTAINER_CODE_DIR}/data && export ENV_DEPS_DIR=${CONTAINER_CODE_DIR}/retinanet-env && export CALIBRATION_DATA_DIR=${WORKLOAD_DATA}/openimages-calibration/train/data && export MODEL_CHECKPOINT=${WORKLOAD_DATA}/retinanet-model.pth && export CALIBRATION_ANNOTATIONS=${WORKLOAD_DATA}/openimages-calibration/annotations/openimages-mlperf-calibration.json && export DATA_DIR=${WORKLOAD_DATA}/openimages && export MODEL_PATH=${WORKLOAD_DATA}/retinanet-int8-model.pth  && export COMPLIANCE_TEST_DIR=/opt/workdir/code/retinanet/pytorch-cpu/retinanet-env/mlperf_inference/compliance/nvidia/TEST01 && export COMPLIANCE_OUTPUT_DIR=/output/closed/Intel/compliance/1-node-2S-SPR-PyTorch-INT8/retinanet/Offline && export COMPLIANCE_TEST_LOG_DIR=/opt/workdir/code/retinanet/pytorch-cpu/ && export OUTPUT_RESULT_DIR=/output/closed/Intel/results/1-node-2S-SPR-PyTorch-INT8/retinanet/Offline &&  cd ${CONTAINER_CODE_DIR} && python -u retinanet-env/mlperf_inference/vision/classification_and_detection/tools/accuracy-openimages.py --mlperf-accuracy-file ${COMPLIANCE_TEST_LOG_DIR}/mlperf_log_accuracy.json --openimages-dir data/openimages 2>&1 | tee ${COMPLIANCE_OUTPUT_DIR}/TEST01/accuracy/compliance_accuracy.txt
+[2024-02-06 23:32:07,511][INFO] run.py:327  - [2024-02-06 15:32:07,510][INFO] common.py:62    - stdout: loading annotations into memory...
+
+[2024-02-06 23:32:07,511][INFO] run.py:327  - Done (t=0.41s)
+
+[2024-02-06 23:32:07,511][INFO] run.py:327  - creating index...
+
+[2024-02-06 23:32:07,511][INFO] run.py:327  - index created!
+
+[2024-02-06 23:32:07,511][INFO] run.py:327  - Loading and preparing results...
+
+[2024-02-06 23:32:07,511][INFO] run.py:327  - DONE (t=0.02s)
+
+[2024-02-06 23:32:07,511][INFO] run.py:327  - creating index...
+
+[2024-02-06 23:32:07,511][INFO] run.py:327  - index created!
+
+[2024-02-06 23:32:07,511][INFO] run.py:327  - Running per image evaluation...
+
+[2024-02-06 23:32:07,511][INFO] run.py:327  - Evaluate annotation type *bbox*
+
+[2024-02-06 23:32:07,511][INFO] run.py:327  - DONE (t=0.29s).
+
+[2024-02-06 23:32:07,511][INFO] run.py:327  - Accumulating evaluation results...
+
+[2024-02-06 23:32:07,511][INFO] run.py:327  - DONE (t=0.16s).
+
+[2024-02-06 23:32:07,511][INFO] run.py:327  -  Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.530
+
+[2024-02-06 23:32:07,511][INFO] run.py:327  -  Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.727
+
+[2024-02-06 23:32:07,511][INFO] run.py:327  -  Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.572
+
+[2024-02-06 23:32:07,511][INFO] run.py:327  -  Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.136
+
+[2024-02-06 23:32:07,511][INFO] run.py:327  -  Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.316
+
+[2024-02-06 23:32:07,511][INFO] run.py:327  -  Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.591
+
+[2024-02-06 23:32:07,512][INFO] run.py:327  -  Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.461
+
+[2024-02-06 23:32:07,512][INFO] run.py:327  -  Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.634
+
+[2024-02-06 23:32:07,512][INFO] run.py:327  -  Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.642
+
+[2024-02-06 23:32:07,512][INFO] run.py:327  -  Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.209
+
+[2024-02-06 23:32:07,512][INFO] run.py:327  -  Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.467
+
+[2024-02-06 23:32:07,512][INFO] run.py:327  -  Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.704
+
+[2024-02-06 23:32:07,512][INFO] run.py:327  - mAP=53.009%
+
+[2024-02-06 23:32:07,512][INFO] run.py:327  - 
+
+[2024-02-06 23:32:07,512][INFO] run.py:327  - [2024-02-06 15:32:07,511][INFO] common.py:63    - stderr: 
+
+[2024-02-06 23:32:07,512][INFO] run.py:327  - [2024-02-06 15:32:07,511][INFO] common.py:69    - Successfully executed bash commands.
+
+[2024-02-06 23:32:07,512][INFO] run.py:327  - Performing compliance TEST01 part 3 step #3.
+
+[2024-02-06 23:32:07,512][INFO] run.py:327  - [2024-02-06 15:32:07,511][INFO] common.py:50    - Executing bash commands: export CONTAINER_MODEL_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_DATA_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_CODE_DIR=/opt/workdir/code/retinanet/pytorch-cpu && export CONTAINER_OUTPUT_DIR=/output && export MODEL=retinanet && export IMPL=pytorch-cpu && export DTYPE=int8 && export WORKLOAD_DATA=${CONTAINER_CODE_DIR}/data && export ENV_DEPS_DIR=${CONTAINER_CODE_DIR}/retinanet-env && export CALIBRATION_DATA_DIR=${WORKLOAD_DATA}/openimages-calibration/train/data && export MODEL_CHECKPOINT=${WORKLOAD_DATA}/retinanet-model.pth && export CALIBRATION_ANNOTATIONS=${WORKLOAD_DATA}/openimages-calibration/annotations/openimages-mlperf-calibration.json && export DATA_DIR=${WORKLOAD_DATA}/openimages && export MODEL_PATH=${WORKLOAD_DATA}/retinanet-int8-model.pth  && export COMPLIANCE_TEST_DIR=/opt/workdir/code/retinanet/pytorch-cpu/retinanet-env/mlperf_inference/compliance/nvidia/TEST01 && export COMPLIANCE_OUTPUT_DIR=/output/closed/Intel/compliance/1-node-2S-SPR-PyTorch-INT8/retinanet/Offline && export COMPLIANCE_TEST_LOG_DIR=/opt/workdir/code/retinanet/pytorch-cpu/ && export OUTPUT_RESULT_DIR=/output/closed/Intel/results/1-node-2S-SPR-PyTorch-INT8/retinanet/Offline &&  cd ${CONTAINER_CODE_DIR} && python -u retinanet-env/mlperf_inference/vision/classification_and_detection/tools/accuracy-openimages.py --mlperf-accuracy-file ${COMPLIANCE_TEST_LOG_DIR}/mlperf_log_accuracy.json --openimages-dir data/openimages 2>&1 | tee ${COMPLIANCE_OUTPUT_DIR}/TEST01/accuracy/compliance_accuracy.txt
+
+[2024-02-06 15:32:09,012][INFO] common.py:62    - stdout: loading annotations into memory...
+Done (t=0.42s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.02s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=0.29s).
+Accumulating evaluation results...
+DONE (t=0.17s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.530
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.727
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.572
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.136
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.316
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.591
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.461
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.634
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.642
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.209
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.467
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.704
+mAP=53.009%
+
+[2024-02-06 15:32:09,012][INFO] common.py:63    - stderr: 
+[2024-02-06 15:32:09,012][INFO] common.py:69    - Successfully executed bash commands.
+[2024-02-06 23:32:09,012][INFO] run.py:327  - [2024-02-06 15:32:09,012][INFO] common.py:62    - stdout: loading annotations into memory...
+
+[2024-02-06 23:32:09,012][INFO] run.py:327  - Done (t=0.42s)
+
+[2024-02-06 23:32:09,012][INFO] run.py:327  - creating index...
+
+[2024-02-06 23:32:09,012][INFO] run.py:327  - index created!
+
+[2024-02-06 23:32:09,012][INFO] run.py:327  - Loading and preparing results...
+
+[2024-02-06 23:32:09,012][INFO] run.py:327  - DONE (t=0.02s)
+
+[2024-02-06 23:32:09,012][INFO] run.py:327  - creating index...
+
+[2024-02-06 23:32:09,012][INFO] run.py:327  - index created!
+
+[2024-02-06 23:32:09,012][INFO] run.py:327  - Running per image evaluation...
+
+[2024-02-06 23:32:09,012][INFO] run.py:327  - Evaluate annotation type *bbox*
+
+[2024-02-06 23:32:09,012][INFO] run.py:327  - DONE (t=0.29s).
+
+[2024-02-06 23:32:09,012][INFO] run.py:327  - Accumulating evaluation results...
+
+[2024-02-06 23:32:09,012][INFO] run.py:327  - DONE (t=0.17s).
+
+[2024-02-06 23:32:09,013][INFO] run.py:327  -  Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.530
+
+[2024-02-06 23:32:09,013][INFO] run.py:327  -  Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.727
+
+[2024-02-06 23:32:09,013][INFO] run.py:327  -  Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.572
+
+[2024-02-06 23:32:09,013][INFO] run.py:327  -  Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.136
+
+[2024-02-06 23:32:09,013][INFO] run.py:327  -  Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.316
+
+[2024-02-06 23:32:09,013][INFO] run.py:327  -  Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.591
+
+[2024-02-06 23:32:09,013][INFO] run.py:327  -  Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.461
+
+[2024-02-06 23:32:09,013][INFO] run.py:327  -  Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.634
+
+[2024-02-06 23:32:09,013][INFO] run.py:327  -  Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.642
+
+[2024-02-06 23:32:09,013][INFO] run.py:327  -  Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.209
+
+[2024-02-06 23:32:09,013][INFO] run.py:327  -  Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.467
+
+[2024-02-06 23:32:09,013][INFO] run.py:327  -  Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.704
+
+[2024-02-06 23:32:09,013][INFO] run.py:327  - mAP=53.009%
+
+[2024-02-06 23:32:09,013][INFO] run.py:327  - 
+
+[2024-02-06 23:32:09,013][INFO] run.py:327  - [2024-02-06 15:32:09,012][INFO] common.py:63    - stderr: 
+
+[2024-02-06 23:32:09,013][INFO] run.py:327  - [2024-02-06 15:32:09,012][INFO] common.py:69    - Successfully executed bash commands.
+
+[2024-02-06 15:34:15,339][INFO] common.py:17    - Executing bash commands: export CONTAINER_MODEL_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_DATA_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_CODE_DIR=/opt/workdir/code/retinanet/pytorch-cpu && export CONTAINER_OUTPUT_DIR=/output && export MODEL=retinanet && export IMPL=pytorch-cpu && export DTYPE=int8 && export WORKLOAD_DATA=${CONTAINER_CODE_DIR}/data && export ENV_DEPS_DIR=${CONTAINER_CODE_DIR}/retinanet-env && export CALIBRATION_DATA_DIR=${WORKLOAD_DATA}/openimages-calibration/train/data && export MODEL_CHECKPOINT=${WORKLOAD_DATA}/retinanet-model.pth && export CALIBRATION_ANNOTATIONS=${WORKLOAD_DATA}/openimages-calibration/annotations/openimages-mlperf-calibration.json && export DATA_DIR=${WORKLOAD_DATA}/openimages && export MODEL_PATH=${WORKLOAD_DATA}/retinanet-int8-model.pth  && cd /opt/workdir/code/retinanet/pytorch-cpu &&  pwd &&   bash run_offline.sh  
+[2024-02-06 23:34:15,340][INFO] run.py:327  - Running compliance test: retinanet/pytorch-cpu/int8/Offline/TEST05
+
+[2024-02-06 23:34:15,340][INFO] run.py:327  - Sleep 120 seconds.
+
+[2024-02-06 23:34:15,340][INFO] run.py:327  - Clearing cache and setting environment parameters...
+
+[2024-02-06 23:34:15,340][INFO] run.py:327  - [2024-02-06 15:34:15,339][INFO] common.py:17    - Executing bash commands: export CONTAINER_MODEL_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_DATA_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_CODE_DIR=/opt/workdir/code/retinanet/pytorch-cpu && export CONTAINER_OUTPUT_DIR=/output && export MODEL=retinanet && export IMPL=pytorch-cpu && export DTYPE=int8 && export WORKLOAD_DATA=${CONTAINER_CODE_DIR}/data && export ENV_DEPS_DIR=${CONTAINER_CODE_DIR}/retinanet-env && export CALIBRATION_DATA_DIR=${WORKLOAD_DATA}/openimages-calibration/train/data && export MODEL_CHECKPOINT=${WORKLOAD_DATA}/retinanet-model.pth && export CALIBRATION_ANNOTATIONS=${WORKLOAD_DATA}/openimages-calibration/annotations/openimages-mlperf-calibration.json && export DATA_DIR=${WORKLOAD_DATA}/openimages && export MODEL_PATH=${WORKLOAD_DATA}/retinanet-int8-model.pth  && cd /opt/workdir/code/retinanet/pytorch-cpu &&  pwd &&   bash run_offline.sh  
+
+[2024-02-06 23:34:16,552][INFO] run.py:327  - [W TensorShape.cpp:2894] Warning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (function operator())
+
+[2024-02-06 16:39:29,872][INFO] common.py:50    - Executing bash commands: python3 /opt/workdir/code/retinanet/pytorch-cpu/retinanet-env/mlperf_inference/compliance/nvidia/TEST05/run_verification.py -r /output/closed/Intel/results/1-node-2S-SPR-PyTorch-INT8/retinanet/Offline -c /opt/workdir/code/retinanet/pytorch-cpu/ -o /output/closed/Intel/compliance/1-node-2S-SPR-PyTorch-INT8/retinanet/Offline
+[2024-02-07 00:39:29,873][INFO] run.py:327  - >>> Verifying compliance TEST05 result.
+
+[2024-02-07 00:39:29,873][INFO] run.py:327  - [2024-02-06 16:39:29,872][INFO] common.py:50    - Executing bash commands: python3 /opt/workdir/code/retinanet/pytorch-cpu/retinanet-env/mlperf_inference/compliance/nvidia/TEST05/run_verification.py -r /output/closed/Intel/results/1-node-2S-SPR-PyTorch-INT8/retinanet/Offline -c /opt/workdir/code/retinanet/pytorch-cpu/ -o /output/closed/Intel/compliance/1-node-2S-SPR-PyTorch-INT8/retinanet/Offline
+
+[2024-02-06 16:39:30,088][INFO] common.py:62    - stdout: Verifying performance.
+reference score = 43.6302
+test score = 43.5663
+TEST PASS
+Parsing arguments.
+Performance check pass: True
+TEST05 verification complete
+
+[2024-02-06 16:39:30,088][INFO] common.py:63    - stderr: 
+[2024-02-06 16:39:30,088][INFO] common.py:69    - Successfully executed bash commands.
+[2024-02-07 00:39:30,089][INFO] run.py:327  - [2024-02-06 16:39:30,088][INFO] common.py:62    - stdout: Verifying performance.
+
+[2024-02-07 00:39:30,089][INFO] run.py:327  - reference score = 43.6302
+
+[2024-02-07 00:39:30,089][INFO] run.py:327  - test score = 43.5663
+
+[2024-02-07 00:39:30,089][INFO] run.py:327  - TEST PASS
+
+[2024-02-07 00:39:30,089][INFO] run.py:327  - Parsing arguments.
+
+[2024-02-07 00:39:30,089][INFO] run.py:327  - Performance check pass: True
+
+[2024-02-07 00:39:30,089][INFO] run.py:327  - TEST05 verification complete
+
+[2024-02-07 00:39:30,089][INFO] run.py:327  - 
+
+[2024-02-07 00:39:30,089][INFO] run.py:327  - [2024-02-06 16:39:30,088][INFO] common.py:63    - stderr: 
+
+[2024-02-07 00:39:30,089][INFO] run.py:327  - [2024-02-06 16:39:30,088][INFO] common.py:69    - Successfully executed bash commands.
+
+[2024-02-06 16:41:37,083][INFO] common.py:17    - Executing bash commands: export CONTAINER_MODEL_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_DATA_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_CODE_DIR=/opt/workdir/code/retinanet/pytorch-cpu && export CONTAINER_OUTPUT_DIR=/output && export MODEL=retinanet && export IMPL=pytorch-cpu && export DTYPE=int8 && export WORKLOAD_DATA=${CONTAINER_CODE_DIR}/data && export ENV_DEPS_DIR=${CONTAINER_CODE_DIR}/retinanet-env && export CALIBRATION_DATA_DIR=${WORKLOAD_DATA}/openimages-calibration/train/data && export MODEL_CHECKPOINT=${WORKLOAD_DATA}/retinanet-model.pth && export CALIBRATION_ANNOTATIONS=${WORKLOAD_DATA}/openimages-calibration/annotations/openimages-mlperf-calibration.json && export DATA_DIR=${WORKLOAD_DATA}/openimages && export MODEL_PATH=${WORKLOAD_DATA}/retinanet-int8-model.pth  && cd /opt/workdir/code/retinanet/pytorch-cpu &&  pwd &&   bash run_server_accuracy.sh  
+[2024-02-07 00:41:37,083][INFO] run.py:327  - Completed retinanet/pytorch-cpu/int8/Offline/compliance.
+
+[2024-02-07 00:41:37,084][INFO] run.py:327  - Elapsed time: 8083.883229017258 sec.
+
+[2024-02-07 00:41:37,084][INFO] run.py:327  - ===== Performing retinanet/pytorch-cpu/int8/Server/accuracy =====
+
+[2024-02-07 00:41:37,084][INFO] run.py:327  - Sleep 120 seconds.
+
+[2024-02-07 00:41:37,084][INFO] run.py:327  - Clearing cache and setting environment parameters...
+
+[2024-02-07 00:41:37,084][INFO] run.py:327  - [2024-02-06 16:41:37,083][INFO] common.py:17    - Executing bash commands: export CONTAINER_MODEL_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_DATA_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_CODE_DIR=/opt/workdir/code/retinanet/pytorch-cpu && export CONTAINER_OUTPUT_DIR=/output && export MODEL=retinanet && export IMPL=pytorch-cpu && export DTYPE=int8 && export WORKLOAD_DATA=${CONTAINER_CODE_DIR}/data && export ENV_DEPS_DIR=${CONTAINER_CODE_DIR}/retinanet-env && export CALIBRATION_DATA_DIR=${WORKLOAD_DATA}/openimages-calibration/train/data && export MODEL_CHECKPOINT=${WORKLOAD_DATA}/retinanet-model.pth && export CALIBRATION_ANNOTATIONS=${WORKLOAD_DATA}/openimages-calibration/annotations/openimages-mlperf-calibration.json && export DATA_DIR=${WORKLOAD_DATA}/openimages && export MODEL_PATH=${WORKLOAD_DATA}/retinanet-int8-model.pth  && cd /opt/workdir/code/retinanet/pytorch-cpu &&  pwd &&   bash run_server_accuracy.sh  
+
+[2024-02-07 00:41:38,303][INFO] run.py:327  - [W TensorShape.cpp:2894] Warning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (function operator())
+
+[2024-02-07 00:41:55,639][INFO] run.py:327  - run_server_accuracy.sh: line 59:  8618 Aborted                 (core dumped) ${APP} --scenario Server --mode Accuracy --mlperf_conf mlperf.conf --user_conf ${USER_CONF} --model_name retinanet --model_path ${MODEL_PATH} --data_path ${DATA_DIR} --num_instance $number_instance --warmup_iters 100 --cpus_per_instance $CPUS_PER_INSTANCE --total_sample_count 24781 --batch_size $BATCH_SIZE
+
+[2024-02-06 16:44:03,003][INFO] common.py:17    - Executing bash commands: export CONTAINER_MODEL_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_DATA_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_CODE_DIR=/opt/workdir/code/retinanet/pytorch-cpu && export CONTAINER_OUTPUT_DIR=/output && export MODEL=retinanet && export IMPL=pytorch-cpu && export DTYPE=int8 && export WORKLOAD_DATA=${CONTAINER_CODE_DIR}/data && export ENV_DEPS_DIR=${CONTAINER_CODE_DIR}/retinanet-env && export CALIBRATION_DATA_DIR=${WORKLOAD_DATA}/openimages-calibration/train/data && export MODEL_CHECKPOINT=${WORKLOAD_DATA}/retinanet-model.pth && export CALIBRATION_ANNOTATIONS=${WORKLOAD_DATA}/openimages-calibration/annotations/openimages-mlperf-calibration.json && export DATA_DIR=${WORKLOAD_DATA}/openimages && export MODEL_PATH=${WORKLOAD_DATA}/retinanet-int8-model.pth  && cd /opt/workdir/code/retinanet/pytorch-cpu &&  pwd &&   bash run_server.sh  
+[2024-02-07 00:44:03,004][INFO] run.py:327  - ********************************************************************************
+
+[2024-02-07 00:44:03,004][INFO] run.py:327  - retinanet/pytorch-cpu/int8/Server/accuracy:
+
+[2024-02-07 00:44:03,004][INFO] run.py:327  -   Accuracy: loading annotations into memory...
+
+[2024-02-07 00:44:03,004][INFO] run.py:327  - Done (t=0.42s)
+
+[2024-02-07 00:44:03,004][INFO] run.py:327  - creating index...
+
+[2024-02-07 00:44:03,004][INFO] run.py:327  - index created!
+
+[2024-02-07 00:44:03,004][INFO] run.py:327  - Traceback (most recent call last):
+
+[2024-02-07 00:44:03,004][INFO] run.py:327  -   File "/opt/workdir/code/retinanet/pytorch-cpu/retinanet-env/mlperf_inference/vision/classification_and_detection/tools/accuracy-openimages.py", line 119, in <module>
+
+[2024-02-07 00:44:03,004][INFO] run.py:327  -     main()
+
+[2024-02-07 00:44:03,004][INFO] run.py:327  -   File "/opt/workdir/code/retinanet/pytorch-cpu/retinanet-env/mlperf_inference/vision/classification_and_detection/tools/accuracy-openimages.py", line 45, in main
+
+[2024-02-07 00:44:03,004][INFO] run.py:327  -     results = json.load(f)
+
+[2024-02-07 00:44:03,004][INFO] run.py:327  -   File "/opt/conda/lib/python3.9/json/__init__.py", line 293, in load
+
+[2024-02-07 00:44:03,004][INFO] run.py:327  -     return loads(fp.read(),
+
+[2024-02-07 00:44:03,004][INFO] run.py:327  -   File "/opt/conda/lib/python3.9/json/__init__.py", line 346, in loads
+
+[2024-02-07 00:44:03,004][INFO] run.py:327  -     return _default_decoder.decode(s)
+
+[2024-02-07 00:44:03,004][INFO] run.py:327  -   File "/opt/conda/lib/python3.9/json/decoder.py", line 337, in decode
+
+[2024-02-07 00:44:03,004][INFO] run.py:327  -     obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+
+[2024-02-07 00:44:03,004][INFO] run.py:327  -   File "/opt/conda/lib/python3.9/json/decoder.py", line 353, in raw_decode
+
+[2024-02-07 00:44:03,004][INFO] run.py:327  -     obj, end = self.scan_once(s, idx)
+
+[2024-02-07 00:44:03,004][INFO] run.py:327  - json.decoder.JSONDecodeError: Expecting ',' delimiter: line 65 column 3410 (char 377079)
+
+[2024-02-07 00:44:03,004][INFO] run.py:327  - 
+
+[2024-02-07 00:44:03,004][INFO] run.py:327  -   Result dir: /output/closed/Intel/results/1-node-2S-SPR-PyTorch-INT8/retinanet/Server/accuracy
+
+[2024-02-07 00:44:03,004][INFO] run.py:327  - ********************************************************************************
+
+[2024-02-07 00:44:03,004][INFO] run.py:327  - Updating measurements of retinanet/pytorch-cpu/int8/Server/accuracy.
+
+[2024-02-07 00:44:03,004][INFO] run.py:327  - Elapsed time: 146.6200692653656 sec.
+
+[2024-02-07 00:44:03,004][INFO] run.py:327  - ===== Performing retinanet/pytorch-cpu/int8/Server/performance =====
+
+[2024-02-07 00:44:03,004][INFO] run.py:327  - Sleep 120 seconds.
+
+[2024-02-07 00:44:03,004][INFO] run.py:327  - Clearing cache and setting environment parameters...
+
+[2024-02-07 00:44:03,004][INFO] run.py:327  - [2024-02-06 16:44:03,003][INFO] common.py:17    - Executing bash commands: export CONTAINER_MODEL_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_DATA_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_CODE_DIR=/opt/workdir/code/retinanet/pytorch-cpu && export CONTAINER_OUTPUT_DIR=/output && export MODEL=retinanet && export IMPL=pytorch-cpu && export DTYPE=int8 && export WORKLOAD_DATA=${CONTAINER_CODE_DIR}/data && export ENV_DEPS_DIR=${CONTAINER_CODE_DIR}/retinanet-env && export CALIBRATION_DATA_DIR=${WORKLOAD_DATA}/openimages-calibration/train/data && export MODEL_CHECKPOINT=${WORKLOAD_DATA}/retinanet-model.pth && export CALIBRATION_ANNOTATIONS=${WORKLOAD_DATA}/openimages-calibration/annotations/openimages-mlperf-calibration.json && export DATA_DIR=${WORKLOAD_DATA}/openimages && export MODEL_PATH=${WORKLOAD_DATA}/retinanet-int8-model.pth  && cd /opt/workdir/code/retinanet/pytorch-cpu &&  pwd &&   bash run_server.sh  
+
+[2024-02-07 00:44:04,207][INFO] run.py:327  - [W TensorShape.cpp:2894] Warning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (function operator())
+
+[2024-02-06 16:56:23,160][INFO] common.py:17    - Executing bash commands: export CONTAINER_MODEL_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_DATA_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_CODE_DIR=/opt/workdir/code/retinanet/pytorch-cpu && export CONTAINER_OUTPUT_DIR=/output && export MODEL=retinanet && export IMPL=pytorch-cpu && export DTYPE=int8 && export WORKLOAD_DATA=${CONTAINER_CODE_DIR}/data && export ENV_DEPS_DIR=${CONTAINER_CODE_DIR}/retinanet-env && export CALIBRATION_DATA_DIR=${WORKLOAD_DATA}/openimages-calibration/train/data && export MODEL_CHECKPOINT=${WORKLOAD_DATA}/retinanet-model.pth && export CALIBRATION_ANNOTATIONS=${WORKLOAD_DATA}/openimages-calibration/annotations/openimages-mlperf-calibration.json && export DATA_DIR=${WORKLOAD_DATA}/openimages && export MODEL_PATH=${WORKLOAD_DATA}/retinanet-int8-model.pth  && cd /opt/workdir/code/retinanet/pytorch-cpu &&  pwd &&   bash run_server.sh  
+[2024-02-07 00:56:23,161][INFO] run.py:327  - !!WARN!! INVALID performance: retinanet/pytorch-cpu/int8/Server/performance
+
+[2024-02-07 00:56:23,161][INFO] run.py:327  - ********************************************************************************
+
+[2024-02-07 00:56:23,161][INFO] run.py:327  - retinanet/pytorch-cpu/int8/Server/performance:
+
+[2024-02-07 00:56:23,161][INFO] run.py:327  -   Target QPS: 32.0
+
+[2024-02-07 00:56:23,161][INFO] run.py:327  -   Perf QPS: 31.8
+
+[2024-02-07 00:56:23,161][INFO] run.py:327  -   99.00 percentile latency: 283075866.0
+
+[2024-02-07 00:56:23,161][INFO] run.py:327  -   Result dir: /output/closed/Intel/results/1-node-2S-SPR-PyTorch-INT8/retinanet/Server/performance/run_1
+
+[2024-02-07 00:56:23,161][INFO] run.py:327  - ********************************************************************************
+
+[2024-02-07 00:56:23,161][INFO] run.py:327  - Updating measurements of retinanet/pytorch-cpu/int8/Server/performance.
+
+[2024-02-07 00:56:23,161][INFO] run.py:327  - Elapsed time: 740.1418881416321 sec.
+
+[2024-02-07 00:56:23,161][INFO] run.py:327  - ===== Performing retinanet/pytorch-cpu/int8/Server/compliance =====
+
+[2024-02-07 00:56:23,161][INFO] run.py:327  - Running compliance test: retinanet/pytorch-cpu/int8/Server/TEST01
+
+[2024-02-07 00:56:23,161][INFO] run.py:327  - Sleep 120 seconds.
+
+[2024-02-07 00:56:23,161][INFO] run.py:327  - Clearing cache and setting environment parameters...
+
+[2024-02-07 00:56:23,161][INFO] run.py:327  - [2024-02-06 16:56:23,160][INFO] common.py:17    - Executing bash commands: export CONTAINER_MODEL_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_DATA_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_CODE_DIR=/opt/workdir/code/retinanet/pytorch-cpu && export CONTAINER_OUTPUT_DIR=/output && export MODEL=retinanet && export IMPL=pytorch-cpu && export DTYPE=int8 && export WORKLOAD_DATA=${CONTAINER_CODE_DIR}/data && export ENV_DEPS_DIR=${CONTAINER_CODE_DIR}/retinanet-env && export CALIBRATION_DATA_DIR=${WORKLOAD_DATA}/openimages-calibration/train/data && export MODEL_CHECKPOINT=${WORKLOAD_DATA}/retinanet-model.pth && export CALIBRATION_ANNOTATIONS=${WORKLOAD_DATA}/openimages-calibration/annotations/openimages-mlperf-calibration.json && export DATA_DIR=${WORKLOAD_DATA}/openimages && export MODEL_PATH=${WORKLOAD_DATA}/retinanet-int8-model.pth  && cd /opt/workdir/code/retinanet/pytorch-cpu &&  pwd &&   bash run_server.sh  
+
+[2024-02-07 00:56:24,377][INFO] run.py:327  - [W TensorShape.cpp:2894] Warning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (function operator())
+
+[2024-02-06 17:06:37,061][INFO] common.py:50    - Executing bash commands: python3 /opt/workdir/code/retinanet/pytorch-cpu/retinanet-env/mlperf_inference/compliance/nvidia/TEST01/run_verification.py -r /output/closed/Intel/results/1-node-2S-SPR-PyTorch-INT8/retinanet/Server -c /opt/workdir/code/retinanet/pytorch-cpu/ -o /output/closed/Intel/compliance/1-node-2S-SPR-PyTorch-INT8/retinanet/Server
+[2024-02-07 01:06:37,062][INFO] run.py:327  - >>> Verifying compliance TEST01 result.
+
+[2024-02-07 01:06:37,062][INFO] run.py:327  - [2024-02-06 17:06:37,061][INFO] common.py:50    - Executing bash commands: python3 /opt/workdir/code/retinanet/pytorch-cpu/retinanet-env/mlperf_inference/compliance/nvidia/TEST01/run_verification.py -r /output/closed/Intel/results/1-node-2S-SPR-PyTorch-INT8/retinanet/Server -c /opt/workdir/code/retinanet/pytorch-cpu/ -o /output/closed/Intel/compliance/1-node-2S-SPR-PyTorch-INT8/retinanet/Server
+
+[2024-02-07 01:06:37,303][INFO] run.py:327  - Traceback (most recent call last):
+
+[2024-02-07 01:06:37,303][INFO] run.py:327  -   File "/opt/workdir/code/retinanet/pytorch-cpu/retinanet-env/mlperf_inference/compliance/nvidia/TEST01/verify_accuracy.py", line 187, in <module>
+
+[2024-02-07 01:06:37,303][INFO] run.py:327  -     main()
+
+[2024-02-07 01:06:37,303][INFO] run.py:327  -   File "/opt/workdir/code/retinanet/pytorch-cpu/retinanet-env/mlperf_inference/compliance/nvidia/TEST01/verify_accuracy.py", line 68, in main
+
+[2024-02-07 01:06:37,303][INFO] run.py:327  -     acc_data = json.load(acc_json)
+
+[2024-02-07 01:06:37,303][INFO] run.py:327  -   File "/opt/conda/lib/python3.9/json/__init__.py", line 293, in load
+
+[2024-02-07 01:06:37,303][INFO] run.py:327  -     return loads(fp.read(),
+
+[2024-02-07 01:06:37,303][INFO] run.py:327  -   File "/opt/conda/lib/python3.9/json/__init__.py", line 346, in loads
+
+[2024-02-07 01:06:37,303][INFO] run.py:327  -     return _default_decoder.decode(s)
+
+[2024-02-07 01:06:37,303][INFO] run.py:327  -   File "/opt/conda/lib/python3.9/json/decoder.py", line 337, in decode
+
+[2024-02-07 01:06:37,304][INFO] run.py:327  -     obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+
+[2024-02-07 01:06:37,304][INFO] run.py:327  -   File "/opt/conda/lib/python3.9/json/decoder.py", line 353, in raw_decode
+
+[2024-02-07 01:06:37,304][INFO] run.py:327  -     obj, end = self.scan_once(s, idx)
+
+[2024-02-07 01:06:37,304][INFO] run.py:327  - json.decoder.JSONDecodeError: Expecting ',' delimiter: line 65 column 3410 (char 377079)
+
+[2024-02-07 01:06:37,350][INFO] run.py:327  - TEST FAIL: Reference results are invalid
+
+[2024-02-06 17:06:37,373][INFO] common.py:62    - stdout: Verifying accuracy. This might take a while...
+Verifying performance.
+Parsing arguments.
+Accuracy check pass: False
+Performance check pass: False
+TEST01 verification complete
+
+[2024-02-06 17:06:37,373][INFO] common.py:63    - stderr: 
+[2024-02-06 17:06:37,373][INFO] common.py:69    - Successfully executed bash commands.
+[2024-02-06 17:06:37,374][INFO] common.py:50    - Executing bash commands: export CONTAINER_MODEL_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_DATA_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_CODE_DIR=/opt/workdir/code/retinanet/pytorch-cpu && export CONTAINER_OUTPUT_DIR=/output && export MODEL=retinanet && export IMPL=pytorch-cpu && export DTYPE=int8 && export WORKLOAD_DATA=${CONTAINER_CODE_DIR}/data && export ENV_DEPS_DIR=${CONTAINER_CODE_DIR}/retinanet-env && export CALIBRATION_DATA_DIR=${WORKLOAD_DATA}/openimages-calibration/train/data && export MODEL_CHECKPOINT=${WORKLOAD_DATA}/retinanet-model.pth && export CALIBRATION_ANNOTATIONS=${WORKLOAD_DATA}/openimages-calibration/annotations/openimages-mlperf-calibration.json && export DATA_DIR=${WORKLOAD_DATA}/openimages && export MODEL_PATH=${WORKLOAD_DATA}/retinanet-int8-model.pth  && export COMPLIANCE_TEST_DIR=/opt/workdir/code/retinanet/pytorch-cpu/retinanet-env/mlperf_inference/compliance/nvidia/TEST01 && export COMPLIANCE_OUTPUT_DIR=/output/closed/Intel/compliance/1-node-2S-SPR-PyTorch-INT8/retinanet/Server && export COMPLIANCE_TEST_LOG_DIR=/opt/workdir/code/retinanet/pytorch-cpu/ && export OUTPUT_RESULT_DIR=/output/closed/Intel/results/1-node-2S-SPR-PyTorch-INT8/retinanet/Server &&  bash ${COMPLIANCE_TEST_DIR}/create_accuracy_baseline.sh ${OUTPUT_RESULT_DIR}/accuracy/mlperf_log_accuracy.json ${COMPLIANCE_TEST_LOG_DIR}/mlperf_log_accuracy.json
+[2024-02-07 01:06:37,374][INFO] run.py:327  - [2024-02-06 17:06:37,373][INFO] common.py:62    - stdout: Verifying accuracy. This might take a while...
+
+[2024-02-07 01:06:37,374][INFO] run.py:327  - Verifying performance.
+
+[2024-02-07 01:06:37,374][INFO] run.py:327  - Parsing arguments.
+
+[2024-02-07 01:06:37,374][INFO] run.py:327  - Accuracy check pass: False
+
+[2024-02-07 01:06:37,374][INFO] run.py:327  - Performance check pass: False
+
+[2024-02-07 01:06:37,374][INFO] run.py:327  - TEST01 verification complete
+
+[2024-02-07 01:06:37,374][INFO] run.py:327  - 
+
+[2024-02-07 01:06:37,374][INFO] run.py:327  - [2024-02-06 17:06:37,373][INFO] common.py:63    - stderr: 
+
+[2024-02-07 01:06:37,374][INFO] run.py:327  - [2024-02-06 17:06:37,373][INFO] common.py:69    - Successfully executed bash commands.
+
+[2024-02-07 01:06:37,374][INFO] run.py:327  - WARN: Compliance TEST01 part 2 does not pass, trying part 3.
+
+[2024-02-07 01:06:37,374][INFO] run.py:327  - Performing compliance TEST01 part 3 step #1.
+
+[2024-02-07 01:06:37,374][INFO] run.py:327  - [2024-02-06 17:06:37,374][INFO] common.py:50    - Executing bash commands: export CONTAINER_MODEL_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_DATA_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_CODE_DIR=/opt/workdir/code/retinanet/pytorch-cpu && export CONTAINER_OUTPUT_DIR=/output && export MODEL=retinanet && export IMPL=pytorch-cpu && export DTYPE=int8 && export WORKLOAD_DATA=${CONTAINER_CODE_DIR}/data && export ENV_DEPS_DIR=${CONTAINER_CODE_DIR}/retinanet-env && export CALIBRATION_DATA_DIR=${WORKLOAD_DATA}/openimages-calibration/train/data && export MODEL_CHECKPOINT=${WORKLOAD_DATA}/retinanet-model.pth && export CALIBRATION_ANNOTATIONS=${WORKLOAD_DATA}/openimages-calibration/annotations/openimages-mlperf-calibration.json && export DATA_DIR=${WORKLOAD_DATA}/openimages && export MODEL_PATH=${WORKLOAD_DATA}/retinanet-int8-model.pth  && export COMPLIANCE_TEST_DIR=/opt/workdir/code/retinanet/pytorch-cpu/retinanet-env/mlperf_inference/compliance/nvidia/TEST01 && export COMPLIANCE_OUTPUT_DIR=/output/closed/Intel/compliance/1-node-2S-SPR-PyTorch-INT8/retinanet/Server && export COMPLIANCE_TEST_LOG_DIR=/opt/workdir/code/retinanet/pytorch-cpu/ && export OUTPUT_RESULT_DIR=/output/closed/Intel/results/1-node-2S-SPR-PyTorch-INT8/retinanet/Server &&  bash ${COMPLIANCE_TEST_DIR}/create_accuracy_baseline.sh ${OUTPUT_RESULT_DIR}/accuracy/mlperf_log_accuracy.json ${COMPLIANCE_TEST_LOG_DIR}/mlperf_log_accuracy.json
+
+[2024-02-06 17:06:37,406][INFO] common.py:62    - stdout: Created a baseline accuracy file: mlperf_log_accuracy_baseline.json
+
+[2024-02-06 17:06:37,406][INFO] common.py:63    - stderr: 
+[2024-02-06 17:06:37,406][INFO] common.py:69    - Successfully executed bash commands.
+[2024-02-06 17:06:37,406][INFO] common.py:50    - Executing bash commands: export CONTAINER_MODEL_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_DATA_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_CODE_DIR=/opt/workdir/code/retinanet/pytorch-cpu && export CONTAINER_OUTPUT_DIR=/output && export MODEL=retinanet && export IMPL=pytorch-cpu && export DTYPE=int8 && export WORKLOAD_DATA=${CONTAINER_CODE_DIR}/data && export ENV_DEPS_DIR=${CONTAINER_CODE_DIR}/retinanet-env && export CALIBRATION_DATA_DIR=${WORKLOAD_DATA}/openimages-calibration/train/data && export MODEL_CHECKPOINT=${WORKLOAD_DATA}/retinanet-model.pth && export CALIBRATION_ANNOTATIONS=${WORKLOAD_DATA}/openimages-calibration/annotations/openimages-mlperf-calibration.json && export DATA_DIR=${WORKLOAD_DATA}/openimages && export MODEL_PATH=${WORKLOAD_DATA}/retinanet-int8-model.pth  && export COMPLIANCE_TEST_DIR=/opt/workdir/code/retinanet/pytorch-cpu/retinanet-env/mlperf_inference/compliance/nvidia/TEST01 && export COMPLIANCE_OUTPUT_DIR=/output/closed/Intel/compliance/1-node-2S-SPR-PyTorch-INT8/retinanet/Server && export COMPLIANCE_TEST_LOG_DIR=/opt/workdir/code/retinanet/pytorch-cpu/ && export OUTPUT_RESULT_DIR=/output/closed/Intel/results/1-node-2S-SPR-PyTorch-INT8/retinanet/Server &&  cd ${CONTAINER_CODE_DIR} && python -u retinanet-env/mlperf_inference/vision/classification_and_detection/tools/accuracy-openimages.py --mlperf-accuracy-file ./mlperf_log_accuracy_baseline.json --openimages-dir data/openimages 2>&1 | tee ${COMPLIANCE_OUTPUT_DIR}/TEST01/accuracy/baseline_accuracy.txt
+[2024-02-07 01:06:37,406][INFO] run.py:327  - [2024-02-06 17:06:37,406][INFO] common.py:62    - stdout: Created a baseline accuracy file: mlperf_log_accuracy_baseline.json
+
+[2024-02-07 01:06:37,406][INFO] run.py:327  - 
+
+[2024-02-07 01:06:37,406][INFO] run.py:327  - [2024-02-06 17:06:37,406][INFO] common.py:63    - stderr: 
+
+[2024-02-07 01:06:37,406][INFO] run.py:327  - [2024-02-06 17:06:37,406][INFO] common.py:69    - Successfully executed bash commands.
+
+[2024-02-07 01:06:37,407][INFO] run.py:327  - Performing compliance TEST01 part 3 step #2.
+
+[2024-02-07 01:06:37,407][INFO] run.py:327  - [2024-02-06 17:06:37,406][INFO] common.py:50    - Executing bash commands: export CONTAINER_MODEL_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_DATA_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_CODE_DIR=/opt/workdir/code/retinanet/pytorch-cpu && export CONTAINER_OUTPUT_DIR=/output && export MODEL=retinanet && export IMPL=pytorch-cpu && export DTYPE=int8 && export WORKLOAD_DATA=${CONTAINER_CODE_DIR}/data && export ENV_DEPS_DIR=${CONTAINER_CODE_DIR}/retinanet-env && export CALIBRATION_DATA_DIR=${WORKLOAD_DATA}/openimages-calibration/train/data && export MODEL_CHECKPOINT=${WORKLOAD_DATA}/retinanet-model.pth && export CALIBRATION_ANNOTATIONS=${WORKLOAD_DATA}/openimages-calibration/annotations/openimages-mlperf-calibration.json && export DATA_DIR=${WORKLOAD_DATA}/openimages && export MODEL_PATH=${WORKLOAD_DATA}/retinanet-int8-model.pth  && export COMPLIANCE_TEST_DIR=/opt/workdir/code/retinanet/pytorch-cpu/retinanet-env/mlperf_inference/compliance/nvidia/TEST01 && export COMPLIANCE_OUTPUT_DIR=/output/closed/Intel/compliance/1-node-2S-SPR-PyTorch-INT8/retinanet/Server && export COMPLIANCE_TEST_LOG_DIR=/opt/workdir/code/retinanet/pytorch-cpu/ && export OUTPUT_RESULT_DIR=/output/closed/Intel/results/1-node-2S-SPR-PyTorch-INT8/retinanet/Server &&  cd ${CONTAINER_CODE_DIR} && python -u retinanet-env/mlperf_inference/vision/classification_and_detection/tools/accuracy-openimages.py --mlperf-accuracy-file ./mlperf_log_accuracy_baseline.json --openimages-dir data/openimages 2>&1 | tee ${COMPLIANCE_OUTPUT_DIR}/TEST01/accuracy/baseline_accuracy.txt
+
+[2024-02-06 17:06:38,948][INFO] common.py:62    - stdout: loading annotations into memory...
+Done (t=0.42s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.02s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=0.29s).
+Accumulating evaluation results...
+DONE (t=0.17s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.531
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.728
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.573
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.148
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.316
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.591
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.461
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.634
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.642
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.247
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.467
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.704
+mAP=53.052%
+
+[2024-02-06 17:06:38,948][INFO] common.py:63    - stderr: 
+[2024-02-06 17:06:38,948][INFO] common.py:69    - Successfully executed bash commands.
+[2024-02-06 17:06:38,948][INFO] common.py:50    - Executing bash commands: export CONTAINER_MODEL_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_DATA_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_CODE_DIR=/opt/workdir/code/retinanet/pytorch-cpu && export CONTAINER_OUTPUT_DIR=/output && export MODEL=retinanet && export IMPL=pytorch-cpu && export DTYPE=int8 && export WORKLOAD_DATA=${CONTAINER_CODE_DIR}/data && export ENV_DEPS_DIR=${CONTAINER_CODE_DIR}/retinanet-env && export CALIBRATION_DATA_DIR=${WORKLOAD_DATA}/openimages-calibration/train/data && export MODEL_CHECKPOINT=${WORKLOAD_DATA}/retinanet-model.pth && export CALIBRATION_ANNOTATIONS=${WORKLOAD_DATA}/openimages-calibration/annotations/openimages-mlperf-calibration.json && export DATA_DIR=${WORKLOAD_DATA}/openimages && export MODEL_PATH=${WORKLOAD_DATA}/retinanet-int8-model.pth  && export COMPLIANCE_TEST_DIR=/opt/workdir/code/retinanet/pytorch-cpu/retinanet-env/mlperf_inference/compliance/nvidia/TEST01 && export COMPLIANCE_OUTPUT_DIR=/output/closed/Intel/compliance/1-node-2S-SPR-PyTorch-INT8/retinanet/Server && export COMPLIANCE_TEST_LOG_DIR=/opt/workdir/code/retinanet/pytorch-cpu/ && export OUTPUT_RESULT_DIR=/output/closed/Intel/results/1-node-2S-SPR-PyTorch-INT8/retinanet/Server &&  cd ${CONTAINER_CODE_DIR} && python -u retinanet-env/mlperf_inference/vision/classification_and_detection/tools/accuracy-openimages.py --mlperf-accuracy-file ${COMPLIANCE_TEST_LOG_DIR}/mlperf_log_accuracy.json --openimages-dir data/openimages 2>&1 | tee ${COMPLIANCE_OUTPUT_DIR}/TEST01/accuracy/compliance_accuracy.txt
+[2024-02-07 01:06:38,948][INFO] run.py:327  - [2024-02-06 17:06:38,948][INFO] common.py:62    - stdout: loading annotations into memory...
+
+[2024-02-07 01:06:38,948][INFO] run.py:327  - Done (t=0.42s)
+
+[2024-02-07 01:06:38,948][INFO] run.py:327  - creating index...
+
+[2024-02-07 01:06:38,948][INFO] run.py:327  - index created!
+
+[2024-02-07 01:06:38,948][INFO] run.py:327  - Loading and preparing results...
+
+[2024-02-07 01:06:38,948][INFO] run.py:327  - DONE (t=0.02s)
+
+[2024-02-07 01:06:38,948][INFO] run.py:327  - creating index...
+
+[2024-02-07 01:06:38,949][INFO] run.py:327  - index created!
+
+[2024-02-07 01:06:38,949][INFO] run.py:327  - Running per image evaluation...
+
+[2024-02-07 01:06:38,949][INFO] run.py:327  - Evaluate annotation type *bbox*
+
+[2024-02-07 01:06:38,949][INFO] run.py:327  - DONE (t=0.29s).
+
+[2024-02-07 01:06:38,949][INFO] run.py:327  - Accumulating evaluation results...
+
+[2024-02-07 01:06:38,949][INFO] run.py:327  - DONE (t=0.17s).
+
+[2024-02-07 01:06:38,949][INFO] run.py:327  -  Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.531
+
+[2024-02-07 01:06:38,949][INFO] run.py:327  -  Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.728
+
+[2024-02-07 01:06:38,949][INFO] run.py:327  -  Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.573
+
+[2024-02-07 01:06:38,949][INFO] run.py:327  -  Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.148
+
+[2024-02-07 01:06:38,949][INFO] run.py:327  -  Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.316
+
+[2024-02-07 01:06:38,949][INFO] run.py:327  -  Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.591
+
+[2024-02-07 01:06:38,949][INFO] run.py:327  -  Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.461
+
+[2024-02-07 01:06:38,949][INFO] run.py:327  -  Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.634
+
+[2024-02-07 01:06:38,949][INFO] run.py:327  -  Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.642
+
+[2024-02-07 01:06:38,949][INFO] run.py:327  -  Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.247
+
+[2024-02-07 01:06:38,949][INFO] run.py:327  -  Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.467
+
+[2024-02-07 01:06:38,949][INFO] run.py:327  -  Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.704
+
+[2024-02-07 01:06:38,949][INFO] run.py:327  - mAP=53.052%
+
+[2024-02-07 01:06:38,949][INFO] run.py:327  - 
+
+[2024-02-07 01:06:38,949][INFO] run.py:327  - [2024-02-06 17:06:38,948][INFO] common.py:63    - stderr: 
+
+[2024-02-07 01:06:38,949][INFO] run.py:327  - [2024-02-06 17:06:38,948][INFO] common.py:69    - Successfully executed bash commands.
+
+[2024-02-07 01:06:38,949][INFO] run.py:327  - Performing compliance TEST01 part 3 step #3.
+
+[2024-02-07 01:06:38,949][INFO] run.py:327  - [2024-02-06 17:06:38,948][INFO] common.py:50    - Executing bash commands: export CONTAINER_MODEL_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_DATA_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_CODE_DIR=/opt/workdir/code/retinanet/pytorch-cpu && export CONTAINER_OUTPUT_DIR=/output && export MODEL=retinanet && export IMPL=pytorch-cpu && export DTYPE=int8 && export WORKLOAD_DATA=${CONTAINER_CODE_DIR}/data && export ENV_DEPS_DIR=${CONTAINER_CODE_DIR}/retinanet-env && export CALIBRATION_DATA_DIR=${WORKLOAD_DATA}/openimages-calibration/train/data && export MODEL_CHECKPOINT=${WORKLOAD_DATA}/retinanet-model.pth && export CALIBRATION_ANNOTATIONS=${WORKLOAD_DATA}/openimages-calibration/annotations/openimages-mlperf-calibration.json && export DATA_DIR=${WORKLOAD_DATA}/openimages && export MODEL_PATH=${WORKLOAD_DATA}/retinanet-int8-model.pth  && export COMPLIANCE_TEST_DIR=/opt/workdir/code/retinanet/pytorch-cpu/retinanet-env/mlperf_inference/compliance/nvidia/TEST01 && export COMPLIANCE_OUTPUT_DIR=/output/closed/Intel/compliance/1-node-2S-SPR-PyTorch-INT8/retinanet/Server && export COMPLIANCE_TEST_LOG_DIR=/opt/workdir/code/retinanet/pytorch-cpu/ && export OUTPUT_RESULT_DIR=/output/closed/Intel/results/1-node-2S-SPR-PyTorch-INT8/retinanet/Server &&  cd ${CONTAINER_CODE_DIR} && python -u retinanet-env/mlperf_inference/vision/classification_and_detection/tools/accuracy-openimages.py --mlperf-accuracy-file ${COMPLIANCE_TEST_LOG_DIR}/mlperf_log_accuracy.json --openimages-dir data/openimages 2>&1 | tee ${COMPLIANCE_OUTPUT_DIR}/TEST01/accuracy/compliance_accuracy.txt
+
+[2024-02-06 17:06:40,437][INFO] common.py:62    - stdout: loading annotations into memory...
+Done (t=0.42s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.02s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=0.29s).
+Accumulating evaluation results...
+DONE (t=0.17s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.531
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.728
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.573
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.148
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.316
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.591
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.461
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.634
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.642
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.247
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.467
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.704
+mAP=53.052%
+
+[2024-02-06 17:06:40,437][INFO] common.py:63    - stderr: 
+[2024-02-06 17:06:40,437][INFO] common.py:69    - Successfully executed bash commands.
+[2024-02-07 01:06:40,437][INFO] run.py:327  - [2024-02-06 17:06:40,437][INFO] common.py:62    - stdout: loading annotations into memory...
+
+[2024-02-07 01:06:40,437][INFO] run.py:327  - Done (t=0.42s)
+
+[2024-02-07 01:06:40,437][INFO] run.py:327  - creating index...
+
+[2024-02-07 01:06:40,437][INFO] run.py:327  - index created!
+
+[2024-02-07 01:06:40,437][INFO] run.py:327  - Loading and preparing results...
+
+[2024-02-07 01:06:40,437][INFO] run.py:327  - DONE (t=0.02s)
+
+[2024-02-07 01:06:40,437][INFO] run.py:327  - creating index...
+
+[2024-02-07 01:06:40,437][INFO] run.py:327  - index created!
+
+[2024-02-07 01:06:40,437][INFO] run.py:327  - Running per image evaluation...
+
+[2024-02-07 01:06:40,437][INFO] run.py:327  - Evaluate annotation type *bbox*
+
+[2024-02-07 01:06:40,437][INFO] run.py:327  - DONE (t=0.29s).
+
+[2024-02-07 01:06:40,437][INFO] run.py:327  - Accumulating evaluation results...
+
+[2024-02-07 01:06:40,437][INFO] run.py:327  - DONE (t=0.17s).
+
+[2024-02-07 01:06:40,437][INFO] run.py:327  -  Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.531
+
+[2024-02-07 01:06:40,438][INFO] run.py:327  -  Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.728
+
+[2024-02-07 01:06:40,438][INFO] run.py:327  -  Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.573
+
+[2024-02-07 01:06:40,438][INFO] run.py:327  -  Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.148
+
+[2024-02-07 01:06:40,438][INFO] run.py:327  -  Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.316
+
+[2024-02-07 01:06:40,438][INFO] run.py:327  -  Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.591
+
+[2024-02-07 01:06:40,438][INFO] run.py:327  -  Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.461
+
+[2024-02-07 01:06:40,438][INFO] run.py:327  -  Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.634
+
+[2024-02-07 01:06:40,438][INFO] run.py:327  -  Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.642
+
+[2024-02-07 01:06:40,438][INFO] run.py:327  -  Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.247
+
+[2024-02-07 01:06:40,438][INFO] run.py:327  -  Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.467
+
+[2024-02-07 01:06:40,438][INFO] run.py:327  -  Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.704
+
+[2024-02-07 01:06:40,438][INFO] run.py:327  - mAP=53.052%
+
+[2024-02-07 01:06:40,438][INFO] run.py:327  - 
+
+[2024-02-07 01:06:40,438][INFO] run.py:327  - [2024-02-06 17:06:40,437][INFO] common.py:63    - stderr: 
+
+[2024-02-07 01:06:40,438][INFO] run.py:327  - [2024-02-06 17:06:40,437][INFO] common.py:69    - Successfully executed bash commands.
+
+[2024-02-06 17:08:46,793][INFO] common.py:17    - Executing bash commands: export CONTAINER_MODEL_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_DATA_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_CODE_DIR=/opt/workdir/code/retinanet/pytorch-cpu && export CONTAINER_OUTPUT_DIR=/output && export MODEL=retinanet && export IMPL=pytorch-cpu && export DTYPE=int8 && export WORKLOAD_DATA=${CONTAINER_CODE_DIR}/data && export ENV_DEPS_DIR=${CONTAINER_CODE_DIR}/retinanet-env && export CALIBRATION_DATA_DIR=${WORKLOAD_DATA}/openimages-calibration/train/data && export MODEL_CHECKPOINT=${WORKLOAD_DATA}/retinanet-model.pth && export CALIBRATION_ANNOTATIONS=${WORKLOAD_DATA}/openimages-calibration/annotations/openimages-mlperf-calibration.json && export DATA_DIR=${WORKLOAD_DATA}/openimages && export MODEL_PATH=${WORKLOAD_DATA}/retinanet-int8-model.pth  && cd /opt/workdir/code/retinanet/pytorch-cpu &&  pwd &&   bash run_server.sh  
+[2024-02-07 01:08:46,794][INFO] run.py:327  - Running compliance test: retinanet/pytorch-cpu/int8/Server/TEST05
+
+[2024-02-07 01:08:46,794][INFO] run.py:327  - Sleep 120 seconds.
+
+[2024-02-07 01:08:46,794][INFO] run.py:327  - Clearing cache and setting environment parameters...
+
+[2024-02-07 01:08:46,794][INFO] run.py:327  - [2024-02-06 17:08:46,793][INFO] common.py:17    - Executing bash commands: export CONTAINER_MODEL_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_DATA_DIR=/data/mlperf_data/retinanet/data && export CONTAINER_CODE_DIR=/opt/workdir/code/retinanet/pytorch-cpu && export CONTAINER_OUTPUT_DIR=/output && export MODEL=retinanet && export IMPL=pytorch-cpu && export DTYPE=int8 && export WORKLOAD_DATA=${CONTAINER_CODE_DIR}/data && export ENV_DEPS_DIR=${CONTAINER_CODE_DIR}/retinanet-env && export CALIBRATION_DATA_DIR=${WORKLOAD_DATA}/openimages-calibration/train/data && export MODEL_CHECKPOINT=${WORKLOAD_DATA}/retinanet-model.pth && export CALIBRATION_ANNOTATIONS=${WORKLOAD_DATA}/openimages-calibration/annotations/openimages-mlperf-calibration.json && export DATA_DIR=${WORKLOAD_DATA}/openimages && export MODEL_PATH=${WORKLOAD_DATA}/retinanet-int8-model.pth  && cd /opt/workdir/code/retinanet/pytorch-cpu &&  pwd &&   bash run_server.sh  
+
+[2024-02-07 01:08:47,992][INFO] run.py:327  - [W TensorShape.cpp:2894] Warning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (function operator())
+
+[2024-02-06 17:19:00,782][INFO] common.py:50    - Executing bash commands: python3 /opt/workdir/code/retinanet/pytorch-cpu/retinanet-env/mlperf_inference/compliance/nvidia/TEST05/run_verification.py -r /output/closed/Intel/results/1-node-2S-SPR-PyTorch-INT8/retinanet/Server -c /opt/workdir/code/retinanet/pytorch-cpu/ -o /output/closed/Intel/compliance/1-node-2S-SPR-PyTorch-INT8/retinanet/Server
+[2024-02-07 01:19:00,782][INFO] run.py:327  - >>> Verifying compliance TEST05 result.
+
+[2024-02-07 01:19:00,782][INFO] run.py:327  - [2024-02-06 17:19:00,782][INFO] common.py:50    - Executing bash commands: python3 /opt/workdir/code/retinanet/pytorch-cpu/retinanet-env/mlperf_inference/compliance/nvidia/TEST05/run_verification.py -r /output/closed/Intel/results/1-node-2S-SPR-PyTorch-INT8/retinanet/Server -c /opt/workdir/code/retinanet/pytorch-cpu/ -o /output/closed/Intel/compliance/1-node-2S-SPR-PyTorch-INT8/retinanet/Server
+
+[2024-02-07 01:19:00,963][INFO] run.py:327  - TEST FAIL: Reference results are invalid
+
+[2024-02-06 17:19:00,987][INFO] common.py:62    - stdout: Verifying performance.
+Parsing arguments.
+Performance check pass: False
+TEST05 verification complete
+
+[2024-02-06 17:19:00,987][INFO] common.py:63    - stderr: 
+[2024-02-06 17:19:00,988][INFO] common.py:69    - Successfully executed bash commands.
+[2024-02-07 01:19:00,988][INFO] run.py:327  - [2024-02-06 17:19:00,987][INFO] common.py:62    - stdout: Verifying performance.
+
+[2024-02-07 01:19:00,988][INFO] run.py:327  - Parsing arguments.
+
+[2024-02-07 01:19:00,988][INFO] run.py:327  - Performance check pass: False
+
+[2024-02-07 01:19:00,988][INFO] run.py:327  - TEST05 verification complete
+
+[2024-02-07 01:19:00,988][INFO] run.py:327  - 
+
+[2024-02-07 01:19:00,988][INFO] run.py:327  - [2024-02-06 17:19:00,987][INFO] common.py:63    - stderr: 
+
+[2024-02-07 01:19:00,988][INFO] run.py:327  - [2024-02-06 17:19:00,988][INFO] common.py:69    - Successfully executed bash commands.
+
+[2024-02-07 01:19:00,990][INFO] run.py:327  - Completed retinanet/pytorch-cpu/int8/Server/compliance.
+
+[2024-02-07 01:19:00,990][INFO] run.py:327  - Elapsed time: 1484.1359648704529 sec.
+
+[2024-02-19 16:12:52,915][INFO] submission_check.py:66    - Fetching MLPerf inference kit...
+[2024-02-19 16:12:52,915][INFO] common.py:50    - Executing bash commands: cd /tmp/mlperf/runtime; git clone --recurse-submodules https://github.com/mlcommons/inference.git
+[2024-02-19 16:14:13,740][INFO] common.py:62    - stdout: Submodule path 'language/bert/DeepLearningExamples': checked out 'b03375bd6c2c5233130e61a3be49e26d1a20ac7c'
+Submodule path 'language/bert/DeepLearningExamples/PyTorch/SpeechRecognition/Jasper/external/tensorrt-inference-server': checked out '71f0771cb8cb2a2eb1c6a9433f9a56dd1f206c96'
+Submodule path 'language/bert/DeepLearningExamples/PyTorch/Translation/Transformer/cutlass': checked out 'ed2ed4d667ce95e1371bd62db32b6a114e774336'
+Submodule path 'language/bert/DeepLearningExamples/PyTorch/Translation/Transformer/cutlass/tools/external/googletest': checked out '9077ec7efe5b652468ab051e93c67589d5cb8f85'
+Submodule path 'vision/medical_imaging/3d-unet-brats19/nnUnet': checked out 'b38c69b345b2f60cd0d053039669e8f988b0c0af'
+
+[2024-02-19 16:14:13,740][INFO] common.py:63    - stderr: 
+[2024-02-19 16:14:13,740][INFO] common.py:69    - Successfully executed bash commands.
+[2024-02-19 16:14:13,740][INFO] submission_check.py:72    - ----------------------------------------
+[2024-02-19 16:14:13,740][INFO] submission_check.py:73    - Truncating accuracy logs...
+[2024-02-19 16:14:13,740][INFO] submission_check.py:74    - ----------------------------------------
+[2024-02-19 16:14:13,740][INFO] common.py:50    - Executing bash commands: cd /tmp/mlperf/runtime/inference; python3 ./tools/submission/truncate_accuracy_log.py --input /home/albert/inference_results_v4.0/ --submitter Intel --output /tmp/0219
+[2024-02-19 16:14:13,802][INFO] common.py:62    - stdout: 
+[2024-02-19 16:14:13,803][INFO] common.py:63    - stderr: 
+[2024-02-19 16:14:13,803][INFO] common.py:69    - Successfully executed bash commands.
+[2024-02-19 16:14:13,803][INFO] submission_check.py:101   - Clearing historical logs...
+[2024-02-19 16:14:13,803][INFO] submission_check.py:105   - ----------------------------------------
+[2024-02-19 16:14:13,803][INFO] submission_check.py:106   - Performing submission checker...
+[2024-02-19 16:14:13,803][INFO] submission_check.py:107   - ----------------------------------------
+[2024-02-19 16:14:13,803][INFO] common.py:50    - Executing bash commands: cd /tmp/mlperf/runtime/inference; python3 ./tools/submission/submission_checker.py --input /tmp/0219 --submitter Intel --version v4.0
+[2024-02-19 16:14:13,903][INFO] common.py:62    - stdout: 
+[2024-02-19 16:14:13,903][INFO] common.py:63    - stderr: 
+[2024-02-19 16:14:13,903][INFO] common.py:69    - Successfully executed bash commands.
+[2024-02-19 16:17:18,034][WARNING] submission_check.py:55    - Output dir already existed: /tmp/0219
+[2024-02-19 16:17:18,035][INFO] submission_check.py:59    - Move the output dir to /tmp/0219_1708330638
+[2024-02-19 16:17:18,302][INFO] submission_check.py:66    - Fetching MLPerf inference kit...
+[2024-02-19 16:17:18,302][INFO] common.py:50    - Executing bash commands: cd /tmp/mlperf/runtime; git clone --recurse-submodules https://github.com/mlcommons/inference.git
+[2024-02-19 16:18:35,831][INFO] common.py:62    - stdout: Submodule path 'language/bert/DeepLearningExamples': checked out 'b03375bd6c2c5233130e61a3be49e26d1a20ac7c'
+Submodule path 'language/bert/DeepLearningExamples/PyTorch/SpeechRecognition/Jasper/external/tensorrt-inference-server': checked out '71f0771cb8cb2a2eb1c6a9433f9a56dd1f206c96'
+Submodule path 'language/bert/DeepLearningExamples/PyTorch/Translation/Transformer/cutlass': checked out 'ed2ed4d667ce95e1371bd62db32b6a114e774336'
+Submodule path 'language/bert/DeepLearningExamples/PyTorch/Translation/Transformer/cutlass/tools/external/googletest': checked out '9077ec7efe5b652468ab051e93c67589d5cb8f85'
+Submodule path 'vision/medical_imaging/3d-unet-brats19/nnUnet': checked out 'b38c69b345b2f60cd0d053039669e8f988b0c0af'
+
+[2024-02-19 16:18:35,832][INFO] common.py:63    - stderr: 
+[2024-02-19 16:18:35,832][INFO] common.py:69    - Successfully executed bash commands.
+[2024-02-19 16:18:35,832][INFO] submission_check.py:72    - ----------------------------------------
+[2024-02-19 16:18:35,832][INFO] submission_check.py:73    - Truncating accuracy logs...
+[2024-02-19 16:18:35,832][INFO] submission_check.py:74    - ----------------------------------------
+[2024-02-19 16:18:35,832][INFO] common.py:50    - Executing bash commands: cd /tmp/mlperf/runtime/inference; python3 ./tools/submission/truncate_accuracy_log.py --input /home/albert/inference_results_v4.0/ --submitter Intel --output /tmp/0219
+[2024-02-19 16:18:35,898][INFO] common.py:62    - stdout: 
+[2024-02-19 16:18:35,898][INFO] common.py:63    - stderr: 
+[2024-02-19 16:18:35,898][INFO] common.py:69    - Successfully executed bash commands.
+[2024-02-19 16:18:35,898][INFO] submission_check.py:101   - Clearing historical logs...
+[2024-02-19 16:18:35,898][INFO] submission_check.py:105   - ----------------------------------------
+[2024-02-19 16:18:35,898][INFO] submission_check.py:106   - Performing submission checker...
+[2024-02-19 16:18:35,898][INFO] submission_check.py:107   - ----------------------------------------
+[2024-02-19 16:18:35,898][INFO] common.py:50    - Executing bash commands: cd /tmp/mlperf/runtime/inference; python3 ./tools/submission/submission_checker.py --input /tmp/0219 --submitter Intel --version v4.0
+[2024-02-19 16:18:35,990][INFO] common.py:62    - stdout: 
+[2024-02-19 16:18:35,990][INFO] common.py:63    - stderr: 
+[2024-02-19 16:18:35,990][INFO] common.py:69    - Successfully executed bash commands.

@@ -1,0 +1,144 @@
+grep: power/server-2706260181c0.cfg: No such file or directory
+grep: power/server-2706260181c0.cfg: No such file or directory
+[2024-02-19 15:48:06,371 main.py:230 INFO] Detected system ID: KnownSystem.phoenix
+[2024-02-19 15:48:06,410 harness.py:238 INFO] The harness will load 1 plugins: ['build/plugins/../TRTLLM/cpp/build/tensorrt_llm/plugins/libnvinfer_plugin.so']
+[2024-02-19 15:48:06,410 generate_conf_files.py:107 INFO] Generated measurements/ entries for phoenix_TRT/gptj-99/SingleStream
+[2024-02-19 15:48:06,410 __init__.py:46 INFO] Running command: ./build/bin/harness_gpt --plugins="build/plugins/../TRTLLM/cpp/build/tensorrt_llm/plugins/libnvinfer_plugin.so" --logfile_outdir="/home/cmuser/local/cache/f4ba7328d7f447f9/valid_results/2706260181c0-nvidia_original-gpu-tensorrt-vdefault-default_config/gptj-99/singlestream/performance/run_1" --logfile_prefix="mlperf_log_" --performance_sample_count=13368 --test_mode="PerformanceOnly" --gpu_batch_size=1 --mlperf_conf_path="/home/cmuser/CM/repos/local/cache/94cf04c8097b4057/inference/mlperf.conf" --tensor_path="build/preprocessed_data/cnn_dailymail_tokenized_gptj/input_ids_padded.npy,build/preprocessed_data/cnn_dailymail_tokenized_gptj/masked_tokens.npy,build/preprocessed_data/cnn_dailymail_tokenized_gptj/input_lengths.npy" --use_graphs=false --user_conf_path="/home/cmuser/CM/repos/ctuning@mlcommons-ck/cm-mlops/script/generate-mlperf-inference-user-conf/tmp/aebf8724e37b471d9ade56ecdea01b3e.conf" --use_fp8=true --gpu_inference_streams=1 --gpu_copy_streams=1 --tensor_parallelism=1 --enable_sort=true --num_sort_segments=2 --gpu_engines="./build/engines/phoenix/gptj/SingleStream/gptj-SingleStream-gpu-b1-fp16.custom_k_99_MaxP.plan" --scenario SingleStream --model gptj
+[2024-02-19 15:48:06,410 __init__.py:53 INFO] Overriding Environment
+benchmark : Benchmark.GPTJ
+buffer_manager_thread_count : 0
+coalesced_tensor : True
+data_dir : /home/cmuser/local/cache/6057f3cefd9041b3/data
+enable_sort : True
+gpu_batch_size : 1
+gpu_copy_streams : 1
+gpu_inference_streams : 1
+input_dtype : int32
+input_format : linear
+log_dir : /home/cmuser/CM/repos/local/cache/8eb0c2732f244924/repo/closed/NVIDIA/build/logs/2024.02.19-15.48.05
+mlperf_conf_path : /home/cmuser/CM/repos/local/cache/94cf04c8097b4057/inference/mlperf.conf
+num_sort_segments : 2
+precision : fp16
+preprocessed_data_dir : /home/cmuser/local/cache/6057f3cefd9041b3/preprocessed_data
+scenario : Scenario.SingleStream
+single_stream_expected_latency_ns : 0
+system : SystemConfiguration(host_cpu_conf=CPUConfiguration(layout={CPU(name='AMD Ryzen 9 7950X 16-Core Processor', architecture=<CPUArchitecture.x86_64: AliasedName(name='x86_64', aliases=(), patterns=())>, core_count=16, threads_per_core=2): 1}), host_mem_conf=MemoryConfiguration(host_memory_capacity=Memory(quantity=131.07376399999998, byte_suffix=<ByteSuffix.GB: (1000, 3)>, _num_bytes=131073764000), comparison_tolerance=0.05), accelerator_conf=AcceleratorConfiguration(layout=defaultdict(<class 'int'>, {GPU(name='NVIDIA GeForce RTX 4090', accelerator_type=<AcceleratorType.Discrete: AliasedName(name='Discrete', aliases=(), patterns=())>, vram=Memory(quantity=23.98828125, byte_suffix=<ByteSuffix.GiB: (1024, 3)>, _num_bytes=25757220864), max_power_limit=450.0, pci_id='0x268410DE', compute_sm=89): 1})), numa_conf=None, system_id='phoenix')
+tensor_parallelism : 1
+tensor_path : build/preprocessed_data/cnn_dailymail_tokenized_gptj/input_ids_padded.npy,build/preprocessed_data/cnn_dailymail_tokenized_gptj/masked_tokens.npy,build/preprocessed_data/cnn_dailymail_tokenized_gptj/input_lengths.npy
+test_mode : PerformanceOnly
+use_fp8 : True
+use_graphs : False
+user_conf_path : /home/cmuser/CM/repos/ctuning@mlcommons-ck/cm-mlops/script/generate-mlperf-inference-user-conf/tmp/aebf8724e37b471d9ade56ecdea01b3e.conf
+system_id : phoenix
+config_name : phoenix_gptj_SingleStream
+workload_setting : WorkloadSetting(HarnessType.Custom, AccuracyTarget.k_99, PowerSetting.MaxP)
+optimization_level : plugin-enabled
+use_cpu : False
+use_inferentia : False
+num_profiles : 1
+config_ver : custom_k_99_MaxP
+accuracy_level : 99%
+inference_server : custom
+skip_file_checks : False
+power_limit : None
+cpu_freq : None
+&&&& RUNNING GPT_HARNESS # ./build/bin/harness_gpt
+[I] Loading plugin: build/plugins/../TRTLLM/cpp/build/tensorrt_llm/plugins/libnvinfer_plugin.so
+I0219 15:48:06.781702 151192 main_gpt.cc:122] Found 1 GPUs
+I0219 15:48:06.967392 151192 gpt_server.cc:215] Loading 1 engine(s)
+I0219 15:48:06.967412 151192 gpt_server.cc:218] Engine Path: ./build/engines/phoenix/gptj/SingleStream/gptj-SingleStream-gpu-b1-fp16.custom_k_99_MaxP.plan
+[I] [TRT] Loaded engine size: 6174 MiB
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +6, GPU +10, now: CPU 18167, GPU 6977 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +2, GPU +10, now: CPU 18169, GPU 6987 (MiB)
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +6165, now: CPU 0, GPU 6165 (MiB)
+I0219 15:48:14.396103 151192 gpt_server.cc:290] Engines Deserialization Completed
+I0219 15:48:14.782197 151192 gpt_core.cc:64] GPTCore 0: MPI Rank - 0 at Device Id - 0
+I0219 15:48:14.782281 151192 gpt_core.cc:262] Engine - Vocab size: 50401 Padded vocab size: 50401 Beam width: 4
+I0219 15:48:14.782511 151192 gpt_core.cc:90] Engine - Device Memory requirements: 235810304
+I0219 15:48:14.782517 151192 gpt_core.cc:99] Engine - Total Number of Optimization Profiles: 2
+I0219 15:48:14.782519 151192 gpt_core.cc:100] Engine - Number of Optimization Profiles Per Core: 2
+I0219 15:48:14.782522 151192 gpt_core.cc:101] Engine - Start Index of Optimization Profiles: 0
+[I] [TRT] [MS] Running engine with multi stream info
+[I] [TRT] [MS] Number of aux streams is 1
+[I] [TRT] [MS] Number of total worker streams is 2
+[I] [TRT] [MS] The main stream provided by execute/enqueue calls is the first worker stream
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +8, now: CPU 5832, GPU 7213 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +8, now: CPU 5832, GPU 7221 (MiB)
+I0219 15:48:15.499504 151192 gpt_core.cc:115] Setting Opt.Prof. to 0
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +0, now: CPU 0, GPU 6165 (MiB)
+[I] [TRT] [MS] Running engine with multi stream info
+[I] [TRT] [MS] Number of aux streams is 1
+[I] [TRT] [MS] Number of total worker streams is 2
+[I] [TRT] [MS] The main stream provided by execute/enqueue calls is the first worker stream
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +8, now: CPU 5921, GPU 7251 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +1, GPU +12, now: CPU 5922, GPU 7263 (MiB)
+I0219 15:48:15.785120 151192 gpt_core.cc:115] Setting Opt.Prof. to 1
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +0, now: CPU 0, GPU 6165 (MiB)
+[I] [TRT] Switching optimization profile from: 0 to 1. Please ensure there are no enqueued operations pending in this context prior to switching profiles
+I0219 15:48:15.786906 151192 gpt_core.cc:144] Setup complete
+I0219 15:48:15.786913 151192 gpt_core.cc:1026] Device 0: Warm up bypassed.
+I0219 15:48:15.786967 151192 main_gpt.cc:237] Starting running actual test.
+I0219 18:45:15.339653 151192 main_gpt.cc:241] Finished running actual test.
+================================================
+MLPerf Results Summary
+================================================
+SUT name : GPT SERVER MAIN
+Scenario : SingleStream
+Mode     : PerformanceOnly
+90th percentile latency (ns) : 1193853510
+Result is : VALID
+  Min duration satisfied : Yes
+  Min queries satisfied : Yes
+  Early stopping satisfied: Yes
+Early Stopping Result:
+ * Processed at least 64 queries (13368).
+ * Would discard 1255 highest latency queries.
+ * Early stopping 90th percentile estimate: 1204261990
+ * Early stopping 99th percentile estimate: 1383830322
+
+================================================
+Additional Stats
+================================================
+QPS w/ loadgen overhead         : 1.26
+QPS w/o loadgen overhead        : 1.26
+
+Min latency (ns)                : 263545445
+Max latency (ns)                : 1385505283
+Mean latency (ns)               : 794367193
+50.00 percentile latency (ns)   : 747800548
+90.00 percentile latency (ns)   : 1193853510
+95.00 percentile latency (ns)   : 1278658212
+97.00 percentile latency (ns)   : 1332350070
+99.00 percentile latency (ns)   : 1383610365
+99.90 percentile latency (ns)   : 1384736165
+
+================================================
+Test Parameters Used
+================================================
+samples_per_query : 1
+target_qps : 1
+target_latency (ns): 0
+max_async_queries : 1
+min_duration (ms): 600000
+max_duration (ms): 0
+min_query_count : 13368
+max_query_count : 0
+qsl_rng_seed : 13281865557512327830
+sample_index_rng_seed : 198141574272810017
+schedule_rng_seed : 7575108116881280410
+accuracy_log_rng_seed : 0
+accuracy_log_probability : 0
+accuracy_log_sampling_target : 0
+print_timestamps : 0
+performance_issue_unique : 0
+performance_issue_same : 0
+performance_issue_same_index : 0
+performance_sample_count : 13368
+
+No warnings encountered during test.
+
+No errors encountered during test.
+[2024-02-19 18:45:15,923 run_harness.py:170 INFO] Result: result_90.00_percentile_latency_ns: 1193853510, Result is VALID
+ 
+======================== Result summaries: ========================
+

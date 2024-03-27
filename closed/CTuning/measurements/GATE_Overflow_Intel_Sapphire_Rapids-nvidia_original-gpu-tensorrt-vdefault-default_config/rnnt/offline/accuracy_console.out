@@ -1,0 +1,203 @@
+[2024-02-16 04:45:31,637 main.py:230 INFO] Detected system ID: KnownSystem.spr
+[2024-02-16 04:45:31,778 harness.py:238 INFO] The harness will load 1 plugins: ['build/plugins/RNNTOptPlugin/librnntoptplugin.so']
+[2024-02-16 04:45:31,778 generate_conf_files.py:107 INFO] Generated measurements/ entries for spr_TRT/rnnt/Offline
+[2024-02-16 04:45:31,778 __init__.py:46 INFO] Running command: ./build/bin/harness_rnnt --plugins="build/plugins/RNNTOptPlugin/librnntoptplugin.so" --logfile_outdir="/home/cmuser/local/cache/f88c69500c934b67/valid_results/e7848e83534a-nvidia_original-gpu-tensorrt-vdefault-default_config/rnnt/offline/accuracy" --logfile_prefix="mlperf_log_" --performance_sample_count=2513 --test_mode="AccuracyOnly" --audio_batch_size=512 --audio_buffer_num_lines=4096 --dali_batches_issue_ahead=4 --dali_pipeline_depth=4 --num_warmups=512 --mlperf_conf_path="/home/cmuser/CM/repos/local/cache/30a1e017eddd4007/inference/mlperf.conf" --user_conf_path="/home/cmuser/CM/repos/ctuning@mlcommons-ck/cm-mlops/script/generate-mlperf-inference-user-conf/tmp/0ceaedc7aba143e8b28134e01ba1a733.conf" --batch_size=2048 --cuda_graph=true --pipelined_execution=true --batch_sorting=true --enable_audio_processing=true --use_copy_kernel=true --streams_per_gpu=1 --audio_fp16_input=true --start_from_device=false --audio_serialized_pipeline_file="build/bin/dali/dali_pipeline_gpu_fp16.pth" --scenario Offline --model rnnt --engine_dir="./build/engines/spr/rnnt/Offline"
+[2024-02-16 04:45:31,779 __init__.py:53 INFO] Overriding Environment
+audio_batch_size : 512
+audio_buffer_num_lines : 4096
+benchmark : Benchmark.RNNT
+buffer_manager_thread_count : 0
+dali_batches_issue_ahead : 4
+dali_pipeline_depth : 4
+data_dir : /home/cmuser/local/cache/b1f8faeaa7384886/data
+gpu_batch_size : 2048
+gpu_copy_streams : 1
+gpu_inference_streams : 1
+input_dtype : fp16
+input_format : linear
+log_dir : /home/cmuser/CM/repos/local/cache/8fc141ed37f54f54/repo/closed/NVIDIA/build/logs/2024.02.16-04.45.30
+map_path : data_maps/rnnt_dev_clean_512/val_map.txt
+mlperf_conf_path : /home/cmuser/CM/repos/local/cache/30a1e017eddd4007/inference/mlperf.conf
+num_warmups : 512
+offline_expected_qps : 0.0
+precision : fp16
+preprocessed_data_dir : /home/cmuser/local/cache/b1f8faeaa7384886/preprocessed_data
+scenario : Scenario.Offline
+system : SystemConfiguration(host_cpu_conf=CPUConfiguration(layout={CPU(name='Intel(R) Xeon(R) w7-2495X', architecture=<CPUArchitecture.x86_64: AliasedName(name='x86_64', aliases=(), patterns=())>, core_count=24, threads_per_core=2): 1}), host_mem_conf=MemoryConfiguration(host_memory_capacity=Memory(quantity=197.33004, byte_suffix=<ByteSuffix.GB: (1000, 3)>, _num_bytes=197330040000), comparison_tolerance=0.05), accelerator_conf=AcceleratorConfiguration(layout=defaultdict(<class 'int'>, {GPU(name='NVIDIA GeForce RTX 4090', accelerator_type=<AcceleratorType.Discrete: AliasedName(name='Discrete', aliases=(), patterns=())>, vram=Memory(quantity=23.98828125, byte_suffix=<ByteSuffix.GiB: (1024, 3)>, _num_bytes=25757220864), max_power_limit=450.0, pci_id='0x268410DE', compute_sm=89): 2})), numa_conf=None, system_id='spr')
+tensor_path : build/preprocessed_data/rnnt_dev_clean_512/fp16
+test_mode : AccuracyOnly
+use_graphs : True
+user_conf_path : /home/cmuser/CM/repos/ctuning@mlcommons-ck/cm-mlops/script/generate-mlperf-inference-user-conf/tmp/0ceaedc7aba143e8b28134e01ba1a733.conf
+system_id : spr
+config_name : spr_rnnt_Offline
+workload_setting : WorkloadSetting(HarnessType.Custom, AccuracyTarget.k_99, PowerSetting.MaxP)
+optimization_level : plugin-enabled
+use_cpu : False
+use_inferentia : False
+num_profiles : 1
+config_ver : custom_k_99_MaxP
+accuracy_level : 99%
+inference_server : custom
+skip_file_checks : False
+power_limit : None
+cpu_freq : None
+&&&& RUNNING RNN-T_Harness # ./build/bin/harness_rnnt
+I0216 04:45:31.830394 510464 main_rnnt.cc:2903] Found 2 GPUs
+[I] Starting creating QSL.
+[I] Finished creating QSL.
+[I] Starting creating SUT.
+[I] Set to device 0
+Dali pipeline creating..
+Dali pipeline created
+[I] Creating stream 0/1
+[I] [TRT] Loaded engine size: 81 MiB
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +6, GPU +10, now: CPU 204, GPU 3709 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +2, GPU +10, now: CPU 206, GPU 3719 (MiB)
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +0, now: CPU 0, GPU 0 (MiB)
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +8, now: CPU 206, GPU 3769 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +8, now: CPU 206, GPU 3777 (MiB)
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +4174, now: CPU 0, GPU 4174 (MiB)
+[E] [TRT] 3: [runtime.cpp::~Runtime::399] Error Code 3: API Usage Error (Parameter check failed at: runtime/rt/runtime.cpp::~Runtime::399, condition: mEngineCounter.use_count() == 1. Destroying a runtime before destroying deserialized engines created by the runtime leads to undefined behavior.
+)
+[I] Created RnntEncoder runner: encoder
+[I] [TRT] Loaded engine size: 3 MiB
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +1, GPU +8, now: CPU 213, GPU 7961 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +10, now: CPU 213, GPU 7971 (MiB)
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +0, now: CPU 0, GPU 4174 (MiB)
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +8, now: CPU 213, GPU 7975 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +8, now: CPU 213, GPU 7983 (MiB)
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +18, now: CPU 0, GPU 4192 (MiB)
+[E] [TRT] 3: [runtime.cpp::~Runtime::399] Error Code 3: API Usage Error (Parameter check failed at: runtime/rt/runtime.cpp::~Runtime::399, condition: mEngineCounter.use_count() == 1. Destroying a runtime before destroying deserialized engines created by the runtime leads to undefined behavior.
+)
+[I] Created RnntDecoder runner: decoder
+[I] [TRT] Loaded engine size: 1 MiB
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +1, now: CPU 0, GPU 4193 (MiB)
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +0, now: CPU 0, GPU 4193 (MiB)
+[E] [TRT] 3: [runtime.cpp::~Runtime::399] Error Code 3: API Usage Error (Parameter check failed at: runtime/rt/runtime.cpp::~Runtime::399, condition: mEngineCounter.use_count() == 1. Destroying a runtime before destroying deserialized engines created by the runtime leads to undefined behavior.
+)
+[I] Created RnntJointFc1 runner: fc1_a
+[I] [TRT] Loaded engine size: 0 MiB
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +1, now: CPU 0, GPU 4194 (MiB)
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +0, now: CPU 0, GPU 4194 (MiB)
+[E] [TRT] 3: [runtime.cpp::~Runtime::399] Error Code 3: API Usage Error (Parameter check failed at: runtime/rt/runtime.cpp::~Runtime::399, condition: mEngineCounter.use_count() == 1. Destroying a runtime before destroying deserialized engines created by the runtime leads to undefined behavior.
+)
+[I] Created RnntJointFc1 runner: fc1_b
+[I] [TRT] Loaded engine size: 0 MiB
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +0, now: CPU 0, GPU 4194 (MiB)
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +2, now: CPU 0, GPU 4196 (MiB)
+[E] [TRT] 3: [runtime.cpp::~Runtime::399] Error Code 3: API Usage Error (Parameter check failed at: runtime/rt/runtime.cpp::~Runtime::399, condition: mEngineCounter.use_count() == 1. Destroying a runtime before destroying deserialized engines created by the runtime leads to undefined behavior.
+)
+[I] Created RnntJointBackend runner: joint_backend
+[I] [TRT] Loaded engine size: 0 MiB
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +8, now: CPU 214, GPU 8019 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +1, GPU +10, now: CPU 215, GPU 8029 (MiB)
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +0, now: CPU 0, GPU 4196 (MiB)
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +1, GPU +8, now: CPU 215, GPU 8021 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +8, now: CPU 215, GPU 8029 (MiB)
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +0, now: CPU 0, GPU 4196 (MiB)
+[E] [TRT] 3: [runtime.cpp::~Runtime::399] Error Code 3: API Usage Error (Parameter check failed at: runtime/rt/runtime.cpp::~Runtime::399, condition: mEngineCounter.use_count() == 1. Destroying a runtime before destroying deserialized engines created by the runtime leads to undefined behavior.
+)
+[I] Created RnntIsel runner: isel
+[I] [TRT] Loaded engine size: 0 MiB
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +0, now: CPU 0, GPU 4196 (MiB)
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +0, now: CPU 0, GPU 4196 (MiB)
+[E] [TRT] 3: [runtime.cpp::~Runtime::399] Error Code 3: API Usage Error (Parameter check failed at: runtime/rt/runtime.cpp::~Runtime::399, condition: mEngineCounter.use_count() == 1. Destroying a runtime before destroying deserialized engines created by the runtime leads to undefined behavior.
+)
+[I] Created RnntIgather runner: igather
+[I] Instantiated RnntEngineContainer runner
+cudaMemcpy blocking 
+cudaMemcpy blocking 
+[I] Instantiated RnntTensorContainer host memory
+Stream::Stream sampleSize: 61440
+Stream::Stream singleSampleSize: 480
+Stream::Stream fullseqSampleSize: 61440
+Stream::Stream mBatchSize: 2048
+[I] Set to device 1
+Dali pipeline creating..
+Dali pipeline created
+[I] Creating stream 0/1
+[I] [TRT] Loaded engine size: 81 MiB
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +6, GPU +10, now: CPU 572, GPU 3417 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +1, GPU +10, now: CPU 573, GPU 3427 (MiB)
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +0, now: CPU 0, GPU 4196 (MiB)
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +8, now: CPU 574, GPU 3477 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +8, now: CPU 574, GPU 3485 (MiB)
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +4174, now: CPU 0, GPU 8370 (MiB)
+[E] [TRT] 3: [runtime.cpp::~Runtime::399] Error Code 3: API Usage Error (Parameter check failed at: runtime/rt/runtime.cpp::~Runtime::399, condition: mEngineCounter.use_count() == 1. Destroying a runtime before destroying deserialized engines created by the runtime leads to undefined behavior.
+)
+[I] Created RnntEncoder runner: encoder
+[I] [TRT] Loaded engine size: 3 MiB
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +8, now: CPU 580, GPU 7669 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +10, now: CPU 580, GPU 7679 (MiB)
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +0, now: CPU 0, GPU 8370 (MiB)
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +8, now: CPU 580, GPU 7683 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +1, GPU +8, now: CPU 581, GPU 7691 (MiB)
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +19, now: CPU 0, GPU 8389 (MiB)
+[E] [TRT] 3: [runtime.cpp::~Runtime::399] Error Code 3: API Usage Error (Parameter check failed at: runtime/rt/runtime.cpp::~Runtime::399, condition: mEngineCounter.use_count() == 1. Destroying a runtime before destroying deserialized engines created by the runtime leads to undefined behavior.
+)
+[I] Created RnntDecoder runner: decoder
+[I] [TRT] Loaded engine size: 1 MiB
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +1, now: CPU 0, GPU 8390 (MiB)
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +0, now: CPU 0, GPU 8390 (MiB)
+[E] [TRT] 3: [runtime.cpp::~Runtime::399] Error Code 3: API Usage Error (Parameter check failed at: runtime/rt/runtime.cpp::~Runtime::399, condition: mEngineCounter.use_count() == 1. Destroying a runtime before destroying deserialized engines created by the runtime leads to undefined behavior.
+)
+[I] Created RnntJointFc1 runner: fc1_a
+[I] [TRT] Loaded engine size: 0 MiB
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +0, now: CPU 0, GPU 8390 (MiB)
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +0, now: CPU 0, GPU 8390 (MiB)
+[E] [TRT] 3: [runtime.cpp::~Runtime::399] Error Code 3: API Usage Error (Parameter check failed at: runtime/rt/runtime.cpp::~Runtime::399, condition: mEngineCounter.use_count() == 1. Destroying a runtime before destroying deserialized engines created by the runtime leads to undefined behavior.
+)
+[I] Created RnntJointFc1 runner: fc1_b
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[I] [TRT] Loaded engine size: 0 MiB
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +0, now: CPU 0, GPU 8390 (MiB)
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +2, now: CPU 0, GPU 8392 (MiB)
+[E] [TRT] 3: [runtime.cpp::~Runtime::399] Error Code 3: API Usage Error (Parameter check failed at: runtime/rt/runtime.cpp::~Runtime::399, condition: mEngineCounter.use_count() == 1. Destroying a runtime before destroying deserialized engines created by the runtime leads to undefined behavior.
+)
+[I] Created RnntJointBackend runner: joint_backend
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[I] [TRT] Loaded engine size: 0 MiB
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +8, now: CPU 582, GPU 7727 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +10, now: CPU 582, GPU 7737 (MiB)
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +0, now: CPU 0, GPU 8392 (MiB)
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +8, now: CPU 582, GPU 7729 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +8, now: CPU 582, GPU 7737 (MiB)
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +0, now: CPU 0, GPU 8392 (MiB)
+[E] [TRT] 3: [runtime.cpp::~Runtime::399] Error Code 3: API Usage Error (Parameter check failed at: runtime/rt/runtime.cpp::~Runtime::399, condition: mEngineCounter.use_count() == 1. Destroying a runtime before destroying deserialized engines created by the runtime leads to undefined behavior.
+)
+[I] Created RnntIsel runner: isel
+[I] [TRT] Loaded engine size: 0 MiB
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +0, now: CPU 0, GPU 8392 (MiB)
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +0, now: CPU 0, GPU 8392 (MiB)
+[E] [TRT] 3: [runtime.cpp::~Runtime::399] Error Code 3: API Usage Error (Parameter check failed at: runtime/rt/runtime.cpp::~Runtime::399, condition: mEngineCounter.use_count() == 1. Destroying a runtime before destroying deserialized engines created by the runtime leads to undefined behavior.
+)
+[I] Created RnntIgather runner: igather
+[I] Instantiated RnntEngineContainer runner
+cudaMemcpy blocking 
+cudaMemcpy blocking 
+[I] Instantiated RnntTensorContainer host memory
+Stream::Stream sampleSize: 61440
+Stream::Stream singleSampleSize: 480
+Stream::Stream fullseqSampleSize: 61440
+Stream::Stream mBatchSize: 2048
+[I] Finished creating SUT.
+[I] Starting warming up SUT.
+[I] Finished warming up SUT.
+[I] Starting running actual test.
+
+2 warnings encountered. See detailed log.
+
+No errors encountered during test.
+[I] Finished running actual test.
+&&&& PASSED RNN-T_Harness # ./build/bin/harness_rnnt
+[2024-02-16 04:45:36,651 run_harness.py:170 INFO] Result: Accuracy run detected.
+[2024-02-16 04:45:36,652 __init__.py:46 INFO] Running command: PYTHONPATH=/home/cmuser/CM/repos/local/cache/8fc141ed37f54f54/repo/closed/NVIDIA:/home/cmuser/CM/repos/local/cache/30a1e017eddd4007/inference/vision/classification_and_detection/python:/home/cmuser/CM/repos/local/cache/30a1e017eddd4007/inference/tools/submission:/home/cmuser/CM/repos/ctuning@mlcommons-ck/cm-mlops/script/get-mlperf-inference-utils:/usr/lib/python38.zip:/usr/lib/python3.8:/usr/lib/python3.8/lib-dynload:/home/cmuser/.local/lib/python3.8/site-packages:/usr/local/lib/python3.8/dist-packages:/usr/lib/python3/dist-packages:/usr/lib/python3.8/dist-packages python3 -S /home/cmuser/CM/repos/local/cache/8fc141ed37f54f54/repo/closed/NVIDIA/build/inference/speech_recognition/rnnt/accuracy_eval.py --log_dir /home/cmuser/local/cache/f88c69500c934b67/valid_results/e7848e83534a-nvidia_original-gpu-tensorrt-vdefault-default_config/rnnt/offline/accuracy --dataset_dir build/preprocessed_data/LibriSpeech/dev-clean-wav --manifest build/preprocessed_data/LibriSpeech/dev-clean-wav.json --output_dtype int8
+Word Error Rate: 7.4477440303050795%, accuracy=92.55225596969493%
+ 
+======================== Result summaries: ========================
+

@@ -1,0 +1,83 @@
+# Generated file by scripts/custom_systems/add_custom_system.py
+# Contains configs for all custom systems in code/common/systems/custom_list.py
+
+from . import *
+
+
+#@ConfigRegistry.register(HarnessType.Custom, AccuracyTarget.k_99, PowerSetting.MaxP)
+#class HPE_ProLiant_DL380a_Gen11_H100_PCIe_80GBx4(OfflineGPUBaseConfig):
+#    system = KnownSystem.HPE_ProLiant_DL380a_Gen11_H100_PCIe_80GBx4
+#    use_small_tile_gemm_plugin = False
+#    enable_interleaved = False
+#    gpu_batch_size = 1280
+#    offline_expected_qps = 5700*4
+#    workspace_size = 7516192768
+
+#@ConfigRegistry.register(HarnessType.Custom, AccuracyTarget.k_99_9, PowerSetting.MaxP)
+#class HPE_ProLiant_DL380a_Gen11_H100_PCIe_80GBx4_HighAccuracy(HPE_ProLiant_DL380a_Gen11_H100_PCIe_80GBx4):
+#    precision = "fp16"
+#    use_fp8 = True
+#    offline_expected_qps = 5000*4
+#    use_graphs = False
+#    gpu_batch_size = 1024
+
+
+#@ConfigRegistry.register(HarnessType.Custom, AccuracyTarget.k_99, PowerSetting.MaxP)
+#class L40x1(OfflineGPUBaseConfig):
+#    system = KnownSystem.L40x1
+#    use_small_tile_gemm_plugin = True
+#    gpu_batch_size = 1024
+#    offline_expected_qps = 3400
+#    workspace_size = 7516192768
+
+############# RESNET50 #############
+#@ConfigRegistry.register(HarnessType.LWIS, AccuracyTarget.k_99, PowerSetting.MaxP)
+#class HPE_ProLiant_DL380a_L40S_PCIe_48GBx4(OfflineGPUBaseConfig):
+#    system = KnownSystem.HPE_ProLiant_DL380a_L40S_PCIe_48GBx4
+#    gpu_batch_size = 64*2
+#    gpu_inference_streams = 1*4
+#    gpu_copy_streams = 2*4
+#    offline_expected_qps = 40000*4
+############# RESNET50 #############
+
+
+@ConfigRegistry.register(HarnessType.Custom, AccuracyTarget.k_99, PowerSetting.MaxP)
+class L40Sx1(OfflineGPUBaseConfig):
+    system = KnownSystem.L40Sx1
+    use_small_tile_gemm_plugin = True
+    gpu_batch_size = 32
+    offline_expected_qps = 3400
+    workspace_size = 7516192768
+
+
+@ConfigRegistry.register(HarnessType.Custom, AccuracyTarget.k_99, PowerSetting.MaxP)
+class HPE_ProLiant_DL380a_L40S_PCIe_48GBx4(OfflineGPUBaseConfig):
+    system = KnownSystem.HPE_ProLiant_DL380a_L40S_PCIe_48GBx4
+    use_small_tile_gemm_plugin = True
+    gpu_batch_size = 32
+    offline_expected_qps = 3400*4
+    workspace_size = 7516192768*4
+
+
+
+#@ConfigRegistry.register(HarnessType.Custom, AccuracyTarget.k_99_9, PowerSetting.MaxP)
+#class L40x1_HighAccuracy(L40x1):
+#    precision = "fp16"
+#    offline_expected_qps = 1750
+
+@ConfigRegistry.register(HarnessType.Custom, AccuracyTarget.k_99_9, PowerSetting.MaxP)
+class L40Sx1_HighAccuracy(OfflineGPUBaseConfig):
+    system = KnownSystem.L40Sx1
+    precision = "fp16"
+    use_fp8 = True
+    offline_expected_qps = 3300
+    gpu_batch_size = 32
+
+@ConfigRegistry.register(HarnessType.Custom, AccuracyTarget.k_99_9, PowerSetting.MaxP)
+class KnownSystem.HPE_ProLiant_DL380a_L40S_PCIe_48GBx4_HighAccuracy(OfflineGPUBaseConfig):
+    system = KnownSystem.KnownSystem.HPE_ProLiant_DL380a_L40S_PCIe_48GBx4
+    precision = "fp16"
+    use_fp8 = True
+    offline_expected_qps = 3300*4
+    gpu_batch_size = 32
+

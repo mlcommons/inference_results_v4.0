@@ -1,0 +1,23 @@
+Graph file: /home/ubuntu/CM/repos/local/cache/200bc14c9e174c9e/efficientnet-lite0/efficientnet-lite0-fp32.tflite
+Image dir: /home/ubuntu/CM/repos/local/cache/fa8fa22dc90c4a92
+Image list: /home/ubuntu/CM/repos/local/cache/fa8fa22dc90c4a92/preprocessed_files.txt
+Image size: 224
+Image channels: 3
+Prediction classes: 1000
+Result dir: /home/ubuntu/CM/repos/local/cache/0d27aeefb8a44716/valid_results/t2.xlarge-tflite_cpp-cpu-tflite-vmaster-with_live_preprocessing/efficientnet-fp32-lite0/singlestream/performance/run_1
+How many images fit in memory buffer: 1024
+Normalize: 1
+Subtract mean: 0
+Run time preprocessing: 1
+Number of Threads: 4
+Number of available imagefiles: 50000
+
+Loading graph...
+INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+Input tensor dimensions (NHWC): 1*224*224*3
+Output tensor dimensions: 1*1000
+Path to mlperf.conf : /home/ubuntu/CM/repos/local/cache/b04c5c62d3014951/inference/mlperf.conf
+Path to user.conf : /home/ubuntu/CM/repos/ctuning@mlcommons-ck/cm-mlops/script/generate-mlperf-inference-user-conf/tmp/37dcee7a637c40359e1d56c428b1615b.conf
+Model Name: efficientnet
+LoadGen Scenario: SingleStream
+LoadGen Mode: performance

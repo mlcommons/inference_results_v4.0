@@ -1,0 +1,10 @@
+# The format of this config file is 'key = value'.
+# The key has the format 'model.scenario.key'. Value is mostly int64_t.
+# Model maybe '*' as wildcard. In that case the value applies to all models.
+# All times are in milli seconds
+#
+llama2-70b.Server.target_qps = 8.0
+#llama2-70b.Server.min_duration = 600000
+#llama2-70b.Server.max_duration = 600000
+
+llama2-70b.Server.sample_concatenate_permutation = 1

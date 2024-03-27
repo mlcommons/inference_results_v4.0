@@ -1,0 +1,143 @@
+[2024-02-22 16:11:48,460 main.py:230 INFO] Detected system ID: KnownSystem.spr
+[2024-02-22 16:11:48,561 harness.py:238 INFO] The harness will load 2 plugins: ['build/plugins/NMSOptPlugin/libnmsoptplugin.so', 'build/plugins/retinanetConcatPlugin/libretinanetconcatplugin.so']
+[2024-02-22 16:11:48,561 generate_conf_files.py:107 INFO] Generated measurements/ entries for spr_TRT/retinanet/Server
+[2024-02-22 16:11:48,562 harness.py:315 INFO] Updated LD_PRELOAD: /usr/lib/x86_64-linux-gnu/libjemalloc.so.2
+[2024-02-22 16:11:48,562 __init__.py:46 INFO] Running command: ./build/bin/harness_default --plugins="build/plugins/NMSOptPlugin/libnmsoptplugin.so,build/plugins/retinanetConcatPlugin/libretinanetconcatplugin.so" --logfile_outdir="/home/cmuser/local/cache/f88c69500c934b67/valid_results/e7848e83534a-nvidia_original-gpu-tensorrt-vdefault-default_config/retinanet/server/accuracy" --logfile_prefix="mlperf_log_" --performance_sample_count=64 --test_mode="AccuracyOnly" --gpu_copy_streams=2 --gpu_inference_streams=2 --use_cuda_thread_per_device=true --gpu_batch_size=8 --map_path="data_maps/open-images-v6-mlperf/val_map.txt" --mlperf_conf_path="/home/cmuser/CM/repos/local/cache/30a1e017eddd4007/inference/mlperf.conf" --tensor_path="build/preprocessed_data/open-images-v6-mlperf/validation/Retinanet/int8_linear" --use_graphs=false --user_conf_path="/home/cmuser/CM/repos/ctuning@mlcommons-ck/cm-mlops/script/generate-mlperf-inference-user-conf/tmp/298b11aa84274307ba8a7d2419c47326.conf" --gpu_engines="./build/engines/spr/retinanet/Server/retinanet-Server-gpu-b8-int8.lwis_k_99_MaxP.plan" --max_dlas=0 --scenario Server --model retinanet --response_postprocess openimageeffnms
+[2024-02-22 16:11:48,562 __init__.py:53 INFO] Overriding Environment
+benchmark : Benchmark.Retinanet
+buffer_manager_thread_count : 0
+data_dir : /home/cmuser/local/cache/b1f8faeaa7384886/data
+gpu_batch_size : 8
+gpu_copy_streams : 2
+gpu_inference_streams : 2
+input_dtype : int8
+input_format : linear
+log_dir : /home/cmuser/CM/repos/local/cache/8fc141ed37f54f54/repo/closed/NVIDIA/build/logs/2024.02.22-16.11.47
+map_path : data_maps/open-images-v6-mlperf/val_map.txt
+mlperf_conf_path : /home/cmuser/CM/repos/local/cache/30a1e017eddd4007/inference/mlperf.conf
+precision : int8
+preprocessed_data_dir : /home/cmuser/local/cache/b1f8faeaa7384886/preprocessed_data
+scenario : Scenario.Server
+server_target_qps : 1600
+server_target_qps_adj_factor : 0.0
+system : SystemConfiguration(host_cpu_conf=CPUConfiguration(layout={CPU(name='Intel(R) Xeon(R) w7-2495X', architecture=<CPUArchitecture.x86_64: AliasedName(name='x86_64', aliases=(), patterns=())>, core_count=24, threads_per_core=2): 1}), host_mem_conf=MemoryConfiguration(host_memory_capacity=Memory(quantity=197.33004, byte_suffix=<ByteSuffix.GB: (1000, 3)>, _num_bytes=197330040000), comparison_tolerance=0.05), accelerator_conf=AcceleratorConfiguration(layout=defaultdict(<class 'int'>, {GPU(name='NVIDIA GeForce RTX 4090', accelerator_type=<AcceleratorType.Discrete: AliasedName(name='Discrete', aliases=(), patterns=())>, vram=Memory(quantity=23.98828125, byte_suffix=<ByteSuffix.GiB: (1024, 3)>, _num_bytes=25757220864), max_power_limit=450.0, pci_id='0x268410DE', compute_sm=89): 2})), numa_conf=None, system_id='spr')
+tensor_path : build/preprocessed_data/open-images-v6-mlperf/validation/Retinanet/int8_linear
+test_mode : AccuracyOnly
+use_cuda_thread_per_device : True
+use_graphs : False
+user_conf_path : /home/cmuser/CM/repos/ctuning@mlcommons-ck/cm-mlops/script/generate-mlperf-inference-user-conf/tmp/298b11aa84274307ba8a7d2419c47326.conf
+system_id : spr
+config_name : spr_retinanet_Server
+workload_setting : WorkloadSetting(HarnessType.LWIS, AccuracyTarget.k_99, PowerSetting.MaxP)
+optimization_level : plugin-enabled
+use_cpu : False
+use_inferentia : False
+num_profiles : 2
+config_ver : lwis_k_99_MaxP
+accuracy_level : 99%
+inference_server : lwis
+skip_file_checks : False
+power_limit : None
+cpu_freq : None
+&&&& RUNNING Default_Harness # ./build/bin/harness_default
+[I] mlperf.conf path: /home/cmuser/CM/repos/local/cache/30a1e017eddd4007/inference/mlperf.conf
+[I] user.conf path: /home/cmuser/CM/repos/ctuning@mlcommons-ck/cm-mlops/script/generate-mlperf-inference-user-conf/tmp/298b11aa84274307ba8a7d2419c47326.conf
+Creating QSL.
+Finished Creating QSL.
+Setting up SUT.
+[I] [TRT] Loaded engine size: 74 MiB
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +10, now: CPU 0, GPU 883 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +10, now: CPU 0, GPU 893 (MiB)
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +68, now: CPU 0, GPU 68 (MiB)
+[I] Device:0.GPU: [0] ./build/engines/spr/retinanet/Server/retinanet-Server-gpu-b8-int8.lwis_k_99_MaxP.plan has been successfully loaded.
+[I] [TRT] Loaded engine size: 74 MiB
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +10, now: CPU 0, GPU 591 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +10, now: CPU 0, GPU 601 (MiB)
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +1, GPU +69, now: CPU 1, GPU 137 (MiB)
+[I] Device:1.GPU: [0] ./build/engines/spr/retinanet/Server/retinanet-Server-gpu-b8-int8.lwis_k_99_MaxP.plan has been successfully loaded.
+[E] [TRT] 3: [runtime.cpp::~Runtime::399] Error Code 3: API Usage Error (Parameter check failed at: runtime/rt/runtime.cpp::~Runtime::399, condition: mEngineCounter.use_count() == 1. Destroying a runtime before destroying deserialized engines created by the runtime leads to undefined behavior.
+)
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +8, now: CPU 0, GPU 905 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +8, now: CPU 0, GPU 913 (MiB)
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +6111, now: CPU 1, GPU 6248 (MiB)
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +8, now: CPU 0, GPU 7033 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +12, now: CPU 0, GPU 7045 (MiB)
+[I] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +1, GPU +6111, now: CPU 2, GPU 12359 (MiB)
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +8, now: CPU 0, GPU 613 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +8, now: CPU 0, GPU 621 (MiB)
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +6111, now: CPU 2, GPU 18470 (MiB)
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +8, now: CPU 0, GPU 6741 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +12, now: CPU 0, GPU 6753 (MiB)
+[I] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +1, GPU +6111, now: CPU 3, GPU 24581 (MiB)
+[I] Creating batcher thread: 0 EnableBatcherThreadPerDevice: false
+[I] Creating cuda thread: 0
+[I] Creating cuda thread: 1
+Finished setting up SUT.
+Starting warmup. Running for a minimum of 5 seconds.
+Finished warmup. Ran for 5.15632s.
+Starting running actual test.
+
+No warnings encountered during test.
+
+No errors encountered during test.
+Finished running actual test.
+Device Device:0.GPU processed:
+  215 batches of size 1
+  29 batches of size 2
+  112 batches of size 3
+  190 batches of size 4
+  13 batches of size 5
+  66 batches of size 6
+  37 batches of size 7
+  1286 batches of size 8
+  Memcpy Calls: 0
+  PerSampleCudaMemcpy Calls: 12162
+  BatchedCudaMemcpy Calls: 215
+Device Device:1.GPU processed:
+  204 batches of size 1
+  16 batches of size 2
+  130 batches of size 3
+  188 batches of size 4
+  19 batches of size 5
+  59 batches of size 6
+  55 batches of size 7
+  1274 batches of size 8
+  Memcpy Calls: 0
+  PerSampleCudaMemcpy Calls: 12200
+  BatchedCudaMemcpy Calls: 204
+&&&& PASSED Default_Harness # ./build/bin/harness_default
+[2024-02-22 16:13:10,953 run_harness.py:170 INFO] Result: Accuracy run detected.
+[2024-02-22 16:13:10,953 __init__.py:46 INFO] Running command: PYTHONPATH=/home/cmuser/CM/repos/local/cache/8fc141ed37f54f54/repo/closed/NVIDIA:/home/cmuser/CM/repos/local/cache/30a1e017eddd4007/inference/vision/classification_and_detection/python:/home/cmuser/CM/repos/local/cache/30a1e017eddd4007/inference/tools/submission:/home/cmuser/CM/repos/ctuning@mlcommons-ck/cm-mlops/script/get-mlperf-inference-utils:/usr/lib/python38.zip:/usr/lib/python3.8:/usr/lib/python3.8/lib-dynload:/home/cmuser/.local/lib/python3.8/site-packages:/usr/local/lib/python3.8/dist-packages:/usr/lib/python3/dist-packages:/usr/lib/python3.8/dist-packages python3 -S /home/cmuser/CM/repos/local/cache/8fc141ed37f54f54/repo/closed/NVIDIA/build/inference/vision/classification_and_detection/tools/accuracy-openimages.py --mlperf-accuracy-file /home/cmuser/local/cache/f88c69500c934b67/valid_results/e7848e83534a-nvidia_original-gpu-tensorrt-vdefault-default_config/retinanet/server/accuracy/mlperf_log_accuracy.json --openimages-dir /home/cmuser/local/cache/b1f8faeaa7384886/preprocessed_data/open-images-v6-mlperf --output-file build/retinanet-results.json
+NOTE! Installing ujson may make loading annotations faster.
+Loading annotations into memory...
+Done (t=0.50s)
+Creating index...
+index created!
+Loading and preparing results...
+DONE (t=17.13s)
+Creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=129.63s).
+Accumulating evaluation results...
+DONE (t=32.06s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.37357
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.52225
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.40370
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.02291
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.12450
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.41284
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.41902
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.59888
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.62804
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.08241
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.34355
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.67758
+mAP=37.357%
+ 
+======================== Result summaries: ========================
+

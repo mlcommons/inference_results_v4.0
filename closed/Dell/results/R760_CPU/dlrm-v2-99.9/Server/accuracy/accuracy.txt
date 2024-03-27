@@ -1,0 +1,26 @@
+{
+    "TestScenario.Server": {
+        "accuracy": 96.60518638464545,
+        "count": 323048,
+        "good_items": 86029237,
+        "mean": 0.00650458260331884,
+        "percentiles": {
+            "50.0": 0.004467964172363281,
+            "80.0": 0.008550882339477539,
+            "90.0": 0.013190984725952148,
+            "95.0": 0.014936447143554688,
+            "99.0": 0.021135289669036786,
+            "99.9": 0.04778681659698497
+        },
+        "qps": 2030.4531221518996,
+        "roc_auc": 80.24119408703937,
+        "took": 159.1014323234558,
+        "total_items": 89052400
+    },
+    "cmdline": "Namespace(model='dlrm', model_path='/data/mlperf_data/dlrm_2/model/dlrm-multihot-pytorch.pt', dataset='multihot-criteo', dataset_path='/data/mlperf_data/dlrm_2/data_npy', profile='dlrm-multihot-pytorch', enable_profiling=False, scenario='Server', test_num_workers=0, max_ind_range=40000000, data_sub_sample_rate=0.0, max_batchsize=250, output='/opt/workdir/code/dlrm-v2-99.9/pytorch-cpu-int8/output/pytorch-cpu/dlrm/Server/accuracy', inputs=['continuous and categorical features'], outputs=['probability'], backend='pytorch-native', use_gpu=False, use_ipex=True, use_bf16=False, use_int8=True, calibration=False, int8_configure_dir='int8_configure.json', int8_model_dir='dlrm_int8.pt', threads=1, cache=0, accuracy=True, find_peak_performance=False, config='./mlperf.conf', user_config='./user.conf', duration=None, target_qps=None, max_latency=None, count_samples=None, count_queries=None, samples_per_query_multistream=None, samples_per_query_offline=2048, samples_to_aggregate_fix=None, samples_to_aggregate_min=None, samples_to_aggregate_max=None, samples_to_aggregate_quantile_file='/opt/workdir/code/dlrm-v2-99.9/pytorch-cpu-int8/tools/dist_quantile.txt', samples_to_aggregate_trace_file='dlrm_trace_of_aggregated_samples.txt', numpy_rand_seed=123)",
+    "runtime": "pytorch-native-dlrm",
+    "time": 1708651454,
+    "version": "2.1.1+cpu"
+}
+AUC=80.24119408703937
+hash=e05e1c98479ae34dc7d9fef09929c1be59dd613931ba28e34c8015aaa9e01bc8

@@ -1,0 +1,51 @@
+================================================
+MLPerf Results Summary
+================================================
+SUT name : DLRMv2 SERVER
+Scenario : Offline
+Mode     : PerformanceOnly
+Samples per second: 283222
+Result is : VALID
+  Min duration satisfied : Yes
+  Min queries satisfied : Yes
+  Early stopping satisfied: Yes
+
+================================================
+Additional Stats
+================================================
+Min latency (ns)                : 1811139484
+Max latency (ns)                : 652490581849
+Mean latency (ns)               : 17383661363
+50.00 percentile latency (ns)   : 316780491942
+90.00 percentile latency (ns)   : 568722638518
+95.00 percentile latency (ns)   : 600217488780
+97.00 percentile latency (ns)   : 612822401522
+99.00 percentile latency (ns)   : 625421020263
+99.90 percentile latency (ns)   : 647322662075
+
+================================================
+Test Parameters Used
+================================================
+samples_per_query : 184800000
+target_qps : 280000
+target_latency (ns): 0
+max_async_queries : 1
+min_duration (ms): 600000
+max_duration (ms): 0
+min_query_count : 1
+max_query_count : 0
+qsl_rng_seed : 13281865557512327830
+sample_index_rng_seed : 198141574272810017
+schedule_rng_seed : 7575108116881280410
+accuracy_log_rng_seed : 0
+accuracy_log_probability : 0
+accuracy_log_sampling_target : 0
+print_timestamps : 0
+performance_issue_unique : 0
+performance_issue_same : 0
+performance_issue_same_index : 0
+performance_sample_count : 204800
+
+8 warnings encountered. See detailed log.
+
+No errors encountered during test.

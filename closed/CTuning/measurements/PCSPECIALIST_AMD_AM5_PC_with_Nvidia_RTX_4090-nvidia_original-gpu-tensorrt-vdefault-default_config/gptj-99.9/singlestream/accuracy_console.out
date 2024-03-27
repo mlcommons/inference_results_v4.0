@@ -1,0 +1,123 @@
+[2024-02-15 00:08:29,736 main.py:230 INFO] Detected system ID: KnownSystem.phoenix
+[2024-02-15 00:08:29,778 harness.py:238 INFO] The harness will load 1 plugins: ['build/plugins/../TRTLLM/cpp/build/tensorrt_llm/plugins/libnvinfer_plugin.so']
+[2024-02-15 00:08:29,778 generate_conf_files.py:107 INFO] Generated measurements/ entries for phoenix_TRT/gptj-99/SingleStream
+[2024-02-15 00:08:29,778 __init__.py:46 INFO] Running command: ./build/bin/harness_gpt --plugins="build/plugins/../TRTLLM/cpp/build/tensorrt_llm/plugins/libnvinfer_plugin.so" --logfile_outdir="/home/cmuser/results_dir/valid_results/2706260181c0-nvidia_original-gpu-tensorrt-vdefault-default_config/gptj-99/singlestream/accuracy" --logfile_prefix="mlperf_log_" --performance_sample_count=13368 --test_mode="AccuracyOnly" --gpu_batch_size=1 --mlperf_conf_path="/home/cmuser/CM/repos/local/cache/3b78d3835d5e484c/inference/mlperf.conf" --tensor_path="build/preprocessed_data/cnn_dailymail_tokenized_gptj/input_ids_padded.npy,build/preprocessed_data/cnn_dailymail_tokenized_gptj/masked_tokens.npy,build/preprocessed_data/cnn_dailymail_tokenized_gptj/input_lengths.npy" --use_graphs=false --user_conf_path="/home/cmuser/CM/repos/ctuning@mlcommons-ck/cm-mlops/script/generate-mlperf-inference-user-conf/tmp/04abfa69560e41d6923ca812f99b5eea.conf" --use_fp8=true --gpu_inference_streams=1 --gpu_copy_streams=1 --tensor_parallelism=1 --enable_sort=true --num_sort_segments=2 --gpu_engines="./build/engines/phoenix/gptj/SingleStream/gptj-SingleStream-gpu-b1-fp16.custom_k_99_MaxP.plan" --scenario SingleStream --model gptj
+[2024-02-15 00:08:29,778 __init__.py:53 INFO] Overriding Environment
+benchmark : Benchmark.GPTJ
+buffer_manager_thread_count : 0
+coalesced_tensor : True
+data_dir : /home/cmuser/local/cache/6057f3cefd9041b3/data
+enable_sort : True
+gpu_batch_size : 1
+gpu_copy_streams : 1
+gpu_inference_streams : 1
+input_dtype : int32
+input_format : linear
+log_dir : /home/cmuser/CM/repos/local/cache/8eb0c2732f244924/repo/closed/NVIDIA/build/logs/2024.02.15-00.08.29
+mlperf_conf_path : /home/cmuser/CM/repos/local/cache/3b78d3835d5e484c/inference/mlperf.conf
+num_sort_segments : 2
+precision : fp16
+preprocessed_data_dir : /home/cmuser/local/cache/6057f3cefd9041b3/preprocessed_data
+scenario : Scenario.SingleStream
+single_stream_expected_latency_ns : 0
+system : SystemConfiguration(host_cpu_conf=CPUConfiguration(layout={CPU(name='AMD Ryzen 9 7950X 16-Core Processor', architecture=<CPUArchitecture.x86_64: AliasedName(name='x86_64', aliases=(), patterns=())>, core_count=16, threads_per_core=2): 1}), host_mem_conf=MemoryConfiguration(host_memory_capacity=Memory(quantity=131.07376399999998, byte_suffix=<ByteSuffix.GB: (1000, 3)>, _num_bytes=131073764000), comparison_tolerance=0.05), accelerator_conf=AcceleratorConfiguration(layout=defaultdict(<class 'int'>, {GPU(name='NVIDIA GeForce RTX 4090', accelerator_type=<AcceleratorType.Discrete: AliasedName(name='Discrete', aliases=(), patterns=())>, vram=Memory(quantity=23.98828125, byte_suffix=<ByteSuffix.GiB: (1024, 3)>, _num_bytes=25757220864), max_power_limit=450.0, pci_id='0x268410DE', compute_sm=89): 1})), numa_conf=None, system_id='phoenix')
+tensor_parallelism : 1
+tensor_path : build/preprocessed_data/cnn_dailymail_tokenized_gptj/input_ids_padded.npy,build/preprocessed_data/cnn_dailymail_tokenized_gptj/masked_tokens.npy,build/preprocessed_data/cnn_dailymail_tokenized_gptj/input_lengths.npy
+test_mode : AccuracyOnly
+use_fp8 : True
+use_graphs : False
+user_conf_path : /home/cmuser/CM/repos/ctuning@mlcommons-ck/cm-mlops/script/generate-mlperf-inference-user-conf/tmp/04abfa69560e41d6923ca812f99b5eea.conf
+system_id : phoenix
+config_name : phoenix_gptj_SingleStream
+workload_setting : WorkloadSetting(HarnessType.Custom, AccuracyTarget.k_99, PowerSetting.MaxP)
+optimization_level : plugin-enabled
+use_cpu : False
+use_inferentia : False
+num_profiles : 1
+config_ver : custom_k_99_MaxP
+accuracy_level : 99%
+inference_server : custom
+skip_file_checks : False
+power_limit : None
+cpu_freq : None
+&&&& RUNNING GPT_HARNESS # ./build/bin/harness_gpt
+[I] Loading plugin: build/plugins/../TRTLLM/cpp/build/tensorrt_llm/plugins/libnvinfer_plugin.so
+I0215 00:08:30.105731  7746 main_gpt.cc:122] Found 1 GPUs
+I0215 00:08:30.290758  7746 gpt_server.cc:215] Loading 1 engine(s)
+I0215 00:08:30.290776  7746 gpt_server.cc:218] Engine Path: ./build/engines/phoenix/gptj/SingleStream/gptj-SingleStream-gpu-b1-fp16.custom_k_99_MaxP.plan
+[I] [TRT] Loaded engine size: 6174 MiB
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +6, GPU +10, now: CPU 18167, GPU 6977 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +2, GPU +10, now: CPU 18169, GPU 6987 (MiB)
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +6165, now: CPU 0, GPU 6165 (MiB)
+I0215 00:08:37.796103  7746 gpt_server.cc:290] Engines Deserialization Completed
+I0215 00:08:38.141793  7746 gpt_core.cc:64] GPTCore 0: MPI Rank - 0 at Device Id - 0
+I0215 00:08:38.141875  7746 gpt_core.cc:262] Engine - Vocab size: 50401 Padded vocab size: 50401 Beam width: 4
+I0215 00:08:38.142076  7746 gpt_core.cc:90] Engine - Device Memory requirements: 235810304
+I0215 00:08:38.142079  7746 gpt_core.cc:99] Engine - Total Number of Optimization Profiles: 2
+I0215 00:08:38.142081  7746 gpt_core.cc:100] Engine - Number of Optimization Profiles Per Core: 2
+I0215 00:08:38.142082  7746 gpt_core.cc:101] Engine - Start Index of Optimization Profiles: 0
+[I] [TRT] [MS] Running engine with multi stream info
+[I] [TRT] [MS] Number of aux streams is 1
+[I] [TRT] [MS] Number of total worker streams is 2
+[I] [TRT] [MS] The main stream provided by execute/enqueue calls is the first worker stream
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +8, now: CPU 5832, GPU 7213 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +8, now: CPU 5832, GPU 7221 (MiB)
+I0215 00:08:38.798985  7746 gpt_core.cc:115] Setting Opt.Prof. to 0
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +0, now: CPU 0, GPU 6165 (MiB)
+[I] [TRT] [MS] Running engine with multi stream info
+[I] [TRT] [MS] Number of aux streams is 1
+[I] [TRT] [MS] Number of total worker streams is 2
+[I] [TRT] [MS] The main stream provided by execute/enqueue calls is the first worker stream
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +8, now: CPU 5921, GPU 7251 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +1, GPU +12, now: CPU 5922, GPU 7263 (MiB)
+I0215 00:08:39.070041  7746 gpt_core.cc:115] Setting Opt.Prof. to 1
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +0, now: CPU 0, GPU 6165 (MiB)
+[I] [TRT] Switching optimization profile from: 0 to 1. Please ensure there are no enqueued operations pending in this context prior to switching profiles
+I0215 00:08:39.071679  7746 gpt_core.cc:144] Setup complete
+I0215 00:08:39.071686  7746 gpt_core.cc:1026] Device 0: Warm up bypassed.
+I0215 00:08:39.071745  7746 main_gpt.cc:237] Starting running actual test.
+I0215 03:05:40.864223  7746 main_gpt.cc:241] Finished running actual test.
+
+No warnings encountered during test.
+
+No errors encountered during test.
+[2024-02-15 03:05:41,394 run_harness.py:170 INFO] Result: Accuracy run detected.
+[2024-02-15 03:05:41,395 __init__.py:46 INFO] Running command: PYTHONPATH=code/bert/tensorrt/helpers:/home/cmuser/CM/repos/local/cache/8eb0c2732f244924/repo/closed/NVIDIA:/home/cmuser/CM/repos/local/cache/3b78d3835d5e484c/inference/vision/classification_and_detection/python:/home/cmuser/CM/repos/local/cache/3b78d3835d5e484c/inference/tools/submission:/home/cmuser/CM/repos/ctuning@mlcommons-ck/cm-mlops/script/get-mlperf-inference-utils:/usr/lib/python38.zip:/usr/lib/python3.8:/usr/lib/python3.8/lib-dynload:/home/cmuser/.local/lib/python3.8/site-packages:/usr/local/lib/python3.8/dist-packages:/usr/lib/python3/dist-packages:/usr/lib/python3.8/dist-packages python3 -S /home/cmuser/CM/repos/local/cache/8eb0c2732f244924/repo/closed/NVIDIA/build/inference/language/gpt-j/evaluation.py --mlperf-accuracy-file /home/cmuser/results_dir/valid_results/2706260181c0-nvidia_original-gpu-tensorrt-vdefault-default_config/gptj-99/singlestream/accuracy/mlperf_log_accuracy.json --dataset-file /home/cmuser/local/cache/6057f3cefd9041b3/data/cnn-daily-mail/cnn_eval.json --dtype int32
+Traceback (most recent call last):
+  File "/home/cmuser/CM/repos/local/cache/8eb0c2732f244924/repo/closed/NVIDIA/build/inference/language/gpt-j/evaluation.py", line 6, in <module>
+    import nltk
+ModuleNotFoundError: No module named 'nltk'
+Traceback (most recent call last):
+  File "/home/cmuser/CM/repos/local/cache/8eb0c2732f244924/repo/closed/NVIDIA/code/actionhandler/base.py", line 78, in run
+    success = self.handle()
+  File "/home/cmuser/CM/repos/local/cache/8eb0c2732f244924/repo/closed/NVIDIA/code/actionhandler/run_harness.py", line 179, in handle
+    acc_results = check_accuracy(os.path.join(self.harness.get_full_log_dir(), "mlperf_log_accuracy.json"),
+  File "/home/cmuser/CM/repos/local/cache/8eb0c2732f244924/repo/closed/NVIDIA/code/common/accuracy_checker.py", line 369, in check_accuracy
+    return accuracy_checker.get_accuracy()
+  File "/home/cmuser/CM/repos/local/cache/8eb0c2732f244924/repo/closed/NVIDIA/code/common/accuracy_checker.py", line 168, in get_accuracy
+    output = self.run()
+  File "/home/cmuser/CM/repos/local/cache/8eb0c2732f244924/repo/closed/NVIDIA/code/common/accuracy_checker.py", line 157, in run
+    return run_command(str(cmd), get_output=True)
+  File "/home/cmuser/CM/repos/local/cache/8eb0c2732f244924/repo/closed/NVIDIA/code/common/__init__.py", line 67, in run_command
+    raise subprocess.CalledProcessError(ret, cmd)
+subprocess.CalledProcessError: Command 'PYTHONPATH=code/bert/tensorrt/helpers:/home/cmuser/CM/repos/local/cache/8eb0c2732f244924/repo/closed/NVIDIA:/home/cmuser/CM/repos/local/cache/3b78d3835d5e484c/inference/vision/classification_and_detection/python:/home/cmuser/CM/repos/local/cache/3b78d3835d5e484c/inference/tools/submission:/home/cmuser/CM/repos/ctuning@mlcommons-ck/cm-mlops/script/get-mlperf-inference-utils:/usr/lib/python38.zip:/usr/lib/python3.8:/usr/lib/python3.8/lib-dynload:/home/cmuser/.local/lib/python3.8/site-packages:/usr/local/lib/python3.8/dist-packages:/usr/lib/python3/dist-packages:/usr/lib/python3.8/dist-packages python3 -S /home/cmuser/CM/repos/local/cache/8eb0c2732f244924/repo/closed/NVIDIA/build/inference/language/gpt-j/evaluation.py --mlperf-accuracy-file /home/cmuser/results_dir/valid_results/2706260181c0-nvidia_original-gpu-tensorrt-vdefault-default_config/gptj-99/singlestream/accuracy/mlperf_log_accuracy.json --dataset-file /home/cmuser/local/cache/6057f3cefd9041b3/data/cnn-daily-mail/cnn_eval.json --dtype int32' returned non-zero exit status 1.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/home/cmuser/CM/repos/local/cache/8eb0c2732f244924/repo/closed/NVIDIA/code/main.py", line 232, in <module>
+    main(main_args, DETECTED_SYSTEM)
+  File "/home/cmuser/CM/repos/local/cache/8eb0c2732f244924/repo/closed/NVIDIA/code/main.py", line 145, in main
+    dispatch_action(main_args, config_dict, workload_setting)
+  File "/home/cmuser/CM/repos/local/cache/8eb0c2732f244924/repo/closed/NVIDIA/code/main.py", line 203, in dispatch_action
+    handler.run()
+  File "/home/cmuser/CM/repos/local/cache/8eb0c2732f244924/repo/closed/NVIDIA/code/actionhandler/base.py", line 82, in run
+    self.handle_failure()
+  File "/home/cmuser/CM/repos/local/cache/8eb0c2732f244924/repo/closed/NVIDIA/code/actionhandler/run_harness.py", line 196, in handle_failure
+    raise RuntimeError("Run harness failed!")
+RuntimeError: Run harness failed!
+make: *** [Makefile:45: run_harness] Error 1

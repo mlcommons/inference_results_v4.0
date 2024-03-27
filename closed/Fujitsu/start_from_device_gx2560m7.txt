@@ -1,0 +1,10 @@
+Fujitsu's GX2560M7 system supports GPUDirect RDMA(TM) technology, which allows direct I/O from PCIe devices
+to GPU device memory. This system has two NUMA nodes and each node has two H100 GPUs through PCIe Gen5x16
+connection. The NUMA node can also be connected with network interface cards (NICs).
+
+The system measured has Mellanox MT29908 ConnectX-6 which has two ports with 200Gb/s infiniband connector.
+This corresponds to the throuput of 25GB/s per one port and 50GB/s per one card.
+
+Resnet50-Offline runnig on this system, with INT8 input, requires to support 53GB/s and
+can be run with the described network interfaces installed on the two NUMA nodes.
+

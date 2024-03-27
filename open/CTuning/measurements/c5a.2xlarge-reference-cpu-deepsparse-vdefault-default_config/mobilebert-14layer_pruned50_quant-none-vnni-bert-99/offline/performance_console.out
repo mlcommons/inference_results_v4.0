@@ -1,0 +1,69 @@
+DeepSparse, Copyright 2021-present / Neuralmagic, Inc. version: 1.6.1 COMMUNITY | (eff4f95d) (release) (optimized) (system=avx2, binary=avx2)
+[7f1a425b8640 >WARN<  operator() ./src/include/wand/utility/warnings.hpp:14] Generating emulated code for quantized (INT8) operations since no VNNI instructions were detected. Set NM_FAST_VNNI_EMULATION=1 to increase performance at the expense of accuracy.
+2024-02-22 16:58:03 deepsparse.utils.onnx INFO     Generating input 'input_ids', type = int64, shape = [1, 384]
+2024-02-22 16:58:03 deepsparse.utils.onnx INFO     Generating input 'attention_mask', type = int64, shape = [1, 384]
+2024-02-22 16:58:03 deepsparse.utils.onnx INFO     Generating input 'token_type_ids', type = int64, shape = [1, 384]
+Loading ONNX model... /home/ec2-user/.cache/sparsezoo/neuralmagic/mobilebert-squad_wikipedia_bookcorpus-14layer_pruned50.4block_quantized/model.onnx
+Constructing SUT...
+Finished constructing SUT.
+Constructing QSL...
+Loading cached features from 'eval_features.pickle'...
+Finished constructing QSL.
+Warming up engine...
+Running LoadGen test...
+Done!
+Destroying SUT...
+Destroying QSL...
+Finished destroying SUT.
+Finished destroying QSL.
+================================================
+MLPerf Results Summary
+================================================
+SUT name : PySUT
+Scenario : Offline
+Mode     : PerformanceOnly
+Samples per second: 55.2553
+Result is : VALID
+  Min duration satisfied : Yes
+  Min queries satisfied : Yes
+  Early stopping satisfied: Yes
+
+================================================
+Additional Stats
+================================================
+Min latency (ns)                : 239367093
+Max latency (ns)                : 666687619827
+Mean latency (ns)               : 278364944867
+50.00 percentile latency (ns)   : 251492117696
+90.00 percentile latency (ns)   : 566248896583
+95.00 percentile latency (ns)   : 616408908005
+97.00 percentile latency (ns)   : 636477069156
+99.00 percentile latency (ns)   : 656653554966
+99.90 percentile latency (ns)   : 665706487959
+
+================================================
+Test Parameters Used
+================================================
+samples_per_query : 36838
+target_qps : 55.8161
+target_latency (ns): 0
+max_async_queries : 1
+min_duration (ms): 600000
+max_duration (ms): 0
+min_query_count : 1
+max_query_count : 0
+qsl_rng_seed : 13281865557512327830
+sample_index_rng_seed : 198141574272810017
+schedule_rng_seed : 7575108116881280410
+accuracy_log_rng_seed : 0
+accuracy_log_probability : 0
+accuracy_log_sampling_target : 0
+print_timestamps : 0
+performance_issue_unique : 0
+performance_issue_same : 0
+performance_issue_same_index : 0
+performance_sample_count : 10833
+
+No warnings encountered during test.
+
+No errors encountered during test.

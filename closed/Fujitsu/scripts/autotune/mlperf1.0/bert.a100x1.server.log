@@ -1,0 +1,33 @@
+
+
+Short runs (60 sec)
+                                                        FILE , BATCH, TQPS , SDRP ,  99%LATENCY,     QPS,   RESULT
+      fp16.is1.cs1.seq000.bs032.tqps1600.fast.cg1.a100.unloc ,   32 , 1600 , 0.99 ,    7544.9 msec,  1598.6 , INVALID,
+      fp16.is1.cs1.seq000.bs032.tqps1650.fast.cg1.a100.unloc ,   32 , 1650 , 0.99 ,   13056.0 msec,  1648.5 , INVALID,
+      fp16.is1.cs1.seq000.bs032.tqps1700.fast.cg1.a100.unloc ,   32 , 1700 , 0.99 ,   17999.6 msec,  1698.5 , INVALID,
+      fp16.is2.cs1.seq000.bs024.tqps1600.fast.cg1.a100.unloc ,   24 , 1600 , 0.99 ,     103.5 msec,  1598.6 ,   VALID,
+      fp16.is2.cs1.seq000.bs024.tqps1650.fast.cg1.a100.unloc ,   24 , 1650 , 0.99 ,     174.4 msec,  1648.5 , INVALID,
+      fp16.is2.cs1.seq000.bs024.tqps1700.fast.cg1.a100.unloc ,   24 , 1700 , 0.99 ,    3466.5 msec,  1698.5 , INVALID,
+      fp16.is2.cs1.seq000.bs032.tqps1550.fast.cg1.a100.unloc ,   32 , 1550 , 0.99 ,      63.8 msec,  1548.6 ,   VALID,
+      fp16.is2.cs1.seq000.bs032.tqps1600.fast.cg1.a100.unloc ,   32 , 1600 , 0.99 ,      80.3 msec,  1598.6 ,   VALID,
+      fp16.is2.cs1.seq000.bs032.tqps1650.fast.cg1.a100.unloc ,   32 , 1650 , 0.99 ,     153.7 msec,  1648.5 , INVALID,
+      fp16.is2.cs1.seq000.bs032.tqps1700.fast.cg1.a100.unloc ,   32 , 1700 , 0.99 ,    1695.4 msec,  1698.5 , INVALID,
+      fp16.is2.cs1.seq000.bs048.tqps1550.fast.cg1.a100.unloc ,   48 , 1550 , 0.99 ,      98.3 msec,  1548.6 ,   VALID,
+      fp16.is2.cs1.seq000.bs048.tqps1600.fast.cg1.a100.unloc ,   48 , 1600 , 0.99 ,     151.3 msec,  1598.6 , INVALID,
+      fp16.is2.cs1.seq000.bs048.tqps1650.fast.cg1.a100.unloc ,   48 , 1650 , 0.99 ,     426.6 msec,  1648.5 , INVALID,
+      fp16.is2.cs1.seq000.bs048.tqps1700.fast.cg1.a100.unloc ,   48 , 1700 , 0.99 ,    5646.1 msec,  1698.5 , INVALID,
+      fp16.is2.cs1.seq000.bs064.tqps1550.fast.cg1.a100.unloc ,   64 , 1550 , 0.99 ,     103.9 msec,  1548.6 ,   VALID,
+      fp16.is2.cs1.seq000.bs064.tqps1600.fast.cg1.a100.unloc ,   64 , 1600 , 0.99 ,     194.3 msec,  1598.6 , INVALID,
+      fp16.is2.cs1.seq000.bs064.tqps1700.fast.cg1.a100.unloc ,   64 , 1700 , 0.99 ,    6700.1 msec,  1698.5 , INVALID,
+      int8.is2.cs1.seq000.bs048.tqps3100.fast.cg1.a100.unloc ,   48 , 3100 , 0.99 ,      73.3 msec,  3097.2 ,   VALID,
+      int8.is2.cs1.seq000.bs064.tqps3100.fast.cg1.a100.unloc ,   64 , 3100 , 0.99 ,      76.1 msec,  3097.2 ,   VALID,
+
+Long runs (600 sec)
+                                                        FILE , BATCH, TQPS , SDRP ,  99%LATENCY,     QPS,   RESULT
+      fp16.is2.cs1.seq000.bs032.tqps1600.slow.cg1.a100.unloc ,   32 , 1600 , 0.99 ,      95.4 msec,  1600.4 ,   VALID,
+      fp16.is2.cs1.seq000.bs032.tqps1620.slow.cg1.a100.unloc ,   32 , 1620 , 0.99 ,     110.3 msec,  1620.5 ,   VALID,
+      fp16.is2.cs1.seq000.bs032.tqps1640.slow.cg1.a100.unloc ,   32 , 1640 , 0.99 ,     147.0 msec,  1640.2 , INVALID,
+      int8.is2.cs1.seq000.bs048.tqps3100.slow.cg1.a100.unloc ,   48 , 3100 , 0.99 ,      72.3 msec,  3100.9 ,   VALID,
+      int8.is2.cs1.seq000.bs048.tqps3200.slow.cg1.a100.unloc ,   48 , 3200 , 0.99 ,     100.1 msec,  3200.7 ,   VALID,
+      int8.is2.cs1.seq000.bs064.tqps3100.slow.cg1.a100.unloc ,   64 , 3100 , 0.99 ,      77.3 msec,  3100.9 ,   VALID,
+      int8.is2.cs1.seq000.bs064.tqps3200.slow.cg1.a100.unloc ,   64 , 3200 , 0.99 ,     116.8 msec,  3200.7 ,   VALID,

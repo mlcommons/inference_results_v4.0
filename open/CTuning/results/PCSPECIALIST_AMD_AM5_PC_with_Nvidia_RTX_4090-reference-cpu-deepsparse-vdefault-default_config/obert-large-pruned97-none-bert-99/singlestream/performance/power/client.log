@@ -1,0 +1,55 @@
+client 2024-02-21 04:07:53,509 [INFO] Creating output directory '/home/arjun/results_dir/valid_results/phoenix_Amd_Am5-reference-cpu-deepsparse-vdefault-default_config/obert-large-pruned97-none-bert-99/singlestream/performance/tmp_power'
+client 2024-02-21 04:07:53,517 [INFO] Sending command to the server: 'mlcommons/power client v3'
+client 2024-02-21 04:07:53,526 [INFO] Got response: 'mlcommons/power server v3'
+client 2024-02-21 04:07:53,526 [INFO] Synchronizing with the server and with time.google.com...
+client 2024-02-21 04:07:53,551 [INFO] NTP:offset = -0.001 s, delay = 0.023 s 
+client 2024-02-21 04:07:53,551 [INFO] Sending command to the server: 'time'
+client 2024-02-21 04:07:53,560 [INFO] Got response: '1708488473.4249482'
+client 2024-02-21 04:07:53,560 [INFO] The time difference between the client and the server is within range 126.854 ms..135.213 ms
+client 2024-02-21 04:07:53,560 [INFO] Sending command to the server: 'new,,15b1acc0-2062-4755-817e-ef583ebe4d81'
+client 2024-02-21 04:07:53,571 [INFO] Got response: 'OK 2024-02-21_04-07-53,0387ce96-b7d6-45ac-a2bc-d66770a13486'
+client 2024-02-21 04:07:53,571 [INFO] Session id is '2024-02-21_04-07-53'
+client 2024-02-21 04:07:53,571 [INFO] Sources: {"sources": {"__init__.py": "da39a3ee5e6b4b0d3255bfef95601890afd80709", "client.py": "33ca4f26368777ac06e01f9567b714a4b8063886", "lib/__init__.py": "da39a3ee5e6b4b0d3255bfef95601890afd80709", "lib/client.py": "ac2aa093c8e8bbc9569b9e2a3471bc64e58a2258", "lib/common.py": "611d8b29633d331eb19c9455ea3b5fa3284ed6df", "lib/external/__init__.py": "da39a3ee5e6b4b0d3255bfef95601890afd80709", "lib/external/ntplib.py": "4da8f970656505a40483206ef2b5d3dd5e81711d", "lib/server.py": "99303c836c683aa9017ec565104e636161d02acb", "lib/source_hashes.py": "60a2e02193209e8d392803326208d5466342da18", "lib/summary.py": "aa92f0a3f975eecd44d3c0cd0236342ccc9f941d", "lib/time_sync.py": "80894ef2389e540781ff78de94db16aa4203a14e", "server.py": "c3f90f2f7eeb4db30727556d0c815ebc89b3d28b", "tests/unit/__init__.py": "da39a3ee5e6b4b0d3255bfef95601890afd80709", "tests/unit/test_server.py": "948c1995d4008bc2aa6c4046a34ffa3858d6d671", "tests/unit/test_source_hashes.py": "00468a2907583c593e6574a1f6b404e4651c221a"}, "modules": {"ptd_client_server.lib.client": "lib/client.py", "ptd_client_server.lib.common": "lib/common.py", "ptd_client_server.lib.external.ntplib": "lib/external/ntplib.py", "ptd_client_server.lib.source_hashes": "lib/source_hashes.py", "ptd_client_server.lib.summary": "lib/summary.py", "ptd_client_server.lib.time_sync": "lib/time_sync.py"}}
+client 2024-02-21 04:07:53,571 [INFO] Running workload in ranging mode
+client 2024-02-21 04:07:53,571 [INFO] Synchronizing with the server and with time.google.com...
+client 2024-02-21 04:07:53,594 [INFO] NTP:offset = 0.001 s, delay = 0.022 s 
+client 2024-02-21 04:07:53,594 [INFO] Sending command to the server: 'time'
+client 2024-02-21 04:07:53,606 [INFO] Got response: '1708488473.4650066'
+client 2024-02-21 04:07:53,606 [INFO] The time difference between the client and the server is within range 129.793 ms..141.359 ms
+client 2024-02-21 04:07:53,606 [INFO] Sending command to the server: 'session,2024-02-21_04-07-53,start,ranging'
+client 2024-02-21 04:08:17,495 [INFO] Got response: 'OK'
+client 2024-02-21 04:08:17,496 [INFO] Sending command to the server: 'time'
+client 2024-02-21 04:08:17,504 [INFO] Got response: '1708488497.3711452'
+client 2024-02-21 04:08:17,504 [INFO] The time difference between the client and the server is within range 124.904 ms..133.758 ms
+client 2024-02-21 04:08:17,504 [INFO] Running the workload 'CM_MLPERF_RUN_COUNT=$(cat ${CM_RUN_DIR}/count.txt); echo ${CM_MLPERF_RUN_COUNT}; CM_MLPERF_RUN_COUNT=$((CM_MLPERF_RUN_COUNT+1)); echo ${CM_MLPERF_RUN_COUNT} > ${CM_RUN_DIR}/count.txt && if [ ${CM_MLPERF_RUN_COUNT} -eq "1" ]; then export CM_MLPERF_USER_CONF=${CM_MLPERF_RANGING_USER_CONF}; else export CM_MLPERF_USER_CONF=${CM_MLPERF_TESTING_USER_CONF}; fi && /usr/bin/python3 run.py --backend=deepsparse --scenario=SingleStream --mlperf_conf "/home/arjun/CM/repos/local/cache/b5386651b8ab4bd4/inference/mlperf.conf" --user_conf "${CM_MLPERF_USER_CONF}" --quantized --batch_size=1 --model_path=/home/arjun/.cache/sparsezoo/75793b96-6e69-4711-a7c4-64223fdddfa1/model.onnx 2>&1 | tee /home/arjun/results_dir/valid_results/phoenix_Amd_Am5-reference-cpu-deepsparse-vdefault-default_config/obert-large-pruned97-none-bert-99/singlestream/performance/run_1/console.out'
+client 2024-02-21 04:13:50,803 [INFO] Sending command to the server: 'time'
+client 2024-02-21 04:13:50,814 [INFO] Got response: '1708488830.6744244'
+client 2024-02-21 04:13:50,814 [INFO] The time difference between the client and the server is within range 128.555 ms..139.853 ms
+client 2024-02-21 04:13:50,814 [INFO] Sending command to the server: 'session,2024-02-21_04-07-53,stop,ranging'
+client 2024-02-21 04:14:01,807 [INFO] Got response: 'OK'
+client 2024-02-21 04:14:01,807 [INFO] Sending command to the server: 'time'
+client 2024-02-21 04:14:01,816 [INFO] Got response: '1708488841.6744275'
+client 2024-02-21 04:14:01,816 [INFO] The time difference between the client and the server is within range 133.441 ms..141.796 ms
+client 2024-02-21 04:14:01,818 [INFO] Copying loadgen logs from '/home/arjun/results_dir/valid_results/phoenix_Amd_Am5-reference-cpu-deepsparse-vdefault-default_config/obert-large-pruned97-none-bert-99/singlestream/performance/run_1' to '/home/arjun/results_dir/valid_results/phoenix_Amd_Am5-reference-cpu-deepsparse-vdefault-default_config/obert-large-pruned97-none-bert-99/singlestream/performance/tmp_power/ranging'
+client 2024-02-21 04:14:01,818 [INFO] Running workload in testing mode
+client 2024-02-21 04:14:01,818 [INFO] Synchronizing with the server and with time.google.com...
+client 2024-02-21 04:14:01,840 [INFO] NTP:offset = -0.003 s, delay = 0.021 s 
+client 2024-02-21 04:14:01,840 [INFO] Sending command to the server: 'time'
+client 2024-02-21 04:14:01,848 [INFO] Got response: '1708488841.704422'
+client 2024-02-21 04:14:01,848 [INFO] The time difference between the client and the server is within range 135.945 ms..144.401 ms
+client 2024-02-21 04:14:01,848 [INFO] Sending command to the server: 'session,2024-02-21_04-07-53,start,testing'
+client 2024-02-21 04:14:14,907 [INFO] Got response: 'OK'
+client 2024-02-21 04:14:14,907 [INFO] Sending command to the server: 'time'
+client 2024-02-21 04:14:14,916 [INFO] Got response: '1708488854.774706'
+client 2024-02-21 04:14:14,916 [INFO] The time difference between the client and the server is within range 132.438 ms..141.708 ms
+client 2024-02-21 04:14:14,916 [INFO] Running the workload 'CM_MLPERF_RUN_COUNT=$(cat ${CM_RUN_DIR}/count.txt); echo ${CM_MLPERF_RUN_COUNT}; CM_MLPERF_RUN_COUNT=$((CM_MLPERF_RUN_COUNT+1)); echo ${CM_MLPERF_RUN_COUNT} > ${CM_RUN_DIR}/count.txt && if [ ${CM_MLPERF_RUN_COUNT} -eq "1" ]; then export CM_MLPERF_USER_CONF=${CM_MLPERF_RANGING_USER_CONF}; else export CM_MLPERF_USER_CONF=${CM_MLPERF_TESTING_USER_CONF}; fi && /usr/bin/python3 run.py --backend=deepsparse --scenario=SingleStream --mlperf_conf "/home/arjun/CM/repos/local/cache/b5386651b8ab4bd4/inference/mlperf.conf" --user_conf "${CM_MLPERF_USER_CONF}" --quantized --batch_size=1 --model_path=/home/arjun/.cache/sparsezoo/75793b96-6e69-4711-a7c4-64223fdddfa1/model.onnx 2>&1 | tee /home/arjun/results_dir/valid_results/phoenix_Amd_Am5-reference-cpu-deepsparse-vdefault-default_config/obert-large-pruned97-none-bert-99/singlestream/performance/run_1/console.out'
+client 2024-02-21 04:24:47,862 [INFO] Sending command to the server: 'time'
+client 2024-02-21 04:24:47,872 [INFO] Got response: '1708489487.718902'
+client 2024-02-21 04:24:47,873 [INFO] The time difference between the client and the server is within range 143.259 ms..154.150 ms
+client 2024-02-21 04:24:47,873 [INFO] Sending command to the server: 'session,2024-02-21_04-07-53,stop,testing'
+client 2024-02-21 04:24:57,960 [INFO] Got response: 'OK'
+client 2024-02-21 04:24:57,960 [INFO] Sending command to the server: 'time'
+client 2024-02-21 04:24:57,969 [INFO] Got response: '1708489497.8189516'
+client 2024-02-21 04:24:57,969 [INFO] The time difference between the client and the server is within range 141.634 ms..150.781 ms
+client 2024-02-21 04:24:57,970 [INFO] Copying loadgen logs from '/home/arjun/results_dir/valid_results/phoenix_Amd_Am5-reference-cpu-deepsparse-vdefault-default_config/obert-large-pruned97-none-bert-99/singlestream/performance/run_1' to '/home/arjun/results_dir/valid_results/phoenix_Amd_Am5-reference-cpu-deepsparse-vdefault-default_config/obert-large-pruned97-none-bert-99/singlestream/performance/tmp_power/run_1'
+client 2024-02-21 04:24:57,970 [INFO] Done runs

@@ -1,0 +1,67 @@
+nohup: ignoring input
+# The format of this config file is 'key = value'.
+# The key has the format 'model.scenario.key'. Value is mostly int64_t.
+# Model maybe '*' as wildcard. In that case the value applies to all models.
+# All times are in milli seconds
+#
+llama2-70b.Server.target_qps = 7
+#llama2-70b.Server.min_duration = 600000
+#llama2-70b.Server.max_duration = 600000
+
+llama2-70b.Server.sample_concatenate_permutation = 1
+                batch_size = 4096
+                batch_size = 32  # Reduce to 8 if using 4 GPUs, 16 for 8.
+        self.batch_size = batch_size
+Loading dataset...
+Finished loading dataset.
+Loaded tokenizer
+INFO:Llama-70B-MAIN:Starting Benchmark run
+Connection failure
+Exception in thread Thread-11907 (async_process_query):
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/urllib3/response.py", line 712, in _error_catcher
+    yield
+  File "/opt/conda/lib/python3.10/site-packages/urllib3/response.py", line 1071, in read_chunked
+    self._update_chunk_length()
+  File "/opt/conda/lib/python3.10/site-packages/urllib3/response.py", line 1006, in _update_chunk_length
+    raise InvalidChunkLength(self, line) from None
+urllib3.exceptions.InvalidChunkLength: InvalidChunkLength(got length b'', 0 bytes read)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/requests/models.py", line 816, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "/opt/conda/lib/python3.10/site-packages/urllib3/response.py", line 931, in stream
+    yield from self.read_chunked(amt, decode_content=decode_content)
+  File "/opt/conda/lib/python3.10/site-packages/urllib3/response.py", line 1059, in read_chunked
+    with self._error_catcher():
+  File "/opt/conda/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/conda/lib/python3.10/site-packages/urllib3/response.py", line 729, in _error_catcher
+    raise ProtocolError(f"Connection broken: {e!r}", e) from e
+urllib3.exceptions.ProtocolError: ("Connection broken: InvalidChunkLength(got length b'', 0 bytes read)", InvalidChunkLength(got length b'', 0 bytes read))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/inference/language/llama2-70b/SUT.py", line 546, in stream_api_vllm
+    for line in resp.iter_lines():
+  File "/opt/conda/lib/python3.10/site-packages/requests/models.py", line 865, in iter_lines
+    for chunk in self.iter_content(
+  File "/opt/conda/lib/python3.10/site-packages/requests/models.py", line 818, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ("Connection broken: InvalidChunkLength(got length b'', 0 bytes read)", InvalidChunkLength(got length b'', 0 bytes read))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "/opt/conda/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "/workspace/inference/language/llama2-70b/SUT.py", line 573, in async_process_query
+    output_tokens = self.stream_api_vllm(decoded, response_ids, idx)
+  File "/workspace/inference/language/llama2-70b/SUT.py", line 564, in stream_api_vllm
+    print(f"An exception occurred: {type(e).__name__}")
+NameError: name 'e' is not defined. Did you mean: 're'?

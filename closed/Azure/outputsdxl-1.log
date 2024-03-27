@@ -1,0 +1,59 @@
+[2024-02-24 01:07:26,874 systems.py:197 INFO] Found unknown device in GPU connection topology: NIC0. Skipping.
+[2024-02-24 01:07:26,917 main.py:229 INFO] Detected system ID: KnownSystem.NC_H100_v5
+[2024-02-24 01:07:28,269 generate_conf_files.py:107 INFO] Generated measurements/ entries for NC_H100_v5_TRT/stable-diffusion-xl/Offline
+[2024-02-24 01:07:28,270 __init__.py:46 INFO] Running command: python3 -m code.stable-diffusion-xl.tensorrt.harness --logfile_outdir="/work/build/logs/2024.02.24-01.07.23/NC_H100_v5_TRT/stable-diffusion-xl/Offline" --logfile_prefix="mlperf_log_" --performance_sample_count=5000 --gpu_batch_size=8 --tensor_path="build/preprocessed_data/coco2014-tokenized-sdxl/5k_dataset_final/" --use_graphs=false --gpu_inference_streams=1 --gpu_copy_streams=1 --gpu_engines="./build/engines/NC_H100_v5/stable-diffusion-xl/Offline/stable-diffusion-xl-CLIP-Offline-gpu-b8-fp16.custom_k_99_MaxP.plan,./build/engines/NC_H100_v5/stable-diffusion-xl/Offline/stable-diffusion-xl-CLIPWithProj-Offline-gpu-b8-fp16.custom_k_99_MaxP.plan,./build/engines/NC_H100_v5/stable-diffusion-xl/Offline/stable-diffusion-xl-UNetXL-Offline-gpu-b8-int8.custom_k_99_MaxP.plan,./build/engines/NC_H100_v5/stable-diffusion-xl/Offline/stable-diffusion-xl-VAE-Offline-gpu-b8-fp32.custom_k_99_MaxP.plan" --mlperf_conf_path="build/loadgen-configs/NC_H100_v5_TRT/stable-diffusion-xl/Offline/mlperf.conf" --user_conf_path="build/loadgen-configs/NC_H100_v5_TRT/stable-diffusion-xl/Offline/user.conf" --scenario Offline --model stable-diffusion-xl
+[2024-02-24 01:07:28,270 __init__.py:53 INFO] Overriding Environment
+[2024-02-24 01:07:31,782 systems.py:197 INFO] Found unknown device in GPU connection topology: NIC0. Skipping.
+[2024-02-24 01:07:33,120 backend.py:71 INFO] Loading TensorRT engine: ./build/engines/NC_H100_v5/stable-diffusion-xl/Offline/stable-diffusion-xl-CLIP-Offline-gpu-b8-fp16.custom_k_99_MaxP.plan.
+[2024-02-24 01:07:33,171 backend.py:71 INFO] Loading TensorRT engine: ./build/engines/NC_H100_v5/stable-diffusion-xl/Offline/stable-diffusion-xl-CLIPWithProj-Offline-gpu-b8-fp16.custom_k_99_MaxP.plan.
+[2024-02-24 01:07:33,364 backend.py:71 INFO] Loading TensorRT engine: ./build/engines/NC_H100_v5/stable-diffusion-xl/Offline/stable-diffusion-xl-UNetXL-Offline-gpu-b8-int8.custom_k_99_MaxP.plan.
+[2024-02-24 01:07:34,189 backend.py:71 INFO] Loading TensorRT engine: ./build/engines/NC_H100_v5/stable-diffusion-xl/Offline/stable-diffusion-xl-VAE-Offline-gpu-b8-fp32.custom_k_99_MaxP.plan.
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/work/code/stable-diffusion-xl/tensorrt/harness.py", line 224, in <module>
+    main()
+  File "/work/code/stable-diffusion-xl/tensorrt/harness.py", line 194, in main
+    server = SDXLServer(devices=devices,
+  File "/work/code/stable-diffusion-xl/tensorrt/backend.py", line 722, in __init__
+    self.sdxl_cores[device_id] = SDXLCore(device_id=device_id,
+  File "/work/code/stable-diffusion-xl/tensorrt/backend.py", line 468, in __init__
+    shared_device_memory = CUASSERT(cudart.cudaMalloc(max_device_memory))
+  File "/work/code/stable-diffusion-xl/tensorrt/utilities.py", line 60, in CUASSERT
+    raise RuntimeError(f"CUDA ERROR: {err}, error code reference: https://nvidia.github.io/cuda-python/module/cudart.html#cuda.cudart.cudaError_t")
+RuntimeError: CUDA ERROR: 2, error code reference: https://nvidia.github.io/cuda-python/module/cudart.html#cuda.cudart.cudaError_t
+benchmark : Benchmark.SDXL
+buffer_manager_thread_count : 0
+data_dir : /mnt/resource_nvme/scratch/data
+gpu_batch_size : 8
+gpu_copy_streams : 1
+gpu_inference_streams : 1
+input_dtype : int32
+input_format : linear
+log_dir : /work/build/logs/2024.02.24-01.07.23
+offline_expected_qps : 2.5
+precision : int8
+preprocessed_data_dir : /mnt/resource_nvme/scratch/preprocessed_data
+scenario : Scenario.Offline
+system : SystemConfiguration(host_cpu_conf=CPUConfiguration(layout={CPU(name='AMD EPYC 9V84 96-Core Processor', architecture=<CPUArchitecture.x86_64: AliasedName(name='x86_64', aliases=(), patterns=())>, core_count=80, threads_per_core=1): 1}), host_mem_conf=MemoryConfiguration(host_memory_capacity=Memory(quantity=660.463936, byte_suffix=<ByteSuffix.GB: (1000, 3)>, _num_bytes=660463936000), comparison_tolerance=0.05), accelerator_conf=AcceleratorConfiguration(layout=defaultdict(<class 'int'>, {GPU(name='NVIDIA H100 NVL', accelerator_type=<AcceleratorType.Discrete: AliasedName(name='Discrete', aliases=(), patterns=())>, vram=Memory(quantity=93.583984375, byte_suffix=<ByteSuffix.GiB: (1024, 3)>, _num_bytes=100485038080), max_power_limit=400.0, pci_id='0x232110DE', compute_sm=90): 2})), numa_conf=NUMAConfiguration(numa_nodes={}, num_numa_nodes=2), system_id='NC_H100_v5')
+tensor_path : build/preprocessed_data/coco2014-tokenized-sdxl/5k_dataset_final/
+use_graphs : False
+system_id : NC_H100_v5
+config_name : NC_H100_v5_stable-diffusion-xl_Offline
+workload_setting : WorkloadSetting(HarnessType.Custom, AccuracyTarget.k_99, PowerSetting.MaxP)
+optimization_level : plugin-enabled
+num_profiles : 1
+config_ver : custom_k_99_MaxP
+accuracy_level : 99%
+inference_server : custom
+skip_file_checks : False
+power_limit : None
+cpu_freq : None
+[W] 'colored' module is not installed, will not use colors when logging. To enable colors, please install the 'colored' module: python3 -m pip install colored
+[I] Loading bytes from ./build/engines/NC_H100_v5/stable-diffusion-xl/Offline/stable-diffusion-xl-CLIP-Offline-gpu-b8-fp16.custom_k_99_MaxP.plan
+[I] Loading bytes from ./build/engines/NC_H100_v5/stable-diffusion-xl/Offline/stable-diffusion-xl-CLIPWithProj-Offline-gpu-b8-fp16.custom_k_99_MaxP.plan
+[I] Loading bytes from ./build/engines/NC_H100_v5/stable-diffusion-xl/Offline/stable-diffusion-xl-UNetXL-Offline-gpu-b8-int8.custom_k_99_MaxP.plan
+[I] Loading bytes from ./build/engines/NC_H100_v5/stable-diffusion-xl/Offline/stable-diffusion-xl-VAE-Offline-gpu-b8-fp32.custom_k_99_MaxP.plan
+make: *** [Makefile:45: run_harness] Terminated

@@ -1,0 +1,140 @@
+{
+  "app-mlperf-inference,d775cac873ee4231:nvidia-original,bert-99,tensorrt,cuda,valid,r4.0_default,singlestream": [
+    {
+      "get,python,python3,get-python,get-python3": {
+        "script_uid": "d0b5dd74373f4a62",
+        "script_alias": "get-python3",
+        "version": "3.8.10",
+        "parent": "app-mlperf-inference,d775cac873ee4231:nvidia-original,bert-99,tensorrt,cuda,valid,r4.0_default,singlestream"
+      }
+    },
+    {
+      "get,src,source,inference,inference-src,inference-source,mlperf,mlcommons,deeplearningexamples": {
+        "script_uid": "4b57186581024797",
+        "script_alias": "get-mlperf-inference-src",
+        "version": "master",
+        "parent": "app-mlperf-inference,d775cac873ee4231:nvidia-original,bert-99,tensorrt,cuda,valid,r4.0_default,singlestream"
+      }
+    },
+    {
+      "get,src,source,inference,inference-src,inference-source,mlperf,mlcommons,deeplearningexamples": {
+        "script_uid": "4b57186581024797",
+        "script_alias": "get-mlperf-inference-src",
+        "version": "master",
+        "parent": "get-mlperf-inference-utils,e341e5f86d8342e5:"
+      }
+    },
+    {
+      "get,cuda,cuda-compiler,cuda-lib,toolkit,lib,nvcc,get-nvcc,get-cuda,toolkit": {
+        "script_uid": "46d133d9ef92422d",
+        "script_alias": "get-cuda",
+        "version": "12.2",
+        "parent": "get-cuda-devices,7a3ede4d3558427a:"
+      }
+    },
+    {
+      "get,dataset,squad,language-processing,validation,original": {
+        "script_uid": "6651c119c3ae49b3",
+        "script_alias": "get-dataset-squad",
+        "version": "1.1",
+        "parent": "app-mlperf-inference,d775cac873ee4231:nvidia-original,bert-99,tensorrt,cuda,valid,r4.0_default,singlestream"
+      }
+    },
+    {
+      "get,install,generic,generic-python-lib,mlperf_logging": {
+        "script_uid": "94b62a682bc44791",
+        "script_alias": "get-generic-python-lib",
+        "version": "3.0.0",
+        "parent": "reproduce-mlperf-inference-nvidia,bc3b17fb430f4732:cuda,bert-99,tensorrt,singlestream,rtx_4090"
+      }
+    },
+    {
+      "get,src,source,inference,inference-src,inference-source,mlperf,mlcommons,deeplearningexamples": {
+        "script_uid": "4b57186581024797",
+        "script_alias": "get-mlperf-inference-src",
+        "version": "master",
+        "parent": "reproduce-mlperf-inference-nvidia,bc3b17fb430f4732:cuda,bert-99,tensorrt,singlestream,rtx_4090"
+      }
+    },
+    {
+      "get,nvidia,mlperf,inference,common-code,ctuning": {
+        "script_uid": "26b78bf3ffdc4926",
+        "script_alias": "get-mlperf-inference-nvidia-common-code",
+        "version": "r3.1",
+        "parent": "reproduce-mlperf-inference-nvidia,bc3b17fb430f4732:cuda,bert-99,tensorrt,singlestream,rtx_4090"
+      }
+    },
+    {
+      "get,python,python3,get-python,get-python3": {
+        "script_uid": "d0b5dd74373f4a62",
+        "script_alias": "get-python3",
+        "version": "3.8.10",
+        "parent": "generate-mlperf-inference-user-conf,3af4475745964b93:"
+      }
+    },
+    {
+      "get,src,source,inference,inference-src,inference-source,mlperf,mlcommons,deeplearningexamples": {
+        "script_uid": "4b57186581024797",
+        "script_alias": "get-mlperf-inference-src",
+        "version": "master",
+        "parent": "generate-mlperf-inference-user-conf,3af4475745964b93:"
+      }
+    },
+    {
+      "get,install,generic,generic-python-lib,package.nvmitten,path./opt/nvmitten-0.1.3-cp38-cp38-linux_x86_64.whl": {
+        "script_uid": "94b62a682bc44791",
+        "script_alias": "get-generic-python-lib",
+        "version": "0.1.3",
+        "parent": "reproduce-mlperf-inference-nvidia,bc3b17fb430f4732:cuda,bert-99,tensorrt,singlestream,rtx_4090"
+      }
+    },
+    {
+      "get,install,generic,generic-python-lib,transformers": {
+        "script_uid": "94b62a682bc44791",
+        "script_alias": "get-generic-python-lib",
+        "version": "4.31.0",
+        "parent": "reproduce-mlperf-inference-nvidia,bc3b17fb430f4732:cuda,bert-99,tensorrt,singlestream,rtx_4090"
+      }
+    },
+    {
+      "get,install,generic,generic-python-lib,safetensors": {
+        "script_uid": "94b62a682bc44791",
+        "script_alias": "get-generic-python-lib",
+        "version": "0.4.2",
+        "parent": "reproduce-mlperf-inference-nvidia,bc3b17fb430f4732:cuda,bert-99,tensorrt,singlestream,rtx_4090"
+      }
+    },
+    {
+      "get,install,generic,generic-python-lib,onnx": {
+        "script_uid": "94b62a682bc44791",
+        "script_alias": "get-generic-python-lib",
+        "version": "1.13.1",
+        "parent": "reproduce-mlperf-inference-nvidia,bc3b17fb430f4732:cuda,bert-99,tensorrt,singlestream,rtx_4090"
+      }
+    },
+    {
+      "get,cuda,cuda-compiler,cuda-lib,toolkit,lib,nvcc,get-nvcc,get-cuda,cudnn": {
+        "script_uid": "46d133d9ef92422d",
+        "script_alias": "get-cuda",
+        "version": "12.2",
+        "parent": "reproduce-mlperf-inference-nvidia,bc3b17fb430f4732:cuda,bert-99,tensorrt,singlestream,rtx_4090"
+      }
+    },
+    {
+      "get,tensorrt,nvidia": {
+        "script_uid": "2a84ca505e4c408d",
+        "script_alias": "get-tensorrt",
+        "version": "vdetected",
+        "parent": "reproduce-mlperf-inference-nvidia,bc3b17fb430f4732:cuda,bert-99,tensorrt,singlestream,rtx_4090"
+      }
+    },
+    {
+      "build,mlcommons,mlperf,inference,inference-server,server,nvidia-harness,nvidia,ctuning": {
+        "script_uid": "f37403af5e9f4541",
+        "script_alias": "build-mlperf-inference-server-nvidia",
+        "version": "r3.1",
+        "parent": "reproduce-mlperf-inference-nvidia,bc3b17fb430f4732:cuda,bert-99,tensorrt,singlestream,rtx_4090"
+      }
+    }
+  ]
+}

@@ -1,0 +1,158 @@
+[2024-02-20 10:06:11,131 main.py:230 INFO] Detected system ID: KnownSystem.spr
+[2024-02-20 10:06:11,484 generate_conf_files.py:107 INFO] Generated measurements/ entries for spr_TRT/bert-99.9/Server
+[2024-02-20 10:06:11,485 __init__.py:46 INFO] Running command: ./build/bin/harness_bert --logfile_outdir="/home/cmuser/local/cache/f88c69500c934b67/valid_results/e7848e83534a-nvidia_original-gpu-tensorrt-vdefault-default_config/bert-99.9/server/performance/run_1" --logfile_prefix="mlperf_log_" --performance_sample_count=10833 --test_mode="PerformanceOnly" --gpu_batch_size=256 --mlperf_conf_path="/home/cmuser/CM/repos/local/cache/30a1e017eddd4007/inference/mlperf.conf" --tensor_path="build/preprocessed_data/squad_tokenized/input_ids.npy,build/preprocessed_data/squad_tokenized/segment_ids.npy,build/preprocessed_data/squad_tokenized/input_mask.npy" --use_graphs=true --user_conf_path="/home/cmuser/CM/repos/ctuning@mlcommons-ck/cm-mlops/script/generate-mlperf-inference-user-conf/tmp/1cae7feaf1734c4b8a6a19ae290ae03f.conf" --gpu_inference_streams=2 --gpu_copy_streams=1 --gpu_engines="./build/engines/spr/bert/Server/bert-Server-gpu-fp16_S_384_B_256_P_2_vs.custom_k_99_9_MaxP.plan" --scenario Server --model bert
+[2024-02-20 10:06:11,485 __init__.py:53 INFO] Overriding Environment
+benchmark : Benchmark.BERT
+buffer_manager_thread_count : 0
+coalesced_tensor : True
+data_dir : /home/cmuser/local/cache/b1f8faeaa7384886/data
+enable_interleaved : False
+gpu_batch_size : 256
+gpu_copy_streams : 1
+gpu_inference_streams : 2
+input_dtype : int32
+input_format : linear
+log_dir : /home/cmuser/CM/repos/local/cache/8fc141ed37f54f54/repo/closed/NVIDIA/build/logs/2024.02.20-10.06.09
+mlperf_conf_path : /home/cmuser/CM/repos/local/cache/30a1e017eddd4007/inference/mlperf.conf
+precision : fp16
+preprocessed_data_dir : /home/cmuser/local/cache/b1f8faeaa7384886/preprocessed_data
+scenario : Scenario.Server
+server_target_qps : 2930
+server_target_qps_adj_factor : 0.0
+system : SystemConfiguration(host_cpu_conf=CPUConfiguration(layout={CPU(name='Intel(R) Xeon(R) w7-2495X', architecture=<CPUArchitecture.x86_64: AliasedName(name='x86_64', aliases=(), patterns=())>, core_count=24, threads_per_core=2): 1}), host_mem_conf=MemoryConfiguration(host_memory_capacity=Memory(quantity=197.33004, byte_suffix=<ByteSuffix.GB: (1000, 3)>, _num_bytes=197330040000), comparison_tolerance=0.05), accelerator_conf=AcceleratorConfiguration(layout=defaultdict(<class 'int'>, {GPU(name='NVIDIA GeForce RTX 4090', accelerator_type=<AcceleratorType.Discrete: AliasedName(name='Discrete', aliases=(), patterns=())>, vram=Memory(quantity=23.98828125, byte_suffix=<ByteSuffix.GiB: (1024, 3)>, _num_bytes=25757220864), max_power_limit=450.0, pci_id='0x268410DE', compute_sm=89): 2})), numa_conf=None, system_id='spr')
+tensor_path : build/preprocessed_data/squad_tokenized/input_ids.npy,build/preprocessed_data/squad_tokenized/segment_ids.npy,build/preprocessed_data/squad_tokenized/input_mask.npy
+test_mode : PerformanceOnly
+use_graphs : True
+use_small_tile_gemm_plugin : True
+user_conf_path : /home/cmuser/CM/repos/ctuning@mlcommons-ck/cm-mlops/script/generate-mlperf-inference-user-conf/tmp/1cae7feaf1734c4b8a6a19ae290ae03f.conf
+system_id : spr
+config_name : spr_bert_Server
+workload_setting : WorkloadSetting(HarnessType.Custom, AccuracyTarget.k_99_9, PowerSetting.MaxP)
+optimization_level : plugin-enabled
+use_cpu : False
+use_inferentia : False
+num_profiles : 1
+config_ver : custom_k_99_9_MaxP
+accuracy_level : 99.9%
+inference_server : custom
+skip_file_checks : True
+power_limit : None
+cpu_freq : None
+&&&& RUNNING BERT_HARNESS # ./build/bin/harness_bert
+I0220 10:06:11.532256 886515 main_bert.cc:163] Found 2 GPUs
+I0220 10:06:11.660178 886515 bert_server.cc:142] Engine Path: ./build/engines/spr/bert/Server/bert-Server-gpu-fp16_S_384_B_256_P_2_vs.custom_k_99_9_MaxP.plan
+[I] [TRT] Loaded engine size: 699 MiB
+[I] [TRT] Loaded engine size: 699 MiB
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +8, GPU +10, now: CPU 999, GPU 1511 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +2, GPU +10, now: CPU 1001, GPU 1521 (MiB)
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +1152, now: CPU 0, GPU 1152 (MiB)
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +6, GPU +10, now: CPU 1008, GPU 1219 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +1, GPU +10, now: CPU 1009, GPU 1229 (MiB)
+I0220 10:06:12.442618 886515 bert_server.cc:203] Engines Creation Completed
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +1, GPU +576, now: CPU 1, GPU 1152 (MiB)
+I0220 10:06:12.477830 886515 bert_server.cc:208] Use CUDA graphs
+I0220 10:06:12.478013 886515 bert_core_vs.cc:385] Engine - Device Memory requirements: 1409287680
+I0220 10:06:12.478016 886515 bert_core_vs.cc:393] Engine - Number of Optimization Profiles: 2
+I0220 10:06:12.478021 886515 bert_core_vs.cc:415] Engine - Profile 0 maxDims 98304 Bmax=256 Smax=384
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +8, now: CPU 310, GPU 2859 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +8, now: CPU 310, GPU 2867 (MiB)
+I0220 10:06:12.549492 886515 bert_core_vs.cc:426] Setting Opt.Prof. to 0
+I0220 10:06:12.549510 886515 bert_core_vs.cc:444] Context creation complete. Max supported batchSize: 256
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +1, GPU +0, now: CPU 2, GPU 1152 (MiB)
+I0220 10:06:12.549654 886515 bert_core_vs.cc:476] Setup complete
+I0220 10:06:12.549840 886515 bert_core_vs.cc:385] Engine - Device Memory requirements: 1409287680
+I0220 10:06:12.549844 886515 bert_core_vs.cc:393] Engine - Number of Optimization Profiles: 2
+I0220 10:06:12.549846 886515 bert_core_vs.cc:415] Engine - Profile 0 maxDims 98304 Bmax=256 Smax=384
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +8, now: CPU 434, GPU 2567 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +8, now: CPU 434, GPU 2575 (MiB)
+I0220 10:06:12.637837 886515 bert_core_vs.cc:426] Setting Opt.Prof. to 0
+I0220 10:06:12.637854 886515 bert_core_vs.cc:444] Context creation complete. Max supported batchSize: 256
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +0, now: CPU 2, GPU 1152 (MiB)
+I0220 10:06:12.638566 886515 bert_core_vs.cc:476] Setup complete
+I0220 10:06:43.095966 886526 bert_core_vs.cc:352] Created 200 CUDA graphs
+I0220 10:06:43.288759 886524 bert_core_vs.cc:352] Created 200 CUDA graphs
+I0220 10:06:43.289490 886515 bert_core_vs.cc:385] Engine - Device Memory requirements: 1409287680
+I0220 10:06:43.289523 886515 bert_core_vs.cc:393] Engine - Number of Optimization Profiles: 2
+I0220 10:06:43.289538 886515 bert_core_vs.cc:415] Engine - Profile 1 maxDims 98304 Bmax=256 Smax=384
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +8, now: CPU 1144, GPU 6579 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +10, now: CPU 1144, GPU 6589 (MiB)
+I0220 10:06:43.364635 886515 bert_core_vs.cc:426] Setting Opt.Prof. to 1
+[I] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +1, GPU +0, now: CPU 3, GPU 1152 (MiB)
+I0220 10:06:43.364992 886515 bert_core_vs.cc:444] Context creation complete. Max supported batchSize: 256
+I0220 10:06:43.365871 886515 bert_core_vs.cc:476] Setup complete
+I0220 10:06:43.366077 886515 bert_core_vs.cc:385] Engine - Device Memory requirements: 1409287680
+I0220 10:06:43.366080 886515 bert_core_vs.cc:393] Engine - Number of Optimization Profiles: 2
+I0220 10:06:43.366084 886515 bert_core_vs.cc:415] Engine - Profile 1 maxDims 98304 Bmax=256 Smax=384
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +8, now: CPU 1268, GPU 6287 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +10, now: CPU 1268, GPU 6297 (MiB)
+I0220 10:06:43.436965 886515 bert_core_vs.cc:426] Setting Opt.Prof. to 1
+[I] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +0, now: CPU 3, GPU 1152 (MiB)
+I0220 10:06:43.437335 886515 bert_core_vs.cc:444] Context creation complete. Max supported batchSize: 256
+I0220 10:06:43.438194 886515 bert_core_vs.cc:476] Setup complete
+I0220 10:07:14.104043 886530 bert_core_vs.cc:352] Created 200 CUDA graphs
+I0220 10:07:14.370054 886528 bert_core_vs.cc:352] Created 200 CUDA graphs
+I0220 10:07:15.571686 886515 main_bert.cc:184] Starting running actual test.
+I0220 10:17:16.980264 886515 main_bert.cc:190] Finished running actual test.
+================================================
+MLPerf Results Summary
+================================================
+SUT name : BERT SERVER
+Scenario : Server
+Mode     : PerformanceOnly
+Scheduled samples per second : 2932.14
+Result is : VALID
+  Performance constraints satisfied : Yes
+  Min duration satisfied : Yes
+  Min queries satisfied : Yes
+  Early stopping satisfied: Yes
+Early Stopping Result:
+ * Run successful.
+
+================================================
+Additional Stats
+================================================
+Completed samples per second    : 2931.97
+
+Min latency (ns)                : 5828976
+Max latency (ns)                : 198363097
+Mean latency (ns)               : 62711167
+50.00 percentile latency (ns)   : 60081057
+90.00 percentile latency (ns)   : 92569200
+95.00 percentile latency (ns)   : 103414347
+97.00 percentile latency (ns)   : 111079639
+99.00 percentile latency (ns)   : 126306147
+99.90 percentile latency (ns)   : 156900872
+
+================================================
+Test Parameters Used
+================================================
+samples_per_query : 1
+target_qps : 2930
+target_latency (ns): 130000000
+max_async_queries : 0
+min_duration (ms): 600000
+max_duration (ms): 0
+min_query_count : 100
+max_query_count : 0
+qsl_rng_seed : 13281865557512327830
+sample_index_rng_seed : 198141574272810017
+schedule_rng_seed : 7575108116881280410
+accuracy_log_rng_seed : 0
+accuracy_log_probability : 0
+accuracy_log_sampling_target : 0
+print_timestamps : 0
+performance_issue_unique : 0
+performance_issue_same : 0
+performance_issue_same_index : 0
+performance_sample_count : 10833
+
+No warnings encountered during test.
+
+No errors encountered during test.
+[2024-02-20 10:17:17,422 run_harness.py:170 INFO] Result: result_scheduled_samples_per_sec: 2932.14, Result is VALID
+ 
+======================== Result summaries: ========================
+

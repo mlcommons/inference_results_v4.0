@@ -1,0 +1,55 @@
+client 2024-01-25 04:13:12,679 [INFO] Creating output directory '/home/krai/work_collection/experiments_submission/generated_by_power_measurement_on_run_fd569b3bc2574870a70ec3ec78b33194/power_logs'
+client 2024-01-25 04:13:12,680 [INFO] Sending command to the server: 'mlcommons/power client v3'
+client 2024-01-25 04:13:12,681 [INFO] Got response: 'mlcommons/power server v3'
+client 2024-01-25 04:13:12,681 [INFO] Synchronizing with the server and with time.google.com...
+client 2024-01-25 04:13:12,850 [INFO] NTP:offset = 0.000 s, delay = 0.077 s 
+client 2024-01-25 04:13:12,850 [INFO] Sending command to the server: 'time'
+client 2024-01-25 04:13:12,852 [INFO] Got response: '1706177592.851623'
+client 2024-01-25 04:13:12,852 [INFO] The time difference between the client and the server is within range -0.825 ms..0.517 ms
+client 2024-01-25 04:13:12,852 [INFO] Sending command to the server: 'new,,3356c4ae-0b19-485f-b8e2-4887b2c9f313'
+client 2024-01-25 04:13:12,853 [INFO] Got response: 'OK 2024-01-25_04-13-12,c6f63239-85bd-4cc1-8bdd-0e32e1dfd7eb'
+client 2024-01-25 04:13:12,853 [INFO] Session id is '2024-01-25_04-13-12'
+client 2024-01-25 04:13:12,853 [INFO] Sources: {"sources": {"__init__.py": "da39a3ee5e6b4b0d3255bfef95601890afd80709", "client.py": "33ca4f26368777ac06e01f9567b714a4b8063886", "lib/__init__.py": "da39a3ee5e6b4b0d3255bfef95601890afd80709", "lib/client.py": "ac2aa093c8e8bbc9569b9e2a3471bc64e58a2258", "lib/common.py": "611d8b29633d331eb19c9455ea3b5fa3284ed6df", "lib/external/__init__.py": "da39a3ee5e6b4b0d3255bfef95601890afd80709", "lib/external/ntplib.py": "4da8f970656505a40483206ef2b5d3dd5e81711d", "lib/server.py": "99303c836c683aa9017ec565104e636161d02acb", "lib/source_hashes.py": "60a2e02193209e8d392803326208d5466342da18", "lib/summary.py": "aa92f0a3f975eecd44d3c0cd0236342ccc9f941d", "lib/time_sync.py": "80894ef2389e540781ff78de94db16aa4203a14e", "server.py": "c3f90f2f7eeb4db30727556d0c815ebc89b3d28b", "tests/unit/__init__.py": "da39a3ee5e6b4b0d3255bfef95601890afd80709", "tests/unit/test_server.py": "948c1995d4008bc2aa6c4046a34ffa3858d6d671", "tests/unit/test_source_hashes.py": "00468a2907583c593e6574a1f6b404e4651c221a"}, "modules": {"ptd_client_server.lib.client": "lib/client.py", "ptd_client_server.lib.common": "lib/common.py", "ptd_client_server.lib.external.ntplib": "lib/external/ntplib.py", "ptd_client_server.lib.source_hashes": "lib/source_hashes.py", "ptd_client_server.lib.summary": "lib/summary.py", "ptd_client_server.lib.time_sync": "lib/time_sync.py"}}
+client 2024-01-25 04:13:12,854 [INFO] Running workload in ranging mode
+client 2024-01-25 04:13:12,854 [INFO] Synchronizing with the server and with time.google.com...
+client 2024-01-25 04:13:12,946 [INFO] NTP:offset = 0.007 s, delay = 0.091 s 
+client 2024-01-25 04:13:12,946 [INFO] Sending command to the server: 'time'
+client 2024-01-25 04:13:12,947 [INFO] Got response: '1706177592.947027'
+client 2024-01-25 04:13:12,947 [INFO] The time difference between the client and the server is within range -0.697 ms..0.580 ms
+client 2024-01-25 04:13:12,947 [INFO] Sending command to the server: 'session,2024-01-25_04-13-12,start,ranging'
+client 2024-01-25 04:13:42,444 [INFO] Got response: 'OK'
+client 2024-01-25 04:13:42,444 [INFO] Sending command to the server: 'time'
+client 2024-01-25 04:13:42,445 [INFO] Got response: '1706177622.4452443'
+client 2024-01-25 04:13:42,446 [INFO] The time difference between the client and the server is within range -0.745 ms..0.759 ms
+client 2024-01-25 04:13:42,446 [INFO] Running the workload 'axs byquery loadgen_output,task=bert,sut_name=r282_q8_pro_edge,model_name=bert-99,framework=kilt,device=qaic,collection_name=experiments_submission,loadgen_mode=PerformanceOnly,loadgen_compliance_test-,loadgen_scenario=Offline,_with_power+,symlink_to=/home/krai/work_collection/experiments_submission/generated_by_power_measurement_on_run_fd569b3bc2574870a70ec3ec78b33194/last_mlperf_logs,power_client_entrydic_path=/home/krai/work_collection/experiments_submission/generated_by_power_measurement_on_run_fd569b3bc2574870a70ec3ec78b33194/program_output.json,effective_no_ranging-'
+client 2024-01-25 04:25:32,005 [INFO] Sending command to the server: 'time'
+client 2024-01-25 04:25:32,007 [INFO] Got response: '1706178332.005703'
+client 2024-01-25 04:25:32,007 [INFO] The time difference between the client and the server is within range -0.067 ms..1.680 ms
+client 2024-01-25 04:25:32,007 [INFO] Sending command to the server: 'session,2024-01-25_04-13-12,stop,ranging'
+client 2024-01-25 04:25:42,464 [INFO] Got response: 'OK'
+client 2024-01-25 04:25:42,464 [INFO] Sending command to the server: 'time'
+client 2024-01-25 04:25:42,465 [INFO] Got response: '1706178342.4638014'
+client 2024-01-25 04:25:42,465 [INFO] The time difference between the client and the server is within range 0.579 ms..1.482 ms
+client 2024-01-25 04:25:42,470 [INFO] Copying loadgen logs from '/home/krai/work_collection/experiments_submission/generated_by_power_measurement_on_run_fd569b3bc2574870a70ec3ec78b33194/last_mlperf_logs' to '/home/krai/work_collection/experiments_submission/generated_by_power_measurement_on_run_fd569b3bc2574870a70ec3ec78b33194/power_logs/ranging'
+client 2024-01-25 04:25:42,472 [INFO] Running workload in testing mode
+client 2024-01-25 04:25:42,472 [INFO] Synchronizing with the server and with time.google.com...
+client 2024-01-25 04:25:42,566 [INFO] NTP:offset = -0.001 s, delay = 0.093 s 
+client 2024-01-25 04:25:42,566 [INFO] Sending command to the server: 'time'
+client 2024-01-25 04:25:42,567 [INFO] Got response: '1706178342.5663533'
+client 2024-01-25 04:25:42,568 [INFO] The time difference between the client and the server is within range 0.204 ms..1.676 ms
+client 2024-01-25 04:25:42,568 [INFO] Sending command to the server: 'session,2024-01-25_04-13-12,start,testing'
+client 2024-01-25 04:25:55,586 [INFO] Got response: 'OK'
+client 2024-01-25 04:25:55,586 [INFO] Sending command to the server: 'time'
+client 2024-01-25 04:25:55,587 [INFO] Got response: '1706178355.58599'
+client 2024-01-25 04:25:55,587 [INFO] The time difference between the client and the server is within range 0.347 ms..1.666 ms
+client 2024-01-25 04:25:55,587 [INFO] Running the workload 'axs byquery loadgen_output,task=bert,sut_name=r282_q8_pro_edge,model_name=bert-99,framework=kilt,device=qaic,collection_name=experiments_submission,loadgen_mode=PerformanceOnly,loadgen_compliance_test-,loadgen_scenario=Offline,_with_power+,symlink_to=/home/krai/work_collection/experiments_submission/generated_by_power_measurement_on_run_fd569b3bc2574870a70ec3ec78b33194/last_mlperf_logs,power_client_entrydic_path=/home/krai/work_collection/experiments_submission/generated_by_power_measurement_on_run_fd569b3bc2574870a70ec3ec78b33194/program_output.json,effective_no_ranging-'
+client 2024-01-25 04:37:44,392 [INFO] Sending command to the server: 'time'
+client 2024-01-25 04:37:44,393 [INFO] Got response: '1706179064.3907883'
+client 2024-01-25 04:37:44,394 [INFO] The time difference between the client and the server is within range 1.432 ms..3.202 ms
+client 2024-01-25 04:37:44,394 [INFO] Sending command to the server: 'session,2024-01-25_04-13-12,stop,testing'
+client 2024-01-25 04:37:54,598 [INFO] Got response: 'OK'
+client 2024-01-25 04:37:54,599 [INFO] Sending command to the server: 'time'
+client 2024-01-25 04:37:54,599 [INFO] Got response: '1706179074.596635'
+client 2024-01-25 04:37:54,599 [INFO] The time difference between the client and the server is within range 2.371 ms..3.031 ms
+client 2024-01-25 04:37:54,601 [INFO] Copying loadgen logs from '/home/krai/work_collection/experiments_submission/generated_by_power_measurement_on_run_fd569b3bc2574870a70ec3ec78b33194/last_mlperf_logs' to '/home/krai/work_collection/experiments_submission/generated_by_power_measurement_on_run_fd569b3bc2574870a70ec3ec78b33194/power_logs/run_1'
+client 2024-01-25 04:37:54,601 [INFO] Done runs

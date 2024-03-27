@@ -1,0 +1,156 @@
+{
+  "app-mlperf-inference,d775cac873ee4231:reference,bert-99,deepsparse,cpu,valid,r4.0_default,int8,offline": [
+    {
+      "get,python,python3,get-python,get-python3": {
+        "script_uid": "d0b5dd74373f4a62",
+        "script_alias": "get-python3",
+        "version": "3.9.18",
+        "parent": "app-mlperf-inference,d775cac873ee4231:reference,bert-99,deepsparse,cpu,valid,r4.0_default,int8,offline"
+      }
+    },
+    {
+      "get,src,source,inference,inference-src,inference-source,mlperf,mlcommons,deeplearningexamples": {
+        "script_uid": "4b57186581024797",
+        "script_alias": "get-mlperf-inference-src",
+        "version": "master",
+        "parent": "app-mlperf-inference,d775cac873ee4231:reference,bert-99,deepsparse,cpu,valid,r4.0_default,int8,offline"
+      }
+    },
+    {
+      "get,src,source,inference,inference-src,inference-source,mlperf,mlcommons,deeplearningexamples": {
+        "script_uid": "4b57186581024797",
+        "script_alias": "get-mlperf-inference-src",
+        "version": "master",
+        "parent": "get-mlperf-inference-utils,e341e5f86d8342e5:"
+      }
+    },
+    {
+      "get,dataset,squad,language-processing,validation,original": {
+        "script_uid": "6651c119c3ae49b3",
+        "script_alias": "get-dataset-squad",
+        "version": "1.1",
+        "parent": "app-mlperf-inference,d775cac873ee4231:reference,bert-99,deepsparse,cpu,valid,r4.0_default,int8,offline"
+      }
+    },
+    {
+      "get,python,python3,get-python,get-python3": {
+        "script_uid": "d0b5dd74373f4a62",
+        "script_alias": "get-python3",
+        "version": "3.9.18",
+        "parent": "app-mlperf-inference-reference,ff149e9781fc4b65:bert-99,cpu,deepsparse,int8,offline"
+      }
+    },
+    {
+      "get,install,generic,generic-python-lib,torch": {
+        "script_uid": "94b62a682bc44791",
+        "script_alias": "get-generic-python-lib",
+        "version": "2.2.1",
+        "parent": "app-mlperf-inference-reference,ff149e9781fc4b65:bert-99,cpu,deepsparse,int8,offline"
+      }
+    },
+    {
+      "get,install,generic,generic-python-lib,transformers": {
+        "script_uid": "94b62a682bc44791",
+        "script_alias": "get-generic-python-lib",
+        "version": "4.38.1",
+        "parent": "app-mlperf-inference-reference,ff149e9781fc4b65:bert-99,cpu,deepsparse,int8,offline"
+      }
+    },
+    {
+      "get,dataset,squad,language-processing,validation,original": {
+        "script_uid": "6651c119c3ae49b3",
+        "script_alias": "get-dataset-squad",
+        "version": "1.1",
+        "parent": "app-mlperf-inference-reference,ff149e9781fc4b65:bert-99,cpu,deepsparse,int8,offline"
+      }
+    },
+    {
+      "get,python,python3,get-python,get-python3": {
+        "script_uid": "d0b5dd74373f4a62",
+        "script_alias": "get-python3",
+        "version": "3.9.18",
+        "parent": "generate-mlperf-inference-user-conf,3af4475745964b93:"
+      }
+    },
+    {
+      "get,src,source,inference,inference-src,inference-source,mlperf,mlcommons,deeplearningexamples": {
+        "script_uid": "4b57186581024797",
+        "script_alias": "get-mlperf-inference-src",
+        "version": "master",
+        "parent": "generate-mlperf-inference-user-conf,3af4475745964b93:"
+      }
+    },
+    {
+      "get,loadgen,inference,inference-loadgen,mlperf,mlcommons": {
+        "script_uid": "64c3d98d0ba04950",
+        "script_alias": "get-mlperf-inference-loadgen",
+        "version": "master",
+        "parent": "app-mlperf-inference-reference,ff149e9781fc4b65:bert-99,cpu,deepsparse,int8,offline"
+      }
+    },
+    {
+      "get,src,source,inference,inference-src,inference-source,mlperf,mlcommons,deeplearningexamples": {
+        "script_uid": "4b57186581024797",
+        "script_alias": "get-mlperf-inference-src",
+        "version": "master",
+        "parent": "app-mlperf-inference-reference,ff149e9781fc4b65:bert-99,cpu,deepsparse,int8,offline"
+      }
+    },
+    {
+      "get,src,source,inference,inference-src,inference-source,mlperf,mlcommons": {
+        "script_uid": "4b57186581024797",
+        "script_alias": "get-mlperf-inference-src",
+        "version": "deepsparse",
+        "parent": "app-mlperf-inference-reference,ff149e9781fc4b65:bert-99,cpu,deepsparse,int8,offline"
+      }
+    },
+    {
+      "get,install,generic,generic-python-lib,package.psutil": {
+        "script_uid": "94b62a682bc44791",
+        "script_alias": "get-generic-python-lib",
+        "version": "5.9.8",
+        "parent": "app-mlperf-inference-reference,ff149e9781fc4b65:bert-99,cpu,deepsparse,int8,offline"
+      }
+    },
+    {
+      "get,install,generic,generic-python-lib,deepsparse": {
+        "script_uid": "94b62a682bc44791",
+        "script_alias": "get-generic-python-lib",
+        "version": "1.6.1",
+        "parent": "app-mlperf-inference-reference,ff149e9781fc4b65:bert-99,cpu,deepsparse,int8,offline"
+      }
+    },
+    {
+      "get,install,generic,generic-python-lib,package.pydantic": {
+        "script_uid": "94b62a682bc44791",
+        "script_alias": "get-generic-python-lib",
+        "version": "1.10.9",
+        "parent": "app-mlperf-inference-reference,ff149e9781fc4b65:bert-99,cpu,deepsparse,int8,offline"
+      }
+    },
+    {
+      "get,install,generic,generic-python-lib,tokenization": {
+        "script_uid": "94b62a682bc44791",
+        "script_alias": "get-generic-python-lib",
+        "version": "1.0.7",
+        "parent": "app-mlperf-inference-reference,ff149e9781fc4b65:bert-99,cpu,deepsparse,int8,offline"
+      }
+    },
+    {
+      "get,install,generic,generic-python-lib,six": {
+        "script_uid": "94b62a682bc44791",
+        "script_alias": "get-generic-python-lib",
+        "version": "1.16.0",
+        "parent": "app-mlperf-inference-reference,ff149e9781fc4b65:bert-99,cpu,deepsparse,int8,offline"
+      }
+    },
+    {
+      "get,install,generic,generic-python-lib,package.absl-py": {
+        "script_uid": "94b62a682bc44791",
+        "script_alias": "get-generic-python-lib",
+        "version": "2.1.0",
+        "parent": "app-mlperf-inference-reference,ff149e9781fc4b65:bert-99,cpu,deepsparse,int8,offline"
+      }
+    }
+  ]
+}

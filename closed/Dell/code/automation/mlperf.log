@@ -1,0 +1,231 @@
+[2024-02-19 01:21:59,616][INFO] run.py:23   - Loading configurations from /home/dell/taoz/frameworks.ai.benchmarking.mlperf.submission.inference-submission-v4-0-4.0.1/closed/Intel/code/automation/config.yaml.
+[2024-02-19 01:21:59,651][INFO] run.py:141  - Parsing args:
+[2024-02-19 01:21:59,653][INFO] run.py:144  - args: Namespace(model='rnnt', implementation='pytorch-cpu', dtype='mix', dataset_dir='/home/dell/taoz/data/rnnt/mlperf-rnnt-librispeech', model_dir='/home/dell/taoz/data/rnnt/mlperf-rnnt-librispeech', output='/home/dell/taoz/data/rnnt/output_numablance0_htOn', container_name_suffix='_v4-0-4.0.1', performance_only=True, accuracy_only=False, offline_only=False, server_only=True, compliance_only=False, skip_docker_build=True, skip_create_container=False, skip_data_preprocess=False, ci_run=False)
+[2024-02-19 01:21:59,654][INFO] run.py:281  - Collecting environment information on baremetal.
+[2024-02-19 01:21:59,767][INFO] run.py:294  - User skipped docker build.
+[2024-02-19 01:22:01,648][INFO] run.py:299  - ===== Using docker image: sha256:149dd3835d9e =====
+[2024-02-19 01:22:01,649][INFO] run.py:243  - Launching docker container for rnnt.
+[2024-02-19 01:22:01,756][INFO] run.py:258  - Successfully launched container: c23a272f2bc5 for image: sha256:149dd3835d9e
+[2024-02-19 01:22:01,756][INFO] run.py:308  - ===== Running workloads in container: c23a272f2bc5 =====
+[2024-02-19 06:22:02,742][INFO] common.py:17    - Executing bash commands: export CONTAINER_MODEL_DIR=/data/mlperf_data/rnnt && export CONTAINER_DATA_DIR=/opt/workdir/code/rnnt/pytorch-cpu/mlperf-rnnt-librispeech && export CONTAINER_CODE_DIR=/opt/workdir/code/rnnt/pytorch-cpu && export CONTAINER_OUTPUT_DIR=/output && export CONTAINER_COMPLIANCE_SUITE_DIR=/opt/workdir/code/rnnt/pytorch-cpu/inference/compliance/nvidia && export MODEL=rnnt && export IMPL=pytorch-cpu && export DTYPE=mix && export ci_run=0 && cd ${CONTAINER_CODE_DIR} && SKIP_BUILD=1 STAGE=2 SETUP_ONLY=yes bash ${CONTAINER_CODE_DIR}/run.sh 2>&1 | tee ${CONTAINER_OUTPUT_DIR}/preproc_${MODEL}_${IMPL}_${DTYPE}.log
+[2024-02-19 01:22:02,742][INFO] run.py:338  - Loading configurations from config.yaml.
+
+[2024-02-19 01:22:02,742][INFO] run.py:338  - Parsing args:
+
+[2024-02-19 01:22:02,742][INFO] run.py:338  - args in container: Namespace(accuracy=False, cirun=False, compliance=False, dtype='mix', implementation='pytorch-cpu', model='rnnt', offline=False, performance=True, prepare=True, sensors=True, server=True)
+
+[2024-02-19 01:22:02,743][INFO] run.py:338  - Collecting environment information in container.
+
+[2024-02-19 01:22:02,743][INFO] run.py:338  - Exporting environment variables.
+
+[2024-02-19 01:22:02,743][INFO] run.py:338  - ===== Preprocessing for rnnt =====
+
+[2024-02-19 01:22:02,743][INFO] run.py:338  - [2024-02-19 06:22:02,742][INFO] common.py:17    - Executing bash commands: export CONTAINER_MODEL_DIR=/data/mlperf_data/rnnt && export CONTAINER_DATA_DIR=/opt/workdir/code/rnnt/pytorch-cpu/mlperf-rnnt-librispeech && export CONTAINER_CODE_DIR=/opt/workdir/code/rnnt/pytorch-cpu && export CONTAINER_OUTPUT_DIR=/output && export CONTAINER_COMPLIANCE_SUITE_DIR=/opt/workdir/code/rnnt/pytorch-cpu/inference/compliance/nvidia && export MODEL=rnnt && export IMPL=pytorch-cpu && export DTYPE=mix && export ci_run=0 && cd ${CONTAINER_CODE_DIR} && SKIP_BUILD=1 STAGE=2 SETUP_ONLY=yes bash ${CONTAINER_CODE_DIR}/run.sh 2>&1 | tee ${CONTAINER_OUTPUT_DIR}/preproc_${MODEL}_${IMPL}_${DTYPE}.log
+
+[2024-02-19 01:33:54,326][INFO] run.py:338  - run_clean.sh: line 1: /sys/devices/system/cpu/intel_pstate/no_turbo: No such file or directory
+
+[2024-02-19 01:33:54,327][INFO] run.py:338  - run_clean.sh: line 2: sudo: command not found
+
+[2024-02-19 01:33:54,327][INFO] run.py:338  - run_clean.sh: line 4: /sys/devices/system/cpu/intel_pstate/min_perf_pct: No such file or directory
+
+[2024-02-19 06:34:01,522][INFO] common.py:17    - Executing bash commands: export CONTAINER_MODEL_DIR=/data/mlperf_data/rnnt && export CONTAINER_DATA_DIR=/opt/workdir/code/rnnt/pytorch-cpu/mlperf-rnnt-librispeech && export CONTAINER_CODE_DIR=/opt/workdir/code/rnnt/pytorch-cpu && export CONTAINER_OUTPUT_DIR=/output && export CONTAINER_COMPLIANCE_SUITE_DIR=/opt/workdir/code/rnnt/pytorch-cpu/inference/compliance/nvidia && export MODEL=rnnt && export IMPL=pytorch-cpu && export DTYPE=mix && export ci_run=0 && cd /opt/workdir/code/rnnt/pytorch-cpu &&  pwd &&  SCENARIO=Server PRO_BS=4 BS=128 LEN=8 RESPONSE=9 QOS=233500 WARMUP=3 bash ./launch_sut.sh  
+[2024-02-19 01:34:01,522][INFO] run.py:338  - Elapsed time: 591.4791345596313 sec.
+
+[2024-02-19 01:34:01,522][INFO] run.py:338  - Completed preprocessing for model rnnt.
+
+[2024-02-19 01:34:01,522][INFO] run.py:338  - Skipped rnnt/pytorch-cpu/mix/Offline.
+
+[2024-02-19 01:34:01,522][INFO] run.py:338  - Skipped rnnt/pytorch-cpu/mix/Server/accuracy.
+
+[2024-02-19 01:34:01,522][INFO] run.py:338  - ===== Performing rnnt/pytorch-cpu/mix/Server/performance =====
+
+[2024-02-19 01:34:01,522][INFO] run.py:338  - Sleep 120 seconds.
+
+[2024-02-19 01:34:01,522][INFO] run.py:338  - Clearing cache and setting environment parameters...
+
+[2024-02-19 01:34:01,522][INFO] run.py:338  - [2024-02-19 06:34:01,522][INFO] common.py:17    - Executing bash commands: export CONTAINER_MODEL_DIR=/data/mlperf_data/rnnt && export CONTAINER_DATA_DIR=/opt/workdir/code/rnnt/pytorch-cpu/mlperf-rnnt-librispeech && export CONTAINER_CODE_DIR=/opt/workdir/code/rnnt/pytorch-cpu && export CONTAINER_OUTPUT_DIR=/output && export CONTAINER_COMPLIANCE_SUITE_DIR=/opt/workdir/code/rnnt/pytorch-cpu/inference/compliance/nvidia && export MODEL=rnnt && export IMPL=pytorch-cpu && export DTYPE=mix && export ci_run=0 && cd /opt/workdir/code/rnnt/pytorch-cpu &&  pwd &&  SCENARIO=Server PRO_BS=4 BS=128 LEN=8 RESPONSE=9 QOS=233500 WARMUP=3 bash ./launch_sut.sh  
+
+[2024-02-19 01:34:01,527][INFO] run.py:338  - + export LD_PRELOAD=/opt/conda/lib/libjemalloc.so
+
+[2024-02-19 01:34:01,528][INFO] run.py:338  - + LD_PRELOAD=/opt/conda/lib/libjemalloc.so
+
+[2024-02-19 01:34:01,528][INFO] run.py:338  - + export MALLOC_CONF=oversize_threshold:1,background_thread:true,percpu_arena:percpu,metadata_thp:always,dirty_decay_ms:30000,muzzy_decay_ms:-1
+
+[2024-02-19 01:34:01,528][INFO] run.py:338  - + MALLOC_CONF=oversize_threshold:1,background_thread:true,percpu_arena:percpu,metadata_thp:always,dirty_decay_ms:30000,muzzy_decay_ms:-1
+
+[2024-02-19 01:34:01,528][INFO] run.py:338  - + : 4
+
+[2024-02-19 01:34:01,528][INFO] run.py:338  - + : 128
+
+[2024-02-19 01:34:01,528][INFO] run.py:338  - + : 8
+
+[2024-02-19 01:34:01,528][INFO] run.py:338  - + : 9
+
+[2024-02-19 01:34:01,528][INFO] run.py:338  - + : 233500
+
+[2024-02-19 01:34:01,528][INFO] run.py:338  - + : Server
+
+[2024-02-19 01:34:01,528][INFO] run.py:338  - + : false
+
+[2024-02-19 01:34:01,528][INFO] run.py:338  - + : false
+
+[2024-02-19 01:34:01,528][INFO] run.py:338  - + : quant
+
+[2024-02-19 01:34:01,528][INFO] run.py:338  - + : true
+
+[2024-02-19 01:34:01,528][INFO] run.py:338  - + : -1
+
+[2024-02-19 01:34:01,528][INFO] run.py:338  - + : 3
+
+[2024-02-19 01:34:01,528][INFO] run.py:338  - + : original
+
+[2024-02-19 01:34:01,528][INFO] run.py:338  - ++ pwd
+
+[2024-02-19 01:34:01,528][INFO] run.py:338  - + SUT_DIR=/opt/workdir/code/rnnt/pytorch-cpu
+
+[2024-02-19 01:34:01,528][INFO] run.py:338  - + EXECUTABLE=/opt/workdir/code/rnnt/pytorch-cpu/build/rnnt_inference
+
+[2024-02-19 01:34:01,528][INFO] run.py:338  - + WORK_DIR=/opt/workdir/code/rnnt/pytorch-cpu/mlperf-rnnt-librispeech
+
+[2024-02-19 01:34:01,528][INFO] run.py:338  - + OUT_DIR=/opt/workdir/code/rnnt/pytorch-cpu/logs/Server
+
+[2024-02-19 01:34:01,528][INFO] run.py:338  - ++ nproc --all
+
+[2024-02-19 01:34:01,536][INFO] run.py:338  - + num_threads=256
+
+[2024-02-19 01:34:01,536][INFO] run.py:338  - ++ lscpu -b -p=Core,Socket
+
+[2024-02-19 01:34:01,536][INFO] run.py:338  - ++ grep -v '^#'
+
+[2024-02-19 01:34:01,536][INFO] run.py:338  - ++ sort -u
+
+[2024-02-19 01:34:01,536][INFO] run.py:338  - ++ wc -l
+
+[2024-02-19 01:34:01,575][INFO] run.py:338  - + num_physical_cores=128
+
+[2024-02-19 01:34:01,576][INFO] run.py:338  - ++ numactl --hardware
+
+[2024-02-19 01:34:01,576][INFO] run.py:338  - ++ grep available
+
+[2024-02-19 01:34:01,576][INFO] run.py:338  - ++ awk '-F ' '{ print $2 }'
+
+[2024-02-19 01:34:01,582][INFO] run.py:338  - + NUMA=4
+
+[2024-02-19 01:34:01,582][INFO] run.py:338  - + [[ Server == \O\f\f\l\i\n\e ]]
+
+[2024-02-19 01:34:01,583][INFO] run.py:338  - + [[ Server == \S\e\r\v\e\r ]]
+
+[2024-02-19 01:34:01,583][INFO] run.py:338  - + INTRA=8
+
+[2024-02-19 01:34:01,583][INFO] run.py:338  - + PRO_INTRA=1
+
+[2024-02-19 01:34:01,583][INFO] run.py:338  - + PRO_intra_per_socket=4
+
+[2024-02-19 01:34:01,583][INFO] run.py:338  - + '[' 32 = 56 ']'
+
+[2024-02-19 01:34:01,583][INFO] run.py:338  - + PRO_INTER=16
+
+[2024-02-19 01:34:01,583][INFO] run.py:338  - + INTER=14
+
+[2024-02-19 01:34:01,583][INFO] run.py:338  - + OUT_DIR_NANE=Server_original_true_PBS4_16_1_BS128_14_8_SL8_RSP9_QOS233500
+
+[2024-02-19 01:34:01,583][INFO] run.py:338  - + [[ false == true ]]
+
+[2024-02-19 01:34:01,583][INFO] run.py:338  - + OUT_DIR=/opt/workdir/code/rnnt/pytorch-cpu/logs/Server/performance/run_1
+
+[2024-02-19 01:34:01,583][INFO] run.py:338  - + mkdir -p /opt/workdir/code/rnnt/pytorch-cpu/logs/Server/performance/run_1
+
+[2024-02-19 01:34:01,589][INFO] run.py:338  - ++ grep physical.id /proc/cpuinfo
+
+[2024-02-19 01:34:01,589][INFO] run.py:338  - ++ sort -u
+
+[2024-02-19 01:34:01,589][INFO] run.py:338  - ++ wc -l
+
+[2024-02-19 01:34:01,596][INFO] run.py:338  - + number_sockets=2
+
+[2024-02-19 01:34:01,596][INFO] run.py:338  - ++ lscpu -b -p=Core,Socket
+
+[2024-02-19 01:34:01,597][INFO] run.py:338  - ++ grep -v '^#'
+
+[2024-02-19 01:34:01,597][INFO] run.py:338  - ++ sort -u
+
+[2024-02-19 01:34:01,597][INFO] run.py:338  - ++ wc -l
+
+[2024-02-19 01:34:01,630][INFO] run.py:338  - + export number_cores=128
+
+[2024-02-19 01:34:01,630][INFO] run.py:338  - + number_cores=128
+
+[2024-02-19 01:34:01,630][INFO] run.py:338  - + SCRIPT_ARGS=' --test_scenario=Server'
+
+[2024-02-19 01:34:01,630][INFO] run.py:338  - + SCRIPT_ARGS+=' --model_file=/opt/workdir/code/rnnt/pytorch-cpu/mlperf-rnnt-librispeech/rnnt_quant_jit.pt'
+
+[2024-02-19 01:34:01,630][INFO] run.py:338  - + SCRIPT_ARGS+=' --mlperf_config=/opt/workdir/code/rnnt/pytorch-cpu/inference/mlperf.conf'
+
+[2024-02-19 01:34:01,630][INFO] run.py:338  - + python ../../user_config.py
+
+[2024-02-19 01:34:01,670][INFO] run.py:338  - + USER_CONF=user.conf
+
+[2024-02-19 01:34:01,670][INFO] run.py:338  - + SCRIPT_ARGS+=' --user_config=user.conf'
+
+[2024-02-19 01:34:01,670][INFO] run.py:338  - + SCRIPT_ARGS+=' --output_dir=/opt/workdir/code/rnnt/pytorch-cpu/logs/Server/performance/run_1'
+
+[2024-02-19 01:34:01,670][INFO] run.py:338  - + SCRIPT_ARGS+=' --inter_parallel=14'
+
+[2024-02-19 01:34:01,670][INFO] run.py:338  - + SCRIPT_ARGS+=' --intra_parallel=8'
+
+[2024-02-19 01:34:01,670][INFO] run.py:338  - + SCRIPT_ARGS+=' --batch_size=128'
+
+[2024-02-19 01:34:01,670][INFO] run.py:338  - + SCRIPT_ARGS+=' --split_len=8'
+
+[2024-02-19 01:34:01,670][INFO] run.py:338  - + SCRIPT_ARGS+=' --warmup_iter=3'
+
+[2024-02-19 01:34:01,670][INFO] run.py:338  - + [[ true == true ]]
+
+[2024-02-19 01:34:01,670][INFO] run.py:338  - + SCRIPT_ARGS+=' --sample_file=/opt/workdir/code/rnnt/pytorch-cpu/mlperf-rnnt-librispeech/dev-clean-npy.pt --processor_file=/opt/workdir/code/rnnt/pytorch-cpu/mlperf-rnnt-librispeech/processor_jit.pt --processor'
+
+[2024-02-19 01:34:01,670][INFO] run.py:338  - + [[ Server == \S\e\r\v\e\r ]]
+
+[2024-02-19 01:34:01,670][INFO] run.py:338  - + SCRIPT_ARGS+=' --pro_inter_parallel=16 --pro_intra_parallel=1 --pro_batch_size=4 --response_size=9 --qos_len=233500'
+
+[2024-02-19 01:34:01,670][INFO] run.py:338  - + SCRIPT_ARGS+=' -n 4'
+
+[2024-02-19 01:34:01,670][INFO] run.py:338  - + [[ false == true ]]
+
+[2024-02-19 01:34:01,670][INFO] run.py:338  - + SCRIPT_ARGS+=' --profiler_iter=-1'
+
+[2024-02-19 01:34:01,670][INFO] run.py:338  - + '[' false '!=' false ']'
+
+[2024-02-19 01:34:01,670][INFO] run.py:338  - + '[' false == gdb ']'
+
+[2024-02-19 01:34:01,670][INFO] run.py:338  - + '[' false == lldb ']'
+
+[2024-02-19 01:34:01,671][INFO] run.py:338  - + '[' false == memcheck ']'
+
+[2024-02-19 01:34:01,671][INFO] run.py:338  - + /opt/workdir/code/rnnt/pytorch-cpu/build/rnnt_inference --test_scenario=Server --model_file=/opt/workdir/code/rnnt/pytorch-cpu/mlperf-rnnt-librispeech/rnnt_quant_jit.pt --mlperf_config=/opt/workdir/code/rnnt/pytorch-cpu/inference/mlperf.conf --user_config=user.conf --output_dir=/opt/workdir/code/rnnt/pytorch-cpu/logs/Server/performance/run_1 --inter_parallel=14 --intra_parallel=8 --batch_size=128 --split_len=8 --warmup_iter=3 --sample_file=/opt/workdir/code/rnnt/pytorch-cpu/mlperf-rnnt-librispeech/dev-clean-npy.pt --processor_file=/opt/workdir/code/rnnt/pytorch-cpu/mlperf-rnnt-librispeech/processor_jit.pt --processor --pro_inter_parallel=16 --pro_intra_parallel=1 --pro_batch_size=4 --response_size=9 --qos_len=233500 -n 4 --profiler_iter=-1
+
+[2024-02-19 01:50:50,198][INFO] run.py:338  - + [[ false == true ]]
+
+[2024-02-19 01:50:50,199][INFO] run.py:338  - + set +x
+
+[2024-02-19 01:50:50,219][INFO] run.py:338  - !!WARN!! INVALID performance: rnnt/pytorch-cpu/mix/Server/performance
+
+[2024-02-19 01:50:50,219][INFO] run.py:338  - ********************************************************************************
+
+[2024-02-19 01:50:50,219][INFO] run.py:338  - rnnt/pytorch-cpu/mix/Server/performance:
+
+[2024-02-19 01:50:50,219][INFO] run.py:338  -   Target QPS: 5800.0
+
+[2024-02-19 01:50:50,219][INFO] run.py:338  -   Perf QPS: 5797.6
+
+[2024-02-19 01:50:50,219][INFO] run.py:338  -   99.00 percentile latency: 838655662793.0
+
+[2024-02-19 01:50:50,219][INFO] run.py:338  -   Result dir: /output/closed/Intel/results/1-node-2S-SPR-PyTorch-MIX/rnnt/Server/performance/run_1
+
+[2024-02-19 01:50:50,220][INFO] run.py:338  - ********************************************************************************
+
+[2024-02-19 01:50:50,220][INFO] run.py:338  - Updating measurements of rnnt/pytorch-cpu/mix/Server/performance.
+
+[2024-02-19 01:50:50,220][INFO] run.py:338  - Elapsed time: 1135.995470046997 sec.
+
+[2024-02-19 01:50:50,220][INFO] run.py:338  - Skipped rnnt/pytorch-cpu/mix/Server/compliance.
+

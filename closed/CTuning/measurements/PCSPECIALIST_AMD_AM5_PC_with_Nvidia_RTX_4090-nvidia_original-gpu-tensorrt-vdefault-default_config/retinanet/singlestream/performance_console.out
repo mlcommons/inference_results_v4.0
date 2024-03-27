@@ -1,0 +1,132 @@
+grep: power/server-2706260181c0.cfg: No such file or directory
+grep: power/server-2706260181c0.cfg: No such file or directory
+[2024-02-19 14:06:42,171 main.py:230 INFO] Detected system ID: KnownSystem.phoenix
+[2024-02-19 14:06:42,244 harness.py:238 INFO] The harness will load 2 plugins: ['build/plugins/NMSOptPlugin/libnmsoptplugin.so', 'build/plugins/retinanetConcatPlugin/libretinanetconcatplugin.so']
+[2024-02-19 14:06:42,245 generate_conf_files.py:107 INFO] Generated measurements/ entries for phoenix_TRT/retinanet/SingleStream
+[2024-02-19 14:06:42,245 __init__.py:46 INFO] Running command: ./build/bin/harness_default --plugins="build/plugins/NMSOptPlugin/libnmsoptplugin.so,build/plugins/retinanetConcatPlugin/libretinanetconcatplugin.so" --logfile_outdir="/home/cmuser/local/cache/f4ba7328d7f447f9/valid_results/2706260181c0-nvidia_original-gpu-tensorrt-vdefault-default_config/retinanet/singlestream/performance/run_1" --logfile_prefix="mlperf_log_" --performance_sample_count=64 --test_mode="PerformanceOnly" --gpu_copy_streams=1 --gpu_inference_streams=1 --gpu_batch_size=1 --map_path="data_maps/open-images-v6-mlperf/val_map.txt" --mlperf_conf_path="/home/cmuser/CM/repos/local/cache/94cf04c8097b4057/inference/mlperf.conf" --tensor_path="build/preprocessed_data/open-images-v6-mlperf/validation/Retinanet/int8_linear" --use_graphs=false --user_conf_path="/home/cmuser/CM/repos/ctuning@mlcommons-ck/cm-mlops/script/generate-mlperf-inference-user-conf/tmp/827ee754fcaa416c84471fb24e8a1313.conf" --gpu_engines="./build/engines/phoenix/retinanet/SingleStream/retinanet-SingleStream-gpu-b1-int8.lwis_k_99_MaxP.plan" --max_dlas=0 --scenario SingleStream --model retinanet --response_postprocess openimageeffnms
+[2024-02-19 14:06:42,245 __init__.py:53 INFO] Overriding Environment
+benchmark : Benchmark.Retinanet
+buffer_manager_thread_count : 0
+data_dir : /home/cmuser/local/cache/6057f3cefd9041b3/data
+disable_beta1_smallk : True
+gpu_batch_size : 1
+gpu_copy_streams : 1
+gpu_inference_streams : 1
+input_dtype : int8
+input_format : linear
+log_dir : /home/cmuser/CM/repos/local/cache/8eb0c2732f244924/repo/closed/NVIDIA/build/logs/2024.02.19-14.06.41
+map_path : data_maps/open-images-v6-mlperf/val_map.txt
+mlperf_conf_path : /home/cmuser/CM/repos/local/cache/94cf04c8097b4057/inference/mlperf.conf
+precision : int8
+preprocessed_data_dir : /home/cmuser/local/cache/6057f3cefd9041b3/preprocessed_data
+scenario : Scenario.SingleStream
+single_stream_expected_latency_ns : 0
+system : SystemConfiguration(host_cpu_conf=CPUConfiguration(layout={CPU(name='AMD Ryzen 9 7950X 16-Core Processor', architecture=<CPUArchitecture.x86_64: AliasedName(name='x86_64', aliases=(), patterns=())>, core_count=16, threads_per_core=2): 1}), host_mem_conf=MemoryConfiguration(host_memory_capacity=Memory(quantity=131.07376399999998, byte_suffix=<ByteSuffix.GB: (1000, 3)>, _num_bytes=131073764000), comparison_tolerance=0.05), accelerator_conf=AcceleratorConfiguration(layout=defaultdict(<class 'int'>, {GPU(name='NVIDIA GeForce RTX 4090', accelerator_type=<AcceleratorType.Discrete: AliasedName(name='Discrete', aliases=(), patterns=())>, vram=Memory(quantity=23.98828125, byte_suffix=<ByteSuffix.GiB: (1024, 3)>, _num_bytes=25757220864), max_power_limit=450.0, pci_id='0x268410DE', compute_sm=89): 1})), numa_conf=None, system_id='phoenix')
+tensor_path : build/preprocessed_data/open-images-v6-mlperf/validation/Retinanet/int8_linear
+test_mode : PerformanceOnly
+use_graphs : False
+user_conf_path : /home/cmuser/CM/repos/ctuning@mlcommons-ck/cm-mlops/script/generate-mlperf-inference-user-conf/tmp/827ee754fcaa416c84471fb24e8a1313.conf
+system_id : phoenix
+config_name : phoenix_retinanet_SingleStream
+workload_setting : WorkloadSetting(HarnessType.LWIS, AccuracyTarget.k_99, PowerSetting.MaxP)
+optimization_level : plugin-enabled
+use_cpu : False
+use_inferentia : False
+num_profiles : 1
+config_ver : lwis_k_99_MaxP
+accuracy_level : 99%
+inference_server : lwis
+skip_file_checks : False
+power_limit : None
+cpu_freq : None
+&&&& RUNNING Default_Harness # ./build/bin/harness_default
+[I] mlperf.conf path: /home/cmuser/CM/repos/local/cache/94cf04c8097b4057/inference/mlperf.conf
+[I] user.conf path: /home/cmuser/CM/repos/ctuning@mlcommons-ck/cm-mlops/script/generate-mlperf-inference-user-conf/tmp/827ee754fcaa416c84471fb24e8a1313.conf
+Creating QSL.
+Finished Creating QSL.
+Setting up SUT.
+[I] [TRT] Loaded engine size: 72 MiB
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +6, GPU +10, now: CPU 118, GPU 881 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +2, GPU +10, now: CPU 120, GPU 891 (MiB)
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +68, now: CPU 0, GPU 68 (MiB)
+[I] Device:0.GPU: [0] ./build/engines/phoenix/retinanet/SingleStream/retinanet-SingleStream-gpu-b1-int8.lwis_k_99_MaxP.plan has been successfully loaded.
+[E] [TRT] 3: [runtime.cpp::~Runtime::399] Error Code 3: API Usage Error (Parameter check failed at: runtime/rt/runtime.cpp::~Runtime::399, condition: mEngineCounter.use_count() == 1. Destroying a runtime before destroying deserialized engines created by the runtime leads to undefined behavior.
+)
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +8, now: CPU 48, GPU 893 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +8, now: CPU 48, GPU 901 (MiB)
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +764, now: CPU 0, GPU 832 (MiB)
+[I] Creating batcher thread: 0 EnableBatcherThreadPerDevice: false
+Finished setting up SUT.
+Starting warmup. Running for a minimum of 5 seconds.
+Finished warmup. Ran for 5.01134s.
+Starting running actual test.
+================================================
+MLPerf Results Summary
+================================================
+SUT name : LWIS_Server
+Scenario : SingleStream
+Mode     : PerformanceOnly
+90th percentile latency (ns) : 1696615
+Result is : VALID
+  Min duration satisfied : Yes
+  Min queries satisfied : Yes
+  Early stopping satisfied: Yes
+Early Stopping Result:
+ * Processed at least 64 queries (358867).
+ * Would discard 35467 highest latency queries.
+ * Early stopping 90th percentile estimate: 1696853
+ * Early stopping 99th percentile estimate: 1714596
+
+================================================
+Additional Stats
+================================================
+QPS w/ loadgen overhead         : 598.11
+QPS w/o loadgen overhead        : 601.76
+
+Min latency (ns)                : 1620340
+Max latency (ns)                : 1882269
+Mean latency (ns)               : 1661800
+50.00 percentile latency (ns)   : 1653666
+90.00 percentile latency (ns)   : 1696615
+95.00 percentile latency (ns)   : 1705489
+97.00 percentile latency (ns)   : 1708926
+99.00 percentile latency (ns)   : 1714439
+99.90 percentile latency (ns)   : 1720130
+
+================================================
+Test Parameters Used
+================================================
+samples_per_query : 1
+target_qps : 2500
+target_latency (ns): 0
+max_async_queries : 1
+min_duration (ms): 600000
+max_duration (ms): 660000
+min_query_count : 100
+max_query_count : 0
+qsl_rng_seed : 13281865557512327830
+sample_index_rng_seed : 198141574272810017
+schedule_rng_seed : 7575108116881280410
+accuracy_log_rng_seed : 0
+accuracy_log_probability : 0
+accuracy_log_sampling_target : 0
+print_timestamps : 0
+performance_issue_unique : 0
+performance_issue_same : 0
+performance_issue_same_index : 0
+performance_sample_count : 64
+
+No warnings encountered during test.
+
+No errors encountered during test.
+Finished running actual test.
+Device Device:0.GPU processed:
+  358867 batches of size 1
+  Memcpy Calls: 0
+  PerSampleCudaMemcpy Calls: 0
+  BatchedCudaMemcpy Calls: 358867
+&&&& PASSED Default_Harness # ./build/bin/harness_default
+[2024-02-19 14:16:49,119 run_harness.py:170 INFO] Result: result_90.00_percentile_latency_ns: 1696615, Result is VALID
+ 
+======================== Result summaries: ========================
+

@@ -1,0 +1,28 @@
+NOTE! Installing ujson may make loading annotations faster.
+Loading annotations into memory...
+Done (t=0.53s)
+Creating index...
+index created!
+Loading and preparing results...
+DONE (t=17.03s)
+Creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=130.62s).
+Accumulating evaluation results...
+DONE (t=32.19s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.37312
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.52219
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.40416
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.02309
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.12474
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.41237
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.41869
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.59862
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.62776
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.08311
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.34488
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.67726
+mAP=37.312%
+hash=2f270570770ffa325a35a49ccbbc304f65671df1e7a98a6dc1ae4158c21083a7

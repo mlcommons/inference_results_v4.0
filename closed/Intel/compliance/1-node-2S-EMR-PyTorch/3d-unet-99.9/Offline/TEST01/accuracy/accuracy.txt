@@ -1,0 +1,11 @@
+Loading necessary metadata...
+Loading loadgen accuracy log...
+Traceback (most recent call last):
+  File "accuracy_kits.py", line 320, in <module>
+    main()
+  File "accuracy_kits.py", line 295, in main
+    predictions = load_loadgen_log(log_file, output_dtype, target_files, aux)
+  File "accuracy_kits.py", line 252, in load_loadgen_log
+    assert len(predictions) == len(aux.keys()),\
+AssertionError: Number of predictions does not match number of samples in validation set!
+hash=38a0160fff453727a1ee62286c251d0507dbb438b0db3171cd732e58b516737f

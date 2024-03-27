@@ -1,0 +1,174 @@
+[2024-02-15 04:12:45,740 main.py:230 INFO] Detected system ID: KnownSystem.spr
+[2024-02-15 04:12:45,785 harness.py:238 INFO] The harness will load 1 plugins: ['build/plugins/../TRTLLM/cpp/build/tensorrt_llm/plugins/libnvinfer_plugin.so']
+[2024-02-15 04:12:45,785 generate_conf_files.py:107 INFO] Generated measurements/ entries for spr_TRT/gptj-99/SingleStream
+[2024-02-15 04:12:45,786 __init__.py:46 INFO] Running command: ./build/bin/harness_gpt --plugins="build/plugins/../TRTLLM/cpp/build/tensorrt_llm/plugins/libnvinfer_plugin.so" --logfile_outdir="/home/cmuser/results_dir/valid_results/e7848e83534a-nvidia_original-gpu-tensorrt-vdefault-default_config/gptj-99/singlestream/performance/run_1" --logfile_prefix="mlperf_log_" --performance_sample_count=13368 --test_mode="PerformanceOnly" --gpu_batch_size=1 --mlperf_conf_path="/home/cmuser/CM/repos/local/cache/64ed88a664624323/inference/mlperf.conf" --tensor_path="build/preprocessed_data/cnn_dailymail_tokenized_gptj/input_ids_padded.npy,build/preprocessed_data/cnn_dailymail_tokenized_gptj/masked_tokens.npy,build/preprocessed_data/cnn_dailymail_tokenized_gptj/input_lengths.npy" --use_graphs=false --user_conf_path="/home/cmuser/CM/repos/ctuning@mlcommons-ck/cm-mlops/script/generate-mlperf-inference-user-conf/tmp/f10601472fec499286a6c2038d01cb14.conf" --use_fp8=true --gpu_inference_streams=1 --gpu_copy_streams=1 --tensor_parallelism=1 --enable_sort=true --num_sort_segments=2 --gpu_engines="./build/engines/spr/gptj/SingleStream/gptj-SingleStream-gpu-b1-fp16.custom_k_99_MaxP.plan" --scenario SingleStream --model gptj
+[2024-02-15 04:12:45,786 __init__.py:53 INFO] Overriding Environment
+benchmark : Benchmark.GPTJ
+buffer_manager_thread_count : 0
+coalesced_tensor : True
+data_dir : /home/cmuser/local/cache/b1f8faeaa7384886/data
+enable_sort : True
+gpu_batch_size : 1
+gpu_copy_streams : 1
+gpu_inference_streams : 1
+input_dtype : int32
+input_format : linear
+log_dir : /home/cmuser/CM/repos/local/cache/8fc141ed37f54f54/repo/closed/NVIDIA/build/logs/2024.02.15-04.12.44
+mlperf_conf_path : /home/cmuser/CM/repos/local/cache/64ed88a664624323/inference/mlperf.conf
+num_sort_segments : 2
+precision : fp16
+preprocessed_data_dir : /home/cmuser/local/cache/b1f8faeaa7384886/preprocessed_data
+scenario : Scenario.SingleStream
+single_stream_expected_latency_ns : 0
+system : SystemConfiguration(host_cpu_conf=CPUConfiguration(layout={CPU(name='Intel(R) Xeon(R) w7-2495X', architecture=<CPUArchitecture.x86_64: AliasedName(name='x86_64', aliases=(), patterns=())>, core_count=24, threads_per_core=2): 1}), host_mem_conf=MemoryConfiguration(host_memory_capacity=Memory(quantity=197.33004, byte_suffix=<ByteSuffix.GB: (1000, 3)>, _num_bytes=197330040000), comparison_tolerance=0.05), accelerator_conf=AcceleratorConfiguration(layout=defaultdict(<class 'int'>, {GPU(name='NVIDIA GeForce RTX 4090', accelerator_type=<AcceleratorType.Discrete: AliasedName(name='Discrete', aliases=(), patterns=())>, vram=Memory(quantity=23.98828125, byte_suffix=<ByteSuffix.GiB: (1024, 3)>, _num_bytes=25757220864), max_power_limit=450.0, pci_id='0x268410DE', compute_sm=89): 2})), numa_conf=None, system_id='spr')
+tensor_parallelism : 1
+tensor_path : build/preprocessed_data/cnn_dailymail_tokenized_gptj/input_ids_padded.npy,build/preprocessed_data/cnn_dailymail_tokenized_gptj/masked_tokens.npy,build/preprocessed_data/cnn_dailymail_tokenized_gptj/input_lengths.npy
+test_mode : PerformanceOnly
+use_fp8 : True
+use_graphs : False
+user_conf_path : /home/cmuser/CM/repos/ctuning@mlcommons-ck/cm-mlops/script/generate-mlperf-inference-user-conf/tmp/f10601472fec499286a6c2038d01cb14.conf
+system_id : spr
+config_name : spr_gptj_SingleStream
+workload_setting : WorkloadSetting(HarnessType.Custom, AccuracyTarget.k_99, PowerSetting.MaxP)
+optimization_level : plugin-enabled
+use_cpu : False
+use_inferentia : False
+num_profiles : 1
+config_ver : custom_k_99_MaxP
+accuracy_level : 99%
+inference_server : custom
+skip_file_checks : False
+power_limit : None
+cpu_freq : None
+&&&& RUNNING GPT_HARNESS # ./build/bin/harness_gpt
+[I] Loading plugin: build/plugins/../TRTLLM/cpp/build/tensorrt_llm/plugins/libnvinfer_plugin.so
+I0215 04:12:46.130195 62534 main_gpt.cc:122] Found 2 GPUs
+I0215 04:12:46.339560 62534 gpt_server.cc:215] Loading 1 engine(s)
+I0215 04:12:46.339581 62534 gpt_server.cc:218] Engine Path: ./build/engines/spr/gptj/SingleStream/gptj-SingleStream-gpu-b1-fp16.custom_k_99_MaxP.plan
+[I] [TRT] Loaded engine size: 6174 MiB
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +17, GPU +10, now: CPU 24357, GPU 6977 (MiB)
+[I] [TRT] Loaded engine size: 6174 MiB
+[W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +3, GPU +10, now: CPU 24360, GPU 6987 (MiB)
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +12330, now: CPU 0, GPU 12330 (MiB)
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +6, GPU +10, now: CPU 23985, GPU 6685 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +1, GPU +10, now: CPU 23986, GPU 6695 (MiB)
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +6165, now: CPU 0, GPU 12330 (MiB)
+I0215 04:12:57.259622 62534 gpt_server.cc:290] Engines Deserialization Completed
+I0215 04:12:57.536952 62534 gpt_core.cc:64] GPTCore 0: MPI Rank - 0 at Device Id - 0
+I0215 04:12:57.537024 62534 gpt_core.cc:262] Engine - Vocab size: 50401 Padded vocab size: 50401 Beam width: 4
+I0215 04:12:57.537182 62534 gpt_core.cc:90] Engine - Device Memory requirements: 235810304
+I0215 04:12:57.537185 62534 gpt_core.cc:99] Engine - Total Number of Optimization Profiles: 2
+I0215 04:12:57.537187 62534 gpt_core.cc:100] Engine - Number of Optimization Profiles Per Core: 2
+I0215 04:12:57.537189 62534 gpt_core.cc:101] Engine - Start Index of Optimization Profiles: 0
+[I] [TRT] [MS] Running engine with multi stream info
+[I] [TRT] [MS] Number of aux streams is 1
+[I] [TRT] [MS] Number of total worker streams is 2
+[I] [TRT] [MS] The main stream provided by execute/enqueue calls is the first worker stream
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +8, now: CPU 11639, GPU 7213 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +8, now: CPU 11639, GPU 7221 (MiB)
+I0215 04:12:58.451114 62534 gpt_core.cc:115] Setting Opt.Prof. to 0
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +0, now: CPU 0, GPU 12330 (MiB)
+[I] [TRT] [MS] Running engine with multi stream info
+[I] [TRT] [MS] Number of aux streams is 1
+[I] [TRT] [MS] Number of total worker streams is 2
+[I] [TRT] [MS] The main stream provided by execute/enqueue calls is the first worker stream
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +8, now: CPU 11728, GPU 7251 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +1, GPU +12, now: CPU 11729, GPU 7263 (MiB)
+I0215 04:12:58.782284 62534 gpt_core.cc:115] Setting Opt.Prof. to 1
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +0, now: CPU 0, GPU 12330 (MiB)
+[I] [TRT] Switching optimization profile from: 0 to 1. Please ensure there are no enqueued operations pending in this context prior to switching profiles
+[TensorRT-LLM][WARNING] Device 0 peer access Device 1 is not available.
+I0215 04:12:58.783834 62534 gpt_core.cc:144] Setup complete
+I0215 04:12:58.783852 62534 gpt_core.cc:64] GPTCore 0: MPI Rank - 0 at Device Id - 1
+I0215 04:12:58.783908 62534 gpt_core.cc:262] Engine - Vocab size: 50401 Padded vocab size: 50401 Beam width: 4
+I0215 04:12:58.784011 62534 gpt_core.cc:90] Engine - Device Memory requirements: 235810304
+I0215 04:12:58.784014 62534 gpt_core.cc:99] Engine - Total Number of Optimization Profiles: 2
+I0215 04:12:58.784016 62534 gpt_core.cc:100] Engine - Number of Optimization Profiles Per Core: 2
+I0215 04:12:58.784018 62534 gpt_core.cc:101] Engine - Start Index of Optimization Profiles: 0
+[I] [TRT] [MS] Running engine with multi stream info
+[I] [TRT] [MS] Number of aux streams is 1
+[I] [TRT] [MS] Number of total worker streams is 2
+[I] [TRT] [MS] The main stream provided by execute/enqueue calls is the first worker stream
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +8, now: CPU 11810, GPU 6921 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +8, now: CPU 11810, GPU 6929 (MiB)
+I0215 04:12:59.785928 62534 gpt_core.cc:115] Setting Opt.Prof. to 0
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +0, now: CPU 0, GPU 12330 (MiB)
+[I] [TRT] [MS] Running engine with multi stream info
+[I] [TRT] [MS] Number of aux streams is 1
+[I] [TRT] [MS] Number of total worker streams is 2
+[I] [TRT] [MS] The main stream provided by execute/enqueue calls is the first worker stream
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +8, now: CPU 11890, GPU 6959 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +1, GPU +12, now: CPU 11891, GPU 6971 (MiB)
+I0215 04:13:00.116803 62534 gpt_core.cc:115] Setting Opt.Prof. to 1
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +0, now: CPU 0, GPU 12330 (MiB)
+[I] [TRT] Switching optimization profile from: 0 to 1. Please ensure there are no enqueued operations pending in this context prior to switching profiles
+[TensorRT-LLM][WARNING] Device 1 peer access Device 0 is not available.
+I0215 04:13:00.118274 62534 gpt_core.cc:144] Setup complete
+I0215 04:13:00.118284 62534 gpt_core.cc:1026] Device 0: Warm up bypassed.
+I0215 04:13:00.118332 62534 gpt_core.cc:1026] Device 1: Warm up bypassed.
+I0215 04:13:00.118383 62534 main_gpt.cc:237] Starting running actual test.
+I0215 07:10:27.304538 62534 main_gpt.cc:241] Finished running actual test.
+================================================
+MLPerf Results Summary
+================================================
+SUT name : GPT SERVER MAIN
+Scenario : SingleStream
+Mode     : PerformanceOnly
+90th percentile latency (ns) : 1198650839
+Result is : VALID
+  Min duration satisfied : Yes
+  Min queries satisfied : Yes
+  Early stopping satisfied: Yes
+Early Stopping Result:
+ * Processed at least 64 queries (13368).
+ * Would discard 1255 highest latency queries.
+ * Early stopping 90th percentile estimate: 1204944324
+ * Early stopping 99th percentile estimate: 1394550980
+
+================================================
+Additional Stats
+================================================
+QPS w/ loadgen overhead         : 1.26
+QPS w/o loadgen overhead        : 1.26
+
+Min latency (ns)                : 265310609
+Max latency (ns)                : 1396843495
+Mean latency (ns)               : 796344968
+50.00 percentile latency (ns)   : 750077197
+90.00 percentile latency (ns)   : 1198650839
+95.00 percentile latency (ns)   : 1283299135
+97.00 percentile latency (ns)   : 1335136951
+99.00 percentile latency (ns)   : 1382928501
+99.90 percentile latency (ns)   : 1396382171
+
+================================================
+Test Parameters Used
+================================================
+samples_per_query : 1
+target_qps : 3.12703
+target_latency (ns): 0
+max_async_queries : 1
+min_duration (ms): 600000
+max_duration (ms): 0
+min_query_count : 13368
+max_query_count : 0
+qsl_rng_seed : 13281865557512327830
+sample_index_rng_seed : 198141574272810017
+schedule_rng_seed : 7575108116881280410
+accuracy_log_rng_seed : 0
+accuracy_log_probability : 0
+accuracy_log_sampling_target : 0
+print_timestamps : 0
+performance_issue_unique : 0
+performance_issue_same : 0
+performance_issue_same_index : 0
+performance_sample_count : 13368
+
+No warnings encountered during test.
+
+No errors encountered during test.
+[2024-02-15 07:10:28,002 run_harness.py:170 INFO] Result: result_90.00_percentile_latency_ns: 1198650839, Result is VALID
+ 
+======================== Result summaries: ========================
+

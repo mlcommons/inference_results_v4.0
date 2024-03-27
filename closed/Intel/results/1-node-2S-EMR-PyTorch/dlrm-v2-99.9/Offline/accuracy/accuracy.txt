@@ -1,0 +1,26 @@
+{
+    "TestScenario.Offline": {
+        "accuracy": 96.60518638464545,
+        "count": 189806,
+        "good_items": 86029237,
+        "mean": 0.04226202454447423,
+        "percentiles": {
+            "50.0": 0.03685450553894043,
+            "80.0": 0.04924917221069336,
+            "90.0": 0.05695176124572754,
+            "95.0": 0.0644686222076416,
+            "99.0": 0.10413337945938116,
+            "99.9": 0.22402416110038897
+        },
+        "qps": 1314.1273607471403,
+        "roc_auc": 80.24119408703937,
+        "took": 144.43501114845276,
+        "total_items": 89052400
+    },
+    "cmdline": "Namespace(model='dlrm', model_path='/data/mlperf_data/dlrm_2/model/dlrm-multihot-pytorch.pt', dataset='multihot-criteo', dataset_path='/data/mlperf_data/dlrm_2/data_npy', profile='dlrm-multihot-pytorch', enable_profiling=False, scenario='Offline', test_num_workers=0, max_ind_range=40000000, data_sub_sample_rate=0.0, max_batchsize=400, output='/opt/workdir/code/dlrm-v2-99.9/pytorch-cpu-int8/output/pytorch-cpu/dlrm/Offline/accuracy', inputs=['continuous and categorical features'], outputs=['probability'], backend='pytorch-native', use_gpu=False, use_ipex=True, use_bf16=False, use_int8=True, calibration=False, int8_configure_dir='int8_configure.json', int8_model_dir='dlrm_int8.pt', threads=1, cache=0, accuracy=True, find_peak_performance=False, config='./mlperf.conf', user_config='./user.conf', duration=None, target_qps=None, max_latency=None, count_samples=None, count_queries=None, samples_per_query_multistream=None, samples_per_query_offline=204800, samples_to_aggregate_fix=None, samples_to_aggregate_min=None, samples_to_aggregate_max=None, samples_to_aggregate_quantile_file='/opt/workdir/code/dlrm-v2-99.9/pytorch-cpu-int8/tools/dist_quantile.txt', samples_to_aggregate_trace_file='dlrm_trace_of_aggregated_samples.txt', numpy_rand_seed=123)",
+    "runtime": "pytorch-native-dlrm",
+    "time": 1707052609,
+    "version": "2.1.0+cpu"
+}
+AUC=80.24119408703937
+hash=c5c36d2aff1aa05ad2e6007ae01c4c0bedbdf3bfb992eed9a282d3c4654c7e3c

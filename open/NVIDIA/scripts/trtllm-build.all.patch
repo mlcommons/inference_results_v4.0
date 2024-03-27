@@ -1,0 +1,181 @@
+diff --git a/requirements.txt b/requirements.txt
+index d5e42b2..5ba6eb6 100644
+--- a/requirements.txt
++++ b/requirements.txt
+@@ -13,7 +13,6 @@ polygraphy
+ psutil
+ pynvml>=11.5.0
+ sentencepiece>=0.1.99
+-tensorrt==9.2.0.post12.dev5
+ torch<=2.2.0a
+ nvidia-ammo~=0.7.0; platform_machine=="x86_64"
+ transformers==4.36.1
+diff --git a/tensorrt_llm/builder.py b/tensorrt_llm/builder.py
+index f19702e..66f5c2c 100644
+--- a/tensorrt_llm/builder.py
++++ b/tensorrt_llm/builder.py
+@@ -154,6 +154,7 @@ class Builder():
+             logger.error(f"can't use refit and int8 mode at the same time")
+ 
+         config = self.trt_builder.create_builder_config()
++        config.set_flag(trt.BuilderFlag.SPARSE_WEIGHTS)
+         if not self.strongly_typed:
+             fp8 = quant_mode.has_fp8_qdq() or quant_mode.has_fp8_kv_cache()
+             if precision == 'float16' or precision == trt.DataType.HALF:
+diff --git a/tensorrt_llm/models/gptj/model.py b/tensorrt_llm/models/gptj/model.py
+index 153840e..d1460b9 100644
+--- a/tensorrt_llm/models/gptj/model.py
++++ b/tensorrt_llm/models/gptj/model.py
+@@ -18,13 +18,13 @@ from ...functional import PositionEmbeddingType, Tensor, allreduce
+ from ...layers import (MLP, Attention, AttentionMaskType, ColumnLinear,
+                        Embedding, KeyValueCacheParams, LayerNorm)
+ from ...module import Module
+-from ..modeling_utils import (DecoderLayerList, DecoderModelForCausalLM,
+-                              PretrainedConfig)
++from ..modeling_utils import (DecoderLayerConfig, DecoderLayerList,
++                              DecoderModelForCausalLM, PretrainedConfig)
+ 
+ 
+ class GPTJDecoderLayer(Module):
+ 
+-    def __init__(self, config: PretrainedConfig, layer_idx: int):
++    def __init__(self, config: DecoderLayerConfig, layer_idx: int):
+         super().__init__()
+         self.layer_idx = layer_idx
+         self.config = config
+@@ -43,9 +43,10 @@ class GPTJDecoderLayer(Module):
+ 
+         self.attention = Attention(
+             hidden_size=hidden_size,
++            attention_head_size=config.hidden_size_per_head,
+             num_attention_heads=num_attention_heads,
+             rotary_embedding_percentage=rotary_dim /
+-            (hidden_size // num_attention_heads),
++            config.hidden_size_per_head,
+             max_position_embeddings=config.max_position_embeddings,
+             attention_mask_type=AttentionMaskType.causal,
+             dtype=dtype,
+@@ -57,7 +58,7 @@ class GPTJDecoderLayer(Module):
+             quant_mode=config.quant_mode)
+ 
+         self.mlp = MLP(hidden_size=hidden_size,
+-                       ffn_hidden_size=hidden_size * 4,
++                       ffn_hidden_size=config.mlp_hidden_size,
+                        hidden_act=config.hidden_act,
+                        dtype=dtype,
+                        bias=True,
+diff --git a/tensorrt_llm/models/modeling_utils.py b/tensorrt_llm/models/modeling_utils.py
+index aef8e66..f6481f0 100644
+--- a/tensorrt_llm/models/modeling_utils.py
++++ b/tensorrt_llm/models/modeling_utils.py
+@@ -20,6 +20,52 @@ from ..quantization.quantize import quantize
+ from .generation_mixin import GenerationMixin
+ 
+ 
++class DecoderLayerConfig:
++
++    def __init__(
++        self,
++        dtype: str,
++        hidden_size: int,
++        hidden_size_per_head: int,
++        mlp_hidden_size: int,
++        num_attention_heads: int,
++        rotary_dim: int,
++        norm_epsilon: float,
++        world_size: int,
++        tp_size: int,
++        pp_size: int,
++        max_position_embeddings: int,
++        quant_mode: QuantMode,
++        hidden_act: str,
++    ):
++        self.dtype = dtype
++        self.hidden_size = hidden_size
++        self.hidden_size_per_head = hidden_size_per_head
++        self.mlp_hidden_size = mlp_hidden_size
++        self.num_attention_heads = num_attention_heads
++        self.rotary_dim = rotary_dim
++        self.norm_epsilon = norm_epsilon
++        self.mapping = Mapping(world_size=world_size,
++                               tp_size=tp_size,
++                               pp_size=pp_size)
++        self.max_position_embeddings = max_position_embeddings
++        self.quant_mode = quant_mode
++        self.hidden_act = hidden_act
++
++    def to_dict(self):
++        config = {}
++        config["dtype"] = self.dtype
++        config["hidden_size"] = self.hidden_size
++        config["hidden_size_per_head"] = self.hidden_size_per_head
++        config["mlp_hidden_size"] = self.mlp_hidden_size
++        config["num_attention_heads"] = self.num_attention_heads
++        config["rotary_dim"] = self.rotary_dim
++        config["norm_epsilon"] = self.norm_epsilon
++        config["max_position_embeddings "] = self.max_position_embeddings
++        config["hidden_act"] = self.hidden_act
++        return config
++
++
+ class PretrainedConfig:
+ 
+     def __init__(self,
+@@ -160,6 +206,31 @@ class PretrainedConfig:
+ 
+         max_lora_rank = config.pop('max_lora_rank', 64)
+ 
++        layers = config.pop('layers', None)
++
++        if layers is not None:
++            decoder_layers = []
++            for layer in layers:
++                decoder_layers.append(
++                    DecoderLayerConfig(
++                        dtype=layer.get('dtype', dtype),
++                        hidden_size=layer.get('hidden_size', hidden_size),
++                        hidden_size_per_head=layer["hidden_size_per_head"],
++                        mlp_hidden_size=layer["mlp_hidden_size"],
++                        num_attention_heads=layer.get("num_attention_heads",
++                                                      num_attention_heads),
++                        rotary_dim=layer.get("rotary_dim"),
++                        norm_epsilon=layer.get("norm_epsilon", norm_epsilon),
++                        world_size=world_size,
++                        tp_size=tp_size,
++                        pp_size=pp_size,
++                        max_position_embeddings=layer.get(
++                            "max_position_embeddings", max_position_embeddings),
++                        quant_mode=quant_mode,
++                        hidden_act=layer.get("hidden_act", hidden_act),
++                    ))
++            config['layers'] = decoder_layers
++
+         return cls(architecture, dtype, logits_dtype, vocab_size,
+                    max_position_embeddings, hidden_size, num_hidden_layers,
+                    num_attention_heads, num_key_value_heads, hidden_act,
+@@ -202,6 +273,12 @@ class PretrainedConfig:
+             'sq_use_plugin':
+             self.quant_kwargs.get('sq_use_plugin', False),
+         }
++        layers = output.pop('layers', None)
++        if layers is not None:
++            layers_dict = []
++            for layer in layers:
++                layers_dict.append(layer.to_dict())
++            output['layers'] = layers_dict
+ 
+         return output
+ 
+@@ -216,7 +293,11 @@ class DecoderLayerList(ModuleList):
+ 
+     def __init__(self, cls, config):
+         self.layer_list = config.mapping.pp_layers(config.num_hidden_layers)
+-        super().__init__([cls(config, idx) for idx in self.layer_list])
++        if hasattr(config, 'layers') and config.layers is not None:
++            super().__init__(
++                [cls(config.layers[idx], idx) for idx in self.layer_list])
++        else:
++            super().__init__([cls(config, idx) for idx in self.layer_list])
+ 
+     def forward(self,
+                 hidden_states,

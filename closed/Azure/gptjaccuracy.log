@@ -1,0 +1,677 @@
+make[1]: Entering directory '/work'
+[2024-02-22 20:21:47,162 systems.py:197 INFO] Found unknown device in GPU connection topology: NIC0. Skipping.
+[2024-02-22 20:21:47,215 main.py:229 INFO] Detected system ID: KnownSystem.NC_H100_v5
+[2024-02-22 20:21:48,762 systems.py:197 INFO] Found unknown device in GPU connection topology: NIC0. Skipping.
+[2024-02-22 20:21:48,810 generate_engines.py:173 INFO] Building engines for gptj benchmark in Offline scenario...
+[02/22/2024-20:21:48] [TRT] [I] [MemUsageChange] Init CUDA: CPU +2, GPU +0, now: CPU 38, GPU 1064 (MiB)
+[02/22/2024-20:21:51] [TRT] [I] [MemUsageChange] Init builder kernel library: CPU +4396, GPU +1160, now: CPU 4570, GPU 2226 (MiB)
+[2024-02-22 20:21:52,014 builder.py:180 INFO] Building GPTJ engine in build/engines/NC_H100_v5/gptj/Offline/bs256-custom_k_99_MaxP.
+[2024-02-22 20:21:52,014 builder.py:181 INFO] Command executing in build/TRTLLM dir: /usr/bin/python3.8 -m tensorrt_llm.commands.build --gpt_attention_plugin=float16 --max_batch_size=256 --max_input_len=1919 --max_output_len=128 --max_beam_width=4 --max_num_tokens=4096 --output_dir=/work/build/engines/NC_H100_v5/gptj/Offline/bs256-custom_k_99_MaxP --checkpoint_dir=/work/build/models/GPTJ-6B/fp8-quantized-ammo/GPTJ-FP8-quantized --context_fmha=enable --remove_input_padding=enable --paged_kv_cache=enable --strongly_typed
+[2024-02-22 20:22:26,168 builder.py:200 INFO] Engine build complete in 34.152708768844604s. Saved to build/engines/NC_H100_v5/gptj/Offline/bs256-custom_k_99_MaxP/gptj_float16_tp1_rank0.engine
+[2024-02-22 20:22:26,168 generate_engines.py:177 INFO] Finished building engines for gptj benchmark in Offline scenario.
+Time taken to generate engines: 37.35728096961975 seconds
+[2024-02-22 20:22:31,167 systems.py:197 INFO] Found unknown device in GPU connection topology: NIC0. Skipping.
+[2024-02-22 20:22:31,216 generate_engines.py:173 INFO] Building engines for gptj benchmark in Offline scenario...
+[02/22/2024-20:22:31] [TRT] [I] [MemUsageChange] Init CUDA: CPU +2, GPU +0, now: CPU 38, GPU 1064 (MiB)
+[02/22/2024-20:22:34] [TRT] [I] [MemUsageChange] Init builder kernel library: CPU +4396, GPU +1160, now: CPU 4570, GPU 2226 (MiB)
+[2024-02-22 20:22:34,438 builder.py:180 INFO] Building GPTJ engine in build/engines/NC_H100_v5/gptj/Offline/bs256-custom_k_99_9_MaxP.
+[2024-02-22 20:22:34,438 builder.py:181 INFO] Command executing in build/TRTLLM dir: /usr/bin/python3.8 -m tensorrt_llm.commands.build --gpt_attention_plugin=float16 --max_batch_size=256 --max_input_len=1919 --max_output_len=128 --max_beam_width=4 --max_num_tokens=4096 --output_dir=/work/build/engines/NC_H100_v5/gptj/Offline/bs256-custom_k_99_9_MaxP --checkpoint_dir=/work/build/models/GPTJ-6B/fp8-quantized-ammo/GPTJ-FP8-quantized --context_fmha=enable --remove_input_padding=enable --paged_kv_cache=enable --strongly_typed
+[2024-02-22 20:23:08,142 builder.py:200 INFO] Engine build complete in 33.703455448150635s. Saved to build/engines/NC_H100_v5/gptj/Offline/bs256-custom_k_99_9_MaxP/gptj_float16_tp1_rank0.engine
+[2024-02-22 20:23:08,142 generate_engines.py:177 INFO] Finished building engines for gptj benchmark in Offline scenario.
+Time taken to generate engines: 36.92567801475525 seconds
+[2024-02-22 20:23:13,126 systems.py:197 INFO] Found unknown device in GPU connection topology: NIC0. Skipping.
+[2024-02-22 20:23:13,177 generate_engines.py:173 INFO] Building engines for gptj benchmark in Server scenario...
+[02/22/2024-20:23:13] [TRT] [I] [MemUsageChange] Init CUDA: CPU +2, GPU +0, now: CPU 38, GPU 1064 (MiB)
+[02/22/2024-20:23:16] [TRT] [I] [MemUsageChange] Init builder kernel library: CPU +4396, GPU +1160, now: CPU 4570, GPU 2226 (MiB)
+[2024-02-22 20:23:16,504 builder.py:180 INFO] Building GPTJ engine in build/engines/NC_H100_v5/gptj/Server/bs128-custom_k_99_MaxP.
+[2024-02-22 20:23:16,504 builder.py:181 INFO] Command executing in build/TRTLLM dir: /usr/bin/python3.8 -m tensorrt_llm.commands.build --gpt_attention_plugin=float16 --max_batch_size=128 --max_input_len=1919 --max_output_len=128 --max_beam_width=4 --max_num_tokens=4096 --output_dir=/work/build/engines/NC_H100_v5/gptj/Server/bs128-custom_k_99_MaxP --checkpoint_dir=/work/build/models/GPTJ-6B/fp8-quantized-ammo/GPTJ-FP8-quantized --context_fmha=enable --remove_input_padding=enable --paged_kv_cache=enable --strongly_typed
+[2024-02-22 20:23:49,746 builder.py:200 INFO] Engine build complete in 33.2415246963501s. Saved to build/engines/NC_H100_v5/gptj/Server/bs128-custom_k_99_MaxP/gptj_float16_tp1_rank0.engine
+[2024-02-22 20:23:49,747 generate_engines.py:177 INFO] Finished building engines for gptj benchmark in Server scenario.
+Time taken to generate engines: 36.56956672668457 seconds
+[2024-02-22 20:23:54,834 systems.py:197 INFO] Found unknown device in GPU connection topology: NIC0. Skipping.
+[2024-02-22 20:23:54,884 generate_engines.py:173 INFO] Building engines for gptj benchmark in Server scenario...
+[02/22/2024-20:23:54] [TRT] [I] [MemUsageChange] Init CUDA: CPU +2, GPU +0, now: CPU 38, GPU 1064 (MiB)
+[02/22/2024-20:23:58] [TRT] [I] [MemUsageChange] Init builder kernel library: CPU +4396, GPU +1160, now: CPU 4570, GPU 2226 (MiB)
+[2024-02-22 20:23:58,114 builder.py:180 INFO] Building GPTJ engine in build/engines/NC_H100_v5/gptj/Server/bs128-custom_k_99_9_MaxP.
+[2024-02-22 20:23:58,114 builder.py:181 INFO] Command executing in build/TRTLLM dir: /usr/bin/python3.8 -m tensorrt_llm.commands.build --gpt_attention_plugin=float16 --max_batch_size=128 --max_input_len=1919 --max_output_len=128 --max_beam_width=4 --max_num_tokens=4096 --output_dir=/work/build/engines/NC_H100_v5/gptj/Server/bs128-custom_k_99_9_MaxP --checkpoint_dir=/work/build/models/GPTJ-6B/fp8-quantized-ammo/GPTJ-FP8-quantized --context_fmha=enable --remove_input_padding=enable --paged_kv_cache=enable --strongly_typed
+[2024-02-22 20:24:31,406 builder.py:200 INFO] Engine build complete in 33.28977584838867s. Saved to build/engines/NC_H100_v5/gptj/Server/bs128-custom_k_99_9_MaxP/gptj_float16_tp1_rank0.engine
+[2024-02-22 20:24:31,407 generate_engines.py:177 INFO] Finished building engines for gptj benchmark in Server scenario.
+Time taken to generate engines: 36.5228316783905 seconds
+make[1]: Leaving directory '/work'
+make[1]: Entering directory '/work'
+[2024-02-22 20:24:38,466 systems.py:197 INFO] Found unknown device in GPU connection topology: NIC0. Skipping.
+[2024-02-22 20:24:38,520 main.py:229 INFO] Detected system ID: KnownSystem.NC_H100_v5
+[2024-02-22 20:24:38,570 generate_conf_files.py:107 INFO] Generated measurements/ entries for NC_H100_v5_TRT/gptj-99/Offline
+[2024-02-22 20:24:38,570 __init__.py:46 INFO] Running command: ./build/bin/harness_llm --logfile_outdir="/work/build/logs/2024.02.22-20.21.43/NC_H100_v5_TRT/gptj-99/Offline" --logfile_prefix="mlperf_log_" --performance_sample_count=13368 --test_mode="AccuracyOnly" --gpu_batch_size=256 --tensor_path="build/preprocessed_data/cnn_dailymail_tokenized_gptj/input_ids_padded.npy,build/preprocessed_data/cnn_dailymail_tokenized_gptj/input_lengths.npy" --use_graphs=false --gpu_inference_streams=1 --gpu_copy_streams=1 --tensor_parallelism=1 --enable_sort=false --llm_gen_config_path="code/gptj/tensorrt/generation_config.json" --use_token_latencies=false --gpu_engines="./build/engines/NC_H100_v5/gptj/Offline/bs256-custom_k_99_MaxP/rank0.engine" --mlperf_conf_path="build/loadgen-configs/NC_H100_v5_TRT/gptj-99/Offline/mlperf.conf" --user_conf_path="build/loadgen-configs/NC_H100_v5_TRT/gptj-99/Offline/user.conf" --scenario Offline --model gptj
+[2024-02-22 20:24:38,570 __init__.py:53 INFO] Overriding Environment
+benchmark : Benchmark.GPTJ
+buffer_manager_thread_count : 0
+coalesced_tensor : True
+data_dir : /mnt/resource_nvme/scratch/data
+enable_sort : False
+gpu_batch_size : 256
+gpu_copy_streams : 1
+gpu_inference_streams : 1
+input_dtype : int32
+input_format : linear
+llm_gen_config_path : code/gptj/tensorrt/generation_config.json
+log_dir : /work/build/logs/2024.02.22-20.21.43
+num_sort_segments : 2
+offline_expected_qps : 45
+precision : fp16
+preprocessed_data_dir : /mnt/resource_nvme/scratch/preprocessed_data
+scenario : Scenario.Offline
+system : SystemConfiguration(host_cpu_conf=CPUConfiguration(layout={CPU(name='AMD EPYC 9V84 96-Core Processor', architecture=<CPUArchitecture.x86_64: AliasedName(name='x86_64', aliases=(), patterns=())>, core_count=80, threads_per_core=1): 1}), host_mem_conf=MemoryConfiguration(host_memory_capacity=Memory(quantity=660.46394, byte_suffix=<ByteSuffix.GB: (1000, 3)>, _num_bytes=660463940000), comparison_tolerance=0.05), accelerator_conf=AcceleratorConfiguration(layout=defaultdict(<class 'int'>, {GPU(name='NVIDIA H100 NVL', accelerator_type=<AcceleratorType.Discrete: AliasedName(name='Discrete', aliases=(), patterns=())>, vram=Memory(quantity=93.583984375, byte_suffix=<ByteSuffix.GiB: (1024, 3)>, _num_bytes=100485038080), max_power_limit=400.0, pci_id='0x232110DE', compute_sm=90): 2})), numa_conf=NUMAConfiguration(numa_nodes={}, num_numa_nodes=2), system_id='NC_H100_v5')
+tensor_parallelism : 1
+tensor_path : build/preprocessed_data/cnn_dailymail_tokenized_gptj/input_ids_padded.npy,build/preprocessed_data/cnn_dailymail_tokenized_gptj/input_lengths.npy
+test_mode : AccuracyOnly
+use_fp8 : True
+use_graphs : False
+use_token_latencies : False
+system_id : NC_H100_v5
+config_name : NC_H100_v5_gptj_Offline
+workload_setting : WorkloadSetting(HarnessType.Custom, AccuracyTarget.k_99, PowerSetting.MaxP)
+optimization_level : plugin-enabled
+num_profiles : 1
+config_ver : custom_k_99_MaxP
+accuracy_level : 99%
+inference_server : custom
+skip_file_checks : False
+power_limit : None
+cpu_freq : None
+&&&& RUNNING LLM_HARNESS # ./build/bin/harness_llm
+[I] Initializing TensorRT plugin library...
+[I] Initializing TRT-LLM plugin libraries...
+I0222 20:24:39.597249 19920 main_llm.cc:170] Loading LLM config from "./build/engines/NC_H100_v5/gptj/Offline/bs256-custom_k_99_MaxP/config.json" and geneartion config from: code/gptj/tensorrt/generation_config.json
+I0222 20:24:39.913901 19920 main_llm.cc:281] LLMConfig Details:
+	mMaxSumSeqlen: 2047 mMaxInputSeqlen: 1919 mMaxOutputSeqlen: 128 mEosId: 50256
+	tp: 1 pp: 1 mWorldSize: 1
+	mMaxGpuBatchSize: 256 mBeamWidth: 4
+	mTemperature: 1 mTopK: 1 mTopP: 0 mMinOutputSeqlen: 30 mIsStreaming: 0 mReportFirstToken: 0 mEnableSort: 0 mExcludeInputInOutput: 1
+	mMaxNumSequences: 0 mMaxTokensInPagedKvcache: 0 mKvCacheFreeGpuMemFraction: 0.95 mEnableTrtOverlap: 0
+	mBatchMode: 2 mSchedulerPolicy: 0
+I0222 20:24:39.913952 19920 main_llm.cc:284] Rank: 0 has pid: 19920
+I0222 20:24:39.913967 19920 main_llm.cc:121] Found 2 GPUs
+I0222 20:24:39.913970 19920 main_llm.cc:413] Instantiating QSL[gptj-Offline-QSL]
+I0222 20:24:39.946189 19920 main_llm.cc:416] Instantiated QSL[gptj-Offline-QSL]
+I0222 20:24:39.946216 19920 main_llm.cc:418] Instantiating SUT[gptj-Offline-SUT]
+I0222 20:24:39.946389 19920 llm_server.cc:406] LLMServer[gptj-Offline-SUT] creating LLMCore[0] on Device[0]...
+I0222 20:24:39.946514 19920 llm_core.cc:68] Rank 0:: LLMCore[0] at Device Id [0]
+[TensorRT-LLM][INFO] Engine version 0.9.0.dev2024020600 found in the config file, assuming engine(s) built by new builder API.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'lora_target_modules' not found
+[TensorRT-LLM][WARNING] Optional value for parameter lora_target_modules will not be set.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'num_medusa_heads' not found
+[TensorRT-LLM][WARNING] Optional value for parameter num_medusa_heads will not be set.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'max_draft_len' not found
+[TensorRT-LLM][WARNING] Optional value for parameter max_draft_len will not be set.
+[TensorRT-LLM][INFO] MPI size: 1, rank: 0
+[TensorRT-LLM][INFO] Using user-specified devices: (0)
+[TensorRT-LLM][INFO] Rank 0 is using GPU 0
+[TensorRT-LLM][INFO] TRTGptModel maxNumSequences: 256
+[TensorRT-LLM][INFO] TRTGptModel maxBatchSize: 256
+[TensorRT-LLM][INFO] TRTGptModel mMaxAttentionWindowSize: 2047
+[TensorRT-LLM][INFO] TRTGptModel enableTrtOverlap: 0
+[TensorRT-LLM][INFO] TRTGptModel normalizeLogProbs: 1
+[TensorRT-LLM][INFO] Loaded engine size: 6175 MiB
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +6, GPU +66, now: CPU 6231, GPU 7302 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuDNN: CPU +2, GPU +72, now: CPU 6233, GPU 7374 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +6166, now: CPU 0, GPU 6166 (MiB)
+[TensorRT-LLM][INFO] [MS] Running engine with multi stream info
+[TensorRT-LLM][INFO] [MS] Number of aux streams is 1
+[TensorRT-LLM][INFO] [MS] Number of total worker streams is 2
+[TensorRT-LLM][INFO] [MS] The main stream provided by execute/enqueue calls is the first worker stream
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +64, now: CPU 6314, GPU 7852 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuDNN: CPU +0, GPU +64, now: CPU 6314, GPU 7916 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +0, now: CPU 0, GPU 6166 (MiB)
+[TensorRT-LLM][INFO] Allocate 86054535168 bytes for k/v cache. 
+[TensorRT-LLM][INFO] Using 375168 total tokens in paged KV cache, and 16 blocks per sequence
+I0222 20:25:36.269768 19920 llm_core.cc:91] Rank 0:: LLMCore Setup complete for device 0
+I0222 20:25:36.269832 19920 llm_server.cc:411] LLMServer[gptj-Offline-SUT] created LLMCore[0] on Device[0].
+I0222 20:25:36.864173 19920 llm_server.cc:406] LLMServer[gptj-Offline-SUT] creating LLMCore[1] on Device[1]...
+I0222 20:25:36.864209 19920 llm_core.cc:68] Rank 0:: LLMCore[0] at Device Id [1]
+[TensorRT-LLM][INFO] Engine version 0.9.0.dev2024020600 found in the config file, assuming engine(s) built by new builder API.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'lora_target_modules' not found
+[TensorRT-LLM][WARNING] Optional value for parameter lora_target_modules will not be set.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'num_medusa_heads' not found
+[TensorRT-LLM][WARNING] Optional value for parameter num_medusa_heads will not be set.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'max_draft_len' not found
+[TensorRT-LLM][WARNING] Optional value for parameter max_draft_len will not be set.
+[TensorRT-LLM][INFO] MPI size: 1, rank: 0
+[TensorRT-LLM][INFO] Using user-specified devices: (1)
+[TensorRT-LLM][INFO] Rank 0 is using GPU 1
+[TensorRT-LLM][INFO] TRTGptModel maxNumSequences: 256
+[TensorRT-LLM][INFO] TRTGptModel maxBatchSize: 256
+[TensorRT-LLM][INFO] TRTGptModel mMaxAttentionWindowSize: 2047
+[TensorRT-LLM][INFO] TRTGptModel enableTrtOverlap: 0
+[TensorRT-LLM][INFO] TRTGptModel normalizeLogProbs: 1
+[TensorRT-LLM][INFO] The logger passed into createInferRuntime differs from one already provided for an existing builder, runtime, or refitter. Uses of the global logger, returned by nvinfer1::getLogger(), will return the existing value.
+[TensorRT-LLM][INFO] Loaded engine size: 6175 MiB
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +6, GPU +66, now: CPU 6430, GPU 6774 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuDNN: CPU +1, GPU +72, now: CPU 6431, GPU 6846 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +6166, now: CPU 0, GPU 12332 (MiB)
+[TensorRT-LLM][INFO] [MS] Running engine with multi stream info
+[TensorRT-LLM][INFO] [MS] Number of aux streams is 1
+[TensorRT-LLM][INFO] [MS] Number of total worker streams is 2
+[TensorRT-LLM][INFO] [MS] The main stream provided by execute/enqueue calls is the first worker stream
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +64, now: CPU 6448, GPU 7324 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuDNN: CPU +0, GPU +64, now: CPU 6448, GPU 7388 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +0, now: CPU 0, GPU 12332 (MiB)
+[TensorRT-LLM][INFO] Allocate 86583017472 bytes for k/v cache. 
+[TensorRT-LLM][INFO] Using 377472 total tokens in paged KV cache, and 16 blocks per sequence
+I0222 20:26:17.748205 19920 llm_core.cc:91] Rank 0:: LLMCore Setup complete for device 1
+I0222 20:26:17.748307 19920 llm_server.cc:411] LLMServer[gptj-Offline-SUT] created LLMCore[1] on Device[1].
+I0222 20:26:17.748323 19920 main_llm.cc:423] Instantiated SUT[gptj-Offline-SUT]
+I0222 20:26:17.748325 19920 main_llm.cc:425] Starting running actual test.
+I0222 20:26:50.382274 19930 llm_server.cc:82] Rank 0:: Processed 1000 samples.
+I0222 20:27:12.731132 19930 llm_server.cc:82] Rank 0:: Processed 2000 samples.
+I0222 20:27:34.962852 19930 llm_server.cc:82] Rank 0:: Processed 3000 samples.
+I0222 20:27:57.600072 19930 llm_server.cc:82] Rank 0:: Processed 4000 samples.
+I0222 20:28:19.827080 19930 llm_server.cc:82] Rank 0:: Processed 5000 samples.
+I0222 20:28:42.725971 19930 llm_server.cc:82] Rank 0:: Processed 6000 samples.
+I0222 20:29:05.287226 19930 llm_server.cc:82] Rank 0:: Processed 7000 samples.
+I0222 20:29:28.165822 19930 llm_server.cc:82] Rank 0:: Processed 8000 samples.
+I0222 20:29:51.160828 19930 llm_server.cc:82] Rank 0:: Processed 9000 samples.
+I0222 20:30:14.654318 19930 llm_server.cc:82] Rank 0:: Processed 10000 samples.
+I0222 20:30:38.579416 19930 llm_server.cc:82] Rank 0:: Processed 11000 samples.
+I0222 20:31:00.977016 19930 llm_server.cc:82] Rank 0:: Processed 12000 samples.
+I0222 20:31:23.110339 19930 llm_server.cc:82] Rank 0:: Processed 13000 samples.
+I0222 20:31:26.424803 19920 main_llm.cc:429] Finished running actual test.
+
+No warnings encountered during test.
+
+No errors encountered during test.
+[TensorRT-LLM][INFO] Terminate signal received, worker thread exiting.
+[TensorRT-LLM][INFO] Terminate signal received, worker thread exiting.
+[2024-02-22 20:31:27,675 run_harness.py:165 INFO] Result: Accuracy run detected.
+[2024-02-22 20:31:27,676 __init__.py:46 INFO] Running command: PYTHONPATH=/work:/usr/lib/python38.zip:/usr/lib/python3.8:/usr/lib/python3.8/lib-dynload:/work/build/TRTLLM/3rdparty/cutlass/python:/usr/local/lib/python3.8/dist-packages:/usr/lib/python3/dist-packages:/usr/lib/python3.8/dist-packages python3 -S /work/build/inference/language/gpt-j/evaluation.py --mlperf-accuracy-file /work/build/logs/2024.02.22-20.21.43/NC_H100_v5_TRT/gptj-99/Offline/mlperf_log_accuracy.json --dataset-file /mnt/resource_nvme/scratch/data/cnn-daily-mail/cnn_eval.json --dtype int32
+Downloading builder script:   0%|          | 0.00/6.27k [00:00<?, ?B/s]Downloading builder script: 100%|██████████| 6.27k/6.27k [00:00<00:00, 11.5MB/s]
+[nltk_data] Downloading package punkt to /home/lisa/nltk_data...
+[nltk_data]   Unzipping tokenizers/punkt.zip.
+Downloading tokenizer_config.json:   0%|          | 0.00/619 [00:00<?, ?B/s]Downloading tokenizer_config.json: 100%|██████████| 619/619 [00:00<00:00, 474kB/s]
+Downloading vocab.json:   0%|          | 0.00/798k [00:00<?, ?B/s]Downloading vocab.json: 100%|██████████| 798k/798k [00:00<00:00, 52.2MB/s]
+Downloading merges.txt:   0%|          | 0.00/456k [00:00<?, ?B/s]Downloading merges.txt: 100%|██████████| 456k/456k [00:00<00:00, 46.6MB/s]
+Downloading added_tokens.json:   0%|          | 0.00/4.04k [00:00<?, ?B/s]Downloading added_tokens.json: 100%|██████████| 4.04k/4.04k [00:00<00:00, 13.3MB/s]
+Downloading (…)cial_tokens_map.json:   0%|          | 0.00/357 [00:00<?, ?B/s]Downloading (…)cial_tokens_map.json: 100%|██████████| 357/357 [00:00<00:00, 1.18MB/s]
+Constructing QSL
+Encoding Samples
+
+Results
+
+{'rouge1': 43.0417, 'rouge2': 20.0747, 'rougeL': 29.9412, 'rougeLsum': 40.2142, 'gen_len': 4095861, 'gen_num': 13368}
+Finished destroying QSL.
+[2024-02-22 20:32:58,176 generate_conf_files.py:107 INFO] Generated measurements/ entries for NC_H100_v5_TRT/gptj-99.9/Offline
+[2024-02-22 20:32:58,176 __init__.py:46 INFO] Running command: ./build/bin/harness_llm --logfile_outdir="/work/build/logs/2024.02.22-20.21.43/NC_H100_v5_TRT/gptj-99.9/Offline" --logfile_prefix="mlperf_log_" --performance_sample_count=13368 --test_mode="AccuracyOnly" --gpu_batch_size=256 --tensor_path="build/preprocessed_data/cnn_dailymail_tokenized_gptj/input_ids_padded.npy,build/preprocessed_data/cnn_dailymail_tokenized_gptj/input_lengths.npy" --use_graphs=false --gpu_inference_streams=1 --gpu_copy_streams=1 --tensor_parallelism=1 --enable_sort=false --llm_gen_config_path="code/gptj/tensorrt/generation_config.json" --use_token_latencies=false --gpu_engines="./build/engines/NC_H100_v5/gptj/Offline/bs256-custom_k_99_9_MaxP/rank0.engine" --mlperf_conf_path="build/loadgen-configs/NC_H100_v5_TRT/gptj-99.9/Offline/mlperf.conf" --user_conf_path="build/loadgen-configs/NC_H100_v5_TRT/gptj-99.9/Offline/user.conf" --scenario Offline --model gptj
+[2024-02-22 20:32:58,176 __init__.py:53 INFO] Overriding Environment
+benchmark : Benchmark.GPTJ
+buffer_manager_thread_count : 0
+coalesced_tensor : True
+data_dir : /mnt/resource_nvme/scratch/data
+enable_sort : False
+gpu_batch_size : 256
+gpu_copy_streams : 1
+gpu_inference_streams : 1
+input_dtype : int32
+input_format : linear
+llm_gen_config_path : code/gptj/tensorrt/generation_config.json
+log_dir : /work/build/logs/2024.02.22-20.21.43
+num_sort_segments : 2
+offline_expected_qps : 45
+precision : fp16
+preprocessed_data_dir : /mnt/resource_nvme/scratch/preprocessed_data
+scenario : Scenario.Offline
+system : SystemConfiguration(host_cpu_conf=CPUConfiguration(layout={CPU(name='AMD EPYC 9V84 96-Core Processor', architecture=<CPUArchitecture.x86_64: AliasedName(name='x86_64', aliases=(), patterns=())>, core_count=80, threads_per_core=1): 1}), host_mem_conf=MemoryConfiguration(host_memory_capacity=Memory(quantity=660.46394, byte_suffix=<ByteSuffix.GB: (1000, 3)>, _num_bytes=660463940000), comparison_tolerance=0.05), accelerator_conf=AcceleratorConfiguration(layout=defaultdict(<class 'int'>, {GPU(name='NVIDIA H100 NVL', accelerator_type=<AcceleratorType.Discrete: AliasedName(name='Discrete', aliases=(), patterns=())>, vram=Memory(quantity=93.583984375, byte_suffix=<ByteSuffix.GiB: (1024, 3)>, _num_bytes=100485038080), max_power_limit=400.0, pci_id='0x232110DE', compute_sm=90): 2})), numa_conf=NUMAConfiguration(numa_nodes={}, num_numa_nodes=2), system_id='NC_H100_v5')
+tensor_parallelism : 1
+tensor_path : build/preprocessed_data/cnn_dailymail_tokenized_gptj/input_ids_padded.npy,build/preprocessed_data/cnn_dailymail_tokenized_gptj/input_lengths.npy
+test_mode : AccuracyOnly
+use_fp8 : True
+use_graphs : False
+use_token_latencies : False
+system_id : NC_H100_v5
+config_name : NC_H100_v5_gptj_Offline
+workload_setting : WorkloadSetting(HarnessType.Custom, AccuracyTarget.k_99_9, PowerSetting.MaxP)
+optimization_level : plugin-enabled
+num_profiles : 1
+config_ver : custom_k_99_9_MaxP
+accuracy_level : 99.9%
+inference_server : custom
+skip_file_checks : False
+power_limit : None
+cpu_freq : None
+&&&& RUNNING LLM_HARNESS # ./build/bin/harness_llm
+[I] Initializing TensorRT plugin library...
+[I] Initializing TRT-LLM plugin libraries...
+I0222 20:32:59.223758 20068 main_llm.cc:170] Loading LLM config from "./build/engines/NC_H100_v5/gptj/Offline/bs256-custom_k_99_9_MaxP/config.json" and geneartion config from: code/gptj/tensorrt/generation_config.json
+I0222 20:32:59.517558 20068 main_llm.cc:281] LLMConfig Details:
+	mMaxSumSeqlen: 2047 mMaxInputSeqlen: 1919 mMaxOutputSeqlen: 128 mEosId: 50256
+	tp: 1 pp: 1 mWorldSize: 1
+	mMaxGpuBatchSize: 256 mBeamWidth: 4
+	mTemperature: 1 mTopK: 1 mTopP: 0 mMinOutputSeqlen: 30 mIsStreaming: 0 mReportFirstToken: 0 mEnableSort: 0 mExcludeInputInOutput: 1
+	mMaxNumSequences: 0 mMaxTokensInPagedKvcache: 0 mKvCacheFreeGpuMemFraction: 0.95 mEnableTrtOverlap: 0
+	mBatchMode: 2 mSchedulerPolicy: 0
+I0222 20:32:59.517604 20068 main_llm.cc:284] Rank: 0 has pid: 20068
+I0222 20:32:59.517609 20068 main_llm.cc:121] Found 2 GPUs
+I0222 20:32:59.517612 20068 main_llm.cc:413] Instantiating QSL[gptj-Offline-QSL]
+I0222 20:32:59.547044 20068 main_llm.cc:416] Instantiated QSL[gptj-Offline-QSL]
+I0222 20:32:59.547075 20068 main_llm.cc:418] Instantiating SUT[gptj-Offline-SUT]
+I0222 20:32:59.547199 20068 llm_server.cc:406] LLMServer[gptj-Offline-SUT] creating LLMCore[0] on Device[0]...
+I0222 20:32:59.547341 20068 llm_core.cc:68] Rank 0:: LLMCore[0] at Device Id [0]
+[TensorRT-LLM][INFO] Engine version 0.9.0.dev2024020600 found in the config file, assuming engine(s) built by new builder API.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'lora_target_modules' not found
+[TensorRT-LLM][WARNING] Optional value for parameter lora_target_modules will not be set.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'num_medusa_heads' not found
+[TensorRT-LLM][WARNING] Optional value for parameter num_medusa_heads will not be set.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'max_draft_len' not found
+[TensorRT-LLM][WARNING] Optional value for parameter max_draft_len will not be set.
+[TensorRT-LLM][INFO] MPI size: 1, rank: 0
+[TensorRT-LLM][INFO] Using user-specified devices: (0)
+[TensorRT-LLM][INFO] Rank 0 is using GPU 0
+[TensorRT-LLM][INFO] TRTGptModel maxNumSequences: 256
+[TensorRT-LLM][INFO] TRTGptModel maxBatchSize: 256
+[TensorRT-LLM][INFO] TRTGptModel mMaxAttentionWindowSize: 2047
+[TensorRT-LLM][INFO] TRTGptModel enableTrtOverlap: 0
+[TensorRT-LLM][INFO] TRTGptModel normalizeLogProbs: 1
+[TensorRT-LLM][INFO] Loaded engine size: 6173 MiB
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +7, GPU +66, now: CPU 6228, GPU 7302 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuDNN: CPU +2, GPU +72, now: CPU 6230, GPU 7374 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +6166, now: CPU 0, GPU 6166 (MiB)
+[TensorRT-LLM][INFO] [MS] Running engine with multi stream info
+[TensorRT-LLM][INFO] [MS] Number of aux streams is 1
+[TensorRT-LLM][INFO] [MS] Number of total worker streams is 2
+[TensorRT-LLM][INFO] [MS] The main stream provided by execute/enqueue calls is the first worker stream
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +64, now: CPU 6310, GPU 7852 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuDNN: CPU +0, GPU +64, now: CPU 6310, GPU 7916 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +0, now: CPU 0, GPU 6166 (MiB)
+[TensorRT-LLM][INFO] Allocate 86054535168 bytes for k/v cache. 
+[TensorRT-LLM][INFO] Using 375168 total tokens in paged KV cache, and 16 blocks per sequence
+I0222 20:33:56.646281 20068 llm_core.cc:91] Rank 0:: LLMCore Setup complete for device 0
+I0222 20:33:56.646345 20068 llm_server.cc:411] LLMServer[gptj-Offline-SUT] created LLMCore[0] on Device[0].
+I0222 20:33:57.240100 20068 llm_server.cc:406] LLMServer[gptj-Offline-SUT] creating LLMCore[1] on Device[1]...
+I0222 20:33:57.240135 20068 llm_core.cc:68] Rank 0:: LLMCore[0] at Device Id [1]
+[TensorRT-LLM][INFO] Engine version 0.9.0.dev2024020600 found in the config file, assuming engine(s) built by new builder API.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'lora_target_modules' not found
+[TensorRT-LLM][WARNING] Optional value for parameter lora_target_modules will not be set.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'num_medusa_heads' not found
+[TensorRT-LLM][WARNING] Optional value for parameter num_medusa_heads will not be set.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'max_draft_len' not found
+[TensorRT-LLM][WARNING] Optional value for parameter max_draft_len will not be set.
+[TensorRT-LLM][INFO] MPI size: 1, rank: 0
+[TensorRT-LLM][INFO] Using user-specified devices: (1)
+[TensorRT-LLM][INFO] Rank 0 is using GPU 1
+[TensorRT-LLM][INFO] TRTGptModel maxNumSequences: 256
+[TensorRT-LLM][INFO] TRTGptModel maxBatchSize: 256
+[TensorRT-LLM][INFO] TRTGptModel mMaxAttentionWindowSize: 2047
+[TensorRT-LLM][INFO] TRTGptModel enableTrtOverlap: 0
+[TensorRT-LLM][INFO] TRTGptModel normalizeLogProbs: 1
+[TensorRT-LLM][INFO] The logger passed into createInferRuntime differs from one already provided for an existing builder, runtime, or refitter. Uses of the global logger, returned by nvinfer1::getLogger(), will return the existing value.
+[TensorRT-LLM][INFO] Loaded engine size: 6173 MiB
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +6, GPU +66, now: CPU 6417, GPU 6774 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuDNN: CPU +1, GPU +72, now: CPU 6418, GPU 6846 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +6166, now: CPU 0, GPU 12332 (MiB)
+[TensorRT-LLM][INFO] [MS] Running engine with multi stream info
+[TensorRT-LLM][INFO] [MS] Number of aux streams is 1
+[TensorRT-LLM][INFO] [MS] Number of total worker streams is 2
+[TensorRT-LLM][INFO] [MS] The main stream provided by execute/enqueue calls is the first worker stream
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +64, now: CPU 6435, GPU 7324 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuDNN: CPU +0, GPU +64, now: CPU 6435, GPU 7388 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +0, now: CPU 0, GPU 12332 (MiB)
+[TensorRT-LLM][INFO] Allocate 86583017472 bytes for k/v cache. 
+[TensorRT-LLM][INFO] Using 377472 total tokens in paged KV cache, and 16 blocks per sequence
+I0222 20:34:38.040293 20068 llm_core.cc:91] Rank 0:: LLMCore Setup complete for device 1
+I0222 20:34:38.040354 20068 llm_server.cc:411] LLMServer[gptj-Offline-SUT] created LLMCore[1] on Device[1].
+I0222 20:34:38.040364 20068 main_llm.cc:423] Instantiated SUT[gptj-Offline-SUT]
+I0222 20:34:38.040365 20068 main_llm.cc:425] Starting running actual test.
+I0222 20:35:09.575667 20078 llm_server.cc:82] Rank 0:: Processed 1000 samples.
+I0222 20:35:32.559373 20078 llm_server.cc:82] Rank 0:: Processed 2000 samples.
+I0222 20:35:55.066670 20078 llm_server.cc:82] Rank 0:: Processed 3000 samples.
+I0222 20:36:18.160106 20078 llm_server.cc:82] Rank 0:: Processed 4000 samples.
+I0222 20:36:40.448858 20078 llm_server.cc:82] Rank 0:: Processed 5000 samples.
+I0222 20:37:03.427585 20078 llm_server.cc:82] Rank 0:: Processed 6000 samples.
+I0222 20:37:26.209909 20078 llm_server.cc:82] Rank 0:: Processed 7000 samples.
+I0222 20:37:49.251634 20078 llm_server.cc:82] Rank 0:: Processed 8000 samples.
+I0222 20:38:12.519446 20078 llm_server.cc:82] Rank 0:: Processed 9000 samples.
+I0222 20:38:36.060360 20078 llm_server.cc:82] Rank 0:: Processed 10000 samples.
+I0222 20:39:00.253723 20078 llm_server.cc:82] Rank 0:: Processed 11000 samples.
+I0222 20:39:22.819025 20078 llm_server.cc:82] Rank 0:: Processed 12000 samples.
+I0222 20:39:44.880926 20078 llm_server.cc:82] Rank 0:: Processed 13000 samples.
+I0222 20:39:48.565943 20068 main_llm.cc:429] Finished running actual test.
+
+No warnings encountered during test.
+
+No errors encountered during test.
+[TensorRT-LLM][INFO] Terminate signal received, worker thread exiting.[TensorRT-LLM][INFO] Terminate signal received, worker thread exiting.
+
+[2024-02-22 20:39:49,787 run_harness.py:165 INFO] Result: Accuracy run detected.
+[2024-02-22 20:39:49,787 __init__.py:46 INFO] Running command: PYTHONPATH=/work:/usr/lib/python38.zip:/usr/lib/python3.8:/usr/lib/python3.8/lib-dynload:/work/build/TRTLLM/3rdparty/cutlass/python:/usr/local/lib/python3.8/dist-packages:/usr/lib/python3/dist-packages:/usr/lib/python3.8/dist-packages python3 -S /work/build/inference/language/gpt-j/evaluation.py --mlperf-accuracy-file /work/build/logs/2024.02.22-20.21.43/NC_H100_v5_TRT/gptj-99.9/Offline/mlperf_log_accuracy.json --dataset-file /mnt/resource_nvme/scratch/data/cnn-daily-mail/cnn_eval.json --dtype int32
+[nltk_data] Downloading package punkt to /home/lisa/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+Constructing QSL
+Encoding Samples
+
+Results
+
+{'rouge1': 43.0417, 'rouge2': 20.0747, 'rougeL': 29.9412, 'rougeLsum': 40.2142, 'gen_len': 4095861, 'gen_num': 13368}
+Finished destroying QSL.
+[2024-02-22 20:41:20,229 generate_conf_files.py:107 INFO] Generated measurements/ entries for NC_H100_v5_TRT/gptj-99/Server
+[2024-02-22 20:41:20,229 __init__.py:46 INFO] Running command: ./build/bin/harness_llm --logfile_outdir="/work/build/logs/2024.02.22-20.21.43/NC_H100_v5_TRT/gptj-99/Server" --logfile_prefix="mlperf_log_" --performance_sample_count=13368 --test_mode="AccuracyOnly" --gpu_batch_size=128 --tensor_path="build/preprocessed_data/cnn_dailymail_tokenized_gptj/input_ids_padded.npy,build/preprocessed_data/cnn_dailymail_tokenized_gptj/input_lengths.npy" --use_graphs=false --gpu_inference_streams=1 --gpu_copy_streams=1 --tensor_parallelism=1 --enable_sort=false --llm_gen_config_path="code/gptj/tensorrt/generation_config.json" --use_token_latencies=false --gpu_engines="./build/engines/NC_H100_v5/gptj/Server/bs128-custom_k_99_MaxP/rank0.engine" --mlperf_conf_path="build/loadgen-configs/NC_H100_v5_TRT/gptj-99/Server/mlperf.conf" --user_conf_path="build/loadgen-configs/NC_H100_v5_TRT/gptj-99/Server/user.conf" --scenario Server --model gptj
+[2024-02-22 20:41:20,229 __init__.py:53 INFO] Overriding Environment
+benchmark : Benchmark.GPTJ
+buffer_manager_thread_count : 0
+coalesced_tensor : True
+data_dir : /mnt/resource_nvme/scratch/data
+enable_sort : False
+gpu_batch_size : 128
+gpu_copy_streams : 1
+gpu_inference_streams : 1
+input_dtype : int32
+input_format : linear
+llm_gen_config_path : code/gptj/tensorrt/generation_config.json
+log_dir : /work/build/logs/2024.02.22-20.21.43
+num_sort_segments : 2
+precision : fp16
+preprocessed_data_dir : /mnt/resource_nvme/scratch/preprocessed_data
+scenario : Scenario.Server
+server_target_qps : 42
+system : SystemConfiguration(host_cpu_conf=CPUConfiguration(layout={CPU(name='AMD EPYC 9V84 96-Core Processor', architecture=<CPUArchitecture.x86_64: AliasedName(name='x86_64', aliases=(), patterns=())>, core_count=80, threads_per_core=1): 1}), host_mem_conf=MemoryConfiguration(host_memory_capacity=Memory(quantity=660.46394, byte_suffix=<ByteSuffix.GB: (1000, 3)>, _num_bytes=660463940000), comparison_tolerance=0.05), accelerator_conf=AcceleratorConfiguration(layout=defaultdict(<class 'int'>, {GPU(name='NVIDIA H100 NVL', accelerator_type=<AcceleratorType.Discrete: AliasedName(name='Discrete', aliases=(), patterns=())>, vram=Memory(quantity=93.583984375, byte_suffix=<ByteSuffix.GiB: (1024, 3)>, _num_bytes=100485038080), max_power_limit=400.0, pci_id='0x232110DE', compute_sm=90): 2})), numa_conf=NUMAConfiguration(numa_nodes={}, num_numa_nodes=2), system_id='NC_H100_v5')
+tensor_parallelism : 1
+tensor_path : build/preprocessed_data/cnn_dailymail_tokenized_gptj/input_ids_padded.npy,build/preprocessed_data/cnn_dailymail_tokenized_gptj/input_lengths.npy
+test_mode : AccuracyOnly
+use_fp8 : True
+use_graphs : False
+use_token_latencies : False
+system_id : NC_H100_v5
+config_name : NC_H100_v5_gptj_Server
+workload_setting : WorkloadSetting(HarnessType.Custom, AccuracyTarget.k_99, PowerSetting.MaxP)
+optimization_level : plugin-enabled
+num_profiles : 1
+config_ver : custom_k_99_MaxP
+accuracy_level : 99%
+inference_server : custom
+skip_file_checks : False
+power_limit : None
+cpu_freq : None
+&&&& RUNNING LLM_HARNESS # ./build/bin/harness_llm
+[I] Initializing TensorRT plugin library...
+[I] Initializing TRT-LLM plugin libraries...
+I0222 20:41:21.279878 20215 main_llm.cc:170] Loading LLM config from "./build/engines/NC_H100_v5/gptj/Server/bs128-custom_k_99_MaxP/config.json" and geneartion config from: code/gptj/tensorrt/generation_config.json
+I0222 20:41:21.588704 20215 main_llm.cc:281] LLMConfig Details:
+	mMaxSumSeqlen: 2047 mMaxInputSeqlen: 1919 mMaxOutputSeqlen: 128 mEosId: 50256
+	tp: 1 pp: 1 mWorldSize: 1
+	mMaxGpuBatchSize: 128 mBeamWidth: 4
+	mTemperature: 1 mTopK: 1 mTopP: 0 mMinOutputSeqlen: 30 mIsStreaming: 0 mReportFirstToken: 0 mEnableSort: 0 mExcludeInputInOutput: 1
+	mMaxNumSequences: 0 mMaxTokensInPagedKvcache: 0 mKvCacheFreeGpuMemFraction: 0.95 mEnableTrtOverlap: 0
+	mBatchMode: 2 mSchedulerPolicy: 0
+I0222 20:41:21.588752 20215 main_llm.cc:284] Rank: 0 has pid: 20215
+I0222 20:41:21.588757 20215 main_llm.cc:121] Found 2 GPUs
+I0222 20:41:21.588759 20215 main_llm.cc:413] Instantiating QSL[gptj-Server-QSL]
+I0222 20:41:21.617836 20215 main_llm.cc:416] Instantiated QSL[gptj-Server-QSL]
+I0222 20:41:21.617866 20215 main_llm.cc:418] Instantiating SUT[gptj-Server-SUT]
+I0222 20:41:21.617995 20215 llm_server.cc:406] LLMServer[gptj-Server-SUT] creating LLMCore[0] on Device[0]...
+I0222 20:41:21.618136 20215 llm_core.cc:68] Rank 0:: LLMCore[0] at Device Id [0]
+[TensorRT-LLM][INFO] Engine version 0.9.0.dev2024020600 found in the config file, assuming engine(s) built by new builder API.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'lora_target_modules' not found
+[TensorRT-LLM][WARNING] Optional value for parameter lora_target_modules will not be set.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'num_medusa_heads' not found
+[TensorRT-LLM][WARNING] Optional value for parameter num_medusa_heads will not be set.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'max_draft_len' not found
+[TensorRT-LLM][WARNING] Optional value for parameter max_draft_len will not be set.
+[TensorRT-LLM][INFO] MPI size: 1, rank: 0
+[TensorRT-LLM][INFO] Using user-specified devices: (0)
+[TensorRT-LLM][INFO] Rank 0 is using GPU 0
+[TensorRT-LLM][INFO] TRTGptModel maxNumSequences: 128
+[TensorRT-LLM][INFO] TRTGptModel maxBatchSize: 128
+[TensorRT-LLM][INFO] TRTGptModel mMaxAttentionWindowSize: 2047
+[TensorRT-LLM][INFO] TRTGptModel enableTrtOverlap: 0
+[TensorRT-LLM][INFO] TRTGptModel normalizeLogProbs: 1
+[TensorRT-LLM][INFO] Loaded engine size: 6173 MiB
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +6, GPU +66, now: CPU 6228, GPU 7302 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuDNN: CPU +2, GPU +72, now: CPU 6230, GPU 7374 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +6166, now: CPU 0, GPU 6166 (MiB)
+[TensorRT-LLM][INFO] [MS] Running engine with multi stream info
+[TensorRT-LLM][INFO] [MS] Number of aux streams is 1
+[TensorRT-LLM][INFO] [MS] Number of total worker streams is 2
+[TensorRT-LLM][INFO] [MS] The main stream provided by execute/enqueue calls is the first worker stream
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +64, now: CPU 6310, GPU 7820 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuDNN: CPU +0, GPU +64, now: CPU 6310, GPU 7884 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +0, now: CPU 0, GPU 6166 (MiB)
+[TensorRT-LLM][INFO] Allocate 86553657344 bytes for k/v cache. 
+[TensorRT-LLM][INFO] Using 377344 total tokens in paged KV cache, and 16 blocks per sequence
+I0222 20:42:17.737170 20215 llm_core.cc:91] Rank 0:: LLMCore Setup complete for device 0
+I0222 20:42:17.737263 20215 llm_server.cc:411] LLMServer[gptj-Server-SUT] created LLMCore[0] on Device[0].
+I0222 20:42:18.327893 20215 llm_server.cc:406] LLMServer[gptj-Server-SUT] creating LLMCore[1] on Device[1]...
+I0222 20:42:18.327929 20215 llm_core.cc:68] Rank 0:: LLMCore[0] at Device Id [1]
+[TensorRT-LLM][INFO] Engine version 0.9.0.dev2024020600 found in the config file, assuming engine(s) built by new builder API.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'lora_target_modules' not found
+[TensorRT-LLM][WARNING] Optional value for parameter lora_target_modules will not be set.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'num_medusa_heads' not found
+[TensorRT-LLM][WARNING] Optional value for parameter num_medusa_heads will not be set.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'max_draft_len' not found
+[TensorRT-LLM][WARNING] Optional value for parameter max_draft_len will not be set.
+[TensorRT-LLM][INFO] MPI size: 1, rank: 0
+[TensorRT-LLM][INFO] Using user-specified devices: (1)
+[TensorRT-LLM][INFO] Rank 0 is using GPU 1
+[TensorRT-LLM][INFO] TRTGptModel maxNumSequences: 128
+[TensorRT-LLM][INFO] TRTGptModel maxBatchSize: 128
+[TensorRT-LLM][INFO] TRTGptModel mMaxAttentionWindowSize: 2047
+[TensorRT-LLM][INFO] TRTGptModel enableTrtOverlap: 0
+[TensorRT-LLM][INFO] TRTGptModel normalizeLogProbs: 1
+[TensorRT-LLM][INFO] The logger passed into createInferRuntime differs from one already provided for an existing builder, runtime, or refitter. Uses of the global logger, returned by nvinfer1::getLogger(), will return the existing value.
+[TensorRT-LLM][INFO] Loaded engine size: 6173 MiB
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +6, GPU +66, now: CPU 6409, GPU 6774 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuDNN: CPU +1, GPU +72, now: CPU 6410, GPU 6846 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +6166, now: CPU 0, GPU 12332 (MiB)
+[TensorRT-LLM][INFO] [MS] Running engine with multi stream info
+[TensorRT-LLM][INFO] [MS] Number of aux streams is 1
+[TensorRT-LLM][INFO] [MS] Number of total worker streams is 2
+[TensorRT-LLM][INFO] [MS] The main stream provided by execute/enqueue calls is the first worker stream
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +64, now: CPU 6427, GPU 7292 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuDNN: CPU +0, GPU +64, now: CPU 6427, GPU 7356 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +0, now: CPU 0, GPU 12332 (MiB)
+[TensorRT-LLM][INFO] Allocate 87082139648 bytes for k/v cache. 
+[TensorRT-LLM][INFO] Using 379648 total tokens in paged KV cache, and 16 blocks per sequence
+I0222 20:42:58.920878 20215 llm_core.cc:91] Rank 0:: LLMCore Setup complete for device 1
+I0222 20:42:58.920995 20215 llm_server.cc:411] LLMServer[gptj-Server-SUT] created LLMCore[1] on Device[1].
+I0222 20:42:58.921010 20215 main_llm.cc:423] Instantiated SUT[gptj-Server-SUT]
+I0222 20:42:58.921012 20215 main_llm.cc:425] Starting running actual test.
+I0222 20:43:26.142692 20225 llm_server.cc:82] Rank 0:: Processed 1000 samples.
+I0222 20:43:51.218773 20225 llm_server.cc:82] Rank 0:: Processed 2000 samples.
+I0222 20:44:16.368803 20225 llm_server.cc:82] Rank 0:: Processed 3000 samples.
+I0222 20:44:41.780297 20225 llm_server.cc:82] Rank 0:: Processed 4000 samples.
+I0222 20:45:04.213871 20225 llm_server.cc:82] Rank 0:: Processed 5000 samples.
+I0222 20:45:30.175446 20225 llm_server.cc:82] Rank 0:: Processed 6000 samples.
+I0222 20:45:54.165762 20225 llm_server.cc:82] Rank 0:: Processed 7000 samples.
+I0222 20:46:18.827553 20225 llm_server.cc:82] Rank 0:: Processed 8000 samples.
+I0222 20:46:42.654609 20225 llm_server.cc:82] Rank 0:: Processed 9000 samples.
+I0222 20:47:06.745942 20225 llm_server.cc:82] Rank 0:: Processed 10000 samples.
+I0222 20:47:30.662513 20225 llm_server.cc:82] Rank 0:: Processed 11000 samples.
+I0222 20:47:55.459096 20225 llm_server.cc:82] Rank 0:: Processed 12000 samples.
+I0222 20:48:18.831775 20225 llm_server.cc:82] Rank 0:: Processed 13000 samples.
+I0222 20:48:24.598150 20215 main_llm.cc:429] Finished running actual test.
+
+No warnings encountered during test.
+
+No errors encountered during test.
+[TensorRT-LLM][INFO] Terminate signal received, worker thread exiting.
+[TensorRT-LLM][INFO] Terminate signal received, worker thread exiting.
+[2024-02-22 20:48:25,818 run_harness.py:165 INFO] Result: Accuracy run detected.
+[2024-02-22 20:48:25,818 __init__.py:46 INFO] Running command: PYTHONPATH=/work:/usr/lib/python38.zip:/usr/lib/python3.8:/usr/lib/python3.8/lib-dynload:/work/build/TRTLLM/3rdparty/cutlass/python:/usr/local/lib/python3.8/dist-packages:/usr/lib/python3/dist-packages:/usr/lib/python3.8/dist-packages python3 -S /work/build/inference/language/gpt-j/evaluation.py --mlperf-accuracy-file /work/build/logs/2024.02.22-20.21.43/NC_H100_v5_TRT/gptj-99/Server/mlperf_log_accuracy.json --dataset-file /mnt/resource_nvme/scratch/data/cnn-daily-mail/cnn_eval.json --dtype int32
+[nltk_data] Downloading package punkt to /home/lisa/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+Constructing QSL
+Encoding Samples
+
+Results
+
+{'rouge1': 43.0417, 'rouge2': 20.0747, 'rougeL': 29.9412, 'rougeLsum': 40.2142, 'gen_len': 4095861, 'gen_num': 13368}
+Finished destroying QSL.
+[2024-02-22 20:49:55,575 generate_conf_files.py:107 INFO] Generated measurements/ entries for NC_H100_v5_TRT/gptj-99.9/Server
+[2024-02-22 20:49:55,576 __init__.py:46 INFO] Running command: ./build/bin/harness_llm --logfile_outdir="/work/build/logs/2024.02.22-20.21.43/NC_H100_v5_TRT/gptj-99.9/Server" --logfile_prefix="mlperf_log_" --performance_sample_count=13368 --test_mode="AccuracyOnly" --gpu_batch_size=128 --tensor_path="build/preprocessed_data/cnn_dailymail_tokenized_gptj/input_ids_padded.npy,build/preprocessed_data/cnn_dailymail_tokenized_gptj/input_lengths.npy" --use_graphs=false --gpu_inference_streams=1 --gpu_copy_streams=1 --tensor_parallelism=1 --enable_sort=false --llm_gen_config_path="code/gptj/tensorrt/generation_config.json" --use_token_latencies=false --gpu_engines="./build/engines/NC_H100_v5/gptj/Server/bs128-custom_k_99_9_MaxP/rank0.engine" --mlperf_conf_path="build/loadgen-configs/NC_H100_v5_TRT/gptj-99.9/Server/mlperf.conf" --user_conf_path="build/loadgen-configs/NC_H100_v5_TRT/gptj-99.9/Server/user.conf" --scenario Server --model gptj
+[2024-02-22 20:49:55,576 __init__.py:53 INFO] Overriding Environment
+benchmark : Benchmark.GPTJ
+buffer_manager_thread_count : 0
+coalesced_tensor : True
+data_dir : /mnt/resource_nvme/scratch/data
+enable_sort : False
+gpu_batch_size : 128
+gpu_copy_streams : 1
+gpu_inference_streams : 1
+input_dtype : int32
+input_format : linear
+llm_gen_config_path : code/gptj/tensorrt/generation_config.json
+log_dir : /work/build/logs/2024.02.22-20.21.43
+num_sort_segments : 2
+precision : fp16
+preprocessed_data_dir : /mnt/resource_nvme/scratch/preprocessed_data
+scenario : Scenario.Server
+server_target_qps : 42
+system : SystemConfiguration(host_cpu_conf=CPUConfiguration(layout={CPU(name='AMD EPYC 9V84 96-Core Processor', architecture=<CPUArchitecture.x86_64: AliasedName(name='x86_64', aliases=(), patterns=())>, core_count=80, threads_per_core=1): 1}), host_mem_conf=MemoryConfiguration(host_memory_capacity=Memory(quantity=660.46394, byte_suffix=<ByteSuffix.GB: (1000, 3)>, _num_bytes=660463940000), comparison_tolerance=0.05), accelerator_conf=AcceleratorConfiguration(layout=defaultdict(<class 'int'>, {GPU(name='NVIDIA H100 NVL', accelerator_type=<AcceleratorType.Discrete: AliasedName(name='Discrete', aliases=(), patterns=())>, vram=Memory(quantity=93.583984375, byte_suffix=<ByteSuffix.GiB: (1024, 3)>, _num_bytes=100485038080), max_power_limit=400.0, pci_id='0x232110DE', compute_sm=90): 2})), numa_conf=NUMAConfiguration(numa_nodes={}, num_numa_nodes=2), system_id='NC_H100_v5')
+tensor_parallelism : 1
+tensor_path : build/preprocessed_data/cnn_dailymail_tokenized_gptj/input_ids_padded.npy,build/preprocessed_data/cnn_dailymail_tokenized_gptj/input_lengths.npy
+test_mode : AccuracyOnly
+use_fp8 : True
+use_graphs : False
+use_token_latencies : False
+system_id : NC_H100_v5
+config_name : NC_H100_v5_gptj_Server
+workload_setting : WorkloadSetting(HarnessType.Custom, AccuracyTarget.k_99_9, PowerSetting.MaxP)
+optimization_level : plugin-enabled
+num_profiles : 1
+config_ver : custom_k_99_9_MaxP
+accuracy_level : 99.9%
+inference_server : custom
+skip_file_checks : False
+power_limit : None
+cpu_freq : None
+&&&& RUNNING LLM_HARNESS # ./build/bin/harness_llm
+[I] Initializing TensorRT plugin library...
+[I] Initializing TRT-LLM plugin libraries...
+I0222 20:49:56.641589 20362 main_llm.cc:170] Loading LLM config from "./build/engines/NC_H100_v5/gptj/Server/bs128-custom_k_99_9_MaxP/config.json" and geneartion config from: code/gptj/tensorrt/generation_config.json
+I0222 20:49:56.953136 20362 main_llm.cc:281] LLMConfig Details:
+	mMaxSumSeqlen: 2047 mMaxInputSeqlen: 1919 mMaxOutputSeqlen: 128 mEosId: 50256
+	tp: 1 pp: 1 mWorldSize: 1
+	mMaxGpuBatchSize: 128 mBeamWidth: 4
+	mTemperature: 1 mTopK: 1 mTopP: 0 mMinOutputSeqlen: 30 mIsStreaming: 0 mReportFirstToken: 0 mEnableSort: 0 mExcludeInputInOutput: 1
+	mMaxNumSequences: 0 mMaxTokensInPagedKvcache: 0 mKvCacheFreeGpuMemFraction: 0.95 mEnableTrtOverlap: 0
+	mBatchMode: 2 mSchedulerPolicy: 0
+I0222 20:49:56.953181 20362 main_llm.cc:284] Rank: 0 has pid: 20362
+I0222 20:49:56.953186 20362 main_llm.cc:121] Found 2 GPUs
+I0222 20:49:56.953188 20362 main_llm.cc:413] Instantiating QSL[gptj-Server-QSL]
+I0222 20:49:56.982002 20362 main_llm.cc:416] Instantiated QSL[gptj-Server-QSL]
+I0222 20:49:56.982030 20362 main_llm.cc:418] Instantiating SUT[gptj-Server-SUT]
+I0222 20:49:56.982132 20362 llm_server.cc:406] LLMServer[gptj-Server-SUT] creating LLMCore[0] on Device[0]...
+I0222 20:49:56.982219 20362 llm_core.cc:68] Rank 0:: LLMCore[0] at Device Id [0]
+[TensorRT-LLM][INFO] Engine version 0.9.0.dev2024020600 found in the config file, assuming engine(s) built by new builder API.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'lora_target_modules' not found
+[TensorRT-LLM][WARNING] Optional value for parameter lora_target_modules will not be set.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'num_medusa_heads' not found
+[TensorRT-LLM][WARNING] Optional value for parameter num_medusa_heads will not be set.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'max_draft_len' not found
+[TensorRT-LLM][WARNING] Optional value for parameter max_draft_len will not be set.
+[TensorRT-LLM][INFO] MPI size: 1, rank: 0
+[TensorRT-LLM][INFO] Using user-specified devices: (0)
+[TensorRT-LLM][INFO] Rank 0 is using GPU 0
+[TensorRT-LLM][INFO] TRTGptModel maxNumSequences: 128
+[TensorRT-LLM][INFO] TRTGptModel maxBatchSize: 128
+[TensorRT-LLM][INFO] TRTGptModel mMaxAttentionWindowSize: 2047
+[TensorRT-LLM][INFO] TRTGptModel enableTrtOverlap: 0
+[TensorRT-LLM][INFO] TRTGptModel normalizeLogProbs: 1
+[TensorRT-LLM][INFO] Loaded engine size: 6173 MiB
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +6, GPU +66, now: CPU 6228, GPU 7302 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuDNN: CPU +2, GPU +72, now: CPU 6230, GPU 7374 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +6166, now: CPU 0, GPU 6166 (MiB)
+[TensorRT-LLM][INFO] [MS] Running engine with multi stream info
+[TensorRT-LLM][INFO] [MS] Number of aux streams is 1
+[TensorRT-LLM][INFO] [MS] Number of total worker streams is 2
+[TensorRT-LLM][INFO] [MS] The main stream provided by execute/enqueue calls is the first worker stream
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +64, now: CPU 6310, GPU 7820 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuDNN: CPU +0, GPU +64, now: CPU 6310, GPU 7884 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +0, now: CPU 0, GPU 6166 (MiB)
+[TensorRT-LLM][INFO] Allocate 86553657344 bytes for k/v cache. 
+[TensorRT-LLM][INFO] Using 377344 total tokens in paged KV cache, and 16 blocks per sequence
+I0222 20:50:52.886152 20362 llm_core.cc:91] Rank 0:: LLMCore Setup complete for device 0
+I0222 20:50:52.886428 20362 llm_server.cc:411] LLMServer[gptj-Server-SUT] created LLMCore[0] on Device[0].
+I0222 20:50:53.496130 20362 llm_server.cc:406] LLMServer[gptj-Server-SUT] creating LLMCore[1] on Device[1]...
+I0222 20:50:53.496171 20362 llm_core.cc:68] Rank 0:: LLMCore[0] at Device Id [1]
+[TensorRT-LLM][INFO] Engine version 0.9.0.dev2024020600 found in the config file, assuming engine(s) built by new builder API.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'lora_target_modules' not found
+[TensorRT-LLM][WARNING] Optional value for parameter lora_target_modules will not be set.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'num_medusa_heads' not found
+[TensorRT-LLM][WARNING] Optional value for parameter num_medusa_heads will not be set.
+[TensorRT-LLM][WARNING] [json.exception.out_of_range.403] key 'max_draft_len' not found
+[TensorRT-LLM][WARNING] Optional value for parameter max_draft_len will not be set.
+[TensorRT-LLM][INFO] MPI size: 1, rank: 0
+[TensorRT-LLM][INFO] Using user-specified devices: (1)
+[TensorRT-LLM][INFO] Rank 0 is using GPU 1
+[TensorRT-LLM][INFO] TRTGptModel maxNumSequences: 128
+[TensorRT-LLM][INFO] TRTGptModel maxBatchSize: 128
+[TensorRT-LLM][INFO] TRTGptModel mMaxAttentionWindowSize: 2047
+[TensorRT-LLM][INFO] TRTGptModel enableTrtOverlap: 0
+[TensorRT-LLM][INFO] TRTGptModel normalizeLogProbs: 1
+[TensorRT-LLM][INFO] The logger passed into createInferRuntime differs from one already provided for an existing builder, runtime, or refitter. Uses of the global logger, returned by nvinfer1::getLogger(), will return the existing value.
+[TensorRT-LLM][INFO] Loaded engine size: 6173 MiB
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +6, GPU +66, now: CPU 6409, GPU 6774 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuDNN: CPU +1, GPU +72, now: CPU 6410, GPU 6846 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +6166, now: CPU 0, GPU 12332 (MiB)
+[TensorRT-LLM][INFO] [MS] Running engine with multi stream info
+[TensorRT-LLM][INFO] [MS] Number of aux streams is 1
+[TensorRT-LLM][INFO] [MS] Number of total worker streams is 2
+[TensorRT-LLM][INFO] [MS] The main stream provided by execute/enqueue calls is the first worker stream
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +64, now: CPU 6427, GPU 7292 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] Init cuDNN: CPU +0, GPU +64, now: CPU 6427, GPU 7356 (MiB)
+[TensorRT-LLM][INFO] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +0, now: CPU 0, GPU 12332 (MiB)
+[TensorRT-LLM][INFO] Allocate 87082139648 bytes for k/v cache. 
+[TensorRT-LLM][INFO] Using 379648 total tokens in paged KV cache, and 16 blocks per sequence
+I0222 20:51:33.930650 20362 llm_core.cc:91] Rank 0:: LLMCore Setup complete for device 1
+I0222 20:51:33.930761 20362 llm_server.cc:411] LLMServer[gptj-Server-SUT] created LLMCore[1] on Device[1].
+I0222 20:51:33.930774 20362 main_llm.cc:423] Instantiated SUT[gptj-Server-SUT]
+I0222 20:51:33.930776 20362 main_llm.cc:425] Starting running actual test.
+I0222 20:52:01.177083 20372 llm_server.cc:82] Rank 0:: Processed 1000 samples.
+I0222 20:52:26.294147 20372 llm_server.cc:82] Rank 0:: Processed 2000 samples.
+I0222 20:52:51.457947 20372 llm_server.cc:82] Rank 0:: Processed 3000 samples.
+I0222 20:53:16.459599 20372 llm_server.cc:82] Rank 0:: Processed 4000 samples.
+I0222 20:53:39.061952 20372 llm_server.cc:82] Rank 0:: Processed 5000 samples.
+I0222 20:54:05.281355 20372 llm_server.cc:82] Rank 0:: Processed 6000 samples.
+I0222 20:54:29.173935 20372 llm_server.cc:82] Rank 0:: Processed 7000 samples.
+I0222 20:54:53.873957 20372 llm_server.cc:82] Rank 0:: Processed 8000 samples.
+I0222 20:55:17.684904 20372 llm_server.cc:82] Rank 0:: Processed 9000 samples.
+I0222 20:55:41.711747 20372 llm_server.cc:82] Rank 0:: Processed 10000 samples.
+I0222 20:56:05.723919 20372 llm_server.cc:82] Rank 0:: Processed 11000 samples.
+I0222 20:56:30.422917 20372 llm_server.cc:82] Rank 0:: Processed 12000 samples.
+I0222 20:56:53.891139 20372 llm_server.cc:82] Rank 0:: Processed 13000 samples.
+I0222 20:56:59.665241 20362 main_llm.cc:429] Finished running actual test.
+
+No warnings encountered during test.
+
+No errors encountered during test.
+[TensorRT-LLM][INFO] Terminate signal received, worker thread exiting.
+[TensorRT-LLM][INFO] Terminate signal received, worker thread exiting.
+[2024-02-22 20:57:00,936 run_harness.py:165 INFO] Result: Accuracy run detected.
+[2024-02-22 20:57:00,936 __init__.py:46 INFO] Running command: PYTHONPATH=/work:/usr/lib/python38.zip:/usr/lib/python3.8:/usr/lib/python3.8/lib-dynload:/work/build/TRTLLM/3rdparty/cutlass/python:/usr/local/lib/python3.8/dist-packages:/usr/lib/python3/dist-packages:/usr/lib/python3.8/dist-packages python3 -S /work/build/inference/language/gpt-j/evaluation.py --mlperf-accuracy-file /work/build/logs/2024.02.22-20.21.43/NC_H100_v5_TRT/gptj-99.9/Server/mlperf_log_accuracy.json --dataset-file /mnt/resource_nvme/scratch/data/cnn-daily-mail/cnn_eval.json --dtype int32
+[nltk_data] Downloading package punkt to /home/lisa/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+Constructing QSL
+Encoding Samples
+
+Results
+
+{'rouge1': 43.0417, 'rouge2': 20.0752, 'rougeL': 29.9417, 'rougeLsum': 40.2142, 'gen_len': 4096129, 'gen_num': 13368}
+Finished destroying QSL.
+ 
+======================== Result summaries: ========================
+
+ NC_H100_v5_TRT-custom_k_99_MaxP-Offline:
+   gptj-99:
+     accuracy: [PASSED] ROUGE1: 43.042 (Threshold=42.557) | [PASSED] ROUGE2: 20.075 (Threshold=19.922) | [PASSED] ROUGEL: 29.941 (Threshold=29.688) | [PASSED] GEN_LEN: 4095861.000 (Threshold=3615190.200)
+ 
+ NC_H100_v5_TRT-custom_k_99_MaxP-Server:
+   gptj-99:
+     accuracy: [PASSED] ROUGE1: 43.042 (Threshold=42.557) | [PASSED] ROUGE2: 20.075 (Threshold=19.922) | [PASSED] ROUGEL: 29.941 (Threshold=29.688) | [PASSED] GEN_LEN: 4095861.000 (Threshold=3615190.200)
+ 
+ NC_H100_v5_TRT-custom_k_99_9_MaxP-Offline:
+   gptj-99.9:
+     accuracy: [PASSED] ROUGE1: 43.042 (Threshold=42.944) | [FAILED] ROUGE2: 20.075 (Threshold=20.103) | [FAILED] ROUGEL: 29.941 (Threshold=29.958) | [PASSED] GEN_LEN: 4095861.000 (Threshold=3615190.200)
+ 
+ NC_H100_v5_TRT-custom_k_99_9_MaxP-Server:
+   gptj-99.9:
+     accuracy: [PASSED] ROUGE1: 43.042 (Threshold=42.944) | [FAILED] ROUGE2: 20.075 (Threshold=20.103) | [FAILED] ROUGEL: 29.942 (Threshold=29.958) | [PASSED] GEN_LEN: 4096129.000 (Threshold=3615190.200)
+ 
+make[1]: Leaving directory '/work'

@@ -1,0 +1,108 @@
+bash code/stable-diffusion-xl/tensorrt/download_model.sh && \
+	echo "Finished downloading all the models!"
+Inside container, start downloading...
+81b87e641699a4cd5985f47e99e71eeb  /work/build/models/SDXL/official_pytorch/fp16/stable_diffusion_fp16/checkpoint_pipe/text_encoder/model.safetensors
+5e540a9d92f6f88d3736189fd28fa6cd  /work/build/models/SDXL/official_pytorch/fp16/stable_diffusion_fp16/checkpoint_pipe/text_encoder_2/model.safetensors
+edfa956683fb6121f717d095bf647f53  /work/build/models/SDXL/official_pytorch/fp16/stable_diffusion_fp16/checkpoint_pipe/unet/diffusion_pytorch_model.safetensors
+25fe90074af9a0fe36d4a713ad5a3a29  /work/build/models/SDXL/official_pytorch/fp16/stable_diffusion_fp16/checkpoint_pipe/vae/diffusion_pytorch_model.safetensors
+[2024-02-22 14:23:26,485 create_onnx_model.py:101 INFO] Creating SDXL text_encoder onnx...
+[2024-02-22 14:23:26,485 network.py:109 INFO] [I] Load CLIP pytorch model from: build/models/SDXL/official_pytorch/fp16/stable_diffusion_fp16/checkpoint_pipe/text_encoder
+[2024-02-22 14:23:27,190 create_onnx_model.py:74 INFO] Exporting clip1 in fp16
+/usr/local/lib/python3.8/dist-packages/torch/onnx/utils.py:2064: UserWarning: Provided key hidden_states for dynamic axes is not a valid input/output name
+  warnings.warn(
+/home/lisa/.local/lib/python3.8/site-packages/transformers/modeling_attn_mask_utils.py:86: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  if input_shape[-1] > 1 or self.sliding_window is not None:
+/home/lisa/.local/lib/python3.8/site-packages/transformers/modeling_attn_mask_utils.py:161: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  if past_key_values_length > 0:
+/home/lisa/.local/lib/python3.8/site-packages/transformers/models/clip/modeling_clip.py:273: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  if attn_weights.size() != (bsz * self.num_heads, tgt_len, src_len):
+/home/lisa/.local/lib/python3.8/site-packages/transformers/models/clip/modeling_clip.py:281: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  if causal_attention_mask.size() != (bsz, 1, tgt_len, src_len):
+/home/lisa/.local/lib/python3.8/site-packages/transformers/models/clip/modeling_clip.py:313: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  if attn_output.size() != (bsz * self.num_heads, tgt_len, self.head_dim):
+/usr/local/lib/python3.8/dist-packages/torch/onnx/symbolic_opset9.py:5856: UserWarning: Exporting aten::index operator of advanced indexing in opset 17 is achieved by combination of multiple ONNX operators, including Reshape, Transpose, Concat, and Gather. If indices include negative values, the exported graph will produce incorrect results.
+  warnings.warn(
+[2024-02-22 14:23:29,342 create_onnx_model.py:87 INFO] Dynamic axes:
+[2024-02-22 14:23:29,439 create_onnx_model.py:103 INFO] Done creating text_encoder onnx...
+[2024-02-22 14:23:29,439 create_onnx_model.py:101 INFO] Creating SDXL text_encoder_2 onnx...
+[2024-02-22 14:23:29,439 network.py:161 INFO] [I] Load CLIP with Proj pytorch model from: build/models/SDXL/official_pytorch/fp16/stable_diffusion_fp16/checkpoint_pipe/text_encoder_2
+[2024-02-22 14:23:29,884 create_onnx_model.py:74 INFO] Exporting clip2 in fp16
+[2024-02-22 14:23:39,495 create_onnx_model.py:87 INFO] Dynamic axes:
+[2024-02-22 14:23:39,616 create_onnx_model.py:103 INFO] Done creating text_encoder_2 onnx...
+[2024-02-22 14:23:39,616 create_onnx_model.py:101 INFO] Creating SDXL unet onnx...
+[2024-02-22 14:23:39,617 network.py:192 INFO] Load UNet pytorch model from: build/models/SDXL/official_pytorch/fp16/stable_diffusion_fp16/checkpoint_pipe/unet
+The config attributes {'addition_embed_type': 'text_time', 'addition_embed_type_num_heads': 64, 'addition_time_embed_dim': 256, 'attention_type': 'default', 'dropout': 0.0, 'encoder_hid_dim_type': None, 'num_attention_heads': None, 'time_embedding_dim': None, 'transformer_layers_per_block': [1, 2, 10]} were passed to UNet2DConditionModel, but are not expected and will be ignored. Please verify your config.json configuration file.
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/work/code/stable-diffusion-xl/tensorrt/create_onnx_model.py", line 128, in <module>
+    main()
+  File "/work/code/stable-diffusion-xl/tensorrt/create_onnx_model.py", line 122, in main
+    generate_onnx_sdxl(model_dir, output_dir)
+  File "/work/code/stable-diffusion-xl/tensorrt/create_onnx_model.py", line 102, in generate_onnx_sdxl
+    convert_torch_to_onnx(pytorch_model_dir, output_dir, model)
+  File "/work/code/stable-diffusion-xl/tensorrt/create_onnx_model.py", line 53, in convert_torch_to_onnx
+    model = network.get_model(pytorch_model_path)
+  File "/work/code/stable-diffusion-xl/tensorrt/network.py", line 193, in get_model
+    model = UNet2DConditionModel.from_pretrained(pytorch_ckpt_path).to(self.device)
+  File "/home/lisa/.local/lib/python3.8/site-packages/diffusers/models/modeling_utils.py", line 574, in from_pretrained
+    if empty_state_dict[param_name].shape != param.shape:
+KeyError: 'add_embedding.linear_1.bias'
+{'hidden_states': {0: '2B'},
+ 'input_ids': {0: '2B'},
+ 'text_embeddings': {0: '2B'}}
+{'hidden_states': {0: '2B'},
+ 'input_ids': {0: '2B'},
+ 'text_embeddings': {0: '2B'}}
+Runing SDXL UNet quantization on 500 calibration captions. The process will take ~30 mins on DGX H100
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/work/code/stable-diffusion-xl/ammo/quantize_sdxl.py", line 23, in <module>
+    plugin_calib = import_module("code.stable-diffusion-xl.ammo.plugin_calib")
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/work/code/stable-diffusion-xl/ammo/plugin_calib.py", line 25, in <module>
+    PercentileAmaxes = import_module("code.stable-diffusion-xl.ammo.utils").PercentileAmaxes
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/work/code/stable-diffusion-xl/ammo/utils.py", line 21, in <module>
+    from diffusers.models.lora import LoRACompatibleConv, LoRACompatibleLinear
+ModuleNotFoundError: No module named 'diffusers.models.lora'
+Exporting SDXL fp16-int8 UNet onnx. The process will take ~60 mins on DGX H100
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/work/code/stable-diffusion-xl/ammo/export_onnx.py", line 22, in <module>
+    replace_lora_layers = import_module("code.stable-diffusion-xl.ammo.utils").replace_lora_layers
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/work/code/stable-diffusion-xl/ammo/utils.py", line 21, in <module>
+    from diffusers.models.lora import LoRACompatibleConv, LoRACompatibleLinear
+ModuleNotFoundError: No module named 'diffusers.models.lora'
+SDXL model download and generation complete!
+Finished downloading all the models!
