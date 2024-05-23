@@ -10,8 +10,8 @@ Please follow the instructions provided in the [Intel Gaudi Installation Guide](
 ### Prepare Intel-HabanaLabs MLPerf Inference Container
 
 ```bash
-mkdir -p /path/to/Habana
-export HABANA_DIR=/path/to/Habana
+mkdir -p /path/to/Intel-HabanaLabs
+export HABANA_DIR=/path/to/Intel-HabanaLabs
 ```
 
 This README is located in [code](./) directory corresponding to Intel-HabanaLabs submission. Download the whole [code](./) folder along with all subfolders and copy it under $HABANA_DIR
@@ -23,7 +23,7 @@ docker run --privileged --security-opt seccomp=unconfined \
            --device=/dev:/dev                      \
            -v /sys/kernel/debug:/sys/kernel/debug  \
            -v /tmp:/tmp                            \
-           -v $HABANA_DIR:/root/Habana/            \
+           -v $HABANA_DIR:/root/Intel-HabanaLabs/  \
            --cap-add=sys_nice --cap-add=SYS_PTRACE \
            --user root --workdir=/root --net=host  \
            --ulimit memlock=-1:-1 vault.habana.ai/gaudi-docker-mlperf/ver4.0/pytorch-installer-2.1.1:1.14.98-33
@@ -35,17 +35,27 @@ docker exec -it mlperf-habana bash
 ```bash
 mkdir -p /mnt/weka/data/mlperf_inference/stable-diffusion-xl/stable_diffusion_fp32
 pushd /mnt/weka/data/mlperf_inference/stable-diffusion-xl
-sudo -v ; curl https://rclone.org/install.sh | sudo bash
+curl https://rclone.org/install.sh | bash
 rclone config create mlc-inference s3 provider=Cloudflare access_key_id=f65ba5eef400db161ea49967de89f47b secret_access_key=fbea333914c292b854f14d3fe232bad6c5407bf0ab1bebf78833c2b359bdfd2b endpoint=https://c2686074cb2caf5cbaf6d134bdba8b47.r2.cloudflarestorage.com
 rclone copy mlc-inference:mlcommons-inference-wg-public/stable_diffusion_fp32 ./stable_diffusion_fp32 -P
+popd
+```
+Alternatively berfore running docker run command required checkpoints/datasets can be downloaded offline and copy to
+required path
+
+### Download statistics file for calculating FID
+To download statistics file.
+```bash
+pushd /root/Intel-HabanaLabs/code/stable-diffusion-xl/stable-diffusion-xl/tools
+wget -L https://github.com/mlcommons/inference/raw/master/text_to_image/tools/val2014.npz
 popd
 ```
 
 ### Download Dataset (Optional)
 To download dataset run the below command, build_mlperf_inference covers same functionality.
 ```bash
-pushd /root/Habana/code/stable-diffusion-xl/stable-diffusion-xl/tools
-./download-coco-2014.sh -n <number_of_workers>
+pushd /root/Intel-HabanaLabs/code/stable-diffusion-xl/stable-diffusion-xl/tools
+./download-coco-2014.sh -n 1
 popd
 ```
 ##  Reproduce Results
@@ -53,7 +63,7 @@ popd
 Install the requirements and build the latest loadgen.
 
 ```bash
-cd /root/Habana/code
+cd /root/Intel-HabanaLabs/code
 source stable-diffusion-xl/functions.sh
 pip install -r stable-diffusion-xl/stable-diffusion-xl/requirements.txt
 build_mlperf_inference
@@ -94,7 +104,7 @@ Logs can be found under /path_to_output_dir/logs/model/scenario/mode/, e.g. /res
 ### Calibration steps (Optional)
 This is for recreating the measurements on the calibration dataset which we later use to determine the scales.
 ```bash
-pushd /root/Habana/code/stable-diffusion-xl/stable-diffusion-xl
+pushd /root/Intel-HabanaLabs/code/stable-diffusion-xl/stable-diffusion-xl
 bash ./tools/measure.sh
 popd
 ```
