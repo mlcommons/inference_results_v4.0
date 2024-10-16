@@ -54,7 +54,7 @@ def preprocess_openimage_for_retinanet(data_dir, preprocessed_data_dir, formats,
     preprocessor = ImagePreprocessor(loader, quantizer)
     if not val_only:
         # Preprocess calibration set. FP32 only because calibrator always takes FP32 input.
-        preprocessor.run(os.path.join(data_dir, "open-images-v6-mlperf", "calibration", "calibration", "data"),
+        preprocessor.run(os.path.join(data_dir, "open-images-v6-mlperf", "calibration", "train", "data"),
                          os.path.join(preprocessed_data_dir, "open-images-v6-mlperf", "calibration", "Retinanet"),
                          "data_maps/open-images-v6-mlperf/cal_map.txt", ["fp32"], overwrite)
     if not cal_only:
