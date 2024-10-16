@@ -1,0 +1,10 @@
+[2024-02-23 01:25:00,294][INFO] run.py:23   - Loading configurations from /home/smci/badhri/mlperf40Submission/closed/Supermicro/code/automation/config.yaml.
+[2024-02-23 01:25:00,329][INFO] run.py:135  - Parsing args:
+[2024-02-23 01:25:00,330][INFO] run.py:138  - args: Namespace(model='resnet50', implementation='pytorch-cpu', dtype='int8', dataset_dir='/home/smci/data//resnet50', model_dir='/home/smci/data//resnet50', output='/home/smci/badhri/automation_resnet50_out/', container_name_suffix='9afacb6cccfb', performance_only=False, accuracy_only=False, offline_only=False, server_only=False, compliance_only=False, skip_docker_build=True, skip_create_container=True, skip_data_preprocess=True)
+[2024-02-23 01:25:00,331][INFO] run.py:271  - Collecting environment information on baremetal.
+[2024-02-23 01:25:00,421][INFO] run.py:292  - User skipped docker build and container creation.
+[2024-02-23 01:25:08,933][INFO] run.py:298  - ===== Running workloads in container: 9afacb6cccfb =====
+[2024-02-23 01:25:08,985][INFO] run.py:327  - sh: line 0: cd: /opt/workdir/code/resnet50/pytorch-cpu/automation: No such file or directory
+
+[2024-02-23 01:25:09,001][INFO] run.py:327  - python: can't open file '/opt/workdir/benchmark.py': [Errno 2] No such file or directory
+

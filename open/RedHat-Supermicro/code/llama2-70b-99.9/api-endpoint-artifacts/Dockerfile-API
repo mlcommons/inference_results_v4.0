@@ -1,0 +1,16 @@
+FROM pytorch/pytorch:latest
+
+COPY inference ./inference
+COPY processed-openorca/processed-data.pkl ./processed-data.pkl
+COPY llama-model-info ./llama-model-info
+
+RUN apt-get update && apt install build-essential -y
+RUN conda install pybind11==2.10.4 -c conda-forge -y
+RUN pip install --upgrade pip
+RUN pip install transformers==4.31.0 nltk==3.8.1 evaluate==0.4.0 absl-py==1.4.0 rouge-score==0.1.2 sentencepiece==0.1.99 accelerate==0.21.0 grpcio-tools
+RUN cd inference/loadgen && python -m pip install .
+RUN cp inference/mlperf.conf inference/language/llama2-70b/mlperf.conf
+
+ENV DATASET_PATH=/workspace/processed-data.pkl
+ENV CHECKPOINT_PATH=/workspace/llama-model-info
+ENV ACCURACY_LOG_FILE=/workspace/inference/language/llama2-70b/offline-logs/mlperf_log_accuracy.json

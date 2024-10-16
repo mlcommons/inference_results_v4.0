@@ -1,0 +1,17 @@
+benchmarks:
+  llama2-70b-99.9:
+    "rouge1": 43.83612
+    "rouge2": 21.6890892
+    "rougeL": 28.2219498
+scenarios:
+  llama-99.9-fp8:
+    dataset: orca
+    code_dir: llama
+    benchmark: llama2-70b-99.9
+    command: python main.py
+    init_setup: ./setup_tgi.sh
+    init_Offline: ./run_tgi_server.sh --bs 1024 --scenario Offline --fp8 --output_dir
+    init_Server: ./run_tgi_server.sh --bs 768 --scenario Server --fp8 --output_dir
+    precision: fp8
+    batch_size_Offline: 1024
+    batch_size_Server: 768

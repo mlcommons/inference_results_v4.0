@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mlperf-inference-gpt
+spec:
+  restartPolicy: Never
+  containers:
+  - name: mlperf-env
+    image: quay.io/meyceoz/mlperf-inference-gpt:v2
+    resources:
+      requests:
+        memory: 20000Mi
+    volumeMounts:
+    - mountPath: /dev/shm
+      name: dshm
+    command: [ "/bin/sh", "-c" ]
+    args: [ "sleep infinity" ]
+  volumes:
+  - name: dshm
+    emptyDir:
+      medium: Memory

@@ -1,0 +1,35 @@
+#! /bin/bash
+domain=mlperf4.supermicro.com
+    #domain=h100.rdu3.labs.perfscale.redhat.com
+    duration=600000
+    #duration=60000
+    accuracy="--accuracy"
+    accuracy=""
+    logging="--enable-log-trace"
+    logging=""
+    #samples=24576
+    samples=4000
+    samples=8000
+    config=$1
+    cd /workspace/inference/language/llama2-70b
+    #sed -i 's/*.Offline.min_query_count.*/*.Offline.min_query_count = '$samples'/' user.conf
+    #sed -i 's/*.Offline.min_duration.*/*.Offline.min_duration = '$duration'/' user.conf
+    #sed -i 's/batch_size = 2000/batch_size = 4000/' SUT.py
+    cat user.conf
+    grep "batch_size = " SUT.py
+    for i in $(seq 1)
+    do
+       timestamp=$(date '+%Y-%m-%d_%H-%M-%S')
+       #This was for rawdeployment
+       #python3 -u main.py --scenario Server $accuracy --model-path /workspace/llama-model-info --api-server localhost \
+           #--api-model-name Llama-2-70b-chat-hf --mlperf-conf mlperf.conf --grpc --batch-grpc --user-conf user.conf --dataset-path /workspace/processed-data.pkl --output-log-dir offline-logs.$timestamp.$config \
+           #--dtype float32 --device cpu --additional-servers localhost
+       #This was for tgis
+       #python3 -u main.py --scenario Server $accuracy $logging --model-path /workspace/llama-model-info --api-server https://llama-2-70b-chat-isvc1-predictor-llama-service.apps.$domain  \
+           #--api-model-name Llama-2-70b-chat-hf --mlperf-conf mlperf.conf --grpc --batch-grpc --user-conf user.conf --dataset-path /workspace/processed-data.pkl --output-log-dir server-logs.$timestamp.$config \
+           #--dtype float32 --device cpu --additional-servers https://llama-2-70b-chat-isvc2-predictor-llama-service.apps.$domain
+       #This was for vllm
+       nohup python3 -u main.py --scenario Offline $accuracy $logging --vllm --model-path /workspace/llama-model-info --api-server https://llama-2-isvc1-predictor-llama-service.apps.$domain  \
+           --total-sample-count 24576 --api-model-name Llama-2-70b-chat-hf --mlperf-conf mlperf.conf --user-conf user.conf --dataset-path /workspace/processed-data.pkl --output-log-dir offline-logs.$timestamp.$config \
+           --dtype float32 --device cpu --additional-servers https://llama-2-isvc2-predictor-llama-service.apps.$domain > offline.log 2>&1&
+   done

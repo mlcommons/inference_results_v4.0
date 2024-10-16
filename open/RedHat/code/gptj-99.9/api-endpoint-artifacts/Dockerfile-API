@@ -1,0 +1,27 @@
+FROM pytorch/pytorch:latest
+
+COPY inference ./inference
+COPY cnn_eval.json ./cnn_eval.json
+COPY gpt-model-info ./gpt-model-info
+
+RUN apt-get update && apt install build-essential -y
+RUN conda install pybind11==2.10.4 -c conda-forge -y
+#RUN conda install mkl mkl-include -y
+#RUN conda install gperftools jemalloc==5.2.1 -c conda-forge -y
+RUN pip install --upgrade pip
+RUN pip install transformers==4.31.0 nltk==3.8.1 evaluate==0.4.0 absl-py==1.4.0 rouge-score==0.1.2 sentencepiece==0.1.99 accelerate==0.21.0 grpcio-tools datasets simplejson
+RUN cd inference/loadgen && python -m pip install .
+#RUN cd inference/loadgen && CFLAGS="-std=c++14 -O3" python setup.py bdist_wheel && cd .. && pip install --force-reinstall loadgen/dist/`ls -r loadgen/dist/ | head -n1` ;
+RUN cp inference/mlperf.conf inference/language/gpt-j/mlperf.conf
+
+ENV DATASET_PATH=/workspace/cnn_eval.json
+ENV CHECKPOINT_PATH=/workspace/gpt-model-info
+ENV ACCURACY_LOG_FILE=/workspace/inference/language/gpt-j/offline-logs/mlperf_log_accuracy.json
+
+#ENV KMP_BLOCKTIME=1
+#ENV KMP_SETTINGS=1
+#ENV KMP_AFFINITY=granularity=fine,compact,1,0
+# IOMP
+#ENV LD_PRELOAD=${LD_PRELOAD}:${CONDA_PREFIX}/lib/libiomp5.so
+# Tcmalloc is a recommended malloc implementation that emphasizes fragmentation avoidance and scalable concurrency support.
+#ENV LD_PRELOAD=${LD_PRELOAD}:${CONDA_PREFIX}/lib/libtcmalloc.so

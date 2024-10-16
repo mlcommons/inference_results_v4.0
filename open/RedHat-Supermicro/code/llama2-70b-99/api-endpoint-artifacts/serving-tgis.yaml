@@ -1,0 +1,67 @@
+apiVersion: serving.kserve.io/v1alpha1
+kind: ServingRuntime
+metadata:
+  name: tgis-runtime-grpc
+spec:
+  multiModel: false
+  supportedModelFormats:
+    - autoSelect: true
+      name: pytorch
+  containers:
+    - name: kserve-container
+      image: quay.io/opendatahub/text-generation-inference:fast
+      command: ["text-generation-launcher"]
+      args:
+        - "--model-name=/mnt/models/"
+        - "--port=3000"
+        - "--grpc-port=8033"
+      env:
+        - name: TRANSFORMERS_CACHE
+          value: /tmp/transformers_cache
+        - name: NUM_GPUS
+          value: "8"
+          #- name: DTYPE_STR
+          #  value: float16
+        # Dynamic batch size changes
+        - name: MAX_BATCH_SIZE
+          value: "512"
+        - name: MAX_CONCURRENT_REQUESTS
+          value: "5000"
+        - name: MAX_BATCH_WEIGHT
+          value: "1000000"
+        - name: MAX_SEQUENCE_LENGTH
+          value: "2048"
+        - name: MAX_PREFILL_WEIGHT
+          value: "0"
+        - name: MAX_NEW_TOKENS
+          value: "1024"
+        - name: FLASH_ATTENTION
+          value: "true"
+        - name: DEPLOYMENT_FRAMEWORK
+          value: hf_custom_tp
+        - name: LOG_GPU_USAGE_INTERVAL
+          value: "5"
+      resources: # configure as required
+        requests:
+          cpu: 96
+          memory: 1000Gi
+          nvidia.com/gpu: 8
+        limits:
+          nvidia.com/gpu: 8
+      readinessProbe: # Use exec probes instad of httpGet since the probes' port gets rewritten to the containerPort
+        exec:
+          command:
+            - curl
+            - localhost:3000/health
+        initialDelaySeconds: 5
+      livenessProbe:
+        exec:
+          command:
+            - curl
+            - localhost:3000/health
+        initialDelaySeconds: 5
+        # periodSeconds: 5
+      ports:
+        - containerPort: 8033
+          name: h2c
+          protocol: TCP

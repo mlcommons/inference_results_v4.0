@@ -1,0 +1,25 @@
+diff --git a/src/diffusers/models/transformer_2d.py b/src/diffusers/models/transformer_2d.py
+index 128395cc..9836d1d5 100644
+--- a/src/diffusers/models/transformer_2d.py
++++ b/src/diffusers/models/transformer_2d.py
+@@ -402,7 +402,9 @@ class Transformer2DModel(ModelMixin, ConfigMixin):
+         # 3. Output
+         if self.is_input_continuous:
+             if not self.use_linear_projection:
+-                hidden_states = hidden_states.reshape(batch, height, width, inner_dim).permute(0, 3, 1, 2).contiguous()
++                #hidden_states = hidden_states.reshape(batch, height, width, inner_dim).permute(0, 3, 1, 2).contiguous()
++                hidden_states = hidden_states.reshape(batch, height, width, inner_dim).permute(0, 3, 1, 2).contiguous(memory_format=torch.channels_last)
++
+                 hidden_states = (
+                     self.proj_out(hidden_states, scale=lora_scale)
+                     if not USE_PEFT_BACKEND
+@@ -414,7 +416,8 @@ class Transformer2DModel(ModelMixin, ConfigMixin):
+                     if not USE_PEFT_BACKEND
+                     else self.proj_out(hidden_states)
+                 )
+-                hidden_states = hidden_states.reshape(batch, height, width, inner_dim).permute(0, 3, 1, 2).contiguous()
++                #hidden_states = hidden_states.reshape(batch, height, width, inner_dim).permute(0, 3, 1, 2).contiguous()
++                hidden_states = hidden_states.reshape(batch, height, width, inner_dim).permute(0, 3, 1, 2).contiguous(memory_format=torch.channels_last)
+ 
+             output = hidden_states + residual
+         elif self.is_input_vectorized:

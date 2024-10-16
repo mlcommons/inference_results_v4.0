@@ -1,0 +1,43 @@
+diff --git a/src/graph/backend/dnnl/fusion_info.cpp b/src/graph/backend/dnnl/fusion_info.cpp
+index c8bfd0c29c..cc52a393ad 100644
+--- a/src/graph/backend/dnnl/fusion_info.cpp
++++ b/src/graph/backend/dnnl/fusion_info.cpp
+@@ -170,6 +170,16 @@ dnnl::primitive_attr make_dnnl_primitive_attr(
+                     && (psrc.data_type == dst.data_type
+                             || impl::utils::one_of(psrc.data_type,
+                                     impl::data_type::u8, impl::data_type::s8));
++            // post src should not have alias. Here the condition of alias_ins == 1
++            // is to disable the inplace option for src = main_op(src) + src
++            size_t alias_ins = 0;
++            for (size_t op_in_idx = 0; op_in_idx < op->num_inputs();
++                    ++op_in_idx) {
++                const auto op_in_lt
++                        = op->get_input_value(op_in_idx)->get_logical_tensor();
++                if (op_in_lt.id == psrc.id) alias_ins++;
++            }
++            is_post_sum = is_post_sum && alias_ins == 1;
+             if (is_post_sum) {
+                 pop->set_post_sum();
+                 op->set_attr<bool>(op_attr::with_sum, true);
+diff --git a/src/graph/backend/dnnl/passes/memory_planning.cpp b/src/graph/backend/dnnl/passes/memory_planning.cpp
+index 9f24832f50..672be29482 100644
+--- a/src/graph/backend/dnnl/passes/memory_planning.cpp
++++ b/src/graph/backend/dnnl/passes/memory_planning.cpp
+@@ -623,15 +623,9 @@ status_t memory_planner_t::prepare_subgraph_inplace_pairs(
+             // TODO(qun) we didn't report inplace pair if two lts have different
+             // layout type because of frontend users didn't process this
+             // situation at this moment. In the future, we need to fix this for
+-            // more inplace opportunities. Here the condition of alias_ins == 1
+-            // is to disable the inplace option for src = conv(src) + src
++            // more inplace opportunities.
+             ltw in_ltw(in_lt), out_ltw(out_lt);
+-            size_t alias_ins = 0;
+-            for (auto &tmp : sg->ins_) {
+-                if (in_ltw.id() == tmp.id) alias_ins++;
+-            }
+-            bool can_share = alias_ins == 1
+-                    && in_ltw.property_type() != property_type::constant
++            bool can_share = in_ltw.property_type() != property_type::constant
+                     && in_ltw.layout_type() == out_ltw.layout_type();
+             if (can_share)
+                 inplace_pairs_.push_back({in_ltw.id(), out_ltw.id()});

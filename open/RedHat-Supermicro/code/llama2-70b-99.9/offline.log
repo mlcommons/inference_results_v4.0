@@ -1,0 +1,42 @@
+Loading dataset...
+Finished loading dataset.
+Loaded tokenizer
+INFO:Llama-70B-MAIN:Starting Benchmark run
+IssueQuery started with 24576 samples
+IssueQuery done
+Token indices sequence length is longer than the specified maximum sequence length for this model (1026 > 1024). Running this sequence through the model will result in indexing errors
+Samples run: 2048
+	BatchMaker time: 0.5761284828186035
+	Inference time: 242.10413360595703
+	Postprocess time: 0.6917786598205566
+	==== Total time: 243.3720407485962
+Samples run: 4096
+	BatchMaker time: 0.5858385562896729
+	Inference time: 235.80685091018677
+	Postprocess time: 0.3345959186553955
+	==== Total time: 236.72728538513184
+Samples run: 6144
+	BatchMaker time: 0.6071667671203613
+	Inference time: 242.62520599365234
+	Postprocess time: 0.31157851219177246
+	==== Total time: 243.54395127296448
+Samples run: 8192
+	BatchMaker time: 0.5870053768157959
+	Inference time: 242.737144947052
+	Postprocess time: 0.2872939109802246
+	==== Total time: 243.61144423484802
+Samples run: 10240
+	BatchMaker time: 0.6212873458862305
+	Inference time: 242.83137845993042
+	Postprocess time: 0.3586432933807373
+	==== Total time: 243.8113090991974
+Samples run: 12288
+	BatchMaker time: 0.5971362590789795
+	Inference time: 244.37030673027039
+	Postprocess time: 0.31905388832092285
+	==== Total time: 245.2864968776703
+Samples run: 14336
+	BatchMaker time: 0.5949723720550537
+	Inference time: 249.83390283584595
+	Postprocess time: 0.2642526626586914
+	==== Total time: 250.6931278705597
