@@ -1,0 +1,372 @@
+# Copyright (c) 2024, NVIDIA CORPORATION.  All rights reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#	 http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# This Makefile contains all the variable and targets related to building the binaries for NVIDIA's MLPerf Inference
+# submission. This includes TensorRT plugins, C++ harness binaries, and Triton Inference Server.
+
+
+include $(CURDIR)/Makefile.const
+include $(CURDIR)/Makefile.power
+
+
+# Specify debug options for build (default to Release build)
+ifeq ($(DEBUG),1)
+    BUILD_TYPE := Debug
+else
+    BUILD_TYPE := Release
+endif
+
+# Set the include directory for Loadgen header files
+INFERENCE_DIR = $(BUILD_DIR)/inference
+INFERENCE_URL = https://github.com/mlcommons/inference.git
+LOADGEN_INCLUDE_DIR ?= $(INFERENCE_DIR)/loadgen
+LOADGEN_LIB_DIR ?= $(LOADGEN_INCLUDE_DIR)/build
+# 2/15/2024 ToT.
+INFERENCE_HASH = 486a629ea4d5c5150f452d0b0a196bf71fd2021e
+
+# Set Environment variables to extracted contents
+export LD_LIBRARY_PATH := $(LD_LIBRARY_PATH):/usr/local/cuda/lib64:/usr/lib/$(ARCH)-linux-gnu:$(LOADGEN_LIB_DIR)
+export HARNESS_LD_LIBRARY_PATH := $(LD_LIBRARY_PATH)  # LD_LIBRARY_PATH used during run_harness
+export LIBRARY_PATH := /usr/local/cuda/lib64:/usr/lib/$(ARCH)-linux-gnu:$(LOADGEN_LIB_DIR):$(LIBRARY_PATH)
+export PATH := /usr/local/cuda/bin:$(PATH)
+export CPATH := /usr/local/cuda/include:/usr/include/$(ARCH)-linux-gnu:/usr/include/$(ARCH)-linux-gnu/cub:$(CPATH)
+export CUDA_PATH := /usr/local/cuda
+export CCACHE_DISABLE=1
+export NUMBA_CACHE_DIR=$(BUILD_DIR)/cache
+
+# Set CUDA_DEVICE_MAX_CONNECTIONS to increase multi-stream performance.
+export CUDA_DEVICE_MAX_CONNECTIONS := 32
+
+# Set the Triton directory
+TRITON_DIR = $(BUILD_DIR)/triton-inference-server
+TRITON_OUT_DIR = $(TRITON_DIR)/out
+TRITON_PREBUILT_LIBS_DIR = prebuilt_triton_libs
+TRITON_URL = https://github.com/triton-inference-server/server
+TRITON_HASH = r23.01
+TRITON_COMMON_HASH = $(TRITON_HASH)
+TRITON_CORE_HASH = $(TRITON_HASH)
+TRITON_BACKEND_HASH = $(TRITON_HASH)
+TRITON_THIRDPARTY_HASH = $(TRITON_HASH)
+TRITON_TENSORRT_HASH = $(TRITON_HASH)
+TRITON_PYTHON_BE_HASH = $(TRITON_HASH)
+
+# Set this to 0 once repo is frozen
+CHECK_TRITON_VERSION=0
+BYPASS_TRITON_WARNING=0
+
+# FasterTransformer
+FT_URL = https://github.com/NVIDIA/FasterTransformer.git
+ifeq ($(SM), 89)
+	FT_HASH = f8e42aac45815c5be92c0915b12b9a6652386e8c
+	FT_DIR = $(BUILD_DIR)/FasterTransformer_L4
+else ifeq ($(SM), 90)
+	FT_HASH = 35989aa49e47f9ce820032ff08807b8a228f0b68
+	FT_DIR = $(BUILD_DIR)/FasterTransformer
+endif
+FT_BUILD_DIR ?= $(FT_DIR)/build
+FT_LIB_DIR ?= $(FT_DIR)/build/lib
+# special CUDA/nvcc required due to nvcc/cublas bugs
+# these vars should be removed as part of MLPINF-1951
+# when FP8/FT is able to use the public CUDA toolkit
+FT_CUDA_PATH ?= /usr/local/cuda
+FT_NVCC_PATH ?= /usr/local/cuda/bin/nvcc
+
+# TRT-LLM dependency
+BUILD_TRTLLM ?= 0
+# Whether to use public TRTLLM on github
+USE_RELEASE_TRTLLM ?= 1
+SKIP_TRTLLM_BUILD ?= 0
+TRTLLM_DIR ?= $(BUILD_DIR)/TRTLLM
+TRTLLM_BUILD_DIR ?= $(BUILD_DIR)/TRTLLM/build
+TRTLLM_URL ?= https://gitlab-master.nvidia.com/ftp/tekit.git
+TRTLLM_PUBLIC_URL = https://github.com/NVIDIA/TensorRT-LLM.git
+# 2/5/2024 ToT
+TRTLLM_HASH ?= 71a9183e5ec06525a0d7209f31f7d1cb30f42b13
+# 2/21/2024 Github main
+TRTLLM_PUBLIC_HASH = eb8f26c7e40f07067884b96c3637652351d13d04
+
+ifeq ($(IS_SOC)$(ARCH), 1aarch64)
+	TRTLLM_PUBLIC_HASH = dev-sm87-trt90
+endif
+
+# TODO (7/12/2023): Turn off Triton for now
+BUILD_TRITON ?= 0
+
+# Build flags
+HARNESS_BUILD_FLAGS := -DCMAKE_BUILD_TYPE=$(BUILD_TYPE) -DLOADGEN_INCLUDE_DIR=$(LOADGEN_INCLUDE_DIR) \
+	-DLOADGEN_LIB_DIR=$(LOADGEN_LIB_DIR) -DBUILD_TRTLLM=$(BUILD_TRTLLM) -DTRTLLM_DIR=$(TRTLLM_DIR) \
+	-DUSE_RELEASE_TRTLLM=$(USE_RELEASE_TRTLLM)
+TRITON_BUILD_FLAGS := --cmake-dir=$(TRITON_DIR) --build-dir=$(TRITON_OUT_DIR) --repo-tag=common:$(TRITON_COMMON_HASH) \
+    --repo-tag=core:$(TRITON_CORE_HASH) --repo-tag=backend:$(TRITON_BACKEND_HASH) --repo-tag=thirdparty:$(TRITON_THIRDPARTY_HASH) \
+    --enable-logging --no-container-build
+ifeq ($(DEBUG),1)
+    TRITON_BUILD_FLAGS += --backend=ensemble --enable-stats --enable-tracing --enable-metrics --enable-nvtx
+endif
+
+ifeq ($(IS_SOC)$(ARCH), 0aarch64)
+    BUILD_TRITON := 0
+else
+    # Jetson
+    ifeq ($(IS_SOC), 1)
+        BUILD_TRITON := 0
+    endif
+    HARNESS_BUILD_FLAGS += -DBUILD_TRITON=$(BUILD_TRITON) -DIS_SOC=$(IS_SOC) -DSOC_SM=$(SOC_SM)
+    TRITON_BUILD_FLAGS += --build-type=$(BUILD_TYPE) --enable-gpu --backend=tensorrt:$(TRITON_TENSORRT_HASH)
+endif
+
+PLUGINS := NMSOptPlugin RNNTOptPlugin pixelShuffle3DPlugin conv3D1X1X1K4Plugin conv3D3X3X3C1K32Plugin retinanetConcatPlugin
+ifneq ($(IS_SOC), 1)
+    PLUGINS += DLRMv2EmbeddingLookupPlugin
+else
+	PLUGINS += NMSPVAPlugin
+endif
+PLUGIN_TARGETS := $(addprefix plugin., $(PLUGINS))
+
+
+# Add symbolic links to scratch path if it exists.
+.PHONY: link_dirs
+link_dirs:
+	@mkdir -p build
+	@mkdir -p $(DATA_DIR)
+	@mkdir -p $(PREPROCESSED_DATA_DIR)
+	@mkdir -p $(MODEL_DIR)
+	@ln -sfn $(DATA_DIR) $(DATA_DIR_LINK)
+	@ln -sfn $(PREPROCESSED_DATA_DIR) $(PREPROCESSED_DATA_DIR_LINK)
+	@ln -sfn $(MODEL_DIR) $(MODEL_DIR_LINK)
+
+
+# Clone Triton.
+.PHONY: clone_triton
+clone_triton:
+	@if [ ! -d $(TRITON_DIR) ]; then \
+		echo "Cloning Triton Inference Server" \
+			&& git clone $(TRITON_URL) $(TRITON_DIR); \
+	fi
+	@$(eval COMMIT_DISTANCE := $(shell cd $(TRITON_DIR) && git fetch && git rev-list --count origin/master...$(TRITON_HASH)))
+	@if [ $(CHECK_TRITON_VERSION) == 1 ]; then \
+		if [ $(COMMIT_DISTANCE) -ge 25 ] ; then \
+			echo "Error: Triton hash is more than 25 commits behind main. Please update triton" && exit 1; \
+		fi \
+	fi
+	@if [ $(CHECK_TRITON_VERSION) == 1 ]; then \
+		if [ $(COMMIT_DISTANCE) -ge 15 ] ; then \
+			if [ $(BYPASS_TRITON_WARNING) -lt 1 ] ; then \
+				echo "Error: Triton hash is more than 15 commits behind main. Consider updating triton or run with BYPASS_TRITON_WARNING=1" && exit 1; \
+			fi \
+		fi \
+	fi
+	@cd $(TRITON_DIR) && git fetch && git checkout $(TRITON_HASH)
+
+
+# Build all source codes.
+.PHONY: build
+build: clone_loadgen clone_power_dev link_dirs
+ifeq ($(BUILD_TRITON), 1)
+	@$(MAKE) -f Makefile.build clone_triton
+	@$(MAKE) -f Makefile.build build_triton
+endif
+ifeq ($(BUILD_TRTLLM), 1)
+	@$(MAKE) -f Makefile.build clone_trt_llm
+	@$(MAKE) -f Makefile.build build_trt_llm
+endif
+	@$(MAKE) -f Makefile.build build_plugins
+	@$(MAKE) -f Makefile.build build_loadgen
+	@$(MAKE) -f Makefile.build build_harness
+ifneq ($(IS_SOC), 1)
+	@$(MAKE) -f Makefile.build build_faster_transformer
+endif
+
+
+# Clone LoadGen repo.
+.PHONY: clone_loadgen
+clone_loadgen:
+	@if [ ! -d $(LOADGEN_INCLUDE_DIR) ]; then \
+		echo "Cloning Official MLPerf Inference (For Loadgen Files)" \
+			&& git clone $(INFERENCE_URL) $(INFERENCE_DIR); \
+	fi
+	@echo "Updating Loadgen" \
+		&& cd $(INFERENCE_DIR) \
+		&& git fetch \
+		&& git checkout $(INFERENCE_HASH) \
+		&& git submodule update --init language/bert/DeepLearningExamples \
+		&& git submodule update --init vision/medical_imaging/3d-unet-brats19/nnUnet
+
+
+# TODO: Need temporaray fix to support multi-gpu
+# NOTE: AARCH64 needs patch for successful build
+.PHONY: clone_faster_transformer
+clone_faster_transformer:
+ifeq ($(filter 89 90,$(SM)),)
+	@echo "Skip cloning FasterTransformer for SM $(SM)."
+else
+	@if [ ! -d $(FT_DIR) ]; then \
+		echo "Cloning FasterTransformer" \
+			&& git clone $(FT_URL) $(FT_DIR); \
+	fi
+	@echo "Updating FasterTransformer" \
+		&& cd $(FT_DIR) \
+		&& git fetch \
+		&& git reset --hard HEAD \
+		&& git checkout $(FT_HASH) \
+		&& echo "Patching FasterTransformer"
+ifeq ($(IS_HOPPER),1)
+	@if [ $(ARCH) == "aarch64" ]; then \
+		echo "For AARCH64" \
+			&& cd $(FT_DIR) \
+			&& patch -p1 < ../../scripts/ft-build.aarch64.patch; \
+	else \
+		echo "For x86_64" \
+			&& cd $(FT_DIR) \
+			&& patch -p1 < ../../scripts/ft-multigpu.patch; \
+	fi
+endif
+endif
+
+
+.PHONY: clone_trt_llm
+clone_trt_llm:
+ifeq ($(USE_RELEASE_TRTLLM), 0)
+	@if [ ! -d $(TRTLLM_DIR) ]; then \
+		echo "Cloning TRT-LLM" \
+			&& git lfs install \
+			&& git clone $(TRTLLM_URL) $(TRTLLM_DIR); \
+	fi
+	@echo "Updating TRT-LLM to $(TRTLLM_HASH)" \
+		&& cd $(TRTLLM_DIR) \
+		&& git fetch \
+		&& git reset --hard HEAD \
+		&& git checkout $(TRTLLM_HASH) \
+		&& git submodule update --init --recursive
+else
+	@echo "Cloning public TRT LLM in $(TRTLLM_DIR) from $(TRTLLM_PUBLIC_URL)"
+	@if [ ! -d $(TRTLLM_DIR) ]; then \
+		echo "Cloning TRT-LLM" \
+			&& git clone $(TRTLLM_PUBLIC_URL) $(TRTLLM_DIR); \
+	fi
+	@echo "Updating TRT-LLM to $(TRTLLM_PUBLIC_HASH)" \
+		&& cd $(TRTLLM_DIR) \
+		&& git fetch \
+		&& git reset --hard HEAD \
+		&& git checkout $(TRTLLM_PUBLIC_HASH)
+endif
+
+
+# Build Triton.
+.PHONY: build_triton
+build_triton:
+ifeq ($(BUILD_TRITON), 1)
+	@echo "Building TensorRT Inference Server..."
+	@if [ ! -d $(TRITON_DIR) ]; then \
+		echo "triton-inference-server does not exist! Please exit the container and run make prebuild again." \
+			&& exit 1; \
+	fi
+	# Required till triton build.py properly supports incremental builds
+	@mkdir -p $(TRITON_OUT_DIR) \
+		&& cd $(TRITON_DIR) \
+		&& ./build.py $(TRITON_BUILD_FLAGS)
+endif
+
+
+# Build FasterTransformer.
+.PHONY: build_faster_transformer
+build_faster_transformer: clone_faster_transformer
+ifeq ($(filter 89 90,$(SM)),)
+	@echo "Skip building FasterTransformer for SM $(SM)."
+else
+	@echo "Building FasterTransformer..."
+	@if [ ! -e $(FT_BUILD_DIR) ]; then \
+		mkdir $(FT_BUILD_DIR); \
+	fi
+ifeq ($(SM), 89)
+	@cd $(FT_BUILD_DIR) \
+		&& cmake -DSM=89 -DCMAKE_BUILD_TYPE=$(BUILD_TYPE) -DBUILD_TRT=ON -DENABLE_FP8=1 -DUSE_NVTX=$(FT_USE_NVTX) .. \
+		&& cmake --build . --target bert_fp8_plugin -j
+else ifeq ($(SM), 90)
+	@cd $(FT_BUILD_DIR) \
+		&& cmake -DSM=90 -DCMAKE_BUILD_TYPE=$(BUILD_TYPE) -DBUILD_TRT=ON -DENABLE_FP8=1 -DUSE_NVTX=$(FT_USE_NVTX) .. \
+		&& cmake --build . --target bert_fp8_plugin -j
+else
+	@echo "Skipping FasterTransformer build for SM $(SM)"
+endif
+endif
+
+# Build TRT-LLM wheels and librarys.
+.PHONY: build_trt_llm
+build_trt_llm:
+	@if [ "$(SKIP_TRTLLM_BUILD)" = "1" ]; then \
+		echo "Skipping the TRT-LLM build..."; \
+	else \
+		if [ "$(IS_SOC)$(ARCH)" = "1aarch64" ]; then \
+			echo "Building TRTLLM for AARCH64..."; \
+			echo "$(TRTLLM_DIR) AARCH64..."; \
+			cd $(TRTLLM_DIR) && export LD_PRELOAD=/usr/lib/aarch64-linux-gnu/libgomp.so.1; \
+			echo "Building TRT-LLM..."; \
+			cd $(TRTLLM_DIR) && python3 scripts/build_wheel.py -D "ENABLE_MULTI_DEVICE=0" --clean --cuda_architectures "87"; \
+		else \
+			echo "Patching TRTLLM for WAR installation issue..."; \
+			cd $(TRTLLM_DIR) && if ! patch -R --dry-run -p1 -N -i ../../scripts/trtllm-build.all.patch; then \
+				patch -p1 < ../../scripts/trtllm-build.all.patch; fi; \
+			echo "Building TRT-LLM..."; \
+			cd $(TRTLLM_DIR) && python3 scripts/build_wheel.py --clean -a="90;89-real"; \
+		fi; \
+	fi
+	@echo "Installing TRT-LLM wheel..."
+	@pip install $(TRTLLM_BUILD_DIR)/tensorrt*.whl
+
+# Build TensorRT plugins.
+.PHONY: build_plugins
+build_plugins: $(PLUGIN_TARGETS)
+
+
+.PHONY: $(PLUGIN_TARGETS)
+$(PLUGIN_TARGETS): plugin.%: code/plugin/%
+	mkdir -p build/plugins/$(<F)
+	cd build/plugins/$(<F)\
+		&& cmake -DCMAKE_BUILD_TYPE=$(BUILD_TYPE) $(PROJECT_ROOT)/code/plugin/$(<F) \
+		&& make -j
+
+
+# Build LoadGen.
+.PHONY: build_loadgen
+build_loadgen:
+	@echo "Building loadgen..."
+	@if [ ! -e $(LOADGEN_LIB_DIR) ]; then \
+		mkdir $(LOADGEN_LIB_DIR); \
+	fi
+	@cd $(LOADGEN_LIB_DIR) \
+		&& cmake -DCMAKE_BUILD_TYPE=$(BUILD_TYPE) .. \
+		&& make -j
+	@cd $(LOADGEN_INCLUDE_DIR) \
+		&& CFLAGS="-std=c++14 -O3" python setup.py bdist_wheel \
+		&& pip install --user --force-reinstall `ls -t ./dist/mlperf_loadgen-*.whl | head -1`
+
+
+# Build harness source codes.
+.PHONY: build_harness
+build_harness:
+	@echo "Building harness..."
+	@mkdir -p build/harness \
+		&& cd build/harness \
+		&& cmake $(HARNESS_BUILD_FLAGS) $(PROJECT_ROOT)/code/harness \
+		&& make -j
+	@echo "Finished building harness."
+
+
+# Set proper OC threshold for Jetson submissions
+.PHONY: apply_jetson_oc_limit
+apply_jetson_oc_limit:
+ifeq ($(IS_SOC), 1)
+	@sudo cp ./scripts/nvpower_r353_maxp.sh /etc/systemd/nvpower.sh
+	@echo "Apply Jetson OC Limit Success."
+endif
