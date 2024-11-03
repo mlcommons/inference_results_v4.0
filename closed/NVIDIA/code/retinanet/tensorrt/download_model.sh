@@ -17,15 +17,6 @@ set -e
 
 source code/common/file_downloads.sh
 
-# Make sure the script is executed inside the container
-if [ -e /work/code/retinanet/tensorrt/download_model.sh ]
-then
-    echo "Inside container, start downloading..."
-else
-    echo "WARNING: Please enter the MLPerf container (make prebuild) before downloading RetinaNet model."
-    echo "WARNING: RetinaNet model is NOT downloaded! Exiting..."
-    exit 1
-fi
 
 # Download the raw weights instead of pre-made JIT PyT file
 download_file models retinanet-resnext50-32x4d \
