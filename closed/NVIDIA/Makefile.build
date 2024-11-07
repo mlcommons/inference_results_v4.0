@@ -193,7 +193,7 @@ endif
 clone_loadgen:
 	@if [ ! -d $(LOADGEN_INCLUDE_DIR) ]; then \
 		echo "Cloning Official MLPerf Inference (For Loadgen Files)" \
-			&& git clone $(INFERENCE_URL) $(INFERENCE_DIR); \
+			&& git clone $(INFERENCE_URL) $(INFERENCE_DIR) || (rm -rf $(INFERENCE_DIR) && git clone $(INFERENCE_URL) $(INFERENCE_DIR)) ; \
 	fi
 	@echo "Updating Loadgen" \
 		&& cd $(INFERENCE_DIR) \
