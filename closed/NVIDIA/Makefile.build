@@ -33,7 +33,7 @@ INFERENCE_URL = https://github.com/mlcommons/inference.git
 LOADGEN_INCLUDE_DIR ?= $(INFERENCE_DIR)/loadgen
 LOADGEN_LIB_DIR ?= $(LOADGEN_INCLUDE_DIR)/build
 # 2/15/2024 ToT.
-INFERENCE_HASH = dcd0c3eadb6189051ba0efe0a1f251a995fe8895
+INFERENCE_HASH = e618c314fc3c323e9b3e82578ce3774e72d9ac2b
 
 # Set Environment variables to extracted contents
 export LD_LIBRARY_PATH := $(LD_LIBRARY_PATH):/usr/local/cuda/lib64:/usr/lib/$(ARCH)-linux-gnu:$(LOADGEN_LIB_DIR)
@@ -199,9 +199,7 @@ clone_loadgen:
 		&& cd $(INFERENCE_DIR) \
 		&& git fetch \
 		&& git checkout $(INFERENCE_HASH) \
-		&& git submodule update --init language/bert/DeepLearningExamples \
-		&& git submodule update --init vision/medical_imaging/3d-unet-brats19/nnUnet
-
+		&& git submodule update --init language/bert/DeepLearningExamples
 
 # TODO: Need temporaray fix to support multi-gpu
 # NOTE: AARCH64 needs patch for successful build
