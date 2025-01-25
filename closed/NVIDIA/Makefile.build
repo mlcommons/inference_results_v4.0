@@ -346,8 +346,7 @@ build_loadgen:
 		&& cmake -DCMAKE_BUILD_TYPE=$(BUILD_TYPE) .. \
 		&& make -j
 	@cd $(LOADGEN_INCLUDE_DIR) \
-		&& CFLAGS="-std=c++14 -O3" python setup.py bdist_wheel \
-		&& pip install --user --force-reinstall `ls -t ./dist/mlperf_loadgen-*.whl | head -1`
+		&& CFLAGS="-std=c++14 -O3" pip install . 
 
 
 # Build harness source codes.
