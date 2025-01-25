@@ -35,7 +35,7 @@ with ScopedRestrictedImport(_new_path):
     G_ACC_PATTERNS = submission_checker.ACC_PATTERN
     # MLCommons doesn't add the current version until it is close to submission
     _submission_model_config = submission_checker.MODEL_CONFIG
-    _version_str = VERSION if VERSION in _submission_model_config else "v3.1"
+    _version_str = VERSION if VERSION in _submission_model_config else "v5.0"
     G_ACC_TARGETS = _submission_model_config[_version_str]["accuracy-target"]
     G_ACC_UPPER_LIMIT = _submission_model_config[_version_str]["accuracy-upper-limit"]
     """Dict[str, Tuple[str, float]]: A dictionary mapping the benchmark name to a tuple of (accuracy_metric, threshold)"""
