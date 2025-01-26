@@ -36,7 +36,7 @@ _new_path = [os.path.join(G_MLCOMMONS_INF_REPO_PATH, "tools", "submission")] + s
 with ScopedRestrictedImport(_new_path):
     submission_checker = import_module("submission_checker")
     # Use v3.1 as the fallback version if not found
-    _version_str = VERSION if VERSION in submission_checker.MODEL_CONFIG else "v3.1"
+    _version_str = VERSION if VERSION in submission_checker.MODEL_CONFIG else "v5.0"
     benchmark_qsl_size_map = submission_checker.MODEL_CONFIG[_version_str]["performance-sample-count"].copy()
     # Set to 2048 since the value in MLCommons repo is 1024, which would cause BS2048 to not be contiguous, which is a
     # commonly used batch size in our A100/H100 configs.
