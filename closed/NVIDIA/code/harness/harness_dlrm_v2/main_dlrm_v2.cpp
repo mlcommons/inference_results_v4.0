@@ -155,7 +155,8 @@ int main(int argc, char* argv[])
 
         // Configure the test settings
         mlperf::TestSettings testSettings = {};
-        testSettings.FromConfig(FLAGS_mlperf_conf_path, FLAGS_model, FLAGS_scenario);
+        //not needed from v5.0
+        //testSettings.FromConfig(FLAGS_mlperf_conf_path, FLAGS_model, FLAGS_scenario);
         testSettings.FromConfig(FLAGS_user_conf_path, FLAGS_model, FLAGS_scenario);
         testSettings.mode = testModeMap[FLAGS_test_mode];
         testSettings.scenario = scenarioMap[FLAGS_scenario];
