@@ -135,7 +135,8 @@ int main(int argc, char* argv[])
         mlperf::TestSettings testSettings;
         testSettings.scenario = scenarioMap[FLAGS_scenario];
         testSettings.mode = testModeMap[FLAGS_test_mode];
-        testSettings.FromConfig(FLAGS_mlperf_conf_path, FLAGS_model, FLAGS_scenario);
+        //not needed from v5.0
+        //testSettings.FromConfig(FLAGS_mlperf_conf_path, FLAGS_model, FLAGS_scenario);
         testSettings.FromConfig(FLAGS_user_conf_path, FLAGS_model, FLAGS_scenario);
         testSettings.server_coalesce_queries = true;
         testSettings.server_num_issue_query_threads = FLAGS_server_num_issue_query_threads;
