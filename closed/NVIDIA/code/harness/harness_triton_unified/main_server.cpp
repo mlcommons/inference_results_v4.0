@@ -148,7 +148,7 @@ void doInference()
     mlperf::TestSettings test_settings;
     test_settings.scenario = scenarioMap.at(FLAGS_scenario);
     test_settings.mode = testModeMap.at(FLAGS_test_mode);
-    test_settings.FromConfig(FLAGS_mlperf_conf_path, FLAGS_model, FLAGS_scenario);
+    //test_settings.FromConfig(FLAGS_mlperf_conf_path, FLAGS_model, FLAGS_scenario);
     test_settings.FromConfig(FLAGS_user_conf_path, FLAGS_model, FLAGS_scenario);
     test_settings.server_coalesce_queries = true;
 
