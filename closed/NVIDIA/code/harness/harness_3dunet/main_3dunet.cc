@@ -180,7 +180,8 @@ void doInference()
 
     gLogInfo << "mlperf.conf path: " << FLAGS_mlperf_conf_path << std::endl;
     gLogInfo << "user.conf path: " << FLAGS_user_conf_path << std::endl;
-    test_settings.FromConfig(FLAGS_mlperf_conf_path, FLAGS_model, FLAGS_scenario);
+    //not needed from v5.0
+    //test_settings.FromConfig(FLAGS_mlperf_conf_path, FLAGS_model, FLAGS_scenario);
     test_settings.FromConfig(FLAGS_user_conf_path, FLAGS_model, FLAGS_scenario);
 
     // Configure logging settings
