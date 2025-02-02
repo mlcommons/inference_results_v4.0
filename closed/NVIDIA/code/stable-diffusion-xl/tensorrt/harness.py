@@ -164,7 +164,7 @@ def main():
     test_settings.scenario = scenario_map[args.scenario]
     test_settings.mode = test_mode_map[args.test_mode]
     # Load config
-    test_settings.FromConfig(args.mlperf_conf_path, "stable-diffusion-xl", args.scenario)
+    #test_settings.FromConfig(args.mlperf_conf_path, "stable-diffusion-xl", args.scenario)
     test_settings.FromConfig(args.user_conf_path, "stable-diffusion-xl", args.scenario)
     test_settings.server_coalesce_queries = True
 
